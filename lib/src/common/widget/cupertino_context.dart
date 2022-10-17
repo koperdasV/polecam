@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:meta/meta.dart';
 import 'package:polec/l10n/l10n.dart';
+import 'package:polec/resources/style.dart';
 import 'package:polec/src/common/router/app_router.dart';
 
 /// {@template material_context.material_context}
@@ -29,6 +30,7 @@ class _CupertinoContextState extends State<CupertinoContext> {
   Widget build(BuildContext context) {
     final routerController = AppRouter.of(context);
     return CupertinoApp.router(
+      theme: buildThemeData(),
       title: 'Packages',
       restorationScopeId: 'app',
       routeInformationParser: routerController.router.routeInformationParser,

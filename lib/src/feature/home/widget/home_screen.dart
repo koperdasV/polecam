@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:polec/src/common/router/routes.dart';
+import 'package:polec/src/ui/home/home_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -30,36 +31,36 @@ class HomeScreen extends StatelessWidget {
       tabBuilder: (BuildContext context, int index) {
         return CupertinoTabView(
           builder: (BuildContext context) {
-            return CupertinoPageScaffold(
-              navigationBar: CupertinoNavigationBar(
-                middle: Text('Page 1 of tab $index'),
-              ),
+            return const CupertinoPageScaffold(
+              // navigationBar: CupertinoNavigationBar(
+              //   middle: Text('Page 1 of tab $index'),
+              // ),
               child: Center(
-                child: CupertinoButton(
-                  onPressed: () =>  const RegistrationRoute().go(context),
-                  child: const Text('Next page'),
-                  // onPressed: () { 
-                  //   Navigator.of(context).push(
-                  //     CupertinoPageRoute<void>(
-                  //       builder: (BuildContext context) {
-                  //         return CupertinoPageScaffold(
-                  //           navigationBar: CupertinoNavigationBar(
-                  //             middle: Text('Page 2 of tab $index'),
-                  //           ),
-                  //           child: Center(
-                  //             child: CupertinoButton(
-                  //               child: const Text('Back'),
-                  //               onPressed: () {
-                  //                 Navigator.of(context).pop();
-                  //               },
-                  //             ),
-                  //           ),
-                  //         );
-                  //       },
-                  //     ),
-                  //   );
-                  // },
-                ),
+                child: HomePage(
+                    // onPressed: () => const RegistrationRoute().go(context),
+                    // child: const HomePage(),
+                    // onPressed: () {
+                    //   Navigator.of(context).push(
+                    //     CupertinoPageRoute<void>(
+                    //       builder: (BuildContext context) {
+                    //         return CupertinoPageScaffold(
+                    //           navigationBar: CupertinoNavigationBar(
+                    //             middle: Text('Page 2 of tab $index'),
+                    //           ),
+                    //           child: Center(
+                    //             child: CupertinoButton(
+                    //               child: const Text('Back'),
+                    //               onPressed: () {
+                    //                 Navigator.of(context).pop();
+                    //               },
+                    //             ),
+                    //           ),
+                    //         );
+                    //       },
+                    //     ),
+                    //   );
+                    // },
+                    ),
               ),
             );
           },
