@@ -7,7 +7,6 @@ import 'package:polec/src/ui/home/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/components/konto_button.dart';
 import 'package:polec/src/ui/home/components/polecane_list_scroll.dart';
 import 'package:polec/src/ui/home/components/title_widget.dart';
-import 'package:polec/src/ui/okolicy/okolicy_page.dart';
 import 'package:polec/src/ui/polecane/polecane_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -80,14 +79,7 @@ class HomePage extends StatelessWidget {
                     TitleWidget(
                       title: 'W okolice',
                       subTitle: 'Wszystkie',
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          CupertinoPageRoute(
-                            builder: (context) => const OkolicyPage(),
-                          ),
-                        );
-                      },
+                      onPressed: () {},
                     ),
                     PolecaneListScroll(
                       image: 'images/food_okolice.png',
