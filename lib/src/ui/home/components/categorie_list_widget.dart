@@ -1,23 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:polec/resources/colors.dart';
 
-class CategorieCard extends StatelessWidget {
-  const CategorieCard({
+class CategorieList extends StatelessWidget {
+  const CategorieList({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Flexible(
       child: ListView.builder(
         itemCount: 3,
-        //shrinkWrap: true,
+        shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
           child: Container(
-            height: 20,
-            width: 130,
+            width: 140,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
@@ -40,17 +40,17 @@ class CategorieCard extends StatelessWidget {
                 const SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       'Jadzenie',
                       style: TextStyle(
-                        color: Colors.blue,
+                        color: AppColor.categorieTextColor,
                       ),
                     ),
                     Text(
                       '54 miejsca',
                       style: TextStyle(
-                        color: Colors.blue,
+                        color: AppColor.categorieTextColor,
                         fontSize: 12,
                       ),
                     ),

@@ -1,33 +1,42 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:polec/resources/colors.dart';
 
 class TitleWidget extends StatelessWidget {
   const TitleWidget({
     Key? key,
+    required this.title,
+    required this.subTitle, required this.onPressed,
   }) : super(key: key);
+
+  final String title;
+  final String subTitle;
+  final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const [
+      children: [
         Padding(
-          padding: EdgeInsets.only(left: 16),
+          padding: const EdgeInsets.only(left: 16),
           child: Text(
-            'Polecane dla Ciebie',
-            style: TextStyle(
+            title,
+            style: const TextStyle(
               fontSize: 24,
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(right: 16),
-          child: Text(
-            'Wszystkie',
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.red,
-              fontWeight: FontWeight.normal,
+          padding: const EdgeInsets.only(right: 16),
+          child: CupertinoButton(
+            onPressed: onPressed,
+            child: Text(
+              subTitle,
+              style: TextStyle(
+                fontSize: 14,
+                color: AppColor.textButtonColor,
+                fontWeight: FontWeight.normal,
+              ),
             ),
           ),
         )
