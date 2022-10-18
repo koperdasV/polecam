@@ -7,6 +7,7 @@ import 'package:polec/resourses/app_icons.dart';
 import 'package:polec/resourses/app_images.dart';
 import 'package:polec/src/common/router/routes.dart';
 import 'package:polec/src/feature/registration/widget/custom_text_field.dart';
+import 'package:polec/src/feature/registration/widget/text_field_widget.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -18,6 +19,7 @@ class RegistrationScreen extends StatefulWidget {
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
   CountryCode _countryCode = CountryCode(code: 'PL', dialCode: '+48');
+  final formKey = GlobalKey<FormState>();
 
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
@@ -57,39 +59,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 const SizedBox(height: 65),
-                Column(
-                  children: [
-                    CustomTextField(
-                      controller: _nameController,
-                      keyboardType: TextInputType.name,
-                      placeholder: 'Imię',
-                    ),
-                    CustomTextField(
-                      controller: _emailController,
-                      keyboardType: TextInputType.emailAddress,
-                      placeholder: 'Email',
-                    ),
-                    CustomTextField(
-                      controller: _phoneController,
-                      keyboardType: TextInputType.number,
-                      placeholder: 'Numer telefonu',
-                      prefix: CountryCodePicker(
-                        textStyle: const TextStyle(color: Colors.black),
-                        onChanged: (CountryCode countryCode) {
-                          setState(
-                            () {
-                              _countryCode = countryCode;
-                            },
-                          );
-                        },
-                        // showFlag: false, 
-                        initialSelection: 'PL',
-                        showCountryOnly: false,
-                        showOnlyCountryWhenClosed: false,
-                        alignLeft: false,
-                      ),
-                    ),
-                  ],
+                Form(
+                  key: formKey,
+                  child: const TextFieldWidget(),
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -148,28 +120,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   width: MediaQuery.of(context).size.width,
                   child: CupertinoButton.filled(
                     onPressed: () {
-                      // context.go('/');
-                      if (_nameController.text.isEmpty ||
-                          _emailController.text.isEmpty ||
-                          _phoneController.text.isEmpty) {
-                        showCupertinoDialog(
-                            context: context,
-                            builder: (context) {
-                              return CupertinoAlertDialog(
-                                title: Text('Error'),
-                                content: Text('Fill in all the fields'),
-                                actions: <Widget>[
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                    child: Text('ok'),
-                                  ),
-                                ],
-                              );
-                            });
-                      } else {
-                        // Validation passed
+                      if (formKey.currentState!.validate()) {
                         context.go('/');
                       }
                     },
