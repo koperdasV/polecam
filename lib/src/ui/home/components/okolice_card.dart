@@ -15,7 +15,7 @@ class OkoliceCard extends StatelessWidget {
           flex: 3,
           child: Stack(
             children: [
-              Image.asset('images/food_okolice.png'),
+              Image.asset('assets/fake_images/food_okolice.png'),
               const PercentWidget(
                 persent: '17%',
                 fontSize: 22,

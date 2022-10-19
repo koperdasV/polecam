@@ -63,7 +63,7 @@ class HomePage extends StatelessWidget {
                       },
                     ),
                     PolecaneListScroll(
-                      image: 'images/food_polecane.png',
+                      image: 'assets/fake_images/food_polecane.png',
                       textTitle: 'Thai beef fried rice',
                       textSubtitle: 'Polecone przez: Paweł Woźniak',
                       child: Row(
@@ -90,7 +90,7 @@ class HomePage extends StatelessWidget {
                       },
                     ),
                     PolecaneListScroll(
-                      image: 'images/food_okolice.png',
+                      image: 'assets/fake_images/food_okolice.png',
                       textTitle: 'Spicy Salad',
                       textSubtitle: 'Polecone: 142',
                       fontSize: 22,

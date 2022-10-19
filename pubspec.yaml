@@ -45,4 +45,5 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/fake_images/
     - assets/icons/

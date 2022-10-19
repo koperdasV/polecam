@@ -53,7 +53,7 @@ class PolecanePage extends StatelessWidget {
                               SizedBox(
                                 width: double.infinity,
                                 child: Image.asset(
-                                  'images/food_polecane.png',
+                                  'assets/fake_images/food_polecane.png',
                                   fit: BoxFit.cover,
                                 ),
                               ),
