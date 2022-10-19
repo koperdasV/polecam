@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:polec/src/common/router/routes.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -32,13 +33,16 @@ class HomeScreen extends StatelessWidget {
           builder: (BuildContext context) {
             return CupertinoPageScaffold(
               navigationBar: CupertinoNavigationBar(
+                leading: CupertinoNavigationBarBackButton(
+                  onPressed: () => const RegistrationRoute().go(context),
+                ),
                 middle: Text('Page 1 of tab $index'),
               ),
               child: Center(
                 child: CupertinoButton(
-                  onPressed: () =>  const RegistrationRoute().go(context),
+                  onPressed: () => const RegistrationRoute().go(context),
                   child: const Text('Next page'),
-                  // onPressed: () { 
+                  // onPressed: () {
                   //   Navigator.of(context).push(
                   //     CupertinoPageRoute<void>(
                   //       builder: (BuildContext context) {
