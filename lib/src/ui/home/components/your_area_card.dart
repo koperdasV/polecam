@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:polec/src/ui/home/components/percent_widget.dart';
 
-class OkoliceCard extends StatelessWidget {
-  const OkoliceCard({
+class YourAreaCard extends StatelessWidget {
+  const YourAreaCard({
     Key? key,
   }) : super(key: key);
 

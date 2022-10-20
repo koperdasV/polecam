@@ -21,24 +21,25 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoTextFormFieldRow(
-        controller: controller,
-        keyboardType: keyboardType,
-        placeholder: placeholder,
-        prefix: prefix,
-        padding: const EdgeInsets.only(bottom: 20, top: 20),
-        decoration: const BoxDecoration(
-          border: Border(
-            bottom: BorderSide(color: AppColors.greyDark),
-          ),
+      controller: controller,
+      keyboardType: keyboardType,
+      placeholder: placeholder,
+      prefix: prefix,
+      padding: const EdgeInsets.only(bottom: 20, top: 20),
+      decoration: const BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: AppColors.greyDark),
         ),
-        validator: (value) {
-          //r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$'
-          //r'[0-9]+[,.]{0,1}[0-9]*'
-          if (value!.isEmpty || !RegExp(validatorRegExp).hasMatch(value)) {
-            return errorMessage;
-          } else {
-            return null;
-          }
-        });
+      ),
+      validator: (value) {
+        //r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$'
+        //r'[0-9]+[,.]{0,1}[0-9]*'
+        if (value!.isEmpty || !RegExp(validatorRegExp).hasMatch(value)) {
+          return errorMessage;
+        } else {
+          return null;
+        }
+      },
+    );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class KontoButton extends StatelessWidget {
-  const KontoButton({
+class inActiveButton extends StatelessWidget {
+  const inActiveButton({
     Key? key,
   }) : super(key: key);
 
@@ -23,7 +23,7 @@ class KontoButton extends StatelessWidget {
       ),
       child: CupertinoButton(
         child: const Text(
-          'Konto nieaktywne',
+          'Inactive Account',
           style: TextStyle(
             color: Colors.white,
             fontSize: 17,

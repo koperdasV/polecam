@@ -23,22 +23,19 @@ class CardWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Flexible(
-          flex: 3,
-          child: Stack(
-            children: [
-              Image.asset(image),
-              PercentWidget(
-                persent: '17%',
-                fontSize: fontSize,
-              ),
-              Positioned(
-                right: 0,
-                bottom: 0,
-                child: child!,
-              ),
-            ],
-          ),
+        Stack(
+          children: [
+            Image.asset(image),
+            PercentWidget(
+              persent: '17%',
+              fontSize: fontSize,
+            ),
+            Positioned(
+              right: 0,
+              bottom: 0,
+              child: child!,
+            ),
+          ],
         ),
         Padding(
           padding: const EdgeInsets.only(top: 10),
