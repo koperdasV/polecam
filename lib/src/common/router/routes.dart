@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
+import 'package:polec/src/feature/details/widget/details_screen.dart';
 import 'package:polec/src/feature/home/widget/home_screen.dart';
 import 'package:polec/src/feature/not_found/widget/not_found_screen.dart';
 import 'package:polec/src/feature/registration/widget/registration_screen.dart';
@@ -63,4 +64,13 @@ class NotFoundRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context) => NotFoundScreen(exception: exception);
+}
+
+/// DetailsRoute
+@TypedGoRoute<DetailsRoute>(path: '/details')
+class DetailsRoute extends GoRouteData {
+  const DetailsRoute();
+
+  @override
+  Widget build(BuildContext context) => const DetailsScreen();
 }
