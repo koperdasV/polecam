@@ -5,7 +5,8 @@ import 'package:polec/resources/colors.dart';
 class CupertinoNavBar extends StatelessWidget
     with ObstructingPreferredSizeWidget {
   const CupertinoNavBar({
-    Key? key, required this.title,
+    Key? key,
+    required this.title,
   }) : super(key: key);
 
   final String title;
@@ -15,7 +16,6 @@ class CupertinoNavBar extends StatelessWidget
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15),
       child: SizedBox(
-        height: 100,
         child: CupertinoNavigationBar(
           backgroundColor: AppColor.navBarColor,
           border: Border.all(

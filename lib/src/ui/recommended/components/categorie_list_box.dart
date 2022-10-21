@@ -12,8 +12,8 @@ class CategorieListBox extends StatelessWidget {
     return SliverPersistentHeader(
       pinned: true,
       delegate: SliverHeader(
-        maxHeight: 80,
-        minHeight: 80,
+        maxHeight: 70,
+        minHeight: 70,
         child: const ColoredBox(
           color: Colors.white,
           child: CategorieList(),
