@@ -40,11 +40,14 @@ class CategorieList extends StatelessWidget {
                 const SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Food',
                       style: TextStyle(
                         color: AppColor.categorieTextColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                     Text(

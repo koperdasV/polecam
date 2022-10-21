@@ -27,7 +27,7 @@ class CardWidget extends StatelessWidget {
           children: [
             Image.asset(image),
             PercentWidget(
-              persent: '17%',
+              percent: '17%',
               fontSize: fontSize,
             ),
             Positioned(

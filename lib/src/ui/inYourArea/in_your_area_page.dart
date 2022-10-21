@@ -5,14 +5,14 @@ import 'package:polec/src/ui/recommended/components/categorie_list_box.dart';
 import 'package:polec/src/ui/recommended/components/cupertino_nav_bar.dart';
 import 'package:polec/src/ui/recommended/components/search_box.dart';
 
-class RecommendedPage extends StatelessWidget {
-  const RecommendedPage({super.key});
+class YourAreaPage extends StatelessWidget {
+  const YourAreaPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavBar(
-        title: 'Recommended for you',
+        title: 'In your Area',
       ),
       child: CustomScrollView(
         slivers: [
@@ -23,9 +23,9 @@ class RecommendedPage extends StatelessWidget {
               childCount: 10,
               (context, index) => const CardWidget(
                 image: 'assets/fake_images/food_polecane.png',
-                percent: '17%',
                 textTitle: 'Thai beef fried rice',
                 textSubtitle: 'Polecone przez: Paweł Woźniak',
+                percent: '12%',
               ),
             ),
           ),

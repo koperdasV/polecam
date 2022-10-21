@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class inActiveButton extends StatelessWidget {
-  const inActiveButton({
+class InActiveButton extends StatelessWidget {
+  const InActiveButton({
     Key? key,
   }) : super(key: key);
 

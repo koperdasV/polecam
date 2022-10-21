@@ -17,7 +17,7 @@ class YourAreaCard extends StatelessWidget {
             children: [
               Image.asset('assets/fake_images/food_okolice.png'),
               const PercentWidget(
-                persent: '17%',
+                percent: '17%',
                 fontSize: 22,
               ),
               CupertinoButton(

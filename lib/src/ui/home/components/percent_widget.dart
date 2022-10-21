@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 class PercentWidget extends StatelessWidget {
   const PercentWidget({
     Key? key,
-    required this.persent, this.fontSize,
+    required this.percent,
+    this.fontSize,
   }) : super(key: key);
 
-  final String persent;
+  final String percent;
   final double? fontSize;
 
   @override
@@ -14,7 +15,7 @@ class PercentWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Text(
-        persent,
+        percent,
         style: TextStyle(
           fontSize: fontSize,
           color: Colors.white,

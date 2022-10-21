@@ -9,7 +9,7 @@ import 'package:polec/src/ui/home/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/components/horizontal_list_scroll.dart';
 import 'package:polec/src/ui/home/components/in_active_button.dart';
 import 'package:polec/src/ui/home/components/title_widget.dart';
-import 'package:polec/src/ui/inYourArea/in_your_area__page.dart';
+import 'package:polec/src/ui/inYourArea/in_your_area_page.dart';
 import 'package:polec/src/ui/recommended/recommended_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            child: inActiveButton(),
+            child: InActiveButton(),
           ),
           CustomScrollView(
             shrinkWrap: true,
