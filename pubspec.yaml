@@ -47,3 +47,9 @@ flutter:
     - assets/images/
     - assets/fake_images/
     - assets/icons/
+
+  fonts:
+    - family: SegoeUIBlack
+      fonts:
+        - asset: assets/fonts/SegoeUIBlack.ttf
+          style: italic

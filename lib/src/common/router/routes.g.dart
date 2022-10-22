@@ -9,6 +9,7 @@ part of 'routes.dart';
 List<GoRoute> get $appRoutes => [
       $homeRoute,
       $registrationRoute,
+      $detailsRoute,
     ];
 
 GoRoute get $homeRoute => GoRouteData.$route(
@@ -35,10 +36,27 @@ GoRoute get $registrationRoute => GoRouteData.$route(
 
 extension $RegistrationRouteExtension on RegistrationRoute {
   static RegistrationRoute _fromState(GoRouterState state) =>
-      RegistrationRoute();
+      const RegistrationRoute();
 
   String get location => GoRouteData.$location(
         '/registration',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: this);
+
+  void push(BuildContext context) => context.push(location, extra: this);
+}
+
+GoRoute get $detailsRoute => GoRouteData.$route(
+      path: '/details',
+      factory: $DetailsRouteExtension._fromState,
+    );
+
+extension $DetailsRouteExtension on DetailsRoute {
+  static DetailsRoute _fromState(GoRouterState state) => const DetailsRoute();
+
+  String get location => GoRouteData.$location(
+        '/details',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
