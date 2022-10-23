@@ -17,7 +17,7 @@ class ImageWidget extends StatelessWidget {
           ),
         ),
         const PercentWidget(
-          persent: '17%',
+          percent: '17%',
           fontSize: 34,
         ),
         Positioned(

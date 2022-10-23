@@ -14,21 +14,27 @@ class YourAreaPage extends StatelessWidget {
       navigationBar: const CupertinoNavBar(
         title: 'In your Area',
       ),
-      child: CustomScrollView(
-        slivers: [
+      child: Column(
+        children: [
           const SearchBox(),
           const CategorieListBox(),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              childCount: 10,
-              (context, index) => const CardWidget(
-                image: 'assets/fake_images/food_polecane.png',
-                textTitle: 'Thai beef fried rice',
-                textSubtitle: 'Polecone przez: Paweł Woźniak',
-                percent: '12%',
-              ),
+          Expanded(
+            child: CustomScrollView(
+              slivers: [
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    childCount: 10,
+                    (context, index) => const CardWidget(
+                      image: 'assets/fake_images/food_polecane.png',
+                      percent: '17%',
+                      textTitle: 'Thai beef fried rice',
+                      textSubtitle: 'Polecone przez: Paweł Woźniak',
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
+          )
         ],
       ),
     );

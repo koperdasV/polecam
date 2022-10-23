@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
+import 'package:polec/src/feature/details/widget/details_screen.dart';
 import 'package:polec/src/ui/home/components/percent_widget.dart';
 
 class CardWidget extends StatelessWidget {
@@ -23,19 +25,29 @@ class CardWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Stack(
-          children: [
-            Image.asset(image),
-            PercentWidget(
-              percent: '17%',
-              fontSize: fontSize,
-            ),
-            Positioned(
-              right: 0,
-              bottom: 0,
-              child: child!,
-            ),
-          ],
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              CupertinoPageRoute(
+                builder: (context) => const DetailsScreen(),
+              ),
+            );
+          },
+          child: Stack(
+            children: [
+              Image.asset(image),
+              PercentWidget(
+                percent: '17%',
+                fontSize: fontSize,
+              ),
+              Positioned(
+                right: 0,
+                bottom: 0,
+                child: child!,
+              ),
+            ],
+          ),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 10),

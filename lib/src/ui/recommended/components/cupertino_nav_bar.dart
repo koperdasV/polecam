@@ -13,29 +13,24 @@ class CupertinoNavBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15),
-      child: SizedBox(
-        child: CupertinoNavigationBar(
-          backgroundColor: AppColor.navBarColor,
-          border: Border.all(
-            style: BorderStyle.none,
-          ),
-          middle: Text(
-            title,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 24,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
+    return CupertinoNavigationBar(
+      backgroundColor: AppColor.navBarColor,
+      border: Border.all(
+        style: BorderStyle.none,
+      ),
+      middle: Text(
+        title,
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 24,
+          fontWeight: FontWeight.w700,
         ),
       ),
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(74);
+  Size get preferredSize => const Size.fromHeight(44);
 
   @override
   bool shouldFullyObstruct(BuildContext context) {
