@@ -1,7 +1,6 @@
 // ignore_for_file: use_super_parameters
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/home/components/categorie_list_widget.dart';
 import 'package:polec/src/ui/home/components/categorie_tag.dart';

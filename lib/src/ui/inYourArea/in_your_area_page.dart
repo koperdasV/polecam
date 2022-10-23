@@ -34,7 +34,7 @@ class YourAreaPage extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

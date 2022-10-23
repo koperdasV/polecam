@@ -49,7 +49,7 @@ class HomeAppBar extends StatelessWidget {
           child: CircleAvatar(
             backgroundColor: Colors.grey.shade400,
           ),
-        )
+        ),
       ],
     );
   }

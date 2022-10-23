@@ -1,7 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:polec/resources/colors.dart';
-import 'package:polec/src/ui/home/components/categorie_list_widget.dart';
 
 import 'package:polec/src/ui/recommended/components/card.dart';
 import 'package:polec/src/ui/recommended/components/categorie_list_box.dart';
@@ -37,7 +34,7 @@ class RecommendedPage extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

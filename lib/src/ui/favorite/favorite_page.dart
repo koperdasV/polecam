@@ -34,7 +34,7 @@ class FavoritePage extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
