@@ -1,12 +1,8 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:polec/resourses/app_icons.dart';
 import 'package:polec/resourses/app_images.dart';
-import 'package:polec/src/common/router/routes.dart';
-import 'package:polec/src/feature/registration/widget/custom_text_field.dart';
 import 'package:polec/src/feature/registration/widget/text_field_widget.dart';
 import 'package:polec/theme/app_colors.dart';
 
@@ -38,7 +34,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 left: 16, right: 16, bottom: 16, top: 110),
             child: Column(
               children: [
-                Container(
+                SizedBox(
                   height: 30,
                   child: Image.asset(AppImages.logo),
                 ),
@@ -67,14 +63,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 Row(
                   children: [
                     Checkbox(
-                        value: checkValue,
-                        checkColor: Colors.white,
-                        activeColor: Colors.blue,
-                        onChanged: (value1) {
-                          setState(() {
-                            checkValue = value1!;
-                          });
-                        }),
+                      value: checkValue,
+                      checkColor: Colors.white,
+                      activeColor: Colors.blue,
+                      onChanged: (value1) {
+                        setState(() {
+                          checkValue = value1!;
+                        });
+                      },
+                    ),
                     const Text(
                       'Akceptuję',
                       style: TextStyle(
@@ -116,7 +113,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ],
                 ),
                 const SizedBox(height: 80),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: CupertinoButton.filled(
                     onPressed: () {

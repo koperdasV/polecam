@@ -9,13 +9,13 @@ class CategorieList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
+    return Padding(
+      padding: const EdgeInsets.only(left: 8),
       child: ListView.builder(
-        itemCount: 3,
-        shrinkWrap: true,
+        itemCount: 10,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
           child: Container(
             width: 140,
             decoration: BoxDecoration(
@@ -40,15 +40,18 @@ class CategorieList extends StatelessWidget {
                 const SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Jadzenie',
+                      'Food',
                       style: TextStyle(
                         color: AppColor.categorieTextColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                     Text(
-                      '54 miejsca',
+                      '54 places',
                       style: TextStyle(
                         color: AppColor.categorieTextColor,
                         fontSize: 12,

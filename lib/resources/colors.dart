@@ -6,4 +6,5 @@ abstract class AppColor {
   static Color textButtonColor = const Color.fromRGBO(222, 44, 102, 1);
   static Color titleColor = const Color.fromRGBO(65, 65, 65, 1);
   static Color subTitleColor = const Color.fromRGBO(159, 162, 177, 1);
+  static Color navBarColor = const Color.fromRGBO(249, 249, 249, 1);
 }
