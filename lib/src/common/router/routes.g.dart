@@ -10,6 +10,7 @@ List<GoRoute> get $appRoutes => [
       $homeRoute,
       $registrationRoute,
       $detailsRoute,
+      $notRecommendRoute,
     ];
 
 GoRoute get $homeRoute => GoRouteData.$route(
@@ -57,6 +58,24 @@ extension $DetailsRouteExtension on DetailsRoute {
 
   String get location => GoRouteData.$location(
         '/details',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: this);
+
+  void push(BuildContext context) => context.push(location, extra: this);
+}
+
+GoRoute get $notRecommendRoute => GoRouteData.$route(
+      path: '/not_recommend',
+      factory: $NotRecommendRouteExtension._fromState,
+    );
+
+extension $NotRecommendRouteExtension on NotRecommendRoute {
+  static NotRecommendRoute _fromState(GoRouterState state) =>
+      const NotRecommendRoute();
+
+  String get location => GoRouteData.$location(
+        '/not_recommend',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
