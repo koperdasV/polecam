@@ -5,14 +5,14 @@ import 'package:polec/src/ui/recommended/components/categorie_list_box.dart';
 import 'package:polec/src/ui/recommended/components/cupertino_nav_bar.dart';
 import 'package:polec/src/ui/recommended/components/search_box.dart';
 
-class RecommendedPage extends StatelessWidget {
-  const RecommendedPage({super.key});
+class FavoritePage extends StatelessWidget {
+  const FavoritePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavBar(
-        title: 'Recommended for you',
+        title: 'Favorite',
       ),
       child: Column(
         children: [

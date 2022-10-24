@@ -67,7 +67,7 @@ mixin AppRouterController on State<AppRouter> implements IAppRouterController {
     // final authController = AuthenticationScope.of(context);
     router = GoRouter(
       restorationScopeId: 'go_router',
-      initialLocation: const DetailsRoute().location,
+      initialLocation: const RegistrationRoute().location,
       // refreshListenable: authController.authenticationNotifier,
       // redirect: (state) {
       //   // if the user is not logged in, they need to login
