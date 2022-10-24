@@ -17,22 +17,22 @@ class RecomendationsWidget extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // ignore: use_decorated_box
-              // Container(
-              // clipBehavior: Clip.hardEdge,
-              // decoration: const BoxDecoration(
-              //   shape: BoxShape.circle,
-              // ),
-              // child: Image.asset(
-              //   AppImages.profile,
-              // ),
-              // ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  Container(
+                    clipBehavior: Clip.hardEdge,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: Image.asset(
+                      AppImages.profile,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
                         'Anna Woźniak',
@@ -52,17 +52,16 @@ class RecomendationsWidget extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(width: 5),
-                  
                 ],
               ),
               const Text(
-                    r'+ 111 $',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                r'+ 111 $',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
         );

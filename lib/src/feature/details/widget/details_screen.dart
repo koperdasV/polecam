@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:polec/resources/colors.dart';
+import 'package:polec/src/common/router/routes.dart';
+import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart';
 import 'package:polec/src/ui/details/components/image_widget.dart';
 import 'package:polec/src/ui/details/components/navigation_bar.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
 import 'package:polec/src/ui/details/components/recommendations.dart';
+import 'package:polec/src/ui/details/components/show_dialog.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -24,6 +28,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
+            color: Colors.black,
           ),
         ),
       ),
@@ -37,7 +42,15 @@ class _DetailsScreenState extends State<DetailsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const ImageWidget(),
+                GestureDetector(
+                  child: const ImageWidget(),
+                  onTap: () => Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => const NotRecommendScreen(),
+                    ),
+                  ),
+                ),
                 const Padding(
                   padding: EdgeInsets.only(top: 10),
                   child: Text(
@@ -135,7 +148,56 @@ class _DetailsScreenState extends State<DetailsScreen> {
           const SizedBox(height: 10),
           const CustomNavigationBar(),
           const SizedBox(height: 10),
-          const RecommendedButton(),
+          RecommendedButton(
+            gradient: const LinearGradient(
+              colors: [
+                AppColors.gradientStart,
+                AppColors.gradientend,
+              ],
+            ),
+            imageColor: Colors.white,
+            textColor: Colors.white,
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => ShowDialog(
+                  height: 250,
+                  child: Column(
+                    children: const [
+                      Text(
+                        'Recommend this place 3 friends',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'To get an additional 1% discount successfully recomend this place to 3 friends',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal,
+                          fontSize: 12,
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Text(
+                        '*successful recommendation is one that ended with a transaction.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
           const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -147,7 +209,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               ),
             ),
           ),
-          RecomendationsWidget(),
+          const RecomendationsWidget(),
         ],
       ),
     );
