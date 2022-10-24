@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:polec/src/ui/favorite/favorite_page.dart';
 import 'package:polec/src/ui/home/home_page.dart';
+import 'package:polec/src/ui/journal/journal_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,6 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> pages = [
     const HomePage(),
     const FavoritePage(),
+    const JournalPage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -29,11 +31,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.music_note_list),
-            label: 'Home',
+            label: 'Journal',
           ),
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.profile_circled),
-            label: 'Explore',
+            label: 'Profile',
           ),
         ],
       ),
