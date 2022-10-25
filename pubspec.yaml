@@ -24,6 +24,7 @@ dependencies:
   meta: ^1.8.0
   shared_preferences: ^2.0.15
   flutter_svg: ^1.1.5
+  smooth_page_indicator: ^1.0.0+2 
   # phone auth
   country_code_picker: ^2.0.2
   fl_country_code_picker: ^0.0.3+1

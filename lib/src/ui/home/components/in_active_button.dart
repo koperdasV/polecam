@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 class InActiveButton extends StatelessWidget {
   const InActiveButton({
     Key? key,
+    required this.text, this.fontSize = 17,
   }) : super(key: key);
+
+  final String text;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +26,11 @@ class InActiveButton extends StatelessWidget {
         ),
       ),
       child: CupertinoButton(
-        child: const Text(
-          'Inactive Account',
+        child: Text(
+          text,
           style: TextStyle(
             color: Colors.white,
-            fontSize: 17,
+            fontSize: fontSize,
             fontWeight: FontWeight.w700,
           ),
         ),

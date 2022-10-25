@@ -30,7 +30,9 @@ class HomePage extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            child: InActiveButton(),
+            child: InActiveButton(
+              text: 'Inactive Account',
+            ),
           ),
           Expanded(
             child: CustomScrollView(
