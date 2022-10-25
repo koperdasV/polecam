@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:polec/src/ui/journal/components/alert_dialog.dart';
+import 'package:polec/src/ui/journal/components/journal_card.dart';
 
 import 'package:polec/src/ui/recommended/components/cupertino_nav_bar.dart';
 import 'package:polec/src/ui/recommended/components/search_box.dart';
 
 class JournalPage extends StatelessWidget {
-  const JournalPage({super.key});
+  JournalPage({super.key});
+
+  final _controller = PageController(viewportFraction: 0.5);
 
   @override
   Widget build(BuildContext context) {
@@ -29,51 +33,9 @@ class JournalPage extends StatelessWidget {
                       ),
                       child: GestureDetector(
                         onTap: () {
-                         // _showAlertDialog(context);
+                          alertDialog(context, _controller);
                         },
-                        child: Row(
-                          children: [
-                            const CircleAvatar(
-                              backgroundImage: AssetImage(
-                                'assets/fake_images/food_polecane.png',
-                              ),
-                              radius: 30,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    'Green Bean Salad',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                  Text(
-                                    'Bartek Nowak recommends',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 14,
-                                      color: Colors.blue,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(left: 50),
-                              child: Text(
-                                '10:30 am',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                        child: const JournalCard(),
                       ),
                     ),
                   ),
@@ -85,39 +47,15 @@ class JournalPage extends StatelessWidget {
       ),
     );
   }
+}
 
-  // // CupertinoAlertDialog showAlertDialog(BuildContext context) {
-  // //   return const CupertinoAlertDialog(
-  // //     title: Text('Papa Grande'),
-  // //   );
-  // // }
-  // void _showAlertDialog(BuildContext context) {
-  //   showCupertinoModalPopup<void>(
-  //     context: context,
-  //     builder: (BuildContext context) => CupertinoAlertDialog(
-  //       title: const CircleAvatar(
-  //         radius: 50,
-  //         backgroundImage: AssetImage(
-  //           'assets/fake_images/food_polecane.png',
-  //         ),
-  //       ),
-  //       content: Column(
-  //         children: [
-  //           Text('Papa Grande'),
-  //         ],
-  //       ),
-  //       actions: <CupertinoDialogAction>[
-  //         CupertinoDialogAction(
-  //           /// This parameter indicates this action is the default,
-  //           /// and turns the action's text to bold text.
-  //           isDefaultAction: true,
-  //           onPressed: () {
-  //             Navigator.pop(context);
-  //           },
-  //           child: const Icon(CupertinoIcons.clear),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
+Future<void> alertDialog(BuildContext context, PageController _controller) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialogWidget(
+        controller: _controller,
+      );
+    },
+  );
 }
