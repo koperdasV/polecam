@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:polec/theme/app_colors.dart';
 
 class LvlBox extends StatelessWidget {
   const LvlBox({
@@ -53,14 +49,15 @@ class LvlBox extends StatelessWidget {
         ),
       ),
       child: CircleAvatar(
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 24,
-              color: Colors.white,
-            ),
+        backgroundColor: Colors.transparent,
+        child: Text(
+          text,
+          style: const TextStyle(
+            fontSize: 24,
+            color: Colors.white,
           ),
-          backgroundColor: Colors.transparent),
+        ),
+      ),
     );
 
     // return Container(

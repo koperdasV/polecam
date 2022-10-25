@@ -5,12 +5,15 @@ class TitleWidget extends StatelessWidget {
   const TitleWidget({
     Key? key,
     required this.title,
-    required this.subTitle, required this.onPressed,
+    this.subTitle = '',
+    this.onPressed,
+    this.fontSizeTitle = 24,
   }) : super(key: key);
 
   final String title;
-  final String subTitle;
-  final Function() onPressed;
+  final String? subTitle;
+  final double? fontSizeTitle;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +24,8 @@ class TitleWidget extends StatelessWidget {
           padding: const EdgeInsets.only(left: 16),
           child: Text(
             title,
-            style: const TextStyle(
-              fontSize: 24,
+            style: TextStyle(
+              fontSize: fontSizeTitle,
             ),
           ),
         ),
@@ -31,7 +34,7 @@ class TitleWidget extends StatelessWidget {
           child: CupertinoButton(
             onPressed: onPressed,
             child: Text(
-              subTitle,
+              subTitle.toString(),
               style: TextStyle(
                 fontSize: 14,
                 color: AppColor.textButtonColor,
@@ -39,7 +42,7 @@ class TitleWidget extends StatelessWidget {
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }
