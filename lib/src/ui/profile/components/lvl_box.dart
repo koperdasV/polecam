@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:polec/theme/app_colors.dart';
 
 class LvlBox extends StatelessWidget {
   const LvlBox({
@@ -17,30 +13,7 @@ class LvlBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return CircleAvatar(
-    //   radius: 20,
-    //   child: Container(
-    //     decoration: BoxDecoration(
-    //       shape: BoxShape.circle,
-    //       gradient: LinearGradient(
-    //         colors: [
-    //           gradientStart,
-    //           gradientEnd,
-    //         ],
-    //       ),
-    //     ),
-    //     child: Text(
-    //       text,
-    //       style: TextStyle(
-    //         fontSize: 24,
-    //         color: Colors.white,
-    //       ),
-    //     ),
-    //   ),
-    // );
-
     return Container(
-      height: 30,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         gradient: LinearGradient(
@@ -53,34 +26,17 @@ class LvlBox extends StatelessWidget {
         ),
       ),
       child: CircleAvatar(
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 24,
-              color: Colors.white,
-            ),
+        radius: 35,
+        backgroundColor: Colors.transparent,
+        child: Text(
+          text,
+          style: const TextStyle(
+            fontSize: 40,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
           ),
-          backgroundColor: Colors.transparent),
+        ),
+      ),
     );
-
-    // return Container(
-    //   clipBehavior: Clip.hardEdge,
-    //   decoration: BoxDecoration(
-    //     shape: BoxShape.circle,
-    //     gradient: LinearGradient(
-    //       colors: [
-    //         gradientStart,
-    //         gradientEnd,
-    //       ],
-    //     ),
-    //   ),
-    //   child: Text(
-    //     text,
-    //     style: const TextStyle(
-    //       fontSize: 24,
-    //       color: Colors.white,
-    //     ),
-    //   ),
-    // );
   }
 }

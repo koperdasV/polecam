@@ -6,76 +6,6 @@ import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/profile/components/lvl_box.dart';
 import 'package:polec/theme/app_colors.dart';
 
-class LevelWidget extends StatefulWidget {
-  const LevelWidget({super.key});
-
-  @override
-  State<LevelWidget> createState() => _LevelWidgetState();
-}
-
-class _LevelWidgetState extends State<LevelWidget> {
-  @override
-  Widget build(BuildContext context) {
-
-    return Container();
-    // return Padding(
-    //   padding: const EdgeInsets.symmetric(horizontal: 16),
-    //   child: Expanded(
-    //     child: ListView(
-    //        scrollDirection: Axis.vertical,
-    //       shrinkWrap: true,
-    //       children: [
-    //         Text(
-    //           'Actual level',
-    //           style: TextStyle(
-    //             fontSize: 16,
-    //             color: AppColor.titleColor,
-    //           ),
-    //         ),
-    //         Row(
-    //           children: const [
-    //             LvlBox(
-    //               text: '3',
-    //               gradientStart: AppColors.gradientStartActive,
-    //               gradientEnd: AppColors.gradientEndActive,
-    //             ),
-    //             Padding(
-    //               padding: EdgeInsets.symmetric(horizontal: 10),
-    //               child: LinearProgressIndicator(
-    //                 value: 40,
-    //               ),
-    //             ),
-    //             LvlBox(
-    //               text: '4',
-    //               gradientStart: AppColors.gradientStartNonActive,
-    //               gradientEnd: AppColors.gradientEndNonActive,
-    //             ),
-    //           ],
-    //         ),
-    //         Text(
-    //           'Get the next level',
-    //           style: TextStyle(
-    //             fontSize: 16,
-    //             color: AppColor.titleColor,
-    //           ),
-    //         ),
-    //         Column(),
-    //         Text(''),
-    //         Text(
-    //           'Level 4',
-    //           style: TextStyle(
-    //             fontSize: 16,
-    //             color: AppColor.titleColor,
-    //           ),
-    //         ),
-    //         Text(''),
-    //       ],
-    //     ),
-    //   ),
-    // );
-  }
-}
-/*
 class LevelWidget extends StatelessWidget {
   const LevelWidget({super.key});
 
@@ -83,9 +13,11 @@ class LevelWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Expanded(
+      child: MediaQuery.removePadding(
+        removeTop: true,
+        context: context,
         child: ListView(
-           scrollDirection: Axis.vertical,
+          scrollDirection: Axis.vertical,
           shrinkWrap: true,
           children: [
             Text(
@@ -93,49 +25,131 @@ class LevelWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 color: AppColor.titleColor,
+                fontWeight: FontWeight.bold,
               ),
             ),
+            const SizedBox(height: 10),
             Row(
-              children: const [
-                LvlBox(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                const LvlBox(
                   text: '3',
                   gradientStart: AppColors.gradientStartActive,
                   gradientEnd: AppColors.gradientEndActive,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: LinearProgressIndicator(
-                    value: 40,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: const LinearProgressIndicator(
+                    value: 0.6,
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                    backgroundColor: Colors.grey,
                   ),
                 ),
-                LvlBox(
+                const LvlBox(
                   text: '4',
                   gradientStart: AppColors.gradientStartNonActive,
                   gradientEnd: AppColors.gradientEndNonActive,
                 ),
               ],
             ),
+            const SizedBox(height: 20),
             Text(
               'Get the next level',
               style: TextStyle(
                 fontSize: 16,
                 color: AppColor.titleColor,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            Column(),
-            Text(''),
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: 5,
+              itemBuilder: (BuildContext context, int index) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 20),
+                    RichText(
+                      text: TextSpan(
+                        text: 'Complete 52 successful recomendatios: ',
+                        style: TextStyle(color: AppColor.titleColor),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: '21/52',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                                color: AppColor.titleColor),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const SizedBox(
+                      child: LinearProgressIndicator(
+                        value: 0.4,
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                        backgroundColor: AppColors.progressIndicatorBg,
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+            const SizedBox(height: 20),
             Text(
-              'Level 4',
+              'By unlocking levels, you get bigger discounts, you can',
+              style: TextStyle(
+                fontSize: 12,
+                color: AppColor.titleColor,
+                fontWeight: FontWeight.normal,
+                height: 1.5,
+              ),
+              textAlign: TextAlign.left,
+            ),
+            Text(
+              'Recommend more and you get more return cash to your account!',
+              style: TextStyle(
+                fontSize: 12,
+                color: AppColor.titleColor,
+                fontWeight: FontWeight.normal,
+                height: 1.5,
+              ),
+              textAlign: TextAlign.left,
+            ),
+            const SizedBox(height: 20),
+            Text(
+              'Level 4:',
               style: TextStyle(
                 fontSize: 16,
                 color: AppColor.titleColor,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            Text(''),
+            const SizedBox(height: 20),
+            Text(
+              '*additional 0.5% discount for all Merchants',
+              style: TextStyle(
+                fontSize: 12,
+                color: AppColor.titleColor,
+                fontWeight: FontWeight.normal,
+                height: 1.5,
+              ),
+              textAlign: TextAlign.left,
+            ),
+            Text(
+              '*possibility of recommending 5 friends a day',
+              style: TextStyle(
+                fontSize: 12,
+                color: AppColor.titleColor,
+                fontWeight: FontWeight.normal,
+                height: 1.5,
+              ),
+              textAlign: TextAlign.left,
+            ),
           ],
         ),
       ),
     );
   }
 }
-*/
