@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:polec/src/feature/details/widget/details_screen.dart';
+import 'package:polec/src/feature/profile/widget/profile_screen.dart';
 import 'package:polec/src/ui/favorite/favorite_page.dart';
 import 'package:polec/src/ui/home/home_page.dart';
 
@@ -13,6 +15,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> pages = [
     const HomePage(),
     const FavoritePage(),
+    const DetailsScreen(),
+    const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {

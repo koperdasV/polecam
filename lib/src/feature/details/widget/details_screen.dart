@@ -9,6 +9,7 @@ import 'package:polec/src/ui/details/components/navigation_bar.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
 import 'package:polec/src/ui/details/components/recommendations.dart';
 import 'package:polec/src/ui/details/components/show_dialog.dart';
+import 'package:polec/src/ui/profile/components/nav_bar/level_widget.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -109,7 +110,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     gradient: const LinearGradient(
                       colors: [
                         AppColors.gradientStart,
-                        AppColors.gradientend,
+                        AppColors.gradientEnd,
                       ],
                     ),
                   ),
@@ -152,7 +153,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
             gradient: const LinearGradient(
               colors: [
                 AppColors.gradientStart,
-                AppColors.gradientend,
+                AppColors.gradientEnd,
               ],
             ),
             imageColor: Colors.white,
@@ -210,6 +211,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
           ),
           const RecomendationsWidget(),
+          
         ],
       ),
     );

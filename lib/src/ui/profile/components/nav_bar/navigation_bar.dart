@@ -2,25 +2,28 @@ import 'package:flutter/cupertino.dart';
 import 'package:polec/src/ui/details/components/nav_bar/about_widget.dart';
 import 'package:polec/src/ui/details/components/nav_bar/contact_widget.dart';
 import 'package:polec/src/ui/details/components/nav_bar/open_widget.dart';
+import 'package:polec/src/ui/profile/components/nav_bar/account_widget.dart';
+import 'package:polec/src/ui/profile/components/nav_bar/level_widget.dart';
+import 'package:polec/src/ui/profile/components/nav_bar/statistics_widget.dart';
 import 'package:polec/theme/app_colors.dart';
 
-enum Detail { about, contact, open }
+enum Detail { statistics, level, account }
 
 Map<Detail, Widget> detailWidget = <Detail, Widget>{
-  Detail.about: const AboutWidget(),
-  Detail.open: const OpenWidget(),
-  Detail.contact: const ContactWidget(),
+  Detail.statistics: const StatisticsWidget(),
+  Detail.level: const LevelWidget(),
+  Detail.account: const AccountWidget(),
 };
 
-class CustomNavigationBar extends StatefulWidget {
-  const CustomNavigationBar({super.key});
+class ProfileNavigationBar extends StatefulWidget {
+  const ProfileNavigationBar({super.key});
 
   @override
-  State<CustomNavigationBar> createState() => _CustomNavigationBarState();
+  State<ProfileNavigationBar> createState() => _ProfileNavigationBarState();
 }
 
-class _CustomNavigationBarState extends State<CustomNavigationBar> {
-  Detail _selectedSegment = Detail.about;
+class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
+  Detail _selectedSegment = Detail.statistics;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 30),
           child: SizedBox(
             width: double.infinity,
             child: CupertinoSlidingSegmentedControl<Detail>(
@@ -45,24 +48,24 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                 }
               },
               children: const <Detail, Widget>{
-                Detail.about: Padding(
+                Detail.statistics: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
-                    'About',
+                    'Statistics',
                     style: TextStyle(color: CupertinoColors.black),
                   ),
                 ),
-                Detail.open: Padding(
+                Detail.level: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
-                    'Open',
+                    'Level',
                     style: TextStyle(color: CupertinoColors.black),
                   ),
                 ),
-                Detail.contact: Padding(
+                Detail.account: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
-                    'Contact',
+                    'Account',
                     style: TextStyle(color: CupertinoColors.black),
                   ),
                 ),
