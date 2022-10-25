@@ -5,5 +5,10 @@ abstract class AppColors {
   static const Color bgControl = Color.fromRGBO(142, 142, 147, 0.3);
   static const Color pecent = Color(0xFFde2c66);
   static const Color gradientStart = Color(0xFFd93150);
-  static const Color gradientend = Color(0xFFfc8ca1);
+  static const Color gradientEnd = Color(0xFFfc8ca1);
+  static const Color blcokedButton = Color.fromRGBO(121, 121, 121, 0.3);
+  static const Color gradientStartActive = Color(0xFF015fc6);
+  static const Color gradientEndActive = Color(0xFF007aff);
+  static const Color gradientStartNonActive = Color(0xFF818080);
+  static const Color gradientEndNonActive = Color(0xFF999999);
 }
