@@ -13,30 +13,7 @@ class LvlBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return CircleAvatar(
-    //   radius: 20,
-    //   child: Container(
-    //     decoration: BoxDecoration(
-    //       shape: BoxShape.circle,
-    //       gradient: LinearGradient(
-    //         colors: [
-    //           gradientStart,
-    //           gradientEnd,
-    //         ],
-    //       ),
-    //     ),
-    //     child: Text(
-    //       text,
-    //       style: TextStyle(
-    //         fontSize: 24,
-    //         color: Colors.white,
-    //       ),
-    //     ),
-    //   ),
-    // );
-
     return Container(
-      height: 30,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         gradient: LinearGradient(
@@ -49,35 +26,17 @@ class LvlBox extends StatelessWidget {
         ),
       ),
       child: CircleAvatar(
+        radius: 35,
         backgroundColor: Colors.transparent,
         child: Text(
           text,
           style: const TextStyle(
-            fontSize: 24,
+            fontSize: 40,
             color: Colors.white,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
     );
-
-    // return Container(
-    //   clipBehavior: Clip.hardEdge,
-    //   decoration: BoxDecoration(
-    //     shape: BoxShape.circle,
-    //     gradient: LinearGradient(
-    //       colors: [
-    //         gradientStart,
-    //         gradientEnd,
-    //       ],
-    //     ),
-    //   ),
-    //   child: Text(
-    //     text,
-    //     style: const TextStyle(
-    //       fontSize: 24,
-    //       color: Colors.white,
-    //     ),
-    //   ),
-    // );
   }
 }
