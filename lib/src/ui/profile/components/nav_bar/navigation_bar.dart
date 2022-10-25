@@ -1,10 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:polec/src/ui/details/components/nav_bar/about_widget.dart';
-import 'package:polec/src/ui/details/components/nav_bar/contact_widget.dart';
-import 'package:polec/src/ui/details/components/nav_bar/open_widget.dart';
 import 'package:polec/src/ui/profile/components/nav_bar/account_widget.dart';
 import 'package:polec/src/ui/profile/components/nav_bar/level_widget.dart';
-import 'package:polec/src/ui/profile/components/nav_bar/statistics_widget.dart';
+import 'package:polec/src/ui/profile/statistics/statistics_widget.dart';
 import 'package:polec/theme/app_colors.dart';
 
 enum Detail { statistics, level, account }
@@ -27,57 +24,65 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 30),
-          child: SizedBox(
-            width: double.infinity,
-            child: CupertinoSlidingSegmentedControl<Detail>(
-              backgroundColor: AppColors.bgControl,
-              thumbColor: const Color(0xffffffff),
-              // This represents the currently selected segmented control.
-              groupValue: _selectedSegment,
-              // Callback that sets the selected segmented control.
-              onValueChanged: (Detail? value) {
-                if (value != null) {
-                  setState(() {
-                    _selectedSegment = value;
-                  });
-                }
-              },
-              children: const <Detail, Widget>{
-                Detail.statistics: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    'Statistics',
-                    style: TextStyle(color: CupertinoColors.black),
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 16,
+              right: 16,
+              top: 30,
+              bottom: 10,
+            ),
+            child: SizedBox(
+              width: double.infinity,
+              child: CupertinoSlidingSegmentedControl<Detail>(
+                backgroundColor: AppColors.bgControl,
+                thumbColor: const Color(0xffffffff),
+                // This represents the currently selected segmented control.
+                groupValue: _selectedSegment,
+                // Callback that sets the selected segmented control.
+                onValueChanged: (Detail? value) {
+                  if (value != null) {
+                    setState(() {
+                      _selectedSegment = value;
+                    });
+                  }
+                },
+                children: const <Detail, Widget>{
+                  Detail.statistics: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      'Statistics',
+                      style: TextStyle(color: CupertinoColors.black),
+                    ),
                   ),
-                ),
-                Detail.level: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    'Level',
-                    style: TextStyle(color: CupertinoColors.black),
+                  Detail.level: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      'Level',
+                      style: TextStyle(color: CupertinoColors.black),
+                    ),
                   ),
-                ),
-                Detail.account: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    'Account',
-                    style: TextStyle(color: CupertinoColors.black),
+                  Detail.account: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      'Account',
+                      style: TextStyle(color: CupertinoColors.black),
+                    ),
                   ),
-                ),
-              },
+                },
+              ),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: detailWidget[_selectedSegment],
-        ),
-      ],
+          Expanded(
+            child: SingleChildScrollView(
+              child: detailWidget[_selectedSegment],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
