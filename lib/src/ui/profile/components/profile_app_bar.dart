@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/common/models/user_preferences.dart';
 import 'package:polec/src/ui/profile/components/edit_profile.dart';
