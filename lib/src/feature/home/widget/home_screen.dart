@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const HomePage(),
     const FavoritePage(),
     JournalPage(),
-    const DetailsScreen(),
+    const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {

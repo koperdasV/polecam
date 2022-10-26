@@ -28,6 +28,7 @@ dependencies:
   # phone auth
   country_code_picker: ^2.0.2
   fl_country_code_picker: ^0.0.3+1
+  freezed_annotation: ^2.1.0
 
 dev_dependencies:
   bloc_test: ^9.1.0

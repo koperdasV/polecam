@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:polec/src/ui/details/components/nav_bar/about_widget.dart';
 import 'package:polec/src/ui/details/components/nav_bar/contact_widget.dart';
 import 'package:polec/src/ui/details/components/nav_bar/open_widget.dart';
+import 'package:polec/src/ui/profile/components/button.dart';
 import 'package:polec/src/ui/profile/components/nav_bar/account_widget.dart';
 import 'package:polec/src/ui/profile/components/nav_bar/level_widget.dart';
 import 'package:polec/src/ui/profile/components/nav_bar/statistics_widget.dart';
@@ -31,7 +32,7 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
           child: SizedBox(
             width: double.infinity,
             child: CupertinoSlidingSegmentedControl<Detail>(
@@ -42,9 +43,16 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
               // Callback that sets the selected segmented control.
               onValueChanged: (Detail? value) {
                 if (value != null) {
-                  setState(() {
-                    _selectedSegment = value;
-                  });
+                  setState(
+                    () {
+                      _selectedSegment = value;
+                      // bool isVisible() {
+                      //   if (value == Detail.account) {
+                      //     return true;
+                      //   }
+                      // }
+                    },
+                  );
                 }
               },
               children: const <Detail, Widget>{
@@ -73,11 +81,21 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 10),
+        Container(
           child: detailWidget[_selectedSegment],
         ),
       ],
     );
   }
 }
+
+// bool isVisible() {
+//   Detail val = Detail.account;
+//   bool value;
+//   if (val == Detail.account) {
+//     value = true;
+//   } else {
+//     value = false;
+//   }
+//   return value;
+// }

@@ -85,56 +85,60 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
           const SizedBox(height: 10),
           const CustomNavigationBar(),
           const SizedBox(height: 10),
-          RecommendedButton(
-            color: AppColors.blcokedButton,
-            imageColor: Colors.black,
-            textColor: Colors.black,
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (context) => ShowDialog(
-                  height: 200,
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Thai beef fried rice',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Center(
-                        child: RichText(
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: RecommendedButton(
+              textButton: 'Recommend to friend',
+              color: AppColors.blcokedButton,
+              imageColor: Colors.black,
+              textColor: Colors.black,
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => ShowDialog(
+                    height: 200,
+                    child: Column(
+                      children: [
+                        const Text(
+                          'Thai beef fried rice',
                           textAlign: TextAlign.center,
-                          text: const TextSpan(
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal,
-                              fontSize: 12,
-                            ),
-                            children: <TextSpan>[
-                              TextSpan(
-                                text:
-                                    'Go to this place and use the service by paying by card that is connected with ',
-                              ),
-                              TextSpan(
-                                text: 'polec.am',
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              TextSpan(
-                                text: ' to recomend to friends',
-                              ),
-                            ],
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 20),
+                        Center(
+                          child: RichText(
+                            textAlign: TextAlign.center,
+                            text: const TextSpan(
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal,
+                                fontSize: 12,
+                              ),
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text:
+                                      'Go to this place and use the service by paying by card that is connected with ',
+                                ),
+                                TextSpan(
+                                  text: 'polec.am',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                TextSpan(
+                                  text: ' to recomend to friends',
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         ],
       ),

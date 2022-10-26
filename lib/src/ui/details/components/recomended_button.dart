@@ -11,45 +11,44 @@ class RecommendedButton extends StatelessWidget {
     this.gradient,
     this.imageColor,
     this.textColor,
+    required this.textButton,
   }) : super(key: key);
   final VoidCallback onPressed;
   final Color? color;
   final Color? imageColor;
   final Color? textColor;
   final Gradient? gradient;
+  final String textButton;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Container(
-        width: double.infinity,
-        height: 50,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: color,
-          gradient: gradient,
-        ),
-        child: CupertinoButton(
-          onPressed: onPressed,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                AppImages.logo,
-                color: imageColor,
+    return Container(
+      width: double.infinity,
+      height: 50,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: color,
+        gradient: gradient,
+      ),
+      child: CupertinoButton(
+        onPressed: onPressed,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              AppImages.logo,
+              color: imageColor,
+            ),
+            const SizedBox(width: 5),
+            Text(
+              textButton,
+              style: TextStyle(
+                color: textColor,
+                fontSize: 17,
+                fontWeight: FontWeight.w700,
               ),
-              const SizedBox(width: 5),
-              Text(
-                'Recommend to friend',
-                style: TextStyle(
-                  color: textColor,
-                  fontSize: 17,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
