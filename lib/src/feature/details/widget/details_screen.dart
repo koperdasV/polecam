@@ -149,55 +149,59 @@ class _DetailsScreenState extends State<DetailsScreen> {
           const SizedBox(height: 10),
           const CustomNavigationBar(),
           const SizedBox(height: 10),
-          RecommendedButton(
-            gradient: const LinearGradient(
-              colors: [
-                AppColors.gradientStart,
-                AppColors.gradientEnd,
-              ],
-            ),
-            imageColor: Colors.white,
-            textColor: Colors.white,
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (context) => ShowDialog(
-                  height: 250,
-                  child: Column(
-                    children: const [
-                      Text(
-                        'Recommend this place 3 friends',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: RecommendedButton(
+              textButton: 'Recommend to friend',
+              gradient: const LinearGradient(
+                colors: [
+                  AppColors.gradientStart,
+                  AppColors.gradientEnd,
+                ],
+              ),
+              imageColor: Colors.white,
+              textColor: Colors.white,
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => ShowDialog(
+                    height: 250,
+                    child: Column(
+                      children: const [
+                        Text(
+                          'Recommend this place 3 friends',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'To get an additional 1% discount successfully recomend this place to 3 friends',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 12,
+                        SizedBox(height: 10),
+                        Text(
+                          'To get an additional 1% discount successfully recomend this place to 3 friends',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 20),
-                      Text(
-                        '*successful recommendation is one that ended with a transaction.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 12,
+                        SizedBox(height: 20),
+                        Text(
+                          '*successful recommendation is one that ended with a transaction.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
           const SizedBox(height: 20),
           Padding(
@@ -211,7 +215,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
           ),
           const RecomendationsWidget(),
-          
         ],
       ),
     );
