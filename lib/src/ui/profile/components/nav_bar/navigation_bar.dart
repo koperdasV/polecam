@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:polec/src/ui/profile/components/nav_bar/account_widget.dart';
-import 'package:polec/src/ui/profile/components/nav_bar/level_widget.dart';
+import 'package:polec/src/ui/profile/account/account_widget.dart';
+import 'package:polec/src/ui/profile/account/edit_profile_widget.dart';
+import 'package:polec/src/ui/profile/level/level_widget.dart';
 import 'package:polec/src/ui/profile/statistics/statistics_widget.dart';
 import 'package:polec/theme/app_colors.dart';
 
@@ -24,39 +25,41 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
-          child: SizedBox(
-            width: double.infinity,
-            child: CupertinoSlidingSegmentedControl<Detail>(
-              backgroundColor: AppColors.bgControl,
-              thumbColor: const Color(0xffffffff),
-              // This represents the currently selected segmented control.
-              groupValue: _selectedSegment,
-              // Callback that sets the selected segmented control.
-              onValueChanged: (Detail? value) {
-                if (value != null) {
-                  setState(
-                    () {
-                      _selectedSegment = value;
-                      // bool isVisible() {
-                      //   if (value == Detail.account) {
-                      //     return true;
-                      //   }
-                      // }
-                    },
-                  );
-                }
-              },
-              children: const <Detail, Widget>{
-                Detail.statistics: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    'Statistics',
-                    style: TextStyle(color: CupertinoColors.black),
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
+            child: SizedBox(
+              width: double.infinity,
+              child: CupertinoSlidingSegmentedControl<Detail>(
+                backgroundColor: AppColors.bgAccountPage,
+                thumbColor: const Color(0xffffffff),
+                // This represents the currently selected segmented control.
+                groupValue: _selectedSegment,
+                // Callback that sets the selected segmented control.
+                onValueChanged: (Detail? value) {
+                  if (value != null) {
+                    setState(
+                      () {
+                        _selectedSegment = value;
+                        // bool isVisible() {
+                        //   if (value == Detail.account) {
+                        //     return true;
+                        //   }
+                        // }
+                      },
+                    );
+                  }
+                },
+                children: const <Detail, Widget>{
+                  Detail.statistics: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      'Statistics',
+                      style: TextStyle(color: CupertinoColors.black),
+                    ),
                   ),
                   Detail.level: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
@@ -81,11 +84,8 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
               child: detailWidget[_selectedSegment],
             ),
           ),
-        ),
-        Container(
-          child: detailWidget[_selectedSegment],
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

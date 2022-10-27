@@ -12,6 +12,7 @@ class RecommendedButton extends StatelessWidget {
     this.imageColor,
     this.textColor,
     required this.textButton,
+    this.image,
   }) : super(key: key);
   final VoidCallback onPressed;
   final Color? color;
@@ -19,6 +20,7 @@ class RecommendedButton extends StatelessWidget {
   final Color? textColor;
   final Gradient? gradient;
   final String textButton;
+  final Widget? image;
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +37,11 @@ class RecommendedButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              AppImages.logo,
-              color: imageColor,
-            ),
+            Container(child: image),
+            // Image.asset(
+            //   AppImages.logo,
+            //   color: imageColor,
+            // ),
             const SizedBox(width: 5),
             Text(
               textButton,

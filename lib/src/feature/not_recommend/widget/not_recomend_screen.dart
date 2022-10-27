@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
+import 'package:polec/resourses/app_images.dart';
 import 'package:polec/src/ui/details/components/image_widget.dart';
 import 'package:polec/src/ui/details/components/navigation_bar.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
@@ -88,9 +89,12 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: RecommendedButton(
+              image: Image.asset(
+                AppImages.logo,
+                color: Colors.black,
+              ),
               textButton: 'Recommend to friend',
               color: AppColors.blcokedButton,
-              imageColor: Colors.black,
               textColor: Colors.black,
               onPressed: () {
                 showDialog(
