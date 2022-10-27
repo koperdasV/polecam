@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/common/models/user_preferences.dart';
-import 'package:polec/src/ui/profile/components/edit_profile.dart';
+import 'package:polec/src/ui/profile/account/edit_profile_page.dart';
+import 'package:polec/src/ui/profile/account/edit_profile_widget.dart';
 import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
 
 class ProfileAppBar extends StatelessWidget {
@@ -36,7 +37,7 @@ class ProfileAppBar extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   Text(
-                   user.email,
+                    user.email,
                     style: TextStyle(
                       color: AppColor.subTitleColor,
                       fontSize: 12,
@@ -52,7 +53,7 @@ class ProfileAppBar extends StatelessWidget {
               onPressed: () => Navigator.push(
                 context,
                 CupertinoPageRoute(
-                  builder: (context) => const EditProfileWidget(),
+                  builder: (context) => const EditProfilePage(),
                 ),
               ),
               child: Icon(

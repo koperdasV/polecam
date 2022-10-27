@@ -11,5 +11,6 @@ abstract class AppColors {
   static const Color gradientEndActive = Color.fromRGBO(0, 122, 255, 0.8);
   static const Color gradientStartNonActive = Color(0xFF818080);
   static const Color gradientEndNonActive = Color.fromRGBO(153, 153, 153, 0.8);
-    static const Color progressIndicatorBg = Color(0xFFd8d8d8);
+  static const Color progressIndicatorBg = Color(0xFFd8d8d8);
+  static const Color bgAccountPage = Color.fromRGBO(118, 118, 128, 0.12);
 }

@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:polec/resources/colors.dart';
-import 'package:polec/src/ui/profile/components/lvl_box.dart';
+import 'package:polec/src/ui/profile/level/components/lvl_box.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class LevelWidget extends StatelessWidget {
@@ -13,12 +10,9 @@ class LevelWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: MediaQuery.removePadding(
-        removeTop: true,
-        context: context,
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Actual level',
@@ -61,40 +55,44 @@ class LevelWidget extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: 5,
-              itemBuilder: (BuildContext context, int index) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 20),
-                    RichText(
-                      text: TextSpan(
-                        text: 'Complete 52 successful recomendatios: ',
-                        style: TextStyle(color: AppColor.titleColor),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: '21/52',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12,
-                                color: AppColor.titleColor),
-                          ),
-                        ],
+            MediaQuery.removePadding(
+              removeTop: true,
+              context: context,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: 5,
+                itemBuilder: (BuildContext context, int index) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 20),
+                      RichText(
+                        text: TextSpan(
+                          text: 'Complete 52 successful recomendatios: ',
+                          style: TextStyle(color: AppColor.titleColor),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: '21/52',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12,
+                                  color: AppColor.titleColor),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 10),
-                    const SizedBox(
-                      child: LinearProgressIndicator(
-                        value: 0.4,
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
-                        backgroundColor: AppColors.progressIndicatorBg,
+                      const SizedBox(height: 10),
+                      const SizedBox(
+                        child: LinearProgressIndicator(
+                          value: 0.4,
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                          backgroundColor: AppColors.progressIndicatorBg,
+                        ),
                       ),
-                    ),
-                  ],
-                );
-              },
+                    ],
+                  );
+                },
+              ),
             ),
             const SizedBox(height: 20),
             Text(

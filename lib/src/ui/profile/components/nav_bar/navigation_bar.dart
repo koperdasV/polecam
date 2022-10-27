@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:polec/src/ui/profile/components/nav_bar/account_widget.dart';
-import 'package:polec/src/ui/profile/components/nav_bar/level_widget.dart';
-import 'package:polec/src/ui/profile/statistics/payout_page/screen/moneyback_screen.dart';
+import 'package:polec/src/ui/profile/account/account_widget.dart';
+import 'package:polec/src/ui/profile/account/edit_profile_widget.dart';
+import 'package:polec/src/ui/profile/level/level_widget.dart';
 import 'package:polec/src/ui/profile/statistics/statistics_widget.dart';
 import 'package:polec/theme/app_colors.dart';
 
@@ -36,7 +36,7 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
             child: SizedBox(
               width: double.infinity,
               child: CupertinoSlidingSegmentedControl<Detail>(
-                backgroundColor: AppColors.bgControl,
+                backgroundColor: AppColors.bgAccountPage,
                 thumbColor: const Color(0xffffffff),
                 // This represents the currently selected segmented control.
                 groupValue: _selectedSegment,
