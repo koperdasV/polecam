@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/home/components/title_widget.dart';
 import 'package:polec/src/ui/profile/statistics/components/payout_card.dart';
 import 'package:polec/src/ui/profile/statistics/components/payout_history.dart';
 import 'package:polec/src/ui/profile/statistics/components/progress_indicator.dart';
+import 'package:polec/src/ui/profile/statistics/payout_page/payout_page.dart';
 
 class StatisticsWidget extends StatelessWidget {
   const StatisticsWidget({super.key});
@@ -16,7 +17,14 @@ class StatisticsWidget extends StatelessWidget {
           TitleWidget(
             title: r'To payout: x.xx$',
             subTitle: 'More',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => const PayoutPage(),
+                ),
+              );
+            },
           ),
           Row(
             children: [

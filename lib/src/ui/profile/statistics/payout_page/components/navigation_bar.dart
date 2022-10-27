@@ -1,29 +1,33 @@
 import 'package:flutter/cupertino.dart';
+import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart';
 import 'package:polec/src/ui/profile/components/nav_bar/account_widget.dart';
 import 'package:polec/src/ui/profile/components/nav_bar/level_widget.dart';
+import 'package:polec/src/ui/profile/statistics/payout_page/screen/bonus_screen.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/screen/moneyback_screen.dart';
-import 'package:polec/src/ui/profile/statistics/statistics_widget.dart';
+import 'package:polec/src/ui/profile/statistics/payout_page/screen/recommendation_screen.dart';
 import 'package:polec/theme/app_colors.dart';
 
 enum Detail {
-  statistics,
-  level,
-  account,
+  moneyback,
+  recommendation,
+  bonus,
 }
+
 Map<Detail, Widget> detailWidget = <Detail, Widget>{
-  Detail.statistics: const StatisticsWidget(),
-  Detail.level: const LevelWidget(),
-  Detail.account: const AccountWidget(),
+  Detail.moneyback: const MoneybackScreen(),
+  Detail.recommendation: const RecommendationScreen(),
+  Detail.bonus: const BonusScreen(),
 };
-class ProfileNavigationBar extends StatefulWidget {
-  const ProfileNavigationBar({super.key});
+
+class PayoutNavigationBar extends StatefulWidget {
+  const PayoutNavigationBar({super.key});
 
   @override
-  State<ProfileNavigationBar> createState() => _ProfileNavigationBarState();
+  State<PayoutNavigationBar> createState() => _PayoutNavigationBarState();
 }
 
-class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
-  Detail _selectedSegment = Detail.statistics;
+class _PayoutNavigationBarState extends State<PayoutNavigationBar> {
+  Detail _selectedSegment = Detail.moneyback;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +36,7 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             child: SizedBox(
               width: double.infinity,
               child: CupertinoSlidingSegmentedControl<Detail>(
@@ -56,9 +60,9 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
                   }
                 },
                 children: <Detail, Widget>{
-                  Detail.statistics: buildSegment('Statistics'),
-                  Detail.level: buildSegment('Level'),
-                  Detail.account: buildSegment('Account'),
+                  Detail.moneyback: buildSegment('Moneyback'),
+                  Detail.recommendation: buildSegment('Recommendation'),
+                  Detail.bonus: buildSegment('Bonus'),
                 },
               ),
             ),
@@ -78,7 +82,10 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Text(
         title,
-        style: const TextStyle(color: CupertinoColors.black),
+        style: const TextStyle(
+          color: CupertinoColors.black,
+          fontSize: 14,
+        ),
       ),
     );
   }
