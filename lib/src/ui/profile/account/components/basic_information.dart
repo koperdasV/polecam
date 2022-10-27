@@ -77,7 +77,7 @@ class BasicInformationWidget extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             Text(
-              'Male',
+             'Male',
               style: subtitleTextStyle,
             ),
           ],

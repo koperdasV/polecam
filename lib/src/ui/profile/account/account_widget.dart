@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
-import 'package:polec/src/ui/profile/components/basic_information/basic_information.dart';
+import 'package:polec/src/ui/profile/account/components/basic_information.dart';
+import 'package:polec/src/ui/profile/account/edit_profile_page.dart';
+import 'package:polec/src/ui/profile/account/edit_profile_widget.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class AccountWidget extends StatelessWidget {
@@ -30,12 +30,9 @@ class AccountWidget extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: MediaQuery.removePadding(
-        removeTop: true,
-        context: context,
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Basic Information',
@@ -43,6 +40,7 @@ class AccountWidget extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const BasicInformationWidget(),
+            const SizedBox(height: 20),
             Text(
               'Payment',
               style: textStyle,
