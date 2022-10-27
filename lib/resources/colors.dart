@@ -9,6 +9,7 @@ abstract class AppColor {
   static Color navBarColor = const Color.fromRGBO(249, 249, 249, 1);
   static Color favoriteButtonColor = const Color.fromRGBO(20, 27, 64, 1);
   static Color progressIndicatorColor = const Color.fromRGBO(242, 166, 101, 1);
+  static Color bonusDiagramColor = const Color.fromRGBO(47, 180, 191, 1);
 
   static BoxDecoration moneybackColor = BoxDecoration(
     borderRadius: BorderRadius.circular(15),
