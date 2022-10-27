@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
+import 'package:polec/src/feature/payment/widget/payment_screen.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
 import 'package:polec/src/ui/profile/account/components/basic_information.dart';
 import 'package:polec/src/ui/profile/account/edit_profile_page.dart';
@@ -86,7 +87,12 @@ class AccountWidget extends StatelessWidget {
               ),
               imageColor: Colors.white,
               textColor: Colors.white,
-              onPressed: () {},
+              onPressed: () => Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => const PaymentScreen(),
+                ),
+              ),
             ),
           ],
         ),
