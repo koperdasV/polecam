@@ -25,19 +25,19 @@ class _HomeScreenState extends State<HomeScreen> {
       tabBar: CupertinoTabBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home),
+            icon: Icon(CupertinoIcons.house_fill),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.heart),
+            icon: Icon(CupertinoIcons.heart_circle_fill),
             label: 'Favorite',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.music_note_list),
+            icon: Icon(CupertinoIcons.bell_fill),
             label: 'Journal',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.profile_circled),
+            icon: Icon(CupertinoIcons.person_fill),
             label: 'Profile',
           ),
         ],
