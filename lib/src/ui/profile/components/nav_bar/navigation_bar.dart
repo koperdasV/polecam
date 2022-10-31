@@ -10,11 +10,13 @@ enum Detail {
   level,
   account,
 }
+
 Map<Detail, Widget> detailWidget = <Detail, Widget>{
   Detail.statistics: const StatisticsWidget(),
   Detail.level: const LevelWidget(),
   Detail.account: const AccountWidget(),
 };
+
 class ProfileNavigationBar extends StatefulWidget {
   const ProfileNavigationBar({super.key});
 
@@ -84,6 +86,9 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
   }
 }
 
+// void changeWidget() {
+//   detailWidget.update(Detail.account, (value) => const EditProfileWidget());
+// }
 
 
 // bool isVisible() {

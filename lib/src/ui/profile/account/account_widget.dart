@@ -4,7 +4,6 @@ import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/payment/widget/payment_screen.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
 import 'package:polec/src/ui/profile/account/components/basic_information.dart';
-import 'package:polec/src/ui/profile/account/edit_profile_page.dart';
 import 'package:polec/src/ui/profile/account/edit_profile_widget.dart';
 import 'package:polec/theme/app_colors.dart';
 
@@ -78,22 +77,16 @@ class AccountWidget extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             RecommendedButton(
-              textButton: 'Reconnect now',
-              gradient: const LinearGradient(
-                colors: [
-                  AppColors.gradientStartActive,
-                  AppColors.gradientEndActive,
-                ],
-              ),
-              imageColor: Colors.white,
-              textColor: Colors.white,
-              onPressed: () => Navigator.push(
-                context,
-                CupertinoPageRoute(
-                  builder: (context) => const PaymentScreen(),
+                textButton: 'Reconnect now',
+                gradient: const LinearGradient(
+                  colors: [
+                    AppColors.gradientStartActive,
+                    AppColors.gradientEndActive,
+                  ],
                 ),
-              ),
-            ),
+                imageColor: Colors.white,
+                textColor: Colors.white,
+                onPressed: () {}),
           ],
         ),
       ),

@@ -1,7 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart';
-import 'package:polec/src/ui/profile/components/nav_bar/account_widget.dart';
-import 'package:polec/src/ui/profile/components/nav_bar/level_widget.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/screen/bonus_screen.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/screen/moneyback_screen.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/screen/recommendation_screen.dart';
