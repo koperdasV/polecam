@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:polec/src/ui/profile/account/account_widget.dart';
-import 'package:polec/src/ui/profile/account/edit_profile_widget.dart';
 import 'package:polec/src/ui/profile/level/level_widget.dart';
 import 'package:polec/src/ui/profile/statistics/statistics_widget.dart';
 import 'package:polec/theme/app_colors.dart';
@@ -48,11 +47,6 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
                     setState(
                       () {
                         _selectedSegment = value;
-                        // bool isVisible() {
-                        //   if (value == Detail.account) {
-                        //     return true;
-                        //   }
-                        // }
                       },
                     );
                   }
@@ -75,29 +69,10 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
     );
   }
 
-  Padding buildSegment(String title) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Text(
-        title,
-        style: const TextStyle(color: CupertinoColors.black),
-      ),
+  Text buildSegment(String title) {
+    return Text(
+      title,
+      style: const TextStyle(color: CupertinoColors.black),
     );
   }
 }
-
-// void changeWidget() {
-//   detailWidget.update(Detail.account, (value) => const EditProfileWidget());
-// }
-
-
-// bool isVisible() {
-//   Detail val = Detail.account;
-//   bool value;
-//   if (val == Detail.account) {
-//     value = true;
-//   } else {
-//     value = false;
-//   }
-//   return value;
-// }
