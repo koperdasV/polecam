@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:polec/resources/colors.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class LineDiagramWidget extends StatelessWidget {
@@ -7,7 +6,8 @@ class LineDiagramWidget extends StatelessWidget {
     Key? key,
     required ZoomPanBehavior zoomPanBehavior,
     required TooltipBehavior tooltipBehavior,
-    required this.chartData, required this.colorDiagram,
+    required this.chartData,
+    required this.colorDiagram,
   })  : _zoomPanBehavior = zoomPanBehavior,
         _tooltipBehavior = tooltipBehavior,
         super(key: key);
@@ -52,4 +52,16 @@ class ChartData {
   );
   final String x;
   final double y;
+}
+
+class BubbleChartData {
+  BubbleChartData(
+    this.x,
+    this.y,
+    this.pointColorMapper, this.bubbleSize,
+  );
+  final String x;
+  final double y;
+  final Color pointColorMapper;
+  final double bubbleSize;
 }

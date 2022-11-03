@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/components/line_diagram.dart';
@@ -27,20 +29,22 @@ class _MoneybackScreenState extends State<MoneybackScreen> {
     super.initState();
   }
 
+  final random = Random();
+
   @override
   Widget build(BuildContext context) {
     final chartData = <ChartData>[
-      ChartData('April', 20),
-      ChartData('May', 3),
-      ChartData('June', 35),
-      ChartData('July', 10),
-      ChartData('August', 33),
-      ChartData('September', 28),
-      ChartData('October', 36),
-      ChartData('November', 3),
-      ChartData('December', 35),
-      ChartData('January', 10),
-      ChartData('February', 33),
+      ChartData('April', random.nextDouble() * 40),
+      ChartData('May', random.nextDouble() * 40),
+      ChartData('June', random.nextDouble() * 40),
+      ChartData('July', random.nextDouble() * 40),
+      ChartData('August', random.nextDouble() * 40),
+      ChartData('September', random.nextDouble() * 40),
+      ChartData('October', random.nextDouble() * 40),
+      ChartData('November', random.nextDouble() * 40),
+      ChartData('December', random.nextDouble() * 40),
+      ChartData('January', random.nextDouble() * 40),
+      ChartData('February', random.nextDouble() * 40),
       ChartData('Mart', 28),
     ];
     return SingleChildScrollView(
