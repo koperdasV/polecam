@@ -28,9 +28,8 @@ class JournalsBloc extends Bloc<JournalsEvent, JournalsState> {
         ),
       );
 
-      final List<String> journals =
-          await _journalsRepo.fetchJournals(state.page);
-         
+      final journals = await _journalsRepo.fetchJournals(state.page);
+
       return journals.isNotEmpty
           ? emit(
               state.copyWith(
@@ -58,8 +57,10 @@ class JournalsBloc extends Bloc<JournalsEvent, JournalsState> {
   }
 
   Future<void> _onRefreshJournalsToState(
-      RefreshJournals event, Emitter<JournalsState> emit) async {
-    emit(JournalsState(status: JournalsStateStatus.loading));
-    add(LoadJournals());
+    RefreshJournals event,
+    Emitter<JournalsState> emit,
+  ) async {
+    emit(const JournalsState(status: JournalsStateStatus.loading));
+    add(const LoadJournals());
   }
 }
