@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class JournalCard extends StatelessWidget {
-  const JournalCard({
+  final String tmpStr;
+  const JournalCard({ required this.tmpStr,
     Key? key,
   }) : super(key: key);
 
@@ -19,9 +20,9 @@ class JournalCard extends StatelessWidget {
           padding: const EdgeInsets.only(left: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children:  [
               Text(
-                'Green Bean Salad',
+                tmpStr,
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
                   fontSize: 18,
