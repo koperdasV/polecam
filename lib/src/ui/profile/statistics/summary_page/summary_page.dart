@@ -9,6 +9,7 @@ import 'package:polec/src/ui/profile/statistics/payout_page/components/line_diag
 import 'package:polec/src/ui/profile/statistics/payout_page/components/title_widget.dart';
 import 'package:polec/src/ui/profile/statistics/summary_page/components/bubble_chart.dart';
 import 'package:polec/src/ui/profile/statistics/summary_page/components/list_charts.dart';
+import 'package:polec/src/ui/profile/statistics/summary_page/components/spider_chart.dart';
 import 'package:polec/src/ui/recommended/components/cupertino_nav_bar.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -78,6 +79,38 @@ class _SummaryPageState extends State<SummaryPage> {
       ChartData('August', random.nextDouble() * 300),
       ChartData('September', random.nextDouble() * 300),
     ];
+    final spiderData = [
+      BubbleChartDataEntry(
+        value: 32,
+        label: 'Astoria',
+        colors: AppColor.blueBall,
+      ),
+      BubbleChartDataEntry(
+        value: 20,
+        label: 'Русня',
+        colors: AppColor.purpleBall,
+      ),
+      BubbleChartDataEntry(
+        value: 18,
+        label: 'Русня',
+        colors: AppColor.pinkBall,
+      ),
+      BubbleChartDataEntry(
+        value: 25,
+        label: 'Русні піздєц три тисячі разів',
+        colors: AppColor.yellowBall,
+      ),
+      BubbleChartDataEntry(
+        value: 24,
+        label: 'Lidl',
+        colors: AppColor.greenBall,
+      ),
+      BubbleChartDataEntry(
+        value: 26,
+        label: 'Lidl',
+        colors: AppColor.redBall,
+      ),
+    ];
 
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavBar(
@@ -143,29 +176,78 @@ class _SummaryPageState extends State<SummaryPage> {
               title: 'Moneyback',
               fontSizeTitle: 16,
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               child: SizedBox(
-                width: double.infinity,
                 height: 310,
-                child: CustomBubbleChart(),
+                child: BubbleChart(
+                  data: spiderData,
+                ),
               ),
             ),
             const TitleWidget(
               title: 'Polecam',
               fontSizeTitle: 16,
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: SizedBox(
+                height: 310,
+                child: BubbleChart(
+                  data: spiderData,
+                ),
+              ),
+            ),
+            const TitleWidget(
+              title: 'Income by category',
+              fontSizeTitle: 16,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
               child: SizedBox(
                 width: double.infinity,
                 height: 310,
-                child: CustomBubbleChart(),
+                child: SpiderChart(
+                  data: const [
+                    32,
+                    18,
+                    10,
+                    23,
+                    29,
+                    32,
+                    14,
+                    26,
+                  ],
+                  colors: const [
+                    Colors.blue,
+                    Colors.pink,
+                    Colors.orange,
+                    Colors.green,
+                    Colors.blue,
+                    Colors.pink,
+                    Colors.orange,
+                    Colors.green,
+                  ],
+                ),
               ),
-            ),
+            )
           ],
         ),
       ),
     );
   }
 }
+// <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="97" height="97" viewBox="0 0 97 97">
+//   <defs>
+//     <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+//       <stop offset="0" stop-color="#00b2d3"/>
+//       <stop offset="1" stop-color="#40d6f2" stop-opacity="0.502"/>
+//     </linearGradient>
+//     <filter id="Контур_2218" x="0" y="0" width="97" height="97" filterUnits="userSpaceOnUse">
+//       <feOffset dy="3" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="3" result="blur"/>
+//       <feFlood flood-opacity="0.161"/>
+//       <feComposite operator="in" in2="blur"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//   </defs>
