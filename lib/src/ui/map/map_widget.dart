@@ -33,10 +33,12 @@ class _MapWidgetState extends State<MapWidget> {
               userAgentPackageName: 'com.example.app',
             ),
             MarkerLayer(
+              rotateAlignment:Alignment.topLeft,
               markers: [
                 Marker(
-                  // width: 30,
+                  // width: 150,
                   // height: 100,
+                  // rotateAlignment: Alignment.centerLeft,
                   point: LatLng(_defaulLat, _defaulLng),
                   builder: (_) => Container(
                     child: Row(
@@ -58,72 +60,17 @@ class _MapWidgetState extends State<MapWidget> {
                               ),
                               onTap: () {
                                 print('Marker');
+                               
                               },
                             ),
                           ],
                         ),
-                        
-                        /// Если рисовать InfoCardWidget тут, то нужно задавать 
+                         const InfoCardWidget(),
+
+                        /// Если рисовать InfoCardWidget тут, то нужно задавать
                         /// высоту маркера, потому что у него const height: 30
                         /// Если рисовать вне FlutterMap, то оно будет статично
                         /// поверх карты
-                        
-                        /*
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10, bottom: 15),
-                          child: GestureDetector(
-                            child: Container(
-                              width: 150,
-                              height: 100,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.white,
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 10),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
-                                    Text(
-                                      'Pasibus',
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Recommended by: Paweł Woźniak',
-                                      style: TextStyle(
-                                        fontSize: 8,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                    ),
-                                    SizedBox(height: 10),
-                                    Text(
-                                      '17%',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Ul. Stary Rynek 21, Bydgoszcz',
-                                      style: TextStyle(
-                                        fontSize: 8,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            onTap: () {
-                              print('Text Container');
-                            },
-                          ),
-                        )
-                        */
                       ],
                     ),
                   ),
