@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:polec/resources/colors.dart';
-import 'package:polec/src/common/models/user_preferences.dart';
-import 'package:polec/src/ui/profile/account/edit_components/gender_nav_bar.dart';
 import 'package:polec/src/ui/profile/account/components/profile_text_field.dart';
+import 'package:polec/src/ui/profile/account/edit_components/gender_nav_bar.dart';
+import 'package:polec/src/ui/profile/account/edit_components/titile_text_field.dart';
+import 'package:polec/src/ui/profile/account/edit_components/title_text.dart';
 
 class EditBasicInformation extends StatefulWidget {
   const EditBasicInformation({super.key});
@@ -12,98 +12,73 @@ class EditBasicInformation extends StatefulWidget {
 }
 
 class _EditBasicInformationState extends State<EditBasicInformation> {
+  final emailController = TextEditingController();
+  final nameController = TextEditingController();
+  final surnameController = TextEditingController();
+  final phoneController = TextEditingController();
+  final streetController = TextEditingController();
+  final sityController = TextEditingController();
+  final postCodeController = TextEditingController();
+  final peselController = TextEditingController();
+  final dateOfBirthController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    final titleTextStyle = TextStyle(
-      fontSize: 14,
-      color: AppColor.titleColor,
-      fontWeight: FontWeight.normal,
-    );
-   
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 5),
-          child: Text(
-            'e-mail',
-            style: titleTextStyle,
-          ),
+        const TitleTextWidget(
+          text: 'e-mail',
         ),
-        const ProfileTextField(
+        ProfileTextField(
           placeholder: 'Email',
+          controller: emailController,
+          keyboardType: TextInputType.emailAddress,
         ),
         const SizedBox(height: 10),
         Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Name/names',
-                      style: titleTextStyle,
-                    ),
-                  ),
-                  const ProfileTextField(
-                    placeholder: 'Name/names',
-                  ),
-                ],
+              child: TitleTextField(
+                text: 'Name/names',
+                placeholder: 'Name/names',
+                controller: nameController,
               ),
             ),
             const SizedBox(width: 10),
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Surname',
-                      style: titleTextStyle,
-                    ),
-                  ),
-                  const ProfileTextField(
-                    placeholder: 'Surname',
-                  ),
-                ],
+              child: TitleTextField(
+                text: 'Surname',
+                placeholder: 'Surname',
+                controller: surnameController,
               ),
             )
           ],
         ),
         const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.only(left: 5),
-          child: Text(
-            'PESEL',
-            style: titleTextStyle,
-          ),
+        const TitleTextWidget(
+          text: 'PESEL',
         ),
-        const ProfileTextField(
+        ProfileTextField(
           placeholder: 'XXXXXXXXXXX',
+          controller: peselController,
         ),
         const SizedBox(height: 10),
         Row(
           crossAxisAlignment: CrossAxisAlignment.end,
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 5),
-                  child: Text(
-                    'Phone',
-                    style: titleTextStyle,
-                  ),
+                const TitleTextWidget(
+                  text: 'Phone',
                 ),
                 Container(
                   width: 60,
                   child: const ProfileTextField(
                     placeholder: 'Phone',
+                    keyboardType: TextInputType.phone,
                   ),
                 ),
               ],
@@ -113,9 +88,11 @@ class _EditBasicInformationState extends State<EditBasicInformation> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   ProfileTextField(
                     placeholder: '666 666 666',
+                    controller: phoneController,
+                    keyboardType: TextInputType.phone,
                   ),
                 ],
               ),
@@ -127,38 +104,18 @@ class _EditBasicInformationState extends State<EditBasicInformation> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Street and number',
-                      style: titleTextStyle,
-                    ),
-                  ),
-                  const ProfileTextField(
-                    placeholder: 'Street and number',
-                  ),
-                ],
+              child: TitleTextField(
+                text: 'Street and number',
+                placeholder: 'Street and number',
+                controller: streetController,
               ),
             ),
             const SizedBox(width: 10),
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Sity',
-                      style: titleTextStyle,
-                    ),
-                  ),
-                  const ProfileTextField(
-                    placeholder: 'Sity',
-                  ),
-                ],
+              child: TitleTextField(
+                text: 'Sity',
+                placeholder: 'Sity',
+                controller: sityController,
               ),
             )
           ],
@@ -168,20 +125,10 @@ class _EditBasicInformationState extends State<EditBasicInformation> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Post code',
-                      style: titleTextStyle,
-                    ),
-                  ),
-                  const ProfileTextField(
-                    placeholder: 'XX-XXX',
-                  ),
-                ],
+              child: TitleTextField(
+                text: 'Post code',
+                placeholder: 'XX-XXX',
+                controller: postCodeController,
               ),
             ),
             const SizedBox(width: 10),
@@ -197,15 +144,11 @@ class _EditBasicInformationState extends State<EditBasicInformation> {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Gender',
-                      style: titleTextStyle,
-                    ),
+                children: const [
+                  TitleTextWidget(
+                    text: 'Gender',
                   ),
-                  const GenderNavBar(),
+                  GenderNavBar(),
                 ],
               ),
             ),
@@ -220,20 +163,10 @@ class _EditBasicInformationState extends State<EditBasicInformation> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: Text(
-                      'Date of birth',
-                      style: titleTextStyle,
-                    ),
-                  ),
-                  const ProfileTextField(
-                    placeholder: '21 february 1993',
-                  ),
-                ],
+              child: TitleTextField(
+                text: 'Date of birth',
+                placeholder: '21 february 1993',
+                controller: dateOfBirthController,
               ),
             ),
             const SizedBox(width: 10),

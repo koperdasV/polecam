@@ -5,6 +5,7 @@ import 'package:polec/src/ui/details/components/recomended_button.dart';
 import 'package:polec/src/ui/profile/account/account_widget.dart';
 import 'package:polec/src/ui/profile/account/components/profile_text_field.dart';
 import 'package:polec/src/ui/profile/account/edit_components/edit_basic_information.dart';
+import 'package:polec/src/ui/profile/account/edit_components/edit_password.dart';
 import 'package:polec/src/ui/profile/account/edit_components/gender_nav_bar.dart';
 import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
 import 'package:polec/theme/app_colors.dart';
@@ -25,16 +26,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
       color: AppColor.titleColor,
       fontWeight: FontWeight.bold,
     );
-    final titleTextStyle = TextStyle(
-      fontSize: 14,
-      color: AppColor.titleColor,
-      fontWeight: FontWeight.normal,
-    );
-    final subtitleTextStyle = TextStyle(
-      fontSize: 14,
-      color: AppColor.subTitleColor,
-      fontWeight: FontWeight.normal,
-    );
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SingleChildScrollView(
@@ -54,27 +45,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
               style: textStyle,
             ),
             const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.only(left: 5),
-              child: Text(
-                'Enter a new password',
-                style: titleTextStyle,
-              ),
-            ),
-            const ProfileTextField(
-              placeholder: 'Enter a new password',
-            ),
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.only(left: 5),
-              child: Text(
-                'Confirm new password',
-                style: titleTextStyle,
-              ),
-            ),
-            const ProfileTextField(
-              placeholder: 'Confirm new password',
-            ),
+            const EditPassword(),
             const SizedBox(height: 20),
             RecommendedButton(
               textButton: 'Save',
@@ -86,10 +57,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
               ),
               imageColor: Colors.white,
               textColor: Colors.white,
+              // ignore: unnecessary_lambdas
               onPressed: () {
-                setState(() {
-                  changeEditWidget();
-                });
+                changeEditWidget();
+                // setState(() {});
               },
             ),
             const SizedBox(height: 10),

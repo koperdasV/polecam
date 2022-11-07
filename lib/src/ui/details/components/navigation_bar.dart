@@ -45,26 +45,17 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                 }
               },
               children: const <Detail, Widget>{
-                Detail.about: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    'About',
-                    style: TextStyle(color: CupertinoColors.black),
-                  ),
+                Detail.about: Text(
+                  'About',
+                  style: TextStyle(color: CupertinoColors.black),
                 ),
-                Detail.open: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    'Open',
-                    style: TextStyle(color: CupertinoColors.black),
-                  ),
+                Detail.open: Text(
+                  'Open',
+                  style: TextStyle(color: CupertinoColors.black),
                 ),
-                Detail.contact: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    'Contact',
-                    style: TextStyle(color: CupertinoColors.black),
-                  ),
+                Detail.contact: Text(
+                  'Contact',
+                  style: TextStyle(color: CupertinoColors.black),
                 ),
               },
             ),
