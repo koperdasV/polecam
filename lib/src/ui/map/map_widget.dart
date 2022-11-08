@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
@@ -25,7 +22,7 @@ class _MapWidgetState extends State<MapWidget> {
           mapController: _mapController,
           options: MapOptions(
             center: LatLng(_defaulLat, _defaulLng),
-            zoom: 10,
+            zoom: 16,
           ),
           children: [
             TileLayer(
@@ -33,48 +30,97 @@ class _MapWidgetState extends State<MapWidget> {
               userAgentPackageName: 'com.example.app',
             ),
             MarkerLayer(
-              rotateAlignment:Alignment.topLeft,
+              // rotate: true,
+              // rotateAlignment: Alignment.topLeft,
               markers: [
                 Marker(
-                  // width: 150,
-                  // height: 100,
-                  // rotateAlignment: Alignment.centerLeft,
                   point: LatLng(_defaulLat, _defaulLng),
-                  builder: (_) => Container(
-                    child: Row(
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            GestureDetector(
-                              child: Container(
-                                width: 30,
-                                height: 30,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(50),
-                                    border: Border.all(
-                                      width: 7,
-                                      color: Colors.black,
-                                    )),
-                              ),
-                              onTap: () {
-                                print('Marker');
-                               
-                              },
-                            ),
-                          ],
+                  builder: (_) {
+                    return DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(50),
+                        border: Border.all(
+                          width: 7,
                         ),
-                         const InfoCardWidget(),
-
-                        /// Если рисовать InfoCardWidget тут, то нужно задавать
-                        /// высоту маркера, потому что у него const height: 30
-                        /// Если рисовать вне FlutterMap, то оно будет статично
-                        /// поверх карты
-                      ],
-                    ),
-                  ),
+                      ),
+                    );
+                  },
                 ),
+                Marker(
+                  point: LatLng(_defaulLat, _defaulLng),
+                  width: 150,
+                  height: 100,
+                  anchorPos: AnchorPos.exactly(Anchor(155, -5)),
+                  builder: (_) {
+                    return const InfoCardWidget();
+                  },
+                ),
+                Marker(
+                  point: LatLng(50.4558456, 30.5208247),
+                  builder: (_) {
+                    return DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(50),
+                        border: Border.all(
+                          width: 7,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                Marker(
+                  point: LatLng(50.4558456, 30.5208247),
+                  width: 150,
+                  height: 100,
+                  anchorPos: AnchorPos.exactly(Anchor(155, -5)),
+                  builder: (_) {
+                    return Container(
+                      color: Colors.black26,
+                    );
+                  },
+                ),
+                // Marker(
+                //   // width: 150,
+                //   // height: 100,
+                //   // rotateAlignment: Alignment.centerLeft,
+                //   point: LatLng(_defaulLat, _defaulLng),
+                //   builder: (_) => Container(
+                //     child: Row(
+                //       children: [
+                //         Column(
+                //           mainAxisAlignment: MainAxisAlignment.end,
+                //           children: [
+                //             GestureDetector(
+                //               child: Container(
+                //                 width: 30,
+                //                 height: 30,
+                //                 decoration: BoxDecoration(
+                //                     color: Colors.white,
+                //                     borderRadius: BorderRadius.circular(50),
+                //                     border: Border.all(
+                //                       width: 7,
+                //                       color: Colors.black,
+                //                     )),
+                //               ),
+                //               onTap: () {
+                //                 print('Marker');
+
+                //               },
+                //             ),
+                //           ],
+                //         ),
+                //          const InfoCardWidget(),
+
+                //         /// Если рисовать InfoCardWidget тут, то нужно задавать
+                //         /// высоту маркера, потому что у него const height: 30
+                //         /// Если рисовать вне FlutterMap, то оно будет статично
+                //         /// поверх карты
+                //       ],
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           ],
