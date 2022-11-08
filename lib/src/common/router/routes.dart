@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
@@ -6,6 +7,8 @@ import 'package:polec/src/feature/home/widget/home_screen.dart';
 import 'package:polec/src/feature/not_found/widget/not_found_screen.dart';
 import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart';
 import 'package:polec/src/feature/registration/widget/registration_screen.dart';
+import 'package:polec/src/ui/journal/bloc/journals_bloc.dart';
+import 'package:polec/src/ui/journal/data/journals_repository.dart';
 
 part 'routes.g.dart';
 
@@ -41,7 +44,10 @@ class HomeRoute extends GoRouteData {
   const HomeRoute();
 
   @override
-  Widget build(BuildContext context) => const HomeScreen();
+  Widget build(BuildContext context) => BlocProvider<JournalsBloc>(
+        create: (context) => JournalsBloc(journalsRepo: JournalRepository()),
+        child: HomeScreen(),
+      );
 }
 
 /// RegistrationRoute
