@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
+import 'package:polec/src/feature/map/widget/map_screen.dart';
 import 'package:polec/src/feature/profile/widget/profile_screen.dart';
 import 'package:polec/src/ui/favorite/favorite_page.dart';
 import 'package:polec/src/ui/home/home_page.dart';
-import 'package:polec/src/ui/journal/widget/journal_page.dart';
+import 'package:polec/src/ui/journal/journal_page.dart';
+import 'package:polec/src/ui/map/map_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

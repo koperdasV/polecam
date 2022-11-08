@@ -1,12 +1,16 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
+import 'package:polec/src/feature/map/widget/map_screen.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
     Key? key,
+    required this.onTap,
   }) : super(key: key);
 
+  final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -46,11 +50,18 @@ class HomeAppBar extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(right: 16),
-          child: CircleAvatar(
-            backgroundColor: Colors.grey.shade400,
+          child: GestureDetector(
+            onTap: onTap,
+            child: CircleAvatar(
+              backgroundColor: Colors.grey.shade400,
+            ),
           ),
         ),
       ],
     );
   }
 }
+
+/*
+ 
+*/

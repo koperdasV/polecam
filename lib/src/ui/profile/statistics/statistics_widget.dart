@@ -5,6 +5,7 @@ import 'package:polec/src/ui/profile/statistics/components/payout_card.dart';
 import 'package:polec/src/ui/profile/statistics/components/payout_history.dart';
 import 'package:polec/src/ui/profile/statistics/components/progress_indicator.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/payout_page.dart';
+import 'package:polec/src/ui/profile/statistics/summary_page/summary_page.dart';
 
 class StatisticsWidget extends StatelessWidget {
   const StatisticsWidget({super.key});
@@ -54,7 +55,14 @@ class StatisticsWidget extends StatelessWidget {
           TitleWidget(
             title: r'Summary: x.xx$',
             subTitle: 'More',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => const SummaryPage(),
+                ),
+              );
+            },
           ),
           Row(
             children: [

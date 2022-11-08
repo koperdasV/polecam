@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/components/line_diagram.dart';
@@ -26,22 +28,23 @@ class _BonusScreenState extends State<BonusScreen> {
     );
     super.initState();
   }
+    final random = Random();
 
   @override
   Widget build(BuildContext context) {
     final chartData = <ChartData>[
-      ChartData('April', 199),
-      ChartData('May', 71.43),
-      ChartData('June', 250.65),
-      ChartData('July', 47.36),
-      ChartData('August', 48),
-      ChartData('September', 167),
-      ChartData('October', 140),
-      ChartData('November', 3),
-      ChartData('December', 55),
-      ChartData('January', 214),
-      ChartData('February', 33),
-      ChartData('Mart', 184),
+      ChartData('April', random.nextDouble() * 300),
+      ChartData('May', random.nextDouble() * 300),
+      ChartData('June', random.nextDouble() * 300),
+      ChartData('July', random.nextDouble() * 300),
+      ChartData('August', random.nextDouble() * 300),
+      ChartData('September', random.nextDouble() * 300),
+      ChartData('October', random.nextDouble() * 300),
+      ChartData('November', random.nextDouble() * 300),
+      ChartData('December', random.nextDouble() * 300),
+      ChartData('January', random.nextDouble() * 300),
+      ChartData('February', random.nextDouble() * 300),
+      ChartData('Mart', random.nextDouble() * 300),
     ];
     return SingleChildScrollView(
       child: Column(
