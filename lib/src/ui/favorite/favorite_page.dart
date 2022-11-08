@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:polec/src/ui/journal/widget/components/cupertino_app_bar.dart';
 
 import 'package:polec/src/ui/recommended/components/card.dart';
 import 'package:polec/src/ui/recommended/components/categorie_list_box.dart';
@@ -10,13 +12,13 @@ class FavoritePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavBar(
+    return Scaffold(
+      appBar: CupertinoAppBar(
         title: 'Favorite',
+        child: const SearchBox(),
       ),
-      child: Column(
+      body: Column(
         children: [
-          const SearchBox(),
           const CategorieListBox(),
           Expanded(
             child: CustomScrollView(

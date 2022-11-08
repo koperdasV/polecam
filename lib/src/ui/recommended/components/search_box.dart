@@ -21,7 +21,7 @@ class SearchBox extends StatelessWidget {
         ),
       ),
       child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 25),
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 15),
         child: SearchWidget(),
       ),
     );
