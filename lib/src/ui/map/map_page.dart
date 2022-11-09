@@ -20,7 +20,7 @@ class _MapPageState extends State<MapPage> {
     return Column(
       children: [
         Padding(
-          padding:const EdgeInsets.only(left: 16, top: 50, bottom: 15),
+          padding: const EdgeInsets.only(left: 16, top: 50, bottom: 15),
           child: HomeAppBar(
             onTap: () => Navigator.push(
               context,
@@ -28,21 +28,25 @@ class _MapPageState extends State<MapPage> {
                 builder: (context) => const HomePage(),
               ),
             ),
+            child: const Icon(
+              CupertinoIcons.list_bullet,
+              color: Colors.white,
+            ),
           ),
         ),
-      const  Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(horizontal: 8),
           child: SearchWidget(),
         ),
-       const SizedBox(height: 10),
-      const  SingleChildScrollView(
+        const SizedBox(height: 10),
+        const SingleChildScrollView(
           child: SizedBox(
             height: 70,
             child: CategorieList(),
           ),
         ),
-       const SizedBox(height: 10),
-       const Expanded(
+        const SizedBox(height: 10),
+        const Expanded(
           child: MapWidget(),
         ),
       ],
