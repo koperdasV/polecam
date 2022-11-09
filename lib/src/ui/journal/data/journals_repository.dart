@@ -6,7 +6,18 @@ class JournalRepository implements IJournalsRepo {
   @override
   Future<List<String>> fetchJournals(int page) async {
     // throw Exception('test exception');
-    return Future.delayed(const Duration(seconds: 1)).then((value) =>
-        List<String>.generate(20, (int index) => 'index: $index; page: $page', growable: false));
+    return Future.delayed(const Duration(seconds: 1)).then(
+      (value) => List<String>.generate(
+        20,
+        (int index) => 'index: $index; page: $page',
+        growable: false,
+      ),
+    );
+
+    // final parsed = jsonDecode(responseBody);
+    // final data = (parsed['data'] as List).cast<Map<String,dynamic>>();
+    // return data
+    //     .map((json) => JournalModel.fromJson(json.cast<String, dynamic>()))
+    //     .toList();
   }
 }

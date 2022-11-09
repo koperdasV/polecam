@@ -6,6 +6,7 @@ class JournalCard extends StatelessWidget {
     required this.tmpStr,
     Key? key,
   }) : super(key: key);
+
   final String tmpStr;
 
   @override
