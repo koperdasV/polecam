@@ -1,6 +1,7 @@
 // ignore_for_file: use_super_parameters
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/map/widget/map_screen.dart';
 import 'package:polec/src/ui/home/components/categorie_list_widget.dart';
@@ -21,14 +22,20 @@ class HomePage extends StatelessWidget {
     return CupertinoPageScaffold(
       child: Column(
         children: [
-           Padding(
-            padding:const EdgeInsets.only(left: 16, top: 50, bottom: 15),
-            child: HomeAppBar(onTap: () => Navigator.push(
-              context,
-              CupertinoPageRoute(
-                builder: (context) => const MapScreen(),
+          Padding(
+            padding: const EdgeInsets.only(left: 16, top: 50, bottom: 15),
+            child: HomeAppBar(
+              onTap: () => Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => const MapScreen(),
+                ),
               ),
-            ),),
+              child: const Icon(
+                CupertinoIcons.map_fill,
+                color: Colors.white,
+              ),
+            ),
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 8),
