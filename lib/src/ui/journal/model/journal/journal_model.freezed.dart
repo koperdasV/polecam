@@ -20,12 +20,12 @@ JournalModel _$JournalModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$JournalModel {
-  String get type => throw _privateConstructorUsedError;
-  DateTime get timpestamp => throw _privateConstructorUsedError;
   Source get source => throw _privateConstructorUsedError;
   Source get target => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
+  DateTime? get timpestamp => throw _privateConstructorUsedError;
   Card get card => throw _privateConstructorUsedError;
-  double get amount => throw _privateConstructorUsedError;
+  double? get amount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,12 +40,12 @@ abstract class $JournalModelCopyWith<$Res> {
       _$JournalModelCopyWithImpl<$Res, JournalModel>;
   @useResult
   $Res call(
-      {String type,
-      DateTime timpestamp,
-      Source source,
+      {Source source,
       Source target,
+      String? type,
+      DateTime? timpestamp,
       Card card,
-      double amount});
+      double? amount});
 
   $SourceCopyWith<$Res> get source;
   $SourceCopyWith<$Res> get target;
@@ -65,22 +65,14 @@ class _$JournalModelCopyWithImpl<$Res, $Val extends JournalModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? timpestamp = null,
     Object? source = null,
     Object? target = null,
+    Object? type = freezed,
+    Object? timpestamp = freezed,
     Object? card = null,
-    Object? amount = null,
+    Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      timpestamp: null == timpestamp
-          ? _value.timpestamp
-          : timpestamp // ignore: cast_nullable_to_non_nullable
-              as DateTime,
       source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
@@ -89,14 +81,22 @@ class _$JournalModelCopyWithImpl<$Res, $Val extends JournalModel>
           ? _value.target
           : target // ignore: cast_nullable_to_non_nullable
               as Source,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timpestamp: freezed == timpestamp
+          ? _value.timpestamp
+          : timpestamp // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       card: null == card
           ? _value.card
           : card // ignore: cast_nullable_to_non_nullable
               as Card,
-      amount: null == amount
+      amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ) as $Val);
   }
 
@@ -134,12 +134,12 @@ abstract class _$$_JournalModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String type,
-      DateTime timpestamp,
-      Source source,
+      {Source source,
       Source target,
+      String? type,
+      DateTime? timpestamp,
       Card card,
-      double amount});
+      double? amount});
 
   @override
   $SourceCopyWith<$Res> get source;
@@ -160,38 +160,38 @@ class __$$_JournalModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? timpestamp = null,
     Object? source = null,
     Object? target = null,
+    Object? type = freezed,
+    Object? timpestamp = freezed,
     Object? card = null,
-    Object? amount = null,
+    Object? amount = freezed,
   }) {
     return _then(_$_JournalModel(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      timpestamp: null == timpestamp
-          ? _value.timpestamp
-          : timpestamp // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      source: null == source
+      null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as Source,
-      target: null == target
+      null == target
           ? _value.target
           : target // ignore: cast_nullable_to_non_nullable
               as Source,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timpestamp: freezed == timpestamp
+          ? _value.timpestamp
+          : timpestamp // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       card: null == card
           ? _value.card
           : card // ignore: cast_nullable_to_non_nullable
               as Card,
-      amount: null == amount
+      amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -199,11 +199,9 @@ class __$$_JournalModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_JournalModel implements _JournalModel {
-  const _$_JournalModel(
+  const _$_JournalModel(this.source, this.target,
       {required this.type,
       required this.timpestamp,
-      required this.source,
-      required this.target,
       required this.card,
       required this.amount});
 
@@ -211,21 +209,21 @@ class _$_JournalModel implements _JournalModel {
       _$$_JournalModelFromJson(json);
 
   @override
-  final String type;
-  @override
-  final DateTime timpestamp;
-  @override
   final Source source;
   @override
   final Source target;
   @override
+  final String? type;
+  @override
+  final DateTime? timpestamp;
+  @override
   final Card card;
   @override
-  final double amount;
+  final double? amount;
 
   @override
   String toString() {
-    return 'JournalModel(type: $type, timpestamp: $timpestamp, source: $source, target: $target, card: $card, amount: $amount)';
+    return 'JournalModel(source: $source, target: $target, type: $type, timpestamp: $timpestamp, card: $card, amount: $amount)';
   }
 
   @override
@@ -233,11 +231,11 @@ class _$_JournalModel implements _JournalModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_JournalModel &&
+            (identical(other.source, source) || other.source == source) &&
+            (identical(other.target, target) || other.target == target) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.timpestamp, timpestamp) ||
                 other.timpestamp == timpestamp) &&
-            (identical(other.source, source) || other.source == source) &&
-            (identical(other.target, target) || other.target == target) &&
             (identical(other.card, card) || other.card == card) &&
             (identical(other.amount, amount) || other.amount == amount));
   }
@@ -245,7 +243,7 @@ class _$_JournalModel implements _JournalModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, type, timpestamp, source, target, card, amount);
+      Object.hash(runtimeType, source, target, type, timpestamp, card, amount);
 
   @JsonKey(ignore: true)
   @override
@@ -262,29 +260,27 @@ class _$_JournalModel implements _JournalModel {
 }
 
 abstract class _JournalModel implements JournalModel {
-  const factory _JournalModel(
-      {required final String type,
-      required final DateTime timpestamp,
-      required final Source source,
-      required final Source target,
+  const factory _JournalModel(final Source source, final Source target,
+      {required final String? type,
+      required final DateTime? timpestamp,
       required final Card card,
-      required final double amount}) = _$_JournalModel;
+      required final double? amount}) = _$_JournalModel;
 
   factory _JournalModel.fromJson(Map<String, dynamic> json) =
       _$_JournalModel.fromJson;
 
   @override
-  String get type;
-  @override
-  DateTime get timpestamp;
-  @override
   Source get source;
   @override
   Source get target;
   @override
+  String? get type;
+  @override
+  DateTime? get timpestamp;
+  @override
   Card get card;
   @override
-  double get amount;
+  double? get amount;
   @override
   @JsonKey(ignore: true)
   _$$_JournalModelCopyWith<_$_JournalModel> get copyWith =>
@@ -492,11 +488,11 @@ class __$$_SourceCopyWithImpl<$Res>
     Object? avatar = null,
   }) {
     return _then(_$_Source(
-      name: null == name
+      null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      avatar: null == avatar
+      null == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String,
@@ -507,7 +503,7 @@ class __$$_SourceCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Source implements _Source {
-  const _$_Source({required this.name, required this.avatar});
+  const _$_Source(this.name, this.avatar);
 
   factory _$_Source.fromJson(Map<String, dynamic> json) =>
       _$$_SourceFromJson(json);
@@ -550,8 +546,7 @@ class _$_Source implements _Source {
 }
 
 abstract class _Source implements Source {
-  const factory _Source(
-      {required final String name, required final String avatar}) = _$_Source;
+  const factory _Source(final String name, final String avatar) = _$_Source;
 
   factory _Source.fromJson(Map<String, dynamic> json) = _$_Source.fromJson;
 

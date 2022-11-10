@@ -8,20 +8,22 @@ part of 'journal_model.dart';
 
 _$_JournalModel _$$_JournalModelFromJson(Map<String, dynamic> json) =>
     _$_JournalModel(
-      type: json['type'] as String,
-      timpestamp: DateTime.parse(json['timpestamp'] as String),
-      source: Source.fromJson(json['source'] as Map<String, dynamic>),
-      target: Source.fromJson(json['target'] as Map<String, dynamic>),
+      Source.fromJson(json['source'] as Map<String, dynamic>),
+      Source.fromJson(json['target'] as Map<String, dynamic>),
+      type: json['type'] as String?,
+      timpestamp: json['timpestamp'] == null
+          ? null
+          : DateTime.parse(json['timpestamp'] as String),
       card: Card.fromJson(json['card'] as Map<String, dynamic>),
-      amount: (json['amount'] as num).toDouble(),
+      amount: (json['amount'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_JournalModelToJson(_$_JournalModel instance) =>
     <String, dynamic>{
-      'type': instance.type,
-      'timpestamp': instance.timpestamp.toIso8601String(),
       'source': instance.source,
       'target': instance.target,
+      'type': instance.type,
+      'timpestamp': instance.timpestamp?.toIso8601String(),
       'card': instance.card,
       'amount': instance.amount,
     };
@@ -35,8 +37,8 @@ Map<String, dynamic> _$$_CardToJson(_$_Card instance) => <String, dynamic>{
     };
 
 _$_Source _$$_SourceFromJson(Map<String, dynamic> json) => _$_Source(
-      name: json['name'] as String,
-      avatar: json['avatar'] as String,
+      json['name'] as String,
+      json['avatar'] as String,
     );
 
 Map<String, dynamic> _$$_SourceToJson(_$_Source instance) => <String, dynamic>{

@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final journalModel = journalModelFromJson(jsonString);
-
 import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -18,13 +14,13 @@ String journalModelToJson(List<JournalModel> data) =>
 
 @freezed
 class JournalModel with _$JournalModel {
-  const factory JournalModel({
-    required String type,
-    required DateTime timpestamp,
-    required Source source,
-    required Source target,
+  const factory JournalModel(
+    Source source,
+    Source target, {
+    required String? type,
+    required DateTime? timpestamp,
     required Card card,
-    required double amount,
+    required double? amount,
   }) = _JournalModel;
 
   factory JournalModel.fromJson(Map<String, dynamic> json) =>
@@ -42,10 +38,10 @@ class Card with _$Card {
 
 @freezed
 class Source with _$Source {
-  const factory Source({
-    required String name,
-    required String avatar,
-  }) = _Source;
+  const factory Source(
+    String name,
+    String avatar,
+  ) = _Source;
 
   factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
 }

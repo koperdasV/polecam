@@ -49,7 +49,7 @@ class JournalListView extends StatelessWidget {
               );
             }
             return JournalCard(
-              tmpStr: journals[index],
+              journalModel: journals[index],
             );
           }),
         ),
