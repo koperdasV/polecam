@@ -11,3 +11,15 @@ class LoadCategories extends CategoriesEvent {
   @override
   List<Object?> get props => [];
 }
+
+class LoadRecommended extends CategoriesEvent {
+  const LoadRecommended();
+  @override
+  List<Object?> get props => [];
+}
+
+class LoadYourArea extends CategoriesEvent {
+  const LoadYourArea();
+  @override
+  List<Object?> get props => [];
+}

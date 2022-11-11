@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
-import 'package:polec/src/ui/home/model/categories_model.dart';
+import 'package:polec/src/ui/home/model/categories/categories_model.dart';
 
 class CategoriesItem extends StatelessWidget {
   const CategoriesItem({

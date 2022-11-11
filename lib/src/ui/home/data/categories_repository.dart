@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:polec/src/ui/home/model/categories_model.dart';
+import 'package:polec/src/ui/home/model/categories/categories_model.dart';
 
 abstract class ICategoriesRepo {
   Future<List<CategoriesModel>> fetchCategories();
-  Future<List<String>> fetchRecommended();
-  Future<List<String>> fetchYourArea();
+  Future<List<CategoriesModel>> fetchRecommended();
+  Future<List<CategoriesModel>> fetchYourArea();
 }
 
 class CategoriesRepository implements ICategoriesRepo {
@@ -21,22 +21,22 @@ class CategoriesRepository implements ICategoriesRepo {
   }
   
   @override
-  Future<List<String>> fetchRecommended() {
-    return Future.delayed(const Duration(seconds: 1)).then(
-      (value) => List<String>.generate(
-        20,
-        (int index) => 'index: $index;',
-        growable: false,
-      ),);
+  Future<List<CategoriesModel>> fetchRecommended() async{
+    final response = await rootBundle.loadString('assets/categories.json');
+    final json = jsonDecode(response) as List<dynamic>;
+    final recommended = json
+        .map((e) => CategoriesModel.fromJson(e as Map<String, dynamic>))
+        .toList();
+    return recommended;
   }
   
   @override
-  Future<List<String>> fetchYourArea() {
-     return Future.delayed(const Duration(seconds: 1)).then(
-      (value) => List<String>.generate(
-        20,
-        (int index) => 'index: $index;',
-        growable: false,
-      ),);
+  Future<List<CategoriesModel>> fetchYourArea() async{
+     final response = await rootBundle.loadString('assets/categories.json');
+    final json = jsonDecode(response) as List<dynamic>;
+    final area = json
+        .map((e) => CategoriesModel.fromJson(e as Map<String, dynamic>))
+        .toList();
+    return area;
   }
 }

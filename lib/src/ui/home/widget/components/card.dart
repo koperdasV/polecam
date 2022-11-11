@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
+import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
 class CardWidget extends StatelessWidget {
@@ -11,13 +12,20 @@ class CardWidget extends StatelessWidget {
     this.child,
     required this.textTitle,
     required this.textSubtitle,
+    required this.tmp,
+    this.height = 180,
+    this.width,
   }) : super(key: key);
 
   final String image;
   final String textTitle;
   final String textSubtitle;
   final double? fontSize;
+  final double? height;
+  final double? width;
   final Widget? child;
+
+  final RecommendedModel tmp;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +43,19 @@ class CardWidget extends StatelessWidget {
           },
           child: Stack(
             children: [
-              Image.asset(image),
+              SizedBox(
+                width: width,
+                height: height,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.network(
+                    tmp.image.toString(),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
               PercentWidget(
-                percent: '17%',
+                percent: tmp.regularFee.toString(),
                 fontSize: fontSize,
               ),
               Positioned(
@@ -48,12 +66,17 @@ class CardWidget extends StatelessWidget {
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: Text(
-            textTitle,
-            style: const TextStyle(
-              fontSize: 18,
+        Container(
+          width: 160,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Text(
+              textTitle,
+              maxLines: 1,
+              style: const TextStyle(
+                overflow: TextOverflow.ellipsis,
+                fontSize: 18,
+              ),
             ),
           ),
         ),

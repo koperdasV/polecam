@@ -14,8 +14,8 @@ class CategoriesState extends Equatable {
   final CategoriesStateStatus status;
   final String errorMessage;
   final List<CategoriesModel> categories;
-  final List<String> recommended;
-  final List<String> yourArea;
+  final List<RecommendedModel> recommended;
+  final List<CategoriesModel> yourArea;
 
   @override
   List<Object?> get props => [
@@ -30,8 +30,8 @@ class CategoriesState extends Equatable {
     CategoriesStateStatus? status,
     String? errorMessage,
     List<CategoriesModel>? categories,
-    List<String>? recommended,
-    List<String>? yourArea,
+    List<RecommendedModel>? recommended,
+    List<CategoriesModel>? yourArea,
   }) {
     return CategoriesState(
       status: status ?? this.status,

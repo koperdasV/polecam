@@ -27,11 +27,16 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     context.read<CategoriesBloc>().add(const LoadCategories());
+    context.read<CategoriesBloc>().add(const LoadRecommended());
+    context.read<CategoriesBloc>().add(const LoadYourArea());
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    // final yourArea = context.read<CategoriesBloc>().state.yourArea;
+    final recommended = context.read<CategoriesBloc>().state.recommended;
+
     return CupertinoPageScaffold(
       child: BlocConsumer<CategoriesBloc, CategoriesState>(
         listener: (context, state) {
@@ -101,16 +106,17 @@ class _HomePageState extends State<HomePage> {
                         child: SizedBox(
                           height: 280,
                           child: HorizontalListScroll(
-                            image: 'assets/fake_images/food_polecane.png',
-                            textTitle: 'Thai beef fried rice',
-                            textSubtitle: 'Polecone przez: Paweł Woźniak',
+                            width: 310,
+                            image: recommended.toString(),
+                            textTitle: recommended.toString(),
+                            textSubtitle: 'recommended.toString()',
                             child: Row(
                               children: const [
                                 CategorieTag(
-                                  tag: 'Thai cuisine',
+                                  tag: 'Food',
                                 ),
                                 CategorieTag(
-                                  tag: 'Food',
+                                  tag: 'Asia',
                                 ),
                               ],
                             ),
@@ -135,9 +141,10 @@ class _HomePageState extends State<HomePage> {
                         child: SizedBox(
                           height: 280,
                           child: HorizontalListScroll(
-                            image: 'assets/fake_images/food_okolice.png',
-                            textTitle: 'Spicy Salad',
-                            textSubtitle: 'Recommended: 142',
+                            width: 160,
+                            image: '',
+                            textTitle: '',
+                            textSubtitle: '',
                             fontSize: 22,
                             child: CupertinoButton(
                               borderRadius: BorderRadius.circular(100),
