@@ -30,10 +30,10 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
         ),
       );
 
-      final recommendations = await _detailsRepo.fetchDetails();
+      final detailModel = await _detailsRepo.fetchDetails();
 
       return emit(state.copyWith(
-        recommendations: recommendations,
+        detailModel: detailModel,
         status: DetailsStateStatus.success,
       ));
     } catch (e) {
