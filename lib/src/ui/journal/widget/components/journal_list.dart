@@ -13,45 +13,45 @@ class JournalListView extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         CupertinoSliverRefreshControl(
-         onRefresh: () async {
+          onRefresh: () async {
             context.read<JournalsBloc>().add(const RefreshJournals());
           },
         ),
         SliverList(
           delegate: SliverChildBuilderDelegate(
-              childCount: canLoadMore ? journals.length + 1 : journals.length,
-              (context, index) {
-            if (index >= journals.length) {
-              return BlocBuilder<JournalsBloc, JournalsState>(
-                builder: (context, state) {
-                  return state.status == JournalsStateStatus.loading
-                      ? const Center(
-                          child: CupertinoActivityIndicator(
-                          ),
-                        )
-                      : Center(
-                          child: CupertinoButton(
-                            onPressed: () {
-                              context
-                                  .read<JournalsBloc>()
-                                  .add(const LoadJournals());
-                            },
-                            child: const Text(
-                              'See more',
-                              style: TextStyle(
-                                color: CupertinoColors.inactiveGray,
-                                fontWeight: FontWeight.normal,
+            childCount: canLoadMore ? journals.length + 1 : journals.length,
+            (context, index) {
+              if (index >= journals.length) {
+                return BlocBuilder<JournalsBloc, JournalsState>(
+                  builder: (context, state) {
+                    return state.status == JournalsStateStatus.loading
+                        ? const Center(
+                            child: CupertinoActivityIndicator(),
+                          )
+                        : Center(
+                            child: CupertinoButton(
+                              onPressed: () {
+                                context
+                                    .read<JournalsBloc>()
+                                    .add(const LoadJournals());
+                              },
+                              child: const Text(
+                                'See more',
+                                style: TextStyle(
+                                  color: CupertinoColors.inactiveGray,
+                                  fontWeight: FontWeight.normal,
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                },
+                          );
+                  },
+                );
+              }
+              return JournalCard(
+                journalModel: journals[index],
               );
-            }
-            return JournalCard(
-              journalModel: journals[index],
-            );
-          }),
+            },
+          ),
         ),
       ],
     );

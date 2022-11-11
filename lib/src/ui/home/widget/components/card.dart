@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
-import 'package:polec/src/ui/home/components/percent_widget.dart';
+import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({

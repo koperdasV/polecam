@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
-import 'package:polec/src/ui/home/components/search_widget.dart';
+import 'package:polec/src/ui/home/widget/components/search_widget.dart';
 
 class SearchBox extends StatelessWidget {
   const SearchBox({

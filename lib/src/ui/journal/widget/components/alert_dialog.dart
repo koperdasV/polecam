@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:polec/src/ui/details/components/show_dialog.dart';
-import 'package:polec/src/ui/home/components/in_active_button.dart';
+import 'package:polec/src/ui/home/widget/components/in_active_button.dart';
 import 'package:polec/src/ui/journal/model/journal/journal_model.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

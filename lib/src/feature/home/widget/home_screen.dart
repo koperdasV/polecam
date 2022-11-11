@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:polec/src/feature/profile/widget/profile_screen.dart';
 import 'package:polec/src/ui/favorite/favorite_page.dart';
-import 'package:polec/src/ui/home/home_page.dart';
+import 'package:polec/src/ui/home/widget/home_page.dart';
 import 'package:polec/src/ui/journal/widget/journal_page.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Widget> pages = [
-    const HomePage(),
+    HomePage(),
     const FavoritePage(),
     JournalPage(),
     const ProfileScreen(),
