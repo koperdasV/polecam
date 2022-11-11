@@ -31,8 +31,12 @@ dependencies:
   shared_preferences: ^2.0.15
   smooth_page_indicator: ^1.0.0+2
   syncfusion_flutter_charts: ^20.3.52
+  # phone auth
   #Flutter map
   flutter_map: ^3.0.0
+  freezed: ^2.2.0
+  json_annotation: ^4.7.0
+  json_serializable: ^6.5.4
 
 dev_dependencies:
   bloc_test: ^9.1.0
@@ -51,6 +55,8 @@ flutter:
     - assets/images/
     - assets/fake_images/
     - assets/icons/
+    - assets/journal.json
+    - assets/categories.json
 
   fonts:
     - family: SegoeUIBlack

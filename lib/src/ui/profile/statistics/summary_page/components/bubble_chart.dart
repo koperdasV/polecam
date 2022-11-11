@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:polec/resources/colors.dart';
 
 class BubbleChartDataEntry {
   const BubbleChartDataEntry({
@@ -81,7 +82,7 @@ class BubbleChartPainter extends CustomPainter {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: entry.colors,
-        ).createShader(Rect.fromLTWH(0, 0, a, a))
+        ).createShader(Rect.fromCenter(center: center, width: a, height: a))
         ..strokeWidth = 4;
       canvas.drawLine(center, point, paint);
 
@@ -90,7 +91,7 @@ class BubbleChartPainter extends CustomPainter {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: entry.colors,
-        ).createShader(Rect.fromLTWH(0, 0, a, a))
+        ).createShader(Rect.fromCircle(center: center, radius: a))
         ..style = PaintingStyle.fill;
       canvas.drawCircle(point, vertexRadius, vertexPaint);
 
@@ -131,14 +132,14 @@ class BubbleChartPainter extends CustomPainter {
       final labelTextPainter = TextPainter(
         text: TextSpan(
           text: entry.label,
-          style: const TextStyle(
-            fontSize: 20,
-            color: Colors.black,
+          style: TextStyle(
+            fontSize: 16,
+            color: AppColor.categorieColor,
           ),
         ),
         textAlign: TextAlign.center,
         textDirection: TextDirection.ltr,
-      )..layout();
+      )..layout(maxWidth: 160);
 
       var labetTextOffset = labelTextPoint;
 

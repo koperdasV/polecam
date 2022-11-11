@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:polec/src/ui/home/components/card.dart';
+import 'package:polec/src/ui/home/widget/components/card.dart';
 
 class HorizontalListScroll extends StatelessWidget {
   const HorizontalListScroll({

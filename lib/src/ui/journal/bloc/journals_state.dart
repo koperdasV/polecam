@@ -15,7 +15,7 @@ class JournalsState extends Equatable {
   final String errorMessage;
   final bool canLoadMore;
   final int page;
-  final List<String> journals;
+  final List<JournalModel> journals;
 
   @override
   List<Object?> get props =>
@@ -26,7 +26,7 @@ class JournalsState extends Equatable {
     String? errorMessage,
     bool? canLoadMore,
     int? page,
-    List<String>? journals,
+    List<JournalModel>? journals,
   }) {
     return JournalsState(
       status: status ?? this.status,

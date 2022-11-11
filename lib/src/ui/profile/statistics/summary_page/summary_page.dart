@@ -82,32 +82,32 @@ class _SummaryPageState extends State<SummaryPage> {
     final spiderData = [
       BubbleChartDataEntry(
         value: 32,
-        label: 'Astoria',
+        label: r'Pawel (125.35$)',
         colors: AppColor.blueBall,
       ),
       BubbleChartDataEntry(
         value: 20,
-        label: 'Русня',
+        label: r'Dawid (125.35$)',
         colors: AppColor.purpleBall,
       ),
       BubbleChartDataEntry(
         value: 18,
-        label: 'Русня',
+        label: r'Ewelina (125.35$)',
         colors: AppColor.pinkBall,
       ),
       BubbleChartDataEntry(
         value: 25,
-        label: 'Русні піздєц три тисячі разів',
+        label: r'Joanna (125.35$)',
         colors: AppColor.yellowBall,
       ),
       BubbleChartDataEntry(
         value: 24,
-        label: 'Lidl',
+        label: r'Sebastian (125.35$)',
         colors: AppColor.greenBall,
       ),
       BubbleChartDataEntry(
         value: 26,
-        label: 'Lidl',
+        label: r'Robert (125.35$)',
         colors: AppColor.redBall,
       ),
     ];
