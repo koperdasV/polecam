@@ -32,6 +32,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
   @override
   Widget build(BuildContext context) {
     final detailModel = context.read<DetailsBloc>().state.detailModel;
+    if (detailModel == null) return const SizedBox.shrink();
     return BlocBuilder<DetailsBloc, DetailsState>(
       builder: (context, state) {
         return ListView(
@@ -48,7 +49,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                    Padding(
                     padding: EdgeInsets.only(top: 10),
                     child: Text(
-                      '${detailModel} Thai beef fried rice',
+                      detailModel.name.toString(),
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,

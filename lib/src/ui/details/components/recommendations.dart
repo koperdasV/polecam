@@ -11,6 +11,7 @@ class RecomendationsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final detailModel = context.read<DetailsBloc>().state.detailModel;
+    if (detailModel == null) return const SizedBox.shrink();
     return BlocBuilder<DetailsBloc, DetailsState>(
       builder: (context, state) {
         return state.status == DetailsStateStatus.loading
@@ -19,11 +20,13 @@ class RecomendationsWidget extends StatelessWidget {
               )
             : ListView.builder(
                 shrinkWrap: true,
-                itemCount: 5,
+                itemCount: detailModel.recommendations?.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 16),
+                      vertical: 10,
+                      horizontal: 16,
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -43,7 +46,7 @@ class RecomendationsWidget extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  '${detailModel} Anna Woźniak',
+                                  '${detailModel.recommendations![index].name} ${detailModel.recommendations![index].surname}',
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,

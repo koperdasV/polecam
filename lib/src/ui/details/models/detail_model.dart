@@ -7,18 +7,18 @@ part 'detail_model.g.dart';
 DetailModel detailsModelFromJson(String str) =>
     DetailModel.fromJson(json.decode(str) as Map<String, dynamic>);
 
-String detailsModelToJson(DetailModel data) => json.encode(data.toJson());
+String? detailsModelToJson(DetailModel data) => json.encode(data.toJson());
 
 @freezed
 class DetailModel with _$DetailModel {
   const factory DetailModel({
-    required String image,
-    required String? name,
-    required String regularFee,
-    required String url,
-    required String description,
-    required List<Addresses> addresses,
-    required List<Recommendations> recommendations,
+    String? image,
+    String? name,
+    String? regularFee,
+    String? url,
+    String? description,
+    List<Addresses>? addresses,
+    List<Recommendations>? recommendations,
   }) = _DetailModel;
 
   factory DetailModel.fromJson(Map<String, dynamic> json) =>
@@ -28,14 +28,14 @@ class DetailModel with _$DetailModel {
 @freezed
 class Addresses with _$Addresses {
   const factory Addresses({
-    required String street,
-    required String city,
-    required String code,
-    required String country,
-    required String lat,
-    required String lng,
-    required List<String> phones,
-    required Open open,
+     String? street,
+     String? city,
+     String? code,
+     String? country,
+     String? lat,
+     String? lng,
+     List<String>? phones,
+     Open? open,
   }) = _Addresses;
 
   factory Addresses.fromJson(Map<String, dynamic> json) =>
@@ -45,13 +45,13 @@ class Addresses with _$Addresses {
 @freezed
 class Open with _$Open {
   const factory Open({
-    required String monday,
-    required String tuesday,
-    required String wednesday,
-    required String thursday,
-    required String friday,
-    required String saturday,
-    required String sunday,
+     String? monday,
+     String? tuesday,
+     String? wednesday,
+     String? thursday,
+     String? friday,
+     String? saturday,
+     String? sunday,
   }) = _Open;
 
   factory Open.fromJson(Map<String, dynamic> json) => _$OpenFromJson(json);
@@ -60,12 +60,12 @@ class Open with _$Open {
 @freezed
 class Recommendations with _$Recommendations {
   const factory Recommendations({
-    required String avatar,
-    required String name,
-    required String surname,
-    required String subtitleYou,
-    required String subtitle,
-    required String amount,
+     String? avatar,
+     String? name,
+     String? surname,
+     String? subtitleYou,
+     String? subtitle,
+     String? amount,
   }) = _Recommendations;
 
   factory Recommendations.fromJson(Map<String, dynamic> json) =>

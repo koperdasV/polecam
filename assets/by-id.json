@@ -34,6 +34,14 @@
             "subtitle_you": "You",
             "subtitle": "John",
             "amount": "+25$"
+        },
+        {
+            "avatar": "assets/fake_images/profile.png",
+            "name": "Ваня",
+            "surname": "Журавель",
+            "subtitle_you": "You",
+            "subtitle": "John",
+            "amount": "+25$"
         }
     ]
 }
