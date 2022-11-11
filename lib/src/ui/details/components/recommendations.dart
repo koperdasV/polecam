@@ -2,14 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/resourses/app_images.dart';
+import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 
 class RecomendationsWidget extends StatelessWidget {
   const RecomendationsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final recommendstions = context.read<DetailsBloc>().state.recommendations;
     return ListView.builder(
       shrinkWrap: true,
       itemCount: 5,

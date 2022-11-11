@@ -7,6 +7,8 @@ import 'package:polec/src/feature/home/widget/home_screen.dart';
 import 'package:polec/src/feature/not_found/widget/not_found_screen.dart';
 import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart';
 import 'package:polec/src/feature/registration/widget/registration_screen.dart';
+import 'package:polec/src/ui/details/bloc/details_bloc.dart';
+import 'package:polec/src/ui/details/data/detail_repository.dart';
 import 'package:polec/src/ui/journal/bloc/journals_bloc.dart';
 import 'package:polec/src/ui/journal/data/journals_repository.dart';
 
@@ -44,10 +46,18 @@ class HomeRoute extends GoRouteData {
   const HomeRoute();
 
   @override
-  Widget build(BuildContext context) => BlocProvider<JournalsBloc>(
-        create: (context) => JournalsBloc(journalsRepo: JournalRepository()),
-        child: HomeScreen(),
-      );
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+            create: (context) =>
+                JournalsBloc(journalsRepo: JournalRepository())),
+        BlocProvider(
+            create: (context) => DetailsBloc(detailsRepo: DetailRepository())),
+      ],
+      child: HomeScreen(),
+    );
+  }
 }
 
 /// RegistrationRoute

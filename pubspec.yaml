@@ -33,6 +33,9 @@ dependencies:
   syncfusion_flutter_charts: ^20.3.52
   #Flutter map
   flutter_map: ^3.0.0
+  json_annotation: ^4.7.0
+  freezed: ^2.2.0
+  json_serializable: ^6.5.4
 
 dev_dependencies:
   bloc_test: ^9.1.0
@@ -51,6 +54,7 @@ flutter:
     - assets/images/
     - assets/fake_images/
     - assets/icons/
+    - assets/by-id.json
 
   fonts:
     - family: SegoeUIBlack
