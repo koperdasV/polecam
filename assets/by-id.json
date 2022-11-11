@@ -25,5 +25,15 @@
                 "sunday": "zamknięte"
             }
         }
+    ],
+    "recommendations": [
+        {
+            "avatar": "assets/fake_images/profile.png",
+            "name": "John",
+            "surname": "Kuleipz",
+            "subtitle_you": "You",
+            "subtitle": "John",
+            "amount": "+25$"
+        }
     ]
 }

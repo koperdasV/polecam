@@ -4,12 +4,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'detail_model.freezed.dart';
 part 'detail_model.g.dart';
 
-DetailModel detailsModelFromJson(String str) => DetailModel.fromJson(
-      json.decode(str) as Map<String, dynamic>,
-    );
+DetailModel detailsModelFromJson(String str) =>
+    DetailModel.fromJson(json.decode(str) as Map<String, dynamic>);
 
-String detailsModelToJson(DetailModel data) =>
-    json.encode(data.toJson());
+String detailsModelToJson(DetailModel data) => json.encode(data.toJson());
 
 @freezed
 class DetailModel with _$DetailModel {
@@ -20,6 +18,7 @@ class DetailModel with _$DetailModel {
     required String url,
     required String description,
     required List<Addresses> addresses,
+    required List<Recommendations> recommendations,
   }) = _DetailModel;
 
   factory DetailModel.fromJson(Map<String, dynamic> json) =>
@@ -56,4 +55,19 @@ class Open with _$Open {
   }) = _Open;
 
   factory Open.fromJson(Map<String, dynamic> json) => _$OpenFromJson(json);
+}
+
+@freezed
+class Recommendations with _$Recommendations {
+  const factory Recommendations({
+    required String avatar,
+    required String name,
+    required String surname,
+    required String subtitleYou,
+    required String subtitle,
+    required String amount,
+  }) = _Recommendations;
+
+  factory Recommendations.fromJson(Map<String, dynamic> json) =>
+      _$RecommendationsFromJson(json);
 }

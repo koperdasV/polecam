@@ -18,7 +18,7 @@ class DetailRepository implements IDetailRepo {
 
     final response = await rootBundle.loadString('assets/by-id.json');
     final json = await jsonDecode(response);
-    final recommendation = DetailModel.fromJson(json as Map<String, dynamic>);
-    return recommendation;
+    final recommendations = DetailModel.fromJson(json as Map<String, dynamic>);
+    return recommendations;
   }
 }
