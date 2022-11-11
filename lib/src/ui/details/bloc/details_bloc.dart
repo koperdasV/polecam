@@ -14,7 +14,6 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
       : _detailsRepo = detailsRepo,
         super(DetailsState()) {
     on<LoadDetails>(_onLoadDetailsToState);
-    on<LoadRecommenations>(_onLoadRecommendationsToState);
   }
 
   final IDetailRepo _detailsRepo;
@@ -26,16 +25,17 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
     try {
       emit(
         state.copyWith(
-          status: DetailsStateStatus.loading,
-        ),
+            status: DetailsStateStatus.loading, errorMessage: 'loading'),
       );
 
       final detailModel = await _detailsRepo.fetchDetails();
 
-      return emit(state.copyWith(
-        detailModel: detailModel,
-        status: DetailsStateStatus.success,
-      ));
+      return emit(
+        state.copyWith(
+          detailModel: detailModel,
+          status: DetailsStateStatus.success,
+        ),
+      );
     } catch (e) {
       return emit(
         state.copyWith(
@@ -44,13 +44,5 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
         ),
       );
     }
-  }
-
-  Future<void> _onLoadRecommendationsToState(
-    LoadRecommenations event,
-    Emitter<DetailsState> emit,
-  ) async {
-    emit(const DetailsState(status: DetailsStateStatus.loading));
-    add(const LoadRecommenations());
   }
 }

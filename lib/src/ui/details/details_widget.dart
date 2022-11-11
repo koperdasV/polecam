@@ -31,197 +31,194 @@ class _DetailsWidgetState extends State<DetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 10,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              GestureDetector(
-                child: const ImageWidget(),
-                onTap: () => Navigator.push(
-                  context,
-                  CupertinoPageRoute(
-                    builder: (context) => const NotRecommendScreen(),
-                  ),
-                ),
+    final detailModel = context.read<DetailsBloc>().state.detailModel;
+    return BlocBuilder<DetailsBloc, DetailsState>(
+      builder: (context, state) {
+        return ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 10,
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 10),
-                child: Text(
-                  'Thai beef fried rice',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Text(
-                'Recommend by: Paweł Woźniak',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: AppColor.subTitleColor,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.baseline,
-                textBaseline: TextBaseline.ideographic,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const ImageWidget(),
+                   Padding(
+                    padding: EdgeInsets.only(top: 10),
+                    child: Text(
+                      '${detailModel} Thai beef fried rice',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                   Text(
-                    //textAlign: TextAlign.justify,
-                    'Your discount:',
+                    'Recommend by: Paweł Woźniak',
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 12,
                       color: AppColor.subTitleColor,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
-                  const SizedBox(width: 5),
-                  const Text(
-                    // textAlign: TextAlign.justify,
-                    '10 %',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: AppColors.pecent,
-                      fontWeight: FontWeight.bold,
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.ideographic,
+                    children: [
+                      Text(
+                        //textAlign: TextAlign.justify,
+                        'Your discount:',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: AppColor.subTitleColor,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      const Text(
+                        // textAlign: TextAlign.justify,
+                        '10 %',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: AppColors.pecent,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  GestureDetector(
+                    onTap: () => showDialog(
+                      context: context,
+                      builder: (context) => ShowDialog(
+                        height: 250,
+                        child: Column(
+                          children: const [
+                            Text(
+                              'Recommend this place 3 friends',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              'To get an additional 1% discount successfully recomend this place to 3 friends',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal,
+                                fontSize: 12,
+                              ),
+                            ),
+                            SizedBox(height: 20),
+                            Text(
+                              '*successful recommendation is one that ended with a transaction.',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.normal,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        gradient: const LinearGradient(
+                          colors: [
+                            AppColors.gradientStart,
+                            AppColors.gradientEnd,
+                          ],
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 4,
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.ideographic,
+                          children: const [
+                            Text(
+                              'Get ',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                            Text(
+                              '11%',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ],
               ),
-              GestureDetector(
-                onTap: () => showDialog(
-                  context: context,
-                  builder: (context) => ShowDialog(
-                    height: 250,
-                    child: Column(
-                      children: const [
-                        Text(
-                          'Recommend this place 3 friends',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          'To get an additional 1% discount successfully recomend this place to 3 friends',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.normal,
-                            fontSize: 12,
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        Text(
-                          '*successful recommendation is one that ended with a transaction.',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.normal,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+            ),
+            const SizedBox(height: 10),
+            const CustomNavigationBar(),
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: RecommendedButton(
+                image: Image.asset(
+                  AppImages.logo,
+                  color: Colors.white,
                 ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    gradient: const LinearGradient(
-                      colors: [
-                        AppColors.gradientStart,
-                        AppColors.gradientEnd,
-                      ],
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 4,
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.baseline,
-                      textBaseline: TextBaseline.ideographic,
-                      children: const [
-                        Text(
-                          'Get ',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        Text(
-                          '11%',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
+                textButton: 'Recommend to friend',
+                gradient: const LinearGradient(
+                  colors: [
+                    AppColors.gradientStart,
+                    AppColors.gradientEnd,
+                  ],
+                ),
+                textColor: Colors.white,
+                onPressed: () => Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) => const PaymentScreen(),
                   ),
                 ),
               ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 10),
-        const CustomNavigationBar(),
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: RecommendedButton(
-            image: Image.asset(
-              AppImages.logo,
-              color: Colors.white,
             ),
-            textButton: 'Recommend to friend',
-            gradient: const LinearGradient(
-              colors: [
-                AppColors.gradientStart,
-                AppColors.gradientEnd,
-              ],
-            ),
-            textColor: Colors.white,
-            onPressed: () => Navigator.push(
-              context,
-              CupertinoPageRoute(
-                builder: (context) => const PaymentScreen(),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                'Recommendations',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: AppColor.titleColor,
+                ),
               ),
             ),
-          ),
-        ),
-        const SizedBox(height: 20),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Text(
-            'Recommendations',
-            style: TextStyle(
-              fontSize: 16,
-              color: AppColor.titleColor,
-            ),
-          ),
-        ),
-        const RecomendationsWidget(),
-      ],
+            const RecomendationsWidget(),
+          ],
+        );
+      },
     );
   }
 }

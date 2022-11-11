@@ -6,28 +6,34 @@ class DetailsState extends Equatable {
   const DetailsState({
     this.status = DetailsStateStatus.initial,
     this.errorMessage = '',
-    this.recommendations,
+    // this.recommendations = const [],
     this.detailModel,
-  });
+  }) ;
 
   final DetailsStateStatus status;
   final String errorMessage;
-  final DetailModel? recommendations;
+  // final List<Recommendations> recommendations;
   final DetailModel? detailModel;
 
   @override
-  List<Object?> get props => [status, errorMessage, recommendations];
+  List<Object?> get props => [
+        status,
+        errorMessage,
+        // recommendations,
+        detailModel,
+      ];
 
   DetailsState copyWith({
     DetailsStateStatus? status,
     String? errorMessage,
-    DetailModel? recommendations,
+    // List<Recommendations>? recommendations,
     DetailModel? detailModel,
   }) {
     return DetailsState(
       status: status ?? this.status,
       errorMessage: errorMessage ?? this.errorMessage,
-      recommendations: recommendations ?? this.recommendations,
+      // recommendations: recommendations ?? this.recommendations,
+      detailModel: detailModel ?? this.detailModel,
     );
   }
 }

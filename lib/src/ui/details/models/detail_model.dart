@@ -13,7 +13,7 @@ String detailsModelToJson(DetailModel data) => json.encode(data.toJson());
 class DetailModel with _$DetailModel {
   const factory DetailModel({
     required String image,
-    required String name,
+    required String? name,
     required String regularFee,
     required String url,
     required String description,

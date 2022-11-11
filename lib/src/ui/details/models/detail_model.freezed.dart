@@ -21,7 +21,7 @@ DetailModel _$DetailModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DetailModel {
   String get image => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   String get regularFee => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $DetailModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String image,
-      String name,
+      String? name,
       String regularFee,
       String url,
       String description,
@@ -65,7 +65,7 @@ class _$DetailModelCopyWithImpl<$Res, $Val extends DetailModel>
   @override
   $Res call({
     Object? image = null,
-    Object? name = null,
+    Object? name = freezed,
     Object? regularFee = null,
     Object? url = null,
     Object? description = null,
@@ -77,10 +77,10 @@ class _$DetailModelCopyWithImpl<$Res, $Val extends DetailModel>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       regularFee: null == regularFee
           ? _value.regularFee
           : regularFee // ignore: cast_nullable_to_non_nullable
@@ -115,7 +115,7 @@ abstract class _$$_DetailModelCopyWith<$Res>
   @useResult
   $Res call(
       {String image,
-      String name,
+      String? name,
       String regularFee,
       String url,
       String description,
@@ -135,7 +135,7 @@ class __$$_DetailModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? image = null,
-    Object? name = null,
+    Object? name = freezed,
     Object? regularFee = null,
     Object? url = null,
     Object? description = null,
@@ -147,10 +147,10 @@ class __$$_DetailModelCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       regularFee: null == regularFee
           ? _value.regularFee
           : regularFee // ignore: cast_nullable_to_non_nullable
@@ -195,7 +195,7 @@ class _$_DetailModel implements _DetailModel {
   @override
   final String image;
   @override
-  final String name;
+  final String? name;
   @override
   final String regularFee;
   @override
@@ -268,7 +268,7 @@ class _$_DetailModel implements _DetailModel {
 abstract class _DetailModel implements DetailModel {
   const factory _DetailModel(
       {required final String image,
-      required final String name,
+      required final String? name,
       required final String regularFee,
       required final String url,
       required final String description,
@@ -281,7 +281,7 @@ abstract class _DetailModel implements DetailModel {
   @override
   String get image;
   @override
-  String get name;
+  String? get name;
   @override
   String get regularFee;
   @override
