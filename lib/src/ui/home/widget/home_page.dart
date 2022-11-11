@@ -16,9 +16,19 @@ import 'package:polec/src/ui/home/widget/components/title_widget.dart';
 import 'package:polec/src/ui/inYourArea/in_your_area_page.dart';
 import 'package:polec/src/ui/recommended/recommended_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    context.read<CategoriesBloc>().add(const LoadCategories());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +57,7 @@ class HomePage extends StatelessWidget {
                       context,
                       CupertinoPageRoute(
                         builder: (context) => const MapScreen(),
-                      ),   
+                      ),
                     ),
                     child: const Icon(
                       CupertinoIcons.list_bullet,
@@ -70,7 +80,7 @@ class HomePage extends StatelessWidget {
                       const SliverToBoxAdapter(
                         child: SizedBox(
                           height: 70,
-                          child: CategorieList(),
+                          child: CategoriesList(),
                         ),
                       ),
                       SliverToBoxAdapter(

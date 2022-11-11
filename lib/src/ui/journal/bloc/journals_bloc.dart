@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/services.dart';
 import 'package:polec/src/ui/journal/data/journals_repository.dart';
 import 'package:polec/src/ui/journal/model/journal/journal_model.dart';
 

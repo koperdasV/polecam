@@ -50,7 +50,7 @@ class HomeRoute extends GoRouteData {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => JournalsBloc(journalsRepo: JournalRepository())),
-        BlocProvider(create: (context) => CategoriesBloc(categoriesRepo: CategorieRepository()))
+        BlocProvider(create: (context) => CategoriesBloc(categoriesRepo: CategoriesRepository()))
       ],
       child: HomeScreen(),
     );

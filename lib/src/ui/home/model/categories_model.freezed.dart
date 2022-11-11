@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'categorie_model.dart';
+part of 'categories_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,13 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 CategoriesModel _$CategoriesModelFromJson(Map<String, dynamic> json) {
-  return _CategorieModel.fromJson(json);
+  return _CategoriesModel.fromJson(json);
 }
 
 /// @nodoc
 mixin _$CategoriesModel {
   String get name => throw _privateConstructorUsedError;
+  String get places => throw _privateConstructorUsedError;
   @JsonKey(name: 'Icon')
   CategoriesIcon? get icon => throw _privateConstructorUsedError;
 
@@ -36,7 +37,10 @@ abstract class $CategoriesModelCopyWith<$Res> {
           CategoriesModel value, $Res Function(CategoriesModel) then) =
       _$CategoriesModelCopyWithImpl<$Res, CategoriesModel>;
   @useResult
-  $Res call({String name, @JsonKey(name: 'Icon') CategoriesIcon? icon});
+  $Res call(
+      {String name,
+      String places,
+      @JsonKey(name: 'Icon') CategoriesIcon? icon});
 
   $CategoriesIconCopyWith<$Res>? get icon;
 }
@@ -55,12 +59,17 @@ class _$CategoriesModelCopyWithImpl<$Res, $Val extends CategoriesModel>
   @override
   $Res call({
     Object? name = null,
+    Object? places = null,
     Object? icon = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      places: null == places
+          ? _value.places
+          : places // ignore: cast_nullable_to_non_nullable
               as String,
       icon: freezed == icon
           ? _value.icon
@@ -83,37 +92,45 @@ class _$CategoriesModelCopyWithImpl<$Res, $Val extends CategoriesModel>
 }
 
 /// @nodoc
-abstract class _$$_CategorieModelCopyWith<$Res>
+abstract class _$$_CategoriesModelCopyWith<$Res>
     implements $CategoriesModelCopyWith<$Res> {
-  factory _$$_CategorieModelCopyWith(
-          _$_CategorieModel value, $Res Function(_$_CategorieModel) then) =
-      __$$_CategorieModelCopyWithImpl<$Res>;
+  factory _$$_CategoriesModelCopyWith(
+          _$_CategoriesModel value, $Res Function(_$_CategoriesModel) then) =
+      __$$_CategoriesModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, @JsonKey(name: 'Icon') CategoriesIcon? icon});
+  $Res call(
+      {String name,
+      String places,
+      @JsonKey(name: 'Icon') CategoriesIcon? icon});
 
   @override
   $CategoriesIconCopyWith<$Res>? get icon;
 }
 
 /// @nodoc
-class __$$_CategorieModelCopyWithImpl<$Res>
-    extends _$CategoriesModelCopyWithImpl<$Res, _$_CategorieModel>
-    implements _$$_CategorieModelCopyWith<$Res> {
-  __$$_CategorieModelCopyWithImpl(
-      _$_CategorieModel _value, $Res Function(_$_CategorieModel) _then)
+class __$$_CategoriesModelCopyWithImpl<$Res>
+    extends _$CategoriesModelCopyWithImpl<$Res, _$_CategoriesModel>
+    implements _$$_CategoriesModelCopyWith<$Res> {
+  __$$_CategoriesModelCopyWithImpl(
+      _$_CategoriesModel _value, $Res Function(_$_CategoriesModel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = null,
+    Object? places = null,
     Object? icon = freezed,
   }) {
-    return _then(_$_CategorieModel(
+    return _then(_$_CategoriesModel(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      places: null == places
+          ? _value.places
+          : places // ignore: cast_nullable_to_non_nullable
               as String,
       icon: freezed == icon
           ? _value.icon
@@ -125,67 +142,75 @@ class __$$_CategorieModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CategorieModel implements _CategorieModel {
-  const _$_CategorieModel(
-      {required this.name, @JsonKey(name: 'Icon') this.icon});
+class _$_CategoriesModel implements _CategoriesModel {
+  const _$_CategoriesModel(
+      {required this.name,
+      required this.places,
+      @JsonKey(name: 'Icon') this.icon});
 
-  factory _$_CategorieModel.fromJson(Map<String, dynamic> json) =>
-      _$$_CategorieModelFromJson(json);
+  factory _$_CategoriesModel.fromJson(Map<String, dynamic> json) =>
+      _$$_CategoriesModelFromJson(json);
 
   @override
   final String name;
+  @override
+  final String places;
   @override
   @JsonKey(name: 'Icon')
   final CategoriesIcon? icon;
 
   @override
   String toString() {
-    return 'CategoriesModel(name: $name, icon: $icon)';
+    return 'CategoriesModel(name: $name, places: $places, icon: $icon)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CategorieModel &&
+            other is _$_CategoriesModel &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.places, places) || other.places == places) &&
             (identical(other.icon, icon) || other.icon == icon));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, icon);
+  int get hashCode => Object.hash(runtimeType, name, places, icon);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CategorieModelCopyWith<_$_CategorieModel> get copyWith =>
-      __$$_CategorieModelCopyWithImpl<_$_CategorieModel>(this, _$identity);
+  _$$_CategoriesModelCopyWith<_$_CategoriesModel> get copyWith =>
+      __$$_CategoriesModelCopyWithImpl<_$_CategoriesModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CategorieModelToJson(
+    return _$$_CategoriesModelToJson(
       this,
     );
   }
 }
 
-abstract class _CategorieModel implements CategoriesModel {
-  const factory _CategorieModel(
+abstract class _CategoriesModel implements CategoriesModel {
+  const factory _CategoriesModel(
       {required final String name,
-      @JsonKey(name: 'Icon') final CategoriesIcon? icon}) = _$_CategorieModel;
+      required final String places,
+      @JsonKey(name: 'Icon') final CategoriesIcon? icon}) = _$_CategoriesModel;
 
-  factory _CategorieModel.fromJson(Map<String, dynamic> json) =
-      _$_CategorieModel.fromJson;
+  factory _CategoriesModel.fromJson(Map<String, dynamic> json) =
+      _$_CategoriesModel.fromJson;
 
   @override
   String get name;
+  @override
+  String get places;
   @override
   @JsonKey(name: 'Icon')
   CategoriesIcon? get icon;
   @override
   @JsonKey(ignore: true)
-  _$$_CategorieModelCopyWith<_$_CategorieModel> get copyWith =>
+  _$$_CategoriesModelCopyWith<_$_CategoriesModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

@@ -1,104 +1,119 @@
 [
     {
-        "name": "Dom i ogród",
+        "name": "Food",
+        "places": "120 places",
         "icon": {
             "ios": "house.fill",
             "android": "???"
         }
     },
     {
-        "name": "Dziecko",
+        "name": "Party",
+        "places": "12 places",
         "icon": {
             "ios": "figure.2.and.child.holdinghands",
             "android": "???"
         }
     },
     {
-        "name": "Edukacja i rozwój",
+        "name": "Drink",
+        "places": "5 places",
         "icon": {
             "ios": "graduationcap.fill",
             "android": "???"
         }
     },
     {
-        "name": "Hotele i noclegi",
+        "name": "Meat",
+        "places": "27 places",
         "icon": {
             "ios": "bed.double.fill",
             "android": "???"
         }
     },
     {
-        "name": "Jedzenie",
+        "name": "Fish",
+        "places": "23 places",
         "icon": {
             "ios": "fork.knife",
             "android": "???"
         }
     },
     {
-        "name": "Kultura i rozrywka",
+        "name": "Pizza",
+        "places": "26 places",
         "icon": {
             "ios": "theatermasks.fill",
             "android": "???"
         }
     },
     {
-        "name": "Moda",
+        "name": "Beer",
+        "places": "7 places",
         "icon": {
             "ios": "tshirt.fill",
             "android": "???"
         }
     },
     {
-        "name": "Motoryzacja",
+        "name": "Desserts",
+        "places": "10 places",
         "icon": {
             "ios": "car.fill",
             "android": "???"
         }
     },
     {
-        "name": "Sport",
+        "name": "Salads",
+        "places": "19 places",
         "icon": {
             "ios": "figure.run",
             "android": "???"
         }
     },
     {
-        "name": "Turystyka",
+        "name": "Vegan",
+        "places": "13 places",
         "icon": {
             "ios": "backpack.fill",
             "android": "???"
         }
     },
     {
-        "name": "Uroda",
+        "name": "Cocktails",
+        "places": "9 places",
         "icon": {
             "ios": "mouth.fill",
             "android": "???"
         }
     },
     {
-        "name": "Usługi",
+        "name": "Alcohol",
+        "places": "30 places",
         "icon": {
             "ios": "screwdriver.fill",
             "android": "???"
         }
     },
     {
-        "name": "Zdrowie",
+        "name": "Wine",
+        "places": "12 places",
         "icon": {
             "ios": "cross.case.fill",
             "android": "???"
         }
     },
     {
-        "name": "Zwierzęta",
+        "name": "Сoffee",
+        "places": "21 places",
         "icon": {
             "ios": "pawprint.fill",
             "android": "???"
         }
     },
     {
-        "name": "Inne", 
+        "name": "Other",
+        "places": "32 places", 
         "icon": {
             "ios": "plus.app.fill",
             "android": "???"

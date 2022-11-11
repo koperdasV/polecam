@@ -1,22 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'categorie_model.dart';
+part of 'categories_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CategorieModel _$$_CategorieModelFromJson(Map<String, dynamic> json) =>
-    _$_CategorieModel(
+_$_CategoriesModel _$$_CategoriesModelFromJson(Map<String, dynamic> json) =>
+    _$_CategoriesModel(
       name: json['name'] as String,
+      places: json['places'] as String,
       icon: json['Icon'] == null
           ? null
           : CategoriesIcon.fromJson(json['Icon'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_CategorieModelToJson(_$_CategorieModel instance) =>
+Map<String, dynamic> _$$_CategoriesModelToJson(_$_CategoriesModel instance) =>
     <String, dynamic>{
       'name': instance.name,
+      'places': instance.places,
       'Icon': instance.icon,
     };
 

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:polec/src/ui/home/data/categories_repository.dart';
-import 'package:polec/src/ui/home/model/categorie_model.dart';
+import 'package:polec/src/ui/home/model/categories_model.dart';
 
 part 'categories_event.dart';
 part 'categories_state.dart';
@@ -12,12 +12,12 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   CategoriesBloc({required ICategoriesRepo categoriesRepo})
       : _categoriesRepo = categoriesRepo,
         super(const CategoriesState()) {
-    on<CategoriesEvent>(_onLoadCategories);
+    on<LoadCategories>(_onLoadCategories);
   }
   final ICategoriesRepo _categoriesRepo;
 
   Future<void> _onLoadCategories(
-    CategoriesEvent event,
+    LoadCategories event,
     Emitter<CategoriesState> emit,
   ) async {
     try {
@@ -30,10 +30,12 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
       final categories = await _categoriesRepo.fetchCategories();
 
       return categories.isNotEmpty
-          ? emit(state.copyWith(
-              categories: List.of(state.categories)..addAll(categories),
-              status: CategoriesStateStatus.success,
-            ))
+          ? emit(
+              state.copyWith(
+                categories: List.of(state.categories)..addAll(categories),
+                status: CategoriesStateStatus.success,
+              ),
+            )
           : emit(
               state.copyWith(
                 categories: categories,

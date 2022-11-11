@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'categorie_model.freezed.dart';
-part 'categorie_model.g.dart';
+part 'categories_model.freezed.dart';
+part 'categories_model.g.dart';
 
 List<CategoriesModel> categorieModelFromJson(String str) =>
     List<CategoriesModel>.from(
@@ -14,18 +14,19 @@ String categorieModelToJson(List<CategoriesModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 @freezed
-abstract class CategoriesModel with _$CategoriesModel {
+class CategoriesModel with _$CategoriesModel {
   const factory CategoriesModel({
     required String name,
+    required String places,
     @JsonKey(name: 'Icon') CategoriesIcon? icon,
-  }) = _CategorieModel;
+  }) = _CategoriesModel;
 
   factory CategoriesModel.fromJson(Map<String, dynamic> json) =>
       _$CategoriesModelFromJson(json);
 }
 
 @freezed
-abstract class CategoriesIcon with _$CategoriesIcon {
+class CategoriesIcon with _$CategoriesIcon {
   const factory CategoriesIcon({
     String? ios,
     String? android,

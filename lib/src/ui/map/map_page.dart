@@ -42,7 +42,7 @@ class _MapPageState extends State<MapPage> {
         const SingleChildScrollView(
           child: SizedBox(
             height: 70,
-            child: CategorieList(),
+            child: CategoriesList(),
           ),
         ),
         const SizedBox(height: 10),
