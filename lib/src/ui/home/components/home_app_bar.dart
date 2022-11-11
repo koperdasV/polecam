@@ -8,9 +8,11 @@ class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
     Key? key,
     required this.onTap,
+    required this.child,
   }) : super(key: key);
 
   final VoidCallback onTap;
+  final Widget child;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -53,7 +55,8 @@ class HomeAppBar extends StatelessWidget {
           child: GestureDetector(
             onTap: onTap,
             child: CircleAvatar(
-              backgroundColor: Colors.grey.shade400,
+              backgroundColor: Colors.grey,
+              child: child,
             ),
           ),
         ),
