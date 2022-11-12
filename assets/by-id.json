@@ -1,0 +1,47 @@
+{
+    "image": "???",
+    "name": "Najlepsze sushi w mieście",
+    "regularFee": "0.100",
+    "www": "http://www.kingfu.pl/",
+    "description": "Najlepsze sushi w mieście",
+    "addresses": [
+        {
+            "street": "Gdańska 33",
+            "city": "Bydgoszcz",
+            "code": "85-345",
+            "country": "Polska",
+            "lat": "53.127880",
+            "lng": "18.005380",
+            "phones": [
+                "+48 643 232 123"
+            ],
+            "open": {
+                "monday": "8:00 - 17:00",
+                "tuesday": "8:00 - 17:00",
+                "wednesday": "8:00 - 17:00",
+                "thursday": "8:00 - 17:00",
+                "friday": "8:00 - 17:00",
+                "saturday": "8:00 - 14:00",
+                "sunday": "zamknięte"
+            }
+        }
+    ],
+    "recommendations": [
+        {
+            "avatar": "assets/fake_images/profile.png",
+            "name": "John",
+            "surname": "Kuleipz",
+            "subtitle_you": "You",
+            "subtitle": "John",
+            "amount": "+25$"
+        },
+        {
+            "avatar": "assets/fake_images/profile.png",
+            "name": "Douglas",
+            "surname": "Santos",
+            "subtitle_you": "You",
+            "subtitle": "Douglas",
+            "amount": "+43$"
+        }
+    ]
+}

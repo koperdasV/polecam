@@ -2,20 +2,24 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
+import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 
 class AboutWidget extends StatelessWidget {
   const AboutWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final detailModel = context.read<DetailsBloc>().state.detailModel;
+    if (detailModel == null) return const SizedBox.shrink();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SizedBox(
         width: double.infinity,
         // height: 140,
         child: Text(
-          "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
+          detailModel.description.toString(),
           style: TextStyle(
             color: AppColor.subTitleColor,
             fontWeight: FontWeight.normal,

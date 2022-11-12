@@ -34,8 +34,8 @@ dependencies:
   # phone auth
   #Flutter map
   flutter_map: ^3.0.0
-  freezed: ^2.2.0
   json_annotation: ^4.7.0
+  freezed: ^2.2.0
   json_serializable: ^6.5.4
 
 dev_dependencies:

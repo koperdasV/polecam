@@ -7,6 +7,8 @@ class ImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final detailModel = context.read<DetailsBloc>().state.detailModel;
+    if (detailModel == null) return const SizedBox.shrink();
     return Stack(
       children: [
         SizedBox(
@@ -16,8 +18,8 @@ class ImageWidget extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        const PercentWidget(
-          percent: '17%',
+        PercentWidget(
+          percent: detailModel.regularFee.toString(),
           fontSize: 34,
         ),
         Positioned(
