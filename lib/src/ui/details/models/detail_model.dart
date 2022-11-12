@@ -28,14 +28,14 @@ class DetailModel with _$DetailModel {
 @freezed
 class Addresses with _$Addresses {
   const factory Addresses({
-     String? street,
-     String? city,
-     String? code,
-     String? country,
-     String? lat,
-     String? lng,
-     List<String>? phones,
-     Open? open,
+    String? street,
+    String? city,
+    String? code,
+    String? country,
+    String? lat,
+    String? lng,
+    List<String>? phones,
+    Open? open,
   }) = _Addresses;
 
   factory Addresses.fromJson(Map<String, dynamic> json) =>
@@ -45,13 +45,13 @@ class Addresses with _$Addresses {
 @freezed
 class Open with _$Open {
   const factory Open({
-     String? monday,
-     String? tuesday,
-     String? wednesday,
-     String? thursday,
-     String? friday,
-     String? saturday,
-     String? sunday,
+    String? monday,
+    String? tuesday,
+    String? wednesday,
+    String? thursday,
+    String? friday,
+    String? saturday,
+    String? sunday,
   }) = _Open;
 
   factory Open.fromJson(Map<String, dynamic> json) => _$OpenFromJson(json);
@@ -60,12 +60,12 @@ class Open with _$Open {
 @freezed
 class Recommendations with _$Recommendations {
   const factory Recommendations({
-     String? avatar,
-     String? name,
-     String? surname,
-     String? subtitleYou,
-     String? subtitle,
-     String? amount,
+    String? avatar,
+    String? name,
+    String? surname,
+    String? subtitleYou,
+    String? subtitle,
+    String? amount,
   }) = _Recommendations;
 
   factory Recommendations.fromJson(Map<String, dynamic> json) =>

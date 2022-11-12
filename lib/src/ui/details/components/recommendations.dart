@@ -53,7 +53,7 @@ class RecomendationsWidget extends StatelessWidget {
                                   ),
                                 ),
                                 Text(
-                                  'Your referrer',
+                                  detailModel.recommendations![index].subtitle.toString(),
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: AppColor.subTitleColor,
@@ -65,8 +65,8 @@ class RecomendationsWidget extends StatelessWidget {
                             const SizedBox(width: 5),
                           ],
                         ),
-                        const Text(
-                          r'+ 111 $',
+                         Text(
+                          detailModel.recommendations![index].amount.toString(),
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.black,
