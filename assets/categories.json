@@ -1,0 +1,107 @@
+[
+    {
+        "name": "Dom i ogród",
+        "icon": {
+            "ios": "house.fill",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Dziecko",
+        "icon": {
+            "ios": "figure.2.and.child.holdinghands",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Edukacja i rozwój",
+        "icon": {
+            "ios": "graduationcap.fill",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Hotele i noclegi",
+        "icon": {
+            "ios": "bed.double.fill",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Jedzenie",
+        "icon": {
+            "ios": "fork.knife",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Kultura i rozrywka",
+        "icon": {
+            "ios": "theatermasks.fill",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Moda",
+        "icon": {
+            "ios": "tshirt.fill",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Motoryzacja",
+        "icon": {
+            "ios": "car.fill",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Sport",
+        "icon": {
+            "ios": "figure.run",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Turystyka",
+        "icon": {
+            "ios": "backpack.fill",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Uroda",
+        "icon": {
+            "ios": "mouth.fill",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Usługi",
+        "icon": {
+            "ios": "screwdriver.fill",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Zdrowie",
+        "icon": {
+            "ios": "cross.case.fill",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Zwierzęta",
+        "icon": {
+            "ios": "pawprint.fill",
+            "android": "???"
+        }
+    },
+    {
+        "name": "Inne", 
+        "icon": {
+            "ios": "plus.app.fill",
+            "android": "???"
+        }
+    }
+]

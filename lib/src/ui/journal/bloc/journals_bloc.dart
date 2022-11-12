@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/services.dart';
 import 'package:polec/src/ui/journal/data/journals_repository.dart';
+import 'package:polec/src/ui/journal/model/journal/journal_model.dart';
 
 part 'journals_event.dart';
 part 'journals_state.dart';
@@ -28,7 +30,7 @@ class JournalsBloc extends Bloc<JournalsEvent, JournalsState> {
         ),
       );
 
-      final journals = await _journalsRepo.fetchJournals(state.page);
+      final journals = await _journalsRepo.fetchJournals(state.page, 'assets/journal.json');
 
       return journals.isNotEmpty
           ? emit(

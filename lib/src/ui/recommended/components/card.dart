@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
-import 'package:polec/src/ui/home/components/categorie_tag.dart';
-import 'package:polec/src/ui/home/components/percent_widget.dart';
+import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
+import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({

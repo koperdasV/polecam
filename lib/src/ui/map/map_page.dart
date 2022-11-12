@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/src/feature/map/widget/map_screen.dart';
-import 'package:polec/src/ui/home/components/categorie_list_widget.dart';
-import 'package:polec/src/ui/home/components/home_app_bar.dart';
-import 'package:polec/src/ui/home/components/search_widget.dart';
-import 'package:polec/src/ui/home/home_page.dart';
+import 'package:polec/src/ui/home/widget/components/categorie_list_widget.dart';
+import 'package:polec/src/ui/home/widget/components/home_app_bar.dart';
+import 'package:polec/src/ui/home/widget/components/search_widget.dart';
+import 'package:polec/src/ui/home/widget/home_page.dart';
 import 'package:polec/src/ui/map/map_widget.dart';
 
 class MapPage extends StatefulWidget {
@@ -25,7 +25,7 @@ class _MapPageState extends State<MapPage> {
             onTap: () => Navigator.push(
               context,
               CupertinoPageRoute(
-                builder: (context) => const HomePage(),
+                builder: (context) => HomePage(),
               ),
             ),
             child: const Icon(

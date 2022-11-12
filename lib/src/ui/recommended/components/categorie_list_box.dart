@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:polec/src/ui/home/components/categorie_list_widget.dart';
+import 'package:polec/src/ui/home/widget/components/categorie_list_widget.dart';
 
 class CategorieListBox extends StatelessWidget {
   const CategorieListBox({

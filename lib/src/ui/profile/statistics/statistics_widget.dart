@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:polec/resources/colors.dart';
-import 'package:polec/src/ui/home/components/title_widget.dart';
+import 'package:polec/src/ui/home/widget/components/title_widget.dart';
 import 'package:polec/src/ui/profile/statistics/components/payout_card.dart';
 import 'package:polec/src/ui/profile/statistics/components/payout_history.dart';
 import 'package:polec/src/ui/profile/statistics/components/progress_indicator.dart';

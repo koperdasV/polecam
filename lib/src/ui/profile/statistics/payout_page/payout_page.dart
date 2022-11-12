@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:polec/src/ui/home/components/title_widget.dart';
+import 'package:polec/src/ui/home/widget/components/title_widget.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/components/navigation_bar.dart';
 import 'package:polec/src/ui/recommended/components/cupertino_nav_bar.dart';
 
