@@ -37,11 +37,11 @@
         },
         {
             "avatar": "assets/fake_images/profile.png",
-            "name": "Ваня",
-            "surname": "Журавель",
+            "name": "Douglas",
+            "surname": "Santos",
             "subtitle_you": "You",
-            "subtitle": "John",
-            "amount": "+25$"
+            "subtitle": "Douglas",
+            "amount": "+43$"
         }
     ]
 }
