@@ -57,6 +57,7 @@ flutter:
     - assets/icons/
     - assets/journal.json
     - assets/categories.json
+    - assets/recommended.json
 
   fonts:
     - family: SegoeUIBlack

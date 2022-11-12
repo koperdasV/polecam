@@ -1,24 +1,25 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/home/bloc/categories_bloc.dart';
-import 'package:polec/src/ui/home/model/categorie_model.dart';
+import 'package:polec/src/ui/home/widget/components/categories_item.dart';
 
-class CategorieList extends StatefulWidget {
-  const CategorieList({
+class CategoriesList extends StatefulWidget {
+  const CategoriesList({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<CategorieList> createState() => _CategorieListState();
+  State<CategoriesList> createState() => _CategoriesListState();
 }
 
-class _CategorieListState extends State<CategorieList> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<CategoriesBloc>().add(const LoadCategories());
+class _CategoriesListState extends State<CategoriesList> {
+  int _selectedIndex = 0;
+
+  void selectIndex(int index) {
+    setState(() {
+      _selectedIndex = index;
+
+    });
   }
 
   @override
@@ -37,76 +38,23 @@ class _CategorieListState extends State<CategorieList> {
                     ? const Center(
                         child: CupertinoActivityIndicator(),
                       )
-                    : Center();
+                    : const Center();
               },
             );
           }
-          return CategoriesItem(
-            categoriesModel: categories[index],
-          );
-        },
-      ),
-    );
-  }
-}
-
-class CategoriesItem extends StatelessWidget {
-  const CategoriesItem({
-    Key? key,
-    required this.categoriesModel,
-  }) : super(key: key);
-
-  final CategoriesModel categoriesModel;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-      child: Container(
-        width: 140,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.grey,
-              blurRadius: 4,
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 14),
-              child: Icon(
-                CupertinoIcons.bitcoin_circle,
-                size: 30,
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+            child: GestureDetector(
+              onTap: () {
+                selectIndex(index);
+              },
+              child: CategoriesItem(
+                categoriesModel: categories[index],
+                isSelected: (index == _selectedIndex) ? true : false,
               ),
             ),
-            const SizedBox(width: 10),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  categoriesModel.name,
-                  style: TextStyle(
-                    color: AppColor.categorieTextColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                Text(
-                  '54 places',
-                  style: TextStyle(
-                    color: AppColor.categorieTextColor,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

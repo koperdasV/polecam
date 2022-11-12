@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:polec/src/ui/home/bloc/categories_bloc.dart';
 import 'package:polec/src/ui/home/widget/components/card.dart';
 
 class HorizontalListScroll extends StatelessWidget {
@@ -9,7 +11,7 @@ class HorizontalListScroll extends StatelessWidget {
     this.child,
     required this.textTitle,
     required this.textSubtitle,
-    this.scrollDirection = Axis.horizontal,
+    this.scrollDirection = Axis.horizontal, this.width,
   }) : super(key: key);
 
   final String image;
@@ -17,24 +19,42 @@ class HorizontalListScroll extends StatelessWidget {
   final String textSubtitle;
 
   final double? fontSize;
+  final double? width;
   final Widget? child;
   final Axis? scrollDirection;
 
   @override
   Widget build(BuildContext context) {
+    final recommended = context.read<CategoriesBloc>().state.recommended;
+
     return ListView.builder(
       scrollDirection: scrollDirection!,
-      itemCount: 4,
-      itemBuilder: (context, index) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-        child: CardWidget(
-          image: image,
-          fontSize: fontSize,
-          textTitle: textTitle,
-          textSubtitle: textSubtitle,
-          child: child,
-        ),
-      ),
+      itemCount: recommended.length,
+      itemBuilder: (context, index) {
+        if (index >= recommended.length) {
+          BlocBuilder<CategoriesBloc, CategoriesState>(
+            builder: (context, state) {
+              return state.status == CategoriesStateStatus.loading
+                  ? const Center(
+                      child: CupertinoActivityIndicator(),
+                    )
+                  : const Center();
+            },
+          );
+        }
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+          child: CardWidget(
+            width: width,
+            tmp: recommended[index],
+            image: recommended[index].image.toString(),
+            fontSize: fontSize,
+            textTitle: recommended[index].name.toString(),
+            textSubtitle: textSubtitle,
+            child: child,
+          ),
+        );
+      },
     );
   }
 }
