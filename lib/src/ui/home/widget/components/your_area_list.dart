@@ -1,17 +1,18 @@
-import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/home/bloc/home_bloc.dart';
-import 'package:polec/src/ui/home/widget/components/card.dart';
+import 'package:polec/src/ui/home/widget/components/your_area_card.dart';
 
-class HorizontalListScroll extends StatelessWidget {
-  const HorizontalListScroll({
+class YourAreaList extends StatelessWidget {
+  const YourAreaList({
     Key? key,
     this.fontSize = 34,
     this.child,
+    this.width,
   }) : super(key: key);
 
   final double? fontSize;
+  final double? width;
   final Widget? child;
 
   @override
@@ -23,26 +24,15 @@ class HorizontalListScroll extends StatelessWidget {
             child: CupertinoActivityIndicator(),
           );
         }
-        if (state.status == CategoriesStateStatus.failure &&
-            state.errorMessage.isNotEmpty) {
-          context.showErrorBar<String>(
-            content: Text(state.errorMessage),
-          );
-        }
         if (state.status == CategoriesStateStatus.success) {
           return ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: state.recommended.length,
+            itemCount: state.yourArea.length,
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 20,
-                ),
-                child: CardWidget(
-                  tmp: state.recommended[index],
-                  fontSize: fontSize,
-                  child: child,
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: YourAreaCard(
+                  tmp: state.yourArea[index],
                 ),
               );
             },

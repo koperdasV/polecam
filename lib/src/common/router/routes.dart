@@ -9,9 +9,10 @@ import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart'
 import 'package:polec/src/feature/registration/widget/registration_screen.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/data/detail_repository.dart';
-import 'package:polec/src/ui/home/bloc/categories_bloc.dart';
+import 'package:polec/src/ui/home/bloc/home_bloc.dart';
 import 'package:polec/src/ui/home/data/categories_repository.dart';
 import 'package:polec/src/ui/home/data/recommended_repository.dart';
+import 'package:polec/src/ui/home/data/your_area_repository.dart';
 import 'package:polec/src/ui/journal/bloc/journals_bloc.dart';
 import 'package:polec/src/ui/journal/data/journals_repository.dart';
 
@@ -56,9 +57,10 @@ class HomeRoute extends GoRouteData {
           create: (context) => JournalsBloc(journalsRepo: JournalRepository()),
         ),
         BlocProvider(
-          create: (context) => CategoriesBloc(
+          create: (context) => HomeBloc(
             categoriesRepo: CategoriesRepository(),
             recommendedRepo: RecommendedRepository(),
+            yourAreaRepo: YourAreaRepository(),
           ),
         ),
         BlocProvider(
