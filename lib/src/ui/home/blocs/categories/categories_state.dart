@@ -6,24 +6,18 @@ class CategoriesState extends Equatable {
   const CategoriesState({
     this.status = CategoriesStateStatus.initial,
     this.errorMessage = '',
-    this.categories = const [],
-    this.recommended = const [],
-    this.yourArea = const [],
+    required this.categories,
   });
 
   final CategoriesStateStatus status;
   final String errorMessage;
   final List<CategoriesModel> categories;
-  final List<RecommendedModel> recommended;
-  final List<YourAreaModel> yourArea;
 
   @override
   List<Object?> get props => [
         status,
         errorMessage,
         categories,
-        recommended,
-        yourArea,
       ];
 
   CategoriesState copyWith({
@@ -37,8 +31,6 @@ class CategoriesState extends Equatable {
       status: status ?? this.status,
       errorMessage: errorMessage ?? this.errorMessage,
       categories: categories ?? this.categories,
-      recommended: recommended ?? this.recommended,
-      yourArea: yourArea ?? this.yourArea,
     );
   }
 }

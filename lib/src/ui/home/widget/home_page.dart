@@ -20,9 +20,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<CategoriesBloc>().add(const LoadCategories());
-    context.read<CategoriesBloc>().add(const LoadRecommended());
-    context.read<CategoriesBloc>().add(const LoadYourArea());
     return CupertinoPageScaffold(
       child: Column(
         children: [

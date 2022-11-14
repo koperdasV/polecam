@@ -15,19 +15,11 @@ part 'categories_state.dart';
 class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   CategoriesBloc({
     required ICategoriesRepo categoriesRepo,
-    required IRecommendedRepo recommendedRepo,
-    required IYourAreaRepo yourAreaRepo,
   })  : _categoriesRepo = categoriesRepo,
-        _recommendedRepo = recommendedRepo,
-        _yourAreaRepo = yourAreaRepo,
-        super(const CategoriesState()) {
+        super(const CategoriesState(categories: <CategoriesModel>[])) {
     on<LoadCategories>(_onLoadCategories);
-    on<LoadRecommended>(_onLoadRecommended);
-    on<LoadYourArea>(_onLoadYourArea);
   }
   final ICategoriesRepo _categoriesRepo;
-  final IRecommendedRepo _recommendedRepo;
-  final IYourAreaRepo _yourAreaRepo;
 
   Future<void> _onLoadCategories(
     LoadCategories event,
@@ -65,75 +57,39 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     }
   }
 
-  Future<void> _onLoadRecommended(
-    LoadRecommended event,
-    Emitter<CategoriesState> emit,
-  ) async {
-    try {
-      emit(
-        state.copyWith(
-          status: CategoriesStateStatus.loading,
-        ),
-      );
+  // Future<void> _onLoadYourArea(
+  //   LoadYourArea event,
+  //   Emitter<CategoriesState> emit,
+  // ) async {
+  //   try {
+  //     emit(
+  //       state.copyWith(
+  //         status: CategoriesStateStatus.loading,
+  //       ),
+  //     );
 
-      final recommended = await _recommendedRepo.fetchRecommended();
+  //     final yourArea = await _yourAreaRepo.fetchYourArea();
 
-      return recommended.isNotEmpty
-          ? emit(
-              state.copyWith(
-                recommended: List.of(state.recommended)..addAll(recommended),
-                status: CategoriesStateStatus.success,
-              ),
-            )
-          : emit(
-              state.copyWith(
-                recommended: recommended,
-                status: CategoriesStateStatus.success,
-              ),
-            );
-    } catch (e) {
-      return emit(
-        state.copyWith(
-          errorMessage: e.toString(),
-          status: CategoriesStateStatus.failure,
-        ),
-      );
-    }
-  }
-
-  Future<void> _onLoadYourArea(
-    LoadYourArea event,
-    Emitter<CategoriesState> emit,
-  ) async {
-    try {
-      emit(
-        state.copyWith(
-          status: CategoriesStateStatus.loading,
-        ),
-      );
-
-      final yourArea = await _yourAreaRepo.fetchYourArea();
-
-      return yourArea.isNotEmpty
-          ? emit(
-              state.copyWith(
-                yourArea: List.of(state.yourArea)..addAll(yourArea),
-                status: CategoriesStateStatus.success,
-              ),
-            )
-          : emit(
-              state.copyWith(
-                yourArea: yourArea,
-                status: CategoriesStateStatus.success,
-              ),
-            );
-    } catch (e) {
-      return emit(
-        state.copyWith(
-          errorMessage: e.toString(),
-          status: CategoriesStateStatus.failure,
-        ),
-      );
-    }
-  }
+  //     return yourArea.isNotEmpty
+  //         ? emit(
+  //             state.copyWith(
+  //               yourArea: List.of(state.yourArea)..addAll(yourArea),
+  //               status: CategoriesStateStatus.success,
+  //             ),
+  //           )
+  //         : emit(
+  //             state.copyWith(
+  //               yourArea: yourArea,
+  //               status: CategoriesStateStatus.success,
+  //             ),
+  //           );
+  //   } catch (e) {
+  //     return emit(
+  //       state.copyWith(
+  //         errorMessage: e.toString(),
+  //         status: CategoriesStateStatus.failure,
+  //       ),
+  //     );
+  //   }
+  // }
 }
