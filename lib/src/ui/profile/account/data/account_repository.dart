@@ -12,7 +12,7 @@ class AccountRepository implements IAccountRepo {
   Future<AccountModel> fetchDetails() async {
     final response = await rootBundle.loadString('assets/me.json');
     final json = await jsonDecode(response);
-    final detailModel = AccountModel.fromJson(json as Map<String, dynamic>);
-    return detailModel;
+    final accountModel = AccountModel.fromJson(json as Map<String, dynamic>);
+    return accountModel;
   }
 }

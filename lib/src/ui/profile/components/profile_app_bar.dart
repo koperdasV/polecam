@@ -27,6 +27,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
   Widget build(BuildContext context) {
     final accountModel = context.read<AccountBloc>().state.accountModel;
     if (accountModel == null) return const SizedBox.shrink();
+
     return BlocBuilder<AccountBloc, AccountState>(
       builder: (context, state) {
         return Padding(
@@ -57,7 +58,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                       ),
                       const SizedBox(height: 5),
                       Text(
-                        user.email,
+                        accountModel.email.toString(),
                         style: TextStyle(
                           color: AppColor.subTitleColor,
                           fontSize: 12,

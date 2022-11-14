@@ -11,6 +11,13 @@ _$_AccountModel _$$_AccountModelFromJson(Map<String, dynamic> json) =>
       firstName: json['firstName'] as String?,
       lastName: json['lastName'] as String?,
       avatar: json['avatar'] as String?,
+      email: json['email'] as String?,
+      phone: json['phone'] as String?,
+      street: json['street'] as String?,
+      sity: json['sity'] as String?,
+      postCode: json['postCode'] as String?,
+      pesel: json['pesel'] as String?,
+      dateOfBirth: json['dateOfBirth'] as String?,
     );
 
 Map<String, dynamic> _$$_AccountModelToJson(_$_AccountModel instance) =>
@@ -18,4 +25,11 @@ Map<String, dynamic> _$$_AccountModelToJson(_$_AccountModel instance) =>
       'firstName': instance.firstName,
       'lastName': instance.lastName,
       'avatar': instance.avatar,
+      'email': instance.email,
+      'phone': instance.phone,
+      'street': instance.street,
+      'sity': instance.sity,
+      'postCode': instance.postCode,
+      'pesel': instance.pesel,
+      'dateOfBirth': instance.dateOfBirth,
     };

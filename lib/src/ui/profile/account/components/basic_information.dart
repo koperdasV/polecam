@@ -13,7 +13,7 @@ class BasicInformationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final accountModel = context.read<AccountBloc>().state.accountModel;
     if (accountModel == null) return const SizedBox.shrink();
-    final user = UserPreferences.myUser;
+
     final titleTextStyle = TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.normal,
@@ -53,7 +53,7 @@ class BasicInformationWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  user.phone,
+                  accountModel.phone.toString(),
                   style: subtitleTextStyle,
                 ),
               ],
@@ -68,7 +68,7 @@ class BasicInformationWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  '${user.street}, ${user.sity}',
+                  '${accountModel.street}, ${accountModel.sity}',
                   style: subtitleTextStyle,
                 ),
               ],
@@ -98,7 +98,7 @@ class BasicInformationWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  user.dateOfBirth,
+                  accountModel.dateOfBirth.toString(),
                   style: subtitleTextStyle,
                 ),
               ],
@@ -113,7 +113,7 @@ class BasicInformationWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  user.pesel,
+                  accountModel.pesel.toString(),
                   style: subtitleTextStyle,
                 ),
               ],

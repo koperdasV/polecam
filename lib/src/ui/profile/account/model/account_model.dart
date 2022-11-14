@@ -15,9 +15,15 @@ class AccountModel with _$AccountModel {
     String? firstName,
     String? lastName,
     String? avatar,
+    String? email,
+    String? phone,
+    String? street,
+    String? sity,
+    String? postCode,
+    String? pesel,
+    String? dateOfBirth,
   }) = _AccountModel;
 
   factory AccountModel.fromJson(Map<String, dynamic> json) =>
       _$AccountModelFromJson(json);
 }
-

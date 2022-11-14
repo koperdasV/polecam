@@ -14,12 +14,13 @@ import 'package:polec/src/ui/payment/payment_widget.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({super.key});
+  const PaymentScreen({super.key, required this.image});
+  final String image;
 
   @override
   Widget build(BuildContext context) {
-    return const CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
+    return CupertinoPageScaffold(
+      navigationBar: const CupertinoNavigationBar(
         middle: Text(
           'In your area',
           style: TextStyle(
@@ -29,7 +30,7 @@ class PaymentScreen extends StatelessWidget {
           ),
         ),
       ),
-      child: PaymentWidget(),
+      child: PaymentWidget(image: image),
     );
   }
 }

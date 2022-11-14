@@ -15,6 +15,9 @@ class CardWidget extends StatelessWidget {
     required this.tmp,
     this.height = 180,
     this.width,
+    // required this.cardImage,
+    // this.recommend,
+    // required this.name,
   }) : super(key: key);
 
   final String image;
@@ -24,6 +27,10 @@ class CardWidget extends StatelessWidget {
   final double? height;
   final double? width;
   final Widget? child;
+
+  // final String cardImage;
+  // final String? recommend;
+  // final String name;
 
   final RecommendedModel tmp;
 
@@ -37,7 +44,11 @@ class CardWidget extends StatelessWidget {
             Navigator.push(
               context,
               CupertinoPageRoute(
-                builder: (context) => const DetailsScreen(),
+                builder: (context) => DetailsScreen(
+                  image: tmp.image.toString(),
+                  regularFee: tmp.regularFee.toString(),
+                  name: tmp.name.toString(),
+                ),
               ),
             );
           },
