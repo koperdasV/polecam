@@ -1,9 +1,9 @@
-part of 'home_bloc.dart';
+part of 'categories_bloc.dart';
 
 enum CategoriesStateStatus { initial, loading, success, failure }
 
-class HomeState extends Equatable {
-  const HomeState({
+class CategoriesState extends Equatable {
+  const CategoriesState({
     this.status = CategoriesStateStatus.initial,
     this.errorMessage = '',
     this.categories = const [],
@@ -26,14 +26,14 @@ class HomeState extends Equatable {
         yourArea,
       ];
 
-  HomeState copyWith({
+  CategoriesState copyWith({
     CategoriesStateStatus? status,
     String? errorMessage,
     List<CategoriesModel>? categories,
     List<RecommendedModel>? recommended,
     List<YourAreaModel>? yourArea,
   }) {
-    return HomeState(
+    return CategoriesState(
       status: status ?? this.status,
       errorMessage: errorMessage ?? this.errorMessage,
       categories: categories ?? this.categories,

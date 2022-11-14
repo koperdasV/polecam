@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/feature/map/widget/map_screen.dart';
-import 'package:polec/src/ui/home/bloc/home_bloc.dart';
+import 'package:polec/src/ui/home/blocs/categories/categories_bloc.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_list_widget.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/home_app_bar.dart';
@@ -20,9 +20,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<HomeBloc>().add(const LoadCategories());
-    context.read<HomeBloc>().add(const LoadRecommended());
-    context.read<HomeBloc>().add(const LoadYourArea());
+    context.read<CategoriesBloc>().add(const LoadCategories());
+    context.read<CategoriesBloc>().add(const LoadRecommended());
+    context.read<CategoriesBloc>().add(const LoadYourArea());
     return CupertinoPageScaffold(
       child: Column(
         children: [

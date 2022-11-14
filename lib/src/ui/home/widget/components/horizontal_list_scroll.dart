@@ -1,7 +1,7 @@
 import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:polec/src/ui/home/bloc/home_bloc.dart';
+import 'package:polec/src/ui/home/blocs/categories/categories_bloc.dart';
 import 'package:polec/src/ui/home/widget/components/card.dart';
 
 class HorizontalListScroll extends StatelessWidget {
@@ -16,7 +16,7 @@ class HorizontalListScroll extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
+    return BlocBuilder<CategoriesBloc, CategoriesState>(
       builder: (context, state) {
         if (state.status == CategoriesStateStatus.failure &&
             state.errorMessage.isNotEmpty) {

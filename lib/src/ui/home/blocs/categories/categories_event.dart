@@ -1,24 +1,24 @@
-part of 'home_bloc.dart';
+part of 'categories_bloc.dart';
 
-class HomeEvent extends Equatable {
-  const HomeEvent();
+class CategoriesEvent extends Equatable {
+  const CategoriesEvent();
   @override
   List<Object?> get props => [];
 }
 
-class LoadCategories extends HomeEvent {
+class LoadCategories extends CategoriesEvent {
   const LoadCategories();
   @override
   List<Object?> get props => [];
 }
 
-class LoadRecommended extends HomeEvent {
+class LoadRecommended extends CategoriesEvent {
   const LoadRecommended();
   @override
   List<Object?> get props => [];
 }
 
-class LoadYourArea extends HomeEvent {
+class LoadYourArea extends CategoriesEvent {
   const LoadYourArea();
   @override
   List<Object?> get props => [];

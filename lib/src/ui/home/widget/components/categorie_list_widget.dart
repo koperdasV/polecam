@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:polec/src/ui/home/bloc/home_bloc.dart';
+import 'package:polec/src/ui/home/blocs/categories/categories_bloc.dart';
 import 'package:polec/src/ui/home/widget/components/categories_item.dart';
 
 class CategoriesList extends StatefulWidget {
@@ -23,7 +23,7 @@ class _CategoriesListState extends State<CategoriesList> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
+    return BlocBuilder<CategoriesBloc, CategoriesState>(
       builder: (context, state) {
         if (state.status == CategoriesStateStatus.loading) {
           return const Center(

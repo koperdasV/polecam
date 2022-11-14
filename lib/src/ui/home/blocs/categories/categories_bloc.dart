@@ -9,18 +9,18 @@ import 'package:polec/src/ui/home/model/categories/categories_model.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';
 
-part 'home_event.dart';
-part 'home_state.dart';
+part 'categories_event.dart';
+part 'categories_state.dart';
 
-class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc({
+class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
+  CategoriesBloc({
     required ICategoriesRepo categoriesRepo,
     required IRecommendedRepo recommendedRepo,
     required IYourAreaRepo yourAreaRepo,
   })  : _categoriesRepo = categoriesRepo,
         _recommendedRepo = recommendedRepo,
         _yourAreaRepo = yourAreaRepo,
-        super(const HomeState()) {
+        super(const CategoriesState()) {
     on<LoadCategories>(_onLoadCategories);
     on<LoadRecommended>(_onLoadRecommended);
     on<LoadYourArea>(_onLoadYourArea);
@@ -31,7 +31,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Future<void> _onLoadCategories(
     LoadCategories event,
-    Emitter<HomeState> emit,
+    Emitter<CategoriesState> emit,
   ) async {
     try {
       emit(
@@ -67,7 +67,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Future<void> _onLoadRecommended(
     LoadRecommended event,
-    Emitter<HomeState> emit,
+    Emitter<CategoriesState> emit,
   ) async {
     try {
       emit(
@@ -103,7 +103,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Future<void> _onLoadYourArea(
     LoadYourArea event,
-    Emitter<HomeState> emit,
+    Emitter<CategoriesState> emit,
   ) async {
     try {
       emit(
