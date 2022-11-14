@@ -1,17 +1,22 @@
-// import 'dart:convert';
+import 'dart:convert';
 
-// import 'package:flutter/services.dart';
+import 'package:flutter/services.dart';
+import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';
 
-// abstract class IYourAreaRepo {
-//   Future<List<CategoriesModel>> fetchRecommended();
-// }
-// class YourAreaRepository implements IYourAreaRepo {  
-// @override
-//   Future<List<CategoriesModel>> fetchYourArea() async{
-//      final response = await rootBundle.loadString('assets/categories.json');
-//     final json = jsonDecode(response) as List<dynamic>;
-//     final area = json
-//         .map((e) => CategoriesModel.fromJson(e as Map<String, dynamic>))
-//         .toList();
-//     return area;
-//   }}
+abstract class IYourAreaRepo {
+  Future<List<YourAreaModel>> fetchYourArea();
+}
+
+class YourAreaRepository implements IYourAreaRepo {
+  @override
+  Future<List<YourAreaModel>> fetchYourArea() async {
+    final response = await rootBundle.loadString('assets/near.json');
+    final json = jsonDecode(response) as List<dynamic>;
+    final area = json
+        .map(
+          (e) => YourAreaModel.fromJson(e as Map<String, dynamic>),
+        )
+        .toList();
+    return area;
+  }
+}

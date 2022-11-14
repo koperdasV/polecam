@@ -7,11 +7,8 @@ import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 class CardWidget extends StatelessWidget {
   const CardWidget({
     Key? key,
-    required this.image,
     this.fontSize,
     this.child,
-    required this.textTitle,
-    required this.textSubtitle,
     required this.tmp,
     this.height = 180,
     this.width,
@@ -20,12 +17,7 @@ class CardWidget extends StatelessWidget {
     // required this.name,
   }) : super(key: key);
 
-  final String image;
-  final String textTitle;
-  final String textSubtitle;
   final double? fontSize;
-  final double? height;
-  final double? width;
   final Widget? child;
 
   // final String cardImage;
@@ -55,8 +47,8 @@ class CardWidget extends StatelessWidget {
           child: Stack(
             children: [
               SizedBox(
-                width: width,
-                height: height,
+                height: 180,
+                width: 310,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.network(
@@ -77,12 +69,12 @@ class CardWidget extends StatelessWidget {
             ],
           ),
         ),
-        Container(
+        SizedBox(
           width: 160,
           child: Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
-              textTitle,
+              tmp.name.toString(),
               maxLines: 1,
               style: const TextStyle(
                 overflow: TextOverflow.ellipsis,
@@ -92,7 +84,7 @@ class CardWidget extends StatelessWidget {
           ),
         ),
         Text(
-          textSubtitle,
+          'recommended.toString()',
           style: TextStyle(
             fontSize: 12,
             color: AppColor.subTitleColor,

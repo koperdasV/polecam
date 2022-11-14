@@ -4,29 +4,34 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:polec/src/ui/home/data/categories_repository.dart';
 import 'package:polec/src/ui/home/data/recommended_repository.dart';
+import 'package:polec/src/ui/home/data/your_area_repository.dart';
 import 'package:polec/src/ui/home/model/categories/categories_model.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
+import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';
 
-part 'categories_event.dart';
-part 'categories_state.dart';
+part 'home_event.dart';
+part 'home_state.dart';
 
-class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
-  CategoriesBloc({
+class HomeBloc extends Bloc<HomeEvent, HomeState> {
+  HomeBloc({
     required ICategoriesRepo categoriesRepo,
     required IRecommendedRepo recommendedRepo,
+    required IYourAreaRepo yourAreaRepo,
   })  : _categoriesRepo = categoriesRepo,
-  _recommendedRepo = recommendedRepo,
-        super(const CategoriesState()) {
+        _recommendedRepo = recommendedRepo,
+        _yourAreaRepo = yourAreaRepo,
+        super(const HomeState()) {
     on<LoadCategories>(_onLoadCategories);
     on<LoadRecommended>(_onLoadRecommended);
     on<LoadYourArea>(_onLoadYourArea);
   }
   final ICategoriesRepo _categoriesRepo;
   final IRecommendedRepo _recommendedRepo;
+  final IYourAreaRepo _yourAreaRepo;
 
   Future<void> _onLoadCategories(
     LoadCategories event,
-    Emitter<CategoriesState> emit,
+    Emitter<HomeState> emit,
   ) async {
     try {
       emit(
@@ -62,7 +67,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
   Future<void> _onLoadRecommended(
     LoadRecommended event,
-    Emitter<CategoriesState> emit,
+    Emitter<HomeState> emit,
   ) async {
     try {
       emit(
@@ -98,7 +103,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
   Future<void> _onLoadYourArea(
     LoadYourArea event,
-    Emitter<CategoriesState> emit,
+    Emitter<HomeState> emit,
   ) async {
     try {
       emit(
@@ -107,7 +112,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
         ),
       );
 
-      final yourArea = await _categoriesRepo.fetchYourArea();
+      final yourArea = await _yourAreaRepo.fetchYourArea();
 
       return yourArea.isNotEmpty
           ? emit(

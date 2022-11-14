@@ -1,39 +1,85 @@
 import 'package:flutter/cupertino.dart';
+import 'package:polec/resources/colors.dart';
+import 'package:polec/src/feature/details/widget/details_screen.dart';
+import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
 class YourAreaCard extends StatelessWidget {
   const YourAreaCard({
     Key? key,
+    this.height,
+    this.width,
+    this.child,
+    required this.tmp,
   }) : super(key: key);
+
+  final double? height;
+  final double? width;
+  final Widget? child;
+
+  final YourAreaModel tmp;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Flexible(
-          flex: 3,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              CupertinoPageRoute(
+                builder: (context) => const DetailsScreen(),
+              ),
+            );
+          },
           child: Stack(
             children: [
-              Image.asset('assets/fake_images/food_okolice.png'),
-              const PercentWidget(
-                percent: '17%',
+              SizedBox(
+                height: 190,
+                width: 166,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.network(
+                    tmp.image.toString(),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              PercentWidget(
+                percent: tmp.regularFee.toString(),
                 fontSize: 22,
               ),
-              CupertinoButton(
-                onPressed: () {},
-                child: const Icon(
-                  CupertinoIcons.heart,
+              Positioned(
+                right: 0,
+                bottom: 0,
+                child: CupertinoButton(
+                  borderRadius: BorderRadius.circular(100),
+                  onPressed: () {},
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColor.favoriteButtonColor,
+                    ),
+                    child: Center(
+                      child: Icon(
+                        CupertinoIcons.heart,
+                        color: AppColor.textButtonColor,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.only(top: 10),
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
           child: Text(
-            'Thai beef fried rice',
-            style: TextStyle(
+            tmp.name.toString(),
+            style: const TextStyle(
               fontSize: 18,
             ),
           ),
