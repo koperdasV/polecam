@@ -1,3 +1,4 @@
+import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -35,211 +36,220 @@ class DetailsWidget extends StatefulWidget {
 
 class _DetailsWidgetState extends State<DetailsWidget> {
   @override
-  void initState() {
-    context.read<DetailsBloc>().add(const LoadDetails());
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final amountParse = double.parse(widget.regularFee) * 100.round();
     final regularFee = amountParse.toInt();
     final getRegularFee = regularFee + 1;
 
-    final detailModel = context.read<DetailsBloc>().state.detailModel;
-    if (detailModel == null) return const SizedBox.shrink();
+    // final detailModel = context.read<DetailsBloc>().state.detailModel;
+
     return BlocBuilder<DetailsBloc, DetailsState>(
       builder: (context, state) {
-        return ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 10,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ImageWidget(
-                    image: widget.image,
-                    regularFee: widget.regularFee,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Text(
-                      widget.name,
-                      // detailModel.name.toString(),
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+        if (state.status == DetailsStateStatus.failure &&
+            state.errorMessage.isNotEmpty) {
+          context.showErrorBar<String>(
+            content: Text(state.errorMessage),
+          );
+        }
+        if (state.status == DetailsStateStatus.loading) {
+          return const Center(
+            child: CupertinoActivityIndicator(),
+          );
+        }
+        if (state.status == DetailsStateStatus.success) {
+          return ListView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 10,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ImageWidget(
+                      image: widget.image,
+                      regularFee: widget.regularFee,
                     ),
-                  ),
-                  Text(
-                    'Recommend by: Paweł Woźniak',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: AppColor.subTitleColor,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.ideographic,
-                    children: [
-                      Text(
-                        //textAlign: TextAlign.justify,
-                        'Your discount:',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: AppColor.subTitleColor,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
-                      const SizedBox(width: 5),
-                      Text(
-                        // textAlign: TextAlign.justify,
-                        '${regularFee} %',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: AppColors.pecent,
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Text(
+                        widget.name,
+                        // detailModel.name.toString(),
+                        style: const TextStyle(
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ],
-                  ),
-                  GestureDetector(
-                    onTap: () => showDialog(
-                      context: context,
-                      builder: (context) => ShowDialog(
-                        height: 250,
-                        child: Column(
-                          children: const [
-                            Text(
-                              'Recommend this place 3 friends',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              'To get an additional 1% discount successfully recomend this place to 3 friends',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 12,
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              '*successful recommendation is one that ended with a transaction.',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal,
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
+                    ),
+                    Text(
+                      'Recommend by: Paweł Woźniak',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: AppColor.subTitleColor,
+                        fontWeight: FontWeight.normal,
                       ),
                     ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        gradient: const LinearGradient(
-                          colors: [
-                            AppColors.gradientStart,
-                            AppColors.gradientEnd,
-                          ],
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 4,
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.baseline,
-                          textBaseline: TextBaseline.ideographic,
-                          children: [
-                            const Text(
-                              'Get ',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal,
-                              ),
-                            ),
-                            Text(
-                              '${getRegularFee}%',
-                              style: const TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 10),
-            const CustomNavigationBar(),
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: RecommendedButton(
-                image: Image.asset(
-                  AppImages.logo,
-                  color: Colors.white,
-                ),
-                textButton: 'Recommend to friend',
-                gradient: const LinearGradient(
-                  colors: [
-                    AppColors.gradientStart,
-                    AppColors.gradientEnd,
                   ],
                 ),
-                textColor: Colors.white,
-                onPressed: () => Navigator.push(
-                  context,
-                  CupertinoPageRoute(
-                    builder: (context) => PaymentScreen(
-                      image: widget.image,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.ideographic,
+                      children: [
+                        Text(
+                          //textAlign: TextAlign.justify,
+                          'Your discount:',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: AppColor.subTitleColor,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        const SizedBox(width: 5),
+                        Text(
+                          // textAlign: TextAlign.justify,
+                          '${regularFee} %',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: AppColors.pecent,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    GestureDetector(
+                      onTap: () => showDialog(
+                        context: context,
+                        builder: (context) => ShowDialog(
+                          height: 250,
+                          child: Column(
+                            children: const [
+                              Text(
+                                'Recommend this place 3 friends',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                              Text(
+                                'To get an additional 1% discount successfully recomend this place to 3 friends',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 12,
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Text(
+                                '*successful recommendation is one that ended with a transaction.',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          gradient: const LinearGradient(
+                            colors: [
+                              AppColors.gradientStart,
+                              AppColors.gradientEnd,
+                            ],
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 4,
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.baseline,
+                            textBaseline: TextBaseline.ideographic,
+                            children: [
+                              const Text(
+                                'Get ',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                              Text(
+                                '${getRegularFee}%',
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 10),
+              const CustomNavigationBar(),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: RecommendedButton(
+                  image: Image.asset(
+                    AppImages.logo,
+                    color: Colors.white,
+                  ),
+                  textButton: 'Recommend to friend',
+                  gradient: const LinearGradient(
+                    colors: [
+                      AppColors.gradientStart,
+                      AppColors.gradientEnd,
+                    ],
+                  ),
+                  textColor: Colors.white,
+                  onPressed: () => Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => PaymentScreen(
+                        image: widget.image,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                'Recommendations',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: AppColor.titleColor,
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'Recommendations',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: AppColor.titleColor,
+                  ),
                 ),
               ),
-            ),
-            const RecomendationsWidget(),
-          ],
-        );
+              const RecomendationsWidget(),
+            ],
+          );
+        } else {
+          return const Text('No data');
+        }
       },
     );
   }

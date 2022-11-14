@@ -12,7 +12,7 @@ part 'details_state.dart';
 class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
   DetailsBloc({required IDetailRepo detailsRepo})
       : _detailsRepo = detailsRepo,
-        super(DetailsState()) {
+        super(const DetailsState(detailModel: DetailModel())) {
     on<LoadDetails>(_onLoadDetailsToState);
   }
 

@@ -29,7 +29,11 @@ class YourAreaCard extends StatelessWidget {
             Navigator.push(
               context,
               CupertinoPageRoute(
-                builder: (context) => const DetailsScreen(),
+                builder: (context) => DetailsScreen(
+                  image: tmp.image.toString(),
+                  regularFee: tmp.regularFee.toString(),
+                  name: tmp.name.toString(),
+                ),
               ),
             );
           },
