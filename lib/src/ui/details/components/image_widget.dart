@@ -5,7 +5,14 @@ import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
 class ImageWidget extends StatelessWidget {
-  const ImageWidget({super.key});
+  const ImageWidget({
+    super.key,
+    this.image = '',
+    this.regularFee = '',
+  });
+
+  final String image;
+  final String regularFee;
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +22,19 @@ class ImageWidget extends StatelessWidget {
       children: [
         SizedBox(
           width: double.infinity,
-          child: Image.asset(
-            'assets/fake_images/food_polecane.png',
-            fit: BoxFit.cover,
+          height: 250,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Image.network(
+              image,
+              // 'assets/fake_images/food_polecane.png',
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         PercentWidget(
-          percent: detailModel.regularFee.toString(),
+          percent: regularFee,
+          //  detailModel.regularFee.toString(),
           fontSize: 34,
         ),
         Positioned(

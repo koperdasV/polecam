@@ -18,7 +18,18 @@ import 'package:polec/src/ui/details/details_widget.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class DetailsScreen extends StatefulWidget {
-  const DetailsScreen({super.key});
+  const DetailsScreen({
+    super.key,
+    this.image = '',
+    this.regularFee = '',
+    this.recommend,
+    this.name = '',
+  });
+
+  final String image;
+  final String regularFee;
+  final String? recommend;
+  final String name;
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
@@ -27,6 +38,12 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    final image = widget.image;
+    final regularFee = widget.regularFee;
+    final recommend = widget.recommend;
+
+    final name = widget.name;
+
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
         middle: Text(
@@ -40,22 +57,26 @@ class _DetailsScreenState extends State<DetailsScreen> {
       ),
       child: BlocConsumer<DetailsBloc, DetailsState>(
         listener: (context, state) {
-        if (state.status == DetailsStateStatus.failure &&
-            state.errorMessage.isNotEmpty) {
-          context.showErrorBar<String>(content: Text(state.errorMessage));
-        }
+          if (state.status == DetailsStateStatus.failure &&
+              state.errorMessage.isNotEmpty) {
+            context.showErrorBar<String>(content: Text(state.errorMessage));
+          }
         },
         builder: (context, state) {
-        //  if (state.status == DetailsStateStatus.loading) {
-        //   return const Center(
-        //     child: CupertinoActivityIndicator(
-        //       color: CupertinoColors.activeBlue,
-        //     ),
-        //   );
-        // } else {
-          return const DetailsWidget();
-        // }
-         
+          //  if (state.status == DetailsStateStatus.loading) {
+          //   return const Center(
+          //     child: CupertinoActivityIndicator(
+          //       color: CupertinoColors.activeBlue,
+          //     ),
+          //   );
+          // } else {
+          return DetailsWidget(
+            regularFee: regularFee,
+            image: image,
+            recommend: recommend,
+            name: name,
+          );
+          // }
         },
       ),
     );

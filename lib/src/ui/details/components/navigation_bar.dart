@@ -13,7 +13,9 @@ Map<Detail, Widget> detailWidget = <Detail, Widget>{
 };
 
 class CustomNavigationBar extends StatefulWidget {
-  const CustomNavigationBar({super.key});
+  const CustomNavigationBar({
+    super.key,
+  });
 
   @override
   State<CustomNavigationBar> createState() => _CustomNavigationBarState();

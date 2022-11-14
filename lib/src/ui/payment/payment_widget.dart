@@ -13,8 +13,8 @@ import 'package:polec/src/ui/details/components/show_dialog.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class PaymentWidget extends StatelessWidget {
-  const PaymentWidget({super.key});
-
+  const PaymentWidget({super.key, required this.image});
+  final String image;
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -28,11 +28,13 @@ class PaymentWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               GestureDetector(
-                child: const ImageWidget(),
+                child: ImageWidget(
+                  image: image,
+                ),
                 onTap: () => Navigator.push(
                   context,
                   CupertinoPageRoute(
-                    builder: (context) => const NotRecommendScreen(),
+                    builder: (context) =>  NotRecommendScreen(image: image),
                   ),
                 ),
               ),

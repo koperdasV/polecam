@@ -14,6 +14,8 @@ import 'package:polec/src/ui/home/data/categories_repository.dart';
 import 'package:polec/src/ui/home/data/recommended_repository.dart';
 import 'package:polec/src/ui/journal/bloc/journals_bloc.dart';
 import 'package:polec/src/ui/journal/data/journals_repository.dart';
+import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
+import 'package:polec/src/ui/profile/account/data/account_repository.dart';
 
 part 'routes.g.dart';
 
@@ -64,6 +66,11 @@ class HomeRoute extends GoRouteData {
         BlocProvider(
           create: (context) => DetailsBloc(
             detailsRepo: DetailRepository(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => AccountBloc(
+            accountRepo: AccountRepository(),
           ),
         ),
       ],

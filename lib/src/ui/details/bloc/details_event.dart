@@ -13,10 +13,3 @@ class LoadDetails extends DetailsEvent {
   @override
   List<Object?> get props => [];
 }
-
-class LoadRecommenations extends DetailsEvent {
-  const LoadRecommenations();
-
-  @override
-  List<Object?> get props => [];
-}

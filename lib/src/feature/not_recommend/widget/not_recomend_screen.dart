@@ -9,8 +9,12 @@ import 'package:polec/src/ui/details/components/show_dialog.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class NotRecommendScreen extends StatefulWidget {
-  const NotRecommendScreen({super.key});
+  const NotRecommendScreen({
+    super.key,
+    this.image = '',
+  });
 
+  final String image;
   @override
   State<NotRecommendScreen> createState() => _NotRecommendScreenState();
 }
@@ -37,9 +41,11 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                ImageWidget(),
-                Padding(
+              children: [
+                ImageWidget(
+                  image: widget.image,
+                ),
+                const Padding(
                   padding: EdgeInsets.only(top: 10),
                   child: Text(
                     'Thai beef fried rice',
