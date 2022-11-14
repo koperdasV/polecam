@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/common/models/user_preferences.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
+import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/profile/account/account_widget.dart';
+import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
 import 'package:polec/src/ui/profile/account/edit_profile_widget.dart';
 import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
 import 'package:polec/src/ui/profile/level/level_widget.dart';
@@ -22,6 +25,8 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
 
   @override
   Widget build(BuildContext context) {
+    final accountModel = context.read<AccountBloc>().state.accountModel;
+    //  if (accountModel == null) return const SizedBox.shrink();
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, top: 50),
       child: Row(
@@ -39,7 +44,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '${user.name} ${user.surname}',
+                    '${accountModel?.firstName} ${user.surname}',
                     style: TextStyle(
                       color: AppColor.titleColor,
                       fontSize: 16,
