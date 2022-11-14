@@ -73,7 +73,7 @@ class HomeRoute extends GoRouteData {
         BlocProvider(
           create: (context) => AccountBloc(
             accountRepo: AccountRepository(),
-          ),
+          )..add(const LoadAccount()),
         ),
       ],
       child: const HomeScreen(),

@@ -10,19 +10,10 @@ class CardWidget extends StatelessWidget {
     this.fontSize,
     this.child,
     required this.tmp,
-    this.height = 180,
-    this.width,
-    // required this.cardImage,
-    // this.recommend,
-    // required this.name,
   }) : super(key: key);
 
   final double? fontSize;
   final Widget? child;
-
-  // final String cardImage;
-  // final String? recommend;
-  // final String name;
 
   final RecommendedModel tmp;
 

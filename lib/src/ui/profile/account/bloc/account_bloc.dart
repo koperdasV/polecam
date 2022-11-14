@@ -12,7 +12,7 @@ part 'account_state.dart';
 class AccountBloc extends Bloc<AccountEvent, AccountState> {
   AccountBloc({required IAccountRepo accountRepo})
       : _accountRepo = accountRepo,
-        super(AccountState()) {
+        super(const AccountState(accountModel: AccountModel())) {
     on<LoadAccount>(_onLoadAccountToState);
   }
   final IAccountRepo _accountRepo;
