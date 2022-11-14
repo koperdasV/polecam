@@ -46,11 +46,11 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const ImageWidget(),
-                   Padding(
-                    padding: EdgeInsets.only(top: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
                     child: Text(
                       detailModel.name.toString(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
