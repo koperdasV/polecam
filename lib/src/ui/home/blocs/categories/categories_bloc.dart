@@ -3,8 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:polec/src/ui/home/data/categories_repository.dart';
-import 'package:polec/src/ui/home/data/recommended_repository.dart';
-import 'package:polec/src/ui/home/data/your_area_repository.dart';
 import 'package:polec/src/ui/home/model/categories/categories_model.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';

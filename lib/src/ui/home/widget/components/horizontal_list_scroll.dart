@@ -2,7 +2,6 @@ import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/home/blocs/recommended/recommended_bloc.dart';
-import 'package:polec/src/ui/home/blocs/recommended/recommended_state.dart';
 import 'package:polec/src/ui/home/widget/components/card.dart';
 
 class HorizontalListScroll extends StatelessWidget {

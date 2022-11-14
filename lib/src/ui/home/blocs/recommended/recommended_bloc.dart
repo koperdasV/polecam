@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:polec/src/ui/home/blocs/recommended/recommended_event.dart';
-import 'package:polec/src/ui/home/blocs/recommended/recommended_state.dart';
+import 'package:equatable/equatable.dart';
 import 'package:polec/src/ui/home/data/recommended_repository.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
+
+part 'recommended_event.dart';
+part 'recommended_state.dart';
 
 class RecommendedBloc extends Bloc<RecommendedEvent, RecommendedState> {
   RecommendedBloc({

@@ -9,9 +9,7 @@ import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart'
 import 'package:polec/src/feature/registration/widget/registration_screen.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/data/detail_repository.dart';
-import 'package:polec/src/ui/home/blocs/categories/categories_bloc.dart';
-import 'package:polec/src/ui/home/blocs/recommended/recommended_bloc.dart';
-import 'package:polec/src/ui/home/blocs/recommended/recommended_event.dart';
+import 'package:polec/src/ui/home/blocs/blocs.dart';
 import 'package:polec/src/ui/home/data/categories_repository.dart';
 import 'package:polec/src/ui/home/data/recommended_repository.dart';
 import 'package:polec/src/ui/home/data/your_area_repository.dart';
@@ -58,7 +56,9 @@ class HomeRoute extends GoRouteData {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => JournalsBloc(journalsRepo: JournalRepository()),
+          create: (context) => JournalsBloc(
+            journalsRepo: JournalRepository(),
+          ),
         ),
         BlocProvider(
           create: (context) => CategoriesBloc(
@@ -69,6 +69,11 @@ class HomeRoute extends GoRouteData {
           create: (context) => RecommendedBloc(
             recommendedRepo: RecommendedRepository(),
           )..add(const LoadRecommended()),
+        ),
+        BlocProvider(
+          create: (context) => YourAreaBloc(
+            yourAreaRepo: YourAreaRepository(),
+          )..add(const LoadYourArea()),
         ),
         BlocProvider(
           create: (context) => DetailsBloc(

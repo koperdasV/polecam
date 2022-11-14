@@ -1,5 +1,4 @@
-import 'package:equatable/equatable.dart';
-import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
+part of 'recommended_bloc.dart';
 
 enum RecommendedStateStatus { initial, loading, success, failure }
 

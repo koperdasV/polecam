@@ -1,5 +1,4 @@
-
-import 'package:equatable/equatable.dart';
+part of 'recommended_bloc.dart';
 
 class RecommendedEvent extends Equatable {
   const RecommendedEvent();
