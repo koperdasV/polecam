@@ -11,7 +11,7 @@ part 'journals_state.dart';
 class JournalsBloc extends Bloc<JournalsEvent, JournalsState> {
   JournalsBloc({required IJournalsRepo journalsRepo})
       : _journalsRepo = journalsRepo,
-        super(const JournalsState()) {
+        super(const JournalsState(journals: <JournalModel>[])) {
     on<LoadJournals>(_onLoadJournalsToState);
     on<RefreshJournals>(_onRefreshJournalsToState);
   }
@@ -29,7 +29,8 @@ class JournalsBloc extends Bloc<JournalsEvent, JournalsState> {
         ),
       );
 
-      final journals = await _journalsRepo.fetchJournals(state.page, 'assets/journal.json');
+      final journals =
+          await _journalsRepo.fetchJournals(state.page, 'assets/journal.json');
 
       return journals.isNotEmpty
           ? emit(
@@ -61,7 +62,12 @@ class JournalsBloc extends Bloc<JournalsEvent, JournalsState> {
     RefreshJournals event,
     Emitter<JournalsState> emit,
   ) async {
-    emit(const JournalsState(status: JournalsStateStatus.loading));
+    emit(
+      const JournalsState(
+        status: JournalsStateStatus.loading,
+        journals: <JournalModel>[],
+      ),
+    );
     add(const LoadJournals());
   }
 }

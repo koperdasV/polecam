@@ -58,7 +58,7 @@ class HomeRoute extends GoRouteData {
         BlocProvider(
           create: (context) => JournalsBloc(
             journalsRepo: JournalRepository(),
-          ),
+          )..add(const LoadJournals()),
         ),
         BlocProvider(
           create: (context) => CategoriesBloc(

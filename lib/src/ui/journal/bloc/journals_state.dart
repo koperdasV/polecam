@@ -7,7 +7,7 @@ class JournalsState extends Equatable {
     this.status = JournalsStateStatus.initial,
     this.errorMessage = '',
     this.canLoadMore = false,
-    this.journals = const [],
+    required this.journals,
     this.page = 1,
   });
 
