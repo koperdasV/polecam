@@ -7,13 +7,13 @@ class DetailsState extends Equatable {
     this.status = DetailsStateStatus.initial,
     this.errorMessage = '',
     // this.recommendations = const [],
-    this.detailModel,
+    required this.detailModel,
   }) ;
 
   final DetailsStateStatus status;
   final String errorMessage;
   // final List<Recommendations> recommendations;
-  final DetailModel? detailModel;
+  final DetailModel detailModel;
 
   @override
   List<Object?> get props => [
