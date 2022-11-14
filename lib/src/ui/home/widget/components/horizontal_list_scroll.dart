@@ -18,15 +18,15 @@ class HorizontalListScroll extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
-        if (state.status == CategoriesStateStatus.loading) {
-          return const Center(
-            child: CupertinoActivityIndicator(),
-          );
-        }
         if (state.status == CategoriesStateStatus.failure &&
             state.errorMessage.isNotEmpty) {
           context.showErrorBar<String>(
             content: Text(state.errorMessage),
+          );
+        }
+        if (state.status == CategoriesStateStatus.loading) {
+          return const Center(
+            child: CupertinoActivityIndicator(),
           );
         }
         if (state.status == CategoriesStateStatus.success) {

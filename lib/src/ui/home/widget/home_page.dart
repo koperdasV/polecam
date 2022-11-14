@@ -15,26 +15,14 @@ import 'package:polec/src/ui/home/widget/components/your_area_list.dart';
 import 'package:polec/src/ui/inYourArea/in_your_area_page.dart';
 import 'package:polec/src/ui/recommended/recommended_page.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
+  Widget build(BuildContext context) {
     context.read<HomeBloc>().add(const LoadCategories());
     context.read<HomeBloc>().add(const LoadRecommended());
     context.read<HomeBloc>().add(const LoadYourArea());
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // final yourArea = context.read<HomeBloc>().state.yourArea;
-    // final recommended = context.read<HomeBloc>().state.recommended;
     return CupertinoPageScaffold(
       child: Column(
         children: [

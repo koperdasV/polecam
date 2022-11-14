@@ -33,49 +33,46 @@ class YourAreaCard extends StatelessWidget {
               ),
             );
           },
-          child: Flexible(
-            flex: 3,
-            child: Stack(
-              children: [
-                SizedBox(
-                  height: 190,
-                  width: 166,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.network(
-                      tmp.image.toString(),
-                      fit: BoxFit.cover,
-                    ),
+          child: Stack(
+            children: [
+              SizedBox(
+                height: 190,
+                width: 166,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.network(
+                    tmp.image.toString(),
+                    fit: BoxFit.cover,
                   ),
                 ),
-                PercentWidget(
-                  percent: tmp.regularFee.toString(),
-                  fontSize: 22,
-                ),
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: CupertinoButton(
-                    borderRadius: BorderRadius.circular(100),
-                    onPressed: () {},
-                    child: Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: AppColor.favoriteButtonColor,
-                      ),
-                      child: Center(
-                        child: Icon(
-                          CupertinoIcons.heart,
-                          color: AppColor.textButtonColor,
-                        ),
+              ),
+              PercentWidget(
+                percent: tmp.regularFee.toString(),
+                fontSize: 22,
+              ),
+              Positioned(
+                right: 0,
+                bottom: 0,
+                child: CupertinoButton(
+                  borderRadius: BorderRadius.circular(100),
+                  onPressed: () {},
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColor.favoriteButtonColor,
+                    ),
+                    child: Center(
+                      child: Icon(
+                        CupertinoIcons.heart,
+                        color: AppColor.textButtonColor,
                       ),
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
         Padding(
