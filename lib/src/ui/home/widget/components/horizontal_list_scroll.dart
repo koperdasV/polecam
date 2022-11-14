@@ -1,7 +1,7 @@
 import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:polec/src/ui/home/bloc/home_bloc.dart';
+import 'package:polec/src/ui/home/blocs/recommended/recommended_bloc.dart';
 import 'package:polec/src/ui/home/widget/components/card.dart';
 
 class HorizontalListScroll extends StatelessWidget {
@@ -16,20 +16,20 @@ class HorizontalListScroll extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
+    return BlocBuilder<RecommendedBloc, RecommendedState>(
       builder: (context, state) {
-        if (state.status == CategoriesStateStatus.failure &&
+        if (state.status == RecommendedStateStatus.failure &&
             state.errorMessage.isNotEmpty) {
           context.showErrorBar<String>(
             content: Text(state.errorMessage),
           );
         }
-        if (state.status == CategoriesStateStatus.loading) {
+        if (state.status == RecommendedStateStatus.loading) {
           return const Center(
             child: CupertinoActivityIndicator(),
           );
         }
-        if (state.status == CategoriesStateStatus.success) {
+        if (state.status == RecommendedStateStatus.success) {
           return ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: state.recommended.length,
