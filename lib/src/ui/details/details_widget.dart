@@ -16,7 +16,18 @@ import 'package:polec/src/ui/details/components/show_dialog.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class DetailsWidget extends StatefulWidget {
-  const DetailsWidget({super.key});
+  const DetailsWidget({
+    super.key,
+    required this.image,
+    required this.regularFee,
+    this.recommend,
+    required this.name,
+  });
+  final String image;
+  final String regularFee;
+  final String? recommend;
+
+  final String name;
 
   @override
   State<DetailsWidget> createState() => _DetailsWidgetState();
@@ -31,6 +42,10 @@ class _DetailsWidgetState extends State<DetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final amountParse = double.parse(widget.regularFee) * 100.round();
+    final regularFee = amountParse.toInt();
+    final getRegularFee = regularFee + 1;
+
     final detailModel = context.read<DetailsBloc>().state.detailModel;
     if (detailModel == null) return const SizedBox.shrink();
     return BlocBuilder<DetailsBloc, DetailsState>(
@@ -45,12 +60,16 @@ class _DetailsWidgetState extends State<DetailsWidget> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const ImageWidget(),
-                   Padding(
-                    padding: EdgeInsets.only(top: 10),
+                  ImageWidget(
+                    image: widget.image,
+                    regularFee: widget.regularFee,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
                     child: Text(
-                      detailModel.name.toString(),
-                      style: TextStyle(
+                      widget.name,
+                      // detailModel.name.toString(),
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -86,9 +105,9 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                         ),
                       ),
                       const SizedBox(width: 5),
-                      const Text(
+                      Text(
                         // textAlign: TextAlign.justify,
-                        '10 %',
+                        '${regularFee} %',
                         style: TextStyle(
                           fontSize: 20,
                           color: AppColors.pecent,
@@ -154,8 +173,8 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.baseline,
                           textBaseline: TextBaseline.ideographic,
-                          children: const [
-                            Text(
+                          children: [
+                            const Text(
                               'Get ',
                               style: TextStyle(
                                 fontSize: 14,
@@ -164,8 +183,8 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                               ),
                             ),
                             Text(
-                              '11%',
-                              style: TextStyle(
+                              '${getRegularFee}%',
+                              style: const TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -200,7 +219,9 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                 onPressed: () => Navigator.push(
                   context,
                   CupertinoPageRoute(
-                    builder: (context) => const PaymentScreen(),
+                    builder: (context) => PaymentScreen(
+                      image: widget.image,
+                    ),
                   ),
                 ),
               ),
