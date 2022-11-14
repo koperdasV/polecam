@@ -6,12 +6,12 @@ class AccountState extends Equatable {
   const AccountState({
     this.status = AccountStateStatus.initial,
     this.errorMessage = '',
-    this.accountModel,
+    required this.accountModel,
   });
 
   final AccountStateStatus status;
   final String errorMessage;
-  final AccountModel? accountModel;
+  final AccountModel accountModel;
 
   @override
   List<Object?> get props => [

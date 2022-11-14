@@ -1,8 +1,8 @@
+import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
-import 'package:polec/src/common/models/user_preferences.dart';
 import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
 import 'package:polec/src/ui/profile/account/edit_profile_widget.dart';
 import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
@@ -15,21 +15,22 @@ class ProfileAppBar extends StatefulWidget {
 }
 
 class _ProfileAppBarState extends State<ProfileAppBar> {
-  final user = UserPreferences.myUser;
-
-  @override
-  void initState() {
-    context.read<AccountBloc>().add(const LoadAccount());
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
-    final accountModel = context.read<AccountBloc>().state.accountModel;
-    if (accountModel == null) return const SizedBox.shrink();
-
-    return BlocBuilder<AccountBloc, AccountState>(
-      builder: (context, state) {
+    return BlocBuilder<AccountBloc, AccountState>(builder: (context, state) {
+      if (state.status == AccountStateStatus.failure &&
+          state.errorMessage.isNotEmpty) {
+        context.showErrorBar<String>(
+          content: Text(state.errorMessage),
+        );
+      }
+      if (state.status == AccountStateStatus.loading) {
+        return const Center(
+          child: CupertinoActivityIndicator(),
+        );
+      }
+      if (state.status == AccountStateStatus.success) {
         return Padding(
           padding: const EdgeInsets.only(left: 16, right: 16, top: 50),
           child: Row(
@@ -39,9 +40,8 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                 children: [
                   CircleAvatar(
                     radius: 25,
-                    // backgroundColor: Colors.grey.shade400,
                     backgroundImage: AssetImage(
-                      accountModel.avatar.toString(),
+                      state.accountModel.avatar.toString(),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -50,7 +50,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '${accountModel.firstName} ${accountModel.lastName}',
+                        '${state.accountModel.firstName} ${state.accountModel.lastName}',
                         style: TextStyle(
                           color: AppColor.titleColor,
                           fontSize: 16,
@@ -58,7 +58,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                       ),
                       const SizedBox(height: 5),
                       Text(
-                        accountModel.email.toString(),
+                        state.accountModel.email.toString(),
                         style: TextStyle(
                           color: AppColor.subTitleColor,
                           fontSize: 12,
@@ -78,9 +78,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                     //     builder: (context) => const EditProfilePage(),
                     //   ),
                     // );
-                    setState(() {
-                      changeEditWidget();
-                    });
+                    setState(changeEditWidget);
                   },
                   child: Icon(
                     Icons.mode,
@@ -91,8 +89,10 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
             ],
           ),
         );
-      },
-    );
+      } else {
+        return const Text('No data');
+      }
+    });
   }
 
   void changeEditWidget() {
