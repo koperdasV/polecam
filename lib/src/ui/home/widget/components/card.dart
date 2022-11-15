@@ -29,7 +29,7 @@ class CardWidget extends StatelessWidget {
               CupertinoPageRoute(
                 builder: (context) => DetailsScreen(
                   image: tmp.image.toString(),
-                  regularFee: tmp.regularFee.toString(),
+                  regularFee: tmp.regularFee,
                   name: tmp.name.toString(),
                 ),
               ),

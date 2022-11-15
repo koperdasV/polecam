@@ -10,7 +10,7 @@ _$_RecommendedModel _$$_RecommendedModelFromJson(Map<String, dynamic> json) =>
     _$_RecommendedModel(
       image: json['image'] as String?,
       name: json['name'] as String?,
-      regularFee: json['regularFee'] as String?,
+      regularFee: (json['regularFee'] as num?)?.toDouble(),
       www: json['www'] as String?,
       description: json['description'] as String?,
       category: (json['category'] as List<dynamic>?)

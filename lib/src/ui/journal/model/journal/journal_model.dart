@@ -18,7 +18,7 @@ class JournalModel with _$JournalModel {
     Source source,
     Source target, {
     required String? type,
-    required DateTime? timpestamp,
+    required String timpestamp,
     required Card card,
     required double? amount,
   }) = _JournalModel;

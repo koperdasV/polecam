@@ -23,7 +23,7 @@ mixin _$JournalModel {
   Source get source => throw _privateConstructorUsedError;
   Source get target => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
-  DateTime? get timpestamp => throw _privateConstructorUsedError;
+  String get timpestamp => throw _privateConstructorUsedError;
   Card get card => throw _privateConstructorUsedError;
   double? get amount => throw _privateConstructorUsedError;
 
@@ -43,7 +43,7 @@ abstract class $JournalModelCopyWith<$Res> {
       {Source source,
       Source target,
       String? type,
-      DateTime? timpestamp,
+      String timpestamp,
       Card card,
       double? amount});
 
@@ -68,7 +68,7 @@ class _$JournalModelCopyWithImpl<$Res, $Val extends JournalModel>
     Object? source = null,
     Object? target = null,
     Object? type = freezed,
-    Object? timpestamp = freezed,
+    Object? timpestamp = null,
     Object? card = null,
     Object? amount = freezed,
   }) {
@@ -85,10 +85,10 @@ class _$JournalModelCopyWithImpl<$Res, $Val extends JournalModel>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      timpestamp: freezed == timpestamp
+      timpestamp: null == timpestamp
           ? _value.timpestamp
           : timpestamp // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as String,
       card: null == card
           ? _value.card
           : card // ignore: cast_nullable_to_non_nullable
@@ -137,7 +137,7 @@ abstract class _$$_JournalModelCopyWith<$Res>
       {Source source,
       Source target,
       String? type,
-      DateTime? timpestamp,
+      String timpestamp,
       Card card,
       double? amount});
 
@@ -163,7 +163,7 @@ class __$$_JournalModelCopyWithImpl<$Res>
     Object? source = null,
     Object? target = null,
     Object? type = freezed,
-    Object? timpestamp = freezed,
+    Object? timpestamp = null,
     Object? card = null,
     Object? amount = freezed,
   }) {
@@ -180,10 +180,10 @@ class __$$_JournalModelCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      timpestamp: freezed == timpestamp
+      timpestamp: null == timpestamp
           ? _value.timpestamp
           : timpestamp // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as String,
       card: null == card
           ? _value.card
           : card // ignore: cast_nullable_to_non_nullable
@@ -215,7 +215,7 @@ class _$_JournalModel implements _JournalModel {
   @override
   final String? type;
   @override
-  final DateTime? timpestamp;
+  final String timpestamp;
   @override
   final Card card;
   @override
@@ -262,7 +262,7 @@ class _$_JournalModel implements _JournalModel {
 abstract class _JournalModel implements JournalModel {
   const factory _JournalModel(final Source source, final Source target,
       {required final String? type,
-      required final DateTime? timpestamp,
+      required final String timpestamp,
       required final Card card,
       required final double? amount}) = _$_JournalModel;
 
@@ -276,7 +276,7 @@ abstract class _JournalModel implements JournalModel {
   @override
   String? get type;
   @override
-  DateTime? get timpestamp;
+  String get timpestamp;
   @override
   Card get card;
   @override

@@ -17,7 +17,7 @@ abstract class RecommendedModel with _$RecommendedModel {
   const factory RecommendedModel({
     String? image,
     String? name,
-    String? regularFee,
+    double? regularFee,
     String? www,
     String? description,
     List<String>? category,

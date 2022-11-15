@@ -22,7 +22,7 @@ DetailModel _$DetailModelFromJson(Map<String, dynamic> json) {
 mixin _$DetailModel {
   String? get image => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  String? get regularFee => throw _privateConstructorUsedError;
+  double? get regularFee => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   List<Addresses>? get addresses => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $DetailModelCopyWith<$Res> {
   $Res call(
       {String? image,
       String? name,
-      String? regularFee,
+      double? regularFee,
       String? url,
       String? description,
       List<Addresses>? addresses,
@@ -84,7 +84,7 @@ class _$DetailModelCopyWithImpl<$Res, $Val extends DetailModel>
       regularFee: freezed == regularFee
           ? _value.regularFee
           : regularFee // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -116,7 +116,7 @@ abstract class _$$_DetailModelCopyWith<$Res>
   $Res call(
       {String? image,
       String? name,
-      String? regularFee,
+      double? regularFee,
       String? url,
       String? description,
       List<Addresses>? addresses,
@@ -154,7 +154,7 @@ class __$$_DetailModelCopyWithImpl<$Res>
       regularFee: freezed == regularFee
           ? _value.regularFee
           : regularFee // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -197,7 +197,7 @@ class _$_DetailModel implements _DetailModel {
   @override
   final String? name;
   @override
-  final String? regularFee;
+  final double? regularFee;
   @override
   final String? url;
   @override
@@ -273,7 +273,7 @@ abstract class _DetailModel implements DetailModel {
   const factory _DetailModel(
       {final String? image,
       final String? name,
-      final String? regularFee,
+      final double? regularFee,
       final String? url,
       final String? description,
       final List<Addresses>? addresses,
@@ -287,7 +287,7 @@ abstract class _DetailModel implements DetailModel {
   @override
   String? get name;
   @override
-  String? get regularFee;
+  double? get regularFee;
   @override
   String? get url;
   @override

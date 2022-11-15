@@ -22,7 +22,7 @@ YourAreaModel _$YourAreaModelFromJson(Map<String, dynamic> json) {
 mixin _$YourAreaModel {
   String? get image => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  String? get regularFee => throw _privateConstructorUsedError;
+  double? get regularFee => throw _privateConstructorUsedError;
   String? get www => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   List<String>? get category => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $YourAreaModelCopyWith<$Res> {
   $Res call(
       {String? image,
       String? name,
-      String? regularFee,
+      double? regularFee,
       String? www,
       String? description,
       List<String>? category,
@@ -83,7 +83,7 @@ class _$YourAreaModelCopyWithImpl<$Res, $Val extends YourAreaModel>
       regularFee: freezed == regularFee
           ? _value.regularFee
           : regularFee // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       www: freezed == www
           ? _value.www
           : www // ignore: cast_nullable_to_non_nullable
@@ -115,7 +115,7 @@ abstract class _$$_YourAreaModelCopyWith<$Res>
   $Res call(
       {String? image,
       String? name,
-      String? regularFee,
+      double? regularFee,
       String? www,
       String? description,
       List<String>? category,
@@ -153,7 +153,7 @@ class __$$_YourAreaModelCopyWithImpl<$Res>
       regularFee: freezed == regularFee
           ? _value.regularFee
           : regularFee // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       www: freezed == www
           ? _value.www
           : www // ignore: cast_nullable_to_non_nullable
@@ -196,7 +196,7 @@ class _$_YourAreaModel implements _YourAreaModel {
   @override
   final String? name;
   @override
-  final String? regularFee;
+  final double? regularFee;
   @override
   final String? www;
   @override
@@ -271,7 +271,7 @@ abstract class _YourAreaModel implements YourAreaModel {
   const factory _YourAreaModel(
       {final String? image,
       final String? name,
-      final String? regularFee,
+      final double? regularFee,
       final String? www,
       final String? description,
       final List<String>? category,
@@ -285,7 +285,7 @@ abstract class _YourAreaModel implements YourAreaModel {
   @override
   String? get name;
   @override
-  String? get regularFee;
+  double? get regularFee;
   @override
   String? get www;
   @override

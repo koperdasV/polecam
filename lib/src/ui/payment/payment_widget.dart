@@ -13,10 +13,19 @@ import 'package:polec/src/ui/details/components/show_dialog.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class PaymentWidget extends StatelessWidget {
-  const PaymentWidget({super.key, required this.image});
+  const PaymentWidget({
+    super.key,
+    required this.image,
+    this.regularFee = 0.100,
+  });
   final String image;
+  final double? regularFee;
+
   @override
   Widget build(BuildContext context) {
+    final amountParse = (regularFee)! * 100.round();
+    final regularFeePer = amountParse.toInt();
+    final getRegularFee = regularFeePer + 1;
     return ListView(
       children: [
         Padding(
@@ -30,11 +39,12 @@ class PaymentWidget extends StatelessWidget {
               GestureDetector(
                 child: ImageWidget(
                   image: image,
+                  regularFee: regularFee,
                 ),
                 onTap: () => Navigator.push(
                   context,
                   CupertinoPageRoute(
-                    builder: (context) =>  NotRecommendScreen(image: image),
+                    builder: (context) => NotRecommendScreen(image: image),
                   ),
                 ),
               ),
@@ -78,10 +88,10 @@ class PaymentWidget extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 5),
-                  const Text(
+                  Text(
                     // textAlign: TextAlign.justify,
-                    '10 %',
-                    style: TextStyle(
+                    '${regularFeePer} %',
+                    style: const TextStyle(
                       fontSize: 20,
                       color: AppColors.pecent,
                       fontWeight: FontWeight.bold,
@@ -108,8 +118,8 @@ class PaymentWidget extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.ideographic,
-                    children: const [
-                      Text(
+                    children: [
+                      const Text(
                         'Get ',
                         style: TextStyle(
                           fontSize: 14,
@@ -118,8 +128,8 @@ class PaymentWidget extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '11%',
-                        style: TextStyle(
+                        '${getRegularFee}%',
+                        style: const TextStyle(
                           fontSize: 20,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

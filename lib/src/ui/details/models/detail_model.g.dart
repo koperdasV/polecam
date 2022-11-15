@@ -10,7 +10,7 @@ _$_DetailModel _$$_DetailModelFromJson(Map<String, dynamic> json) =>
     _$_DetailModel(
       image: json['image'] as String?,
       name: json['name'] as String?,
-      regularFee: json['regularFee'] as String?,
+      regularFee: (json['regularFee'] as num?)?.toDouble(),
       url: json['url'] as String?,
       description: json['description'] as String?,
       addresses: (json['addresses'] as List<dynamic>?)

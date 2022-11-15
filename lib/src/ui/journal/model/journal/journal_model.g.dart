@@ -11,9 +11,7 @@ _$_JournalModel _$$_JournalModelFromJson(Map<String, dynamic> json) =>
       Source.fromJson(json['source'] as Map<String, dynamic>),
       Source.fromJson(json['target'] as Map<String, dynamic>),
       type: json['type'] as String?,
-      timpestamp: json['timpestamp'] == null
-          ? null
-          : DateTime.parse(json['timpestamp'] as String),
+      timpestamp: json['timpestamp'] as String,
       card: Card.fromJson(json['card'] as Map<String, dynamic>),
       amount: (json['amount'] as num?)?.toDouble(),
     );
@@ -23,7 +21,7 @@ Map<String, dynamic> _$$_JournalModelToJson(_$_JournalModel instance) =>
       'source': instance.source,
       'target': instance.target,
       'type': instance.type,
-      'timpestamp': instance.timpestamp?.toIso8601String(),
+      'timpestamp': instance.timpestamp,
       'card': instance.card,
       'amount': instance.amount,
     };

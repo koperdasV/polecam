@@ -14,7 +14,7 @@ class DetailModel with _$DetailModel {
   const factory DetailModel({
     String? image,
     String? name,
-    String? regularFee,
+    double? regularFee,
     String? url,
     String? description,
     List<Addresses>? addresses,
