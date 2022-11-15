@@ -203,20 +203,20 @@ class _SummaryPageState extends State<SummaryPage> {
               fontSizeTitle: 16,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+              padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 40),
               child: SizedBox(
                 width: double.infinity,
                 height: 310,
                 child: SpiderChart(
                   data: const [
                     32,
-                    18,
+                    26,
                     10,
                     23,
-                    29,
+                    14,
                     32,
                     14,
-                    26,
+                    21,
                   ],
                   colors: const [
                     Colors.blue,
@@ -228,6 +228,16 @@ class _SummaryPageState extends State<SummaryPage> {
                     Colors.orange,
                     Colors.green,
                   ],
+                  labels: const [
+                    r'Travels (125.35$)',
+                    r'Food (125.35$)',
+                    r'Party (125.35$)',
+                    r'Beauty (125.35$)',
+                    r'Health (125.35$)',
+                    r'Pets (125.35$)',
+                    r'Sport (125.35$)',
+                    r'Clothes (125.35$)',
+                  ],
                 ),
               ),
             )
@@ -237,17 +247,3 @@ class _SummaryPageState extends State<SummaryPage> {
     );
   }
 }
-// <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="97" height="97" viewBox="0 0 97 97">
-//   <defs>
-//     <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-//       <stop offset="0" stop-color="#00b2d3"/>
-//       <stop offset="1" stop-color="#40d6f2" stop-opacity="0.502"/>
-//     </linearGradient>
-//     <filter id="Контур_2218" x="0" y="0" width="97" height="97" filterUnits="userSpaceOnUse">
-//       <feOffset dy="3" input="SourceAlpha"/>
-//       <feGaussianBlur stdDeviation="3" result="blur"/>
-//       <feFlood flood-opacity="0.161"/>
-//       <feComposite operator="in" in2="blur"/>
-//       <feComposite in="SourceGraphic"/>
-//     </filter>
-//   </defs>

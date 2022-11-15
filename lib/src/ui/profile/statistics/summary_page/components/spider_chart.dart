@@ -5,6 +5,7 @@ import 'dart:math' show pi, cos, sin, max;
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:polec/resources/colors.dart';
 
 /// Displays a spider/radar chart
 class SpiderChart extends StatelessWidget {
@@ -108,16 +109,13 @@ class SpiderChartPainter extends CustomPainter {
   final Paint fill = Paint()
     ..color = const Color.fromARGB(15, 50, 50, 50)
     ..style = PaintingStyle.fill;
+  final Paint dotted = Paint()
+    ..color = Colors.red
+    ..style = PaintingStyle.fill;
 
   final Paint stroke = Paint()
     ..color = const Color.fromARGB(255, 50, 50, 50)
     ..style = PaintingStyle.stroke;
-
-  final Paint dottedLine = Paint()
-    ..color = Colors.red
-    ..style = PaintingStyle.stroke
-    ..strokeCap = StrokeCap.square
-    ..strokeWidth = 2;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -145,12 +143,12 @@ class SpiderChartPainter extends CustomPainter {
     }
 
     if (labels.isNotEmpty) {
-      paintLabels(canvas, center, outerPoints, labels);
+      paintLabels(canvas, center, dataPoints, labels);
     }
     paintGraphOutline(canvas, center, dataPoints);
+    //dottedPaint(canvas, center, dataPoints);
     paintDataLines(canvas, dataPoints);
     paintDataPoints(canvas, dataPoints);
-    paintText(canvas, center, dataPoints, data);
     paintLine(canvas, dataPoints, size);
   }
 
@@ -187,58 +185,39 @@ class SpiderChartPainter extends CustomPainter {
     }
   }
 
-  void paintText(
-    Canvas canvas,
-    Offset center,
-    List<Offset> points,
-    List<double> data,
-  ) {
-    final textPainter = TextPainter(textDirection: TextDirection.ltr);
-    for (var i = 0; i < points.length; i++) {
-      // category title with bonuses "Travel (125.32 $)"
-      final s = data[i].toStringAsFixed(decimalPrecision);
-      textPainter
-        ..text = TextSpan(
-            text: s, style: const TextStyle(color: Colors.black, fontSize: 12))
-        ..layout();
-      if (points[i].dx < center.dx) {
-        textPainter.paint(
-          canvas,
-          points[i].translate(-(textPainter.size.width + 8.0), 0),
-        );
-      } else if (points[i].dx > center.dx) {
-        textPainter.paint(canvas, points[i].translate(8, 0));
-      } else if (points[i].dy < center.dy) {
-        textPainter.paint(
-          canvas,
-          points[i].translate(-(textPainter.size.width / 2), -24),
-        );
-      } else {
-        textPainter.paint(
-          canvas,
-          points[i].translate(-(textPainter.size.width / 2), 12),
-        );
-      }
-    }
-  }
-
   void paintGraphOutline(Canvas canvas, Offset center, List<Offset> points) {
     for (var i = 0; i < points.length; i++) {
-      
       canvas.drawLine(
         center,
         points[i],
         Paint()
           ..color = colors[i]
-          ..strokeWidth = 4,
+          ..strokeWidth = 5,
       );
     }
 
     canvas
-      // ..drawPoints(PointMode.polygon, [...points, points[0]], spokes)
       ..drawCircle(center, 8, spokes)
       ..drawCircle(center, 4, Paint()..color = Colors.white);
   }
+
+  // void dottedPaint(Canvas canvas, Offset center, List<Offset> points) {
+  //   var max = 35;
+  //   const dashWidth = 5.0;
+  //   const dashSpace = 5.0;
+  //   Offset startY = center;
+  //   for (var i = 0; i < points.length; i++) {
+  //     canvas.drawLine(
+  //       center,
+  //       points[i],
+  //       Paint()
+  //         ..color = colors[i]
+  //         ..strokeWidth = 5,
+  //     );
+  //     final space = Offset(dashSpace, dashWidth);
+  //     startY += space;
+  //   }
+  // }
 
   void paintLabels(
     Canvas canvas,
@@ -247,29 +226,31 @@ class SpiderChartPainter extends CustomPainter {
     List<String> labels,
   ) {
     final textPainter = TextPainter(textDirection: TextDirection.ltr);
-    final textStyle =
-        TextStyle(color: Colors.grey.shade600, fontWeight: FontWeight.bold);
+    final textStyle = TextStyle(
+      fontSize: 16,
+      color: AppColor.categorieColor,
+    );
 
     for (var i = 0; i < points.length; i++) {
       textPainter
         ..text = TextSpan(text: labels[i], style: textStyle)
-        ..layout();
+        ..layout(maxWidth: 80);
       if (points[i].dx < center.dx) {
         textPainter.paint(
           canvas,
-          points[i].translate(-(textPainter.size.width + 5.0), -15),
+          points[i].translate(-(textPainter.size.width + 5.0), -25),
         );
       } else if (points[i].dx > center.dx) {
-        textPainter.paint(canvas, points[i].translate(5, -15));
+        textPainter.paint(canvas, points[i].translate(20, -25));
       } else if (points[i].dy < center.dy) {
         textPainter.paint(
           canvas,
-          points[i].translate(-(textPainter.size.width / 2), -35),
+          points[i].translate(-(textPainter.size.width / 2), -45),
         );
       } else {
         textPainter.paint(
           canvas,
-          points[i].translate(-(textPainter.size.width / 2), 20),
+          points[i].translate(-(textPainter.size.width / 2), 15),
         );
       }
     }
