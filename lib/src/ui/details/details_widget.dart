@@ -14,6 +14,7 @@ import 'package:polec/src/ui/details/components/navigation_bar.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
 import 'package:polec/src/ui/details/components/recommendations.dart';
 import 'package:polec/src/ui/details/components/show_dialog.dart';
+import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class DetailsWidget extends StatefulWidget {
@@ -25,7 +26,7 @@ class DetailsWidget extends StatefulWidget {
     required this.name,
   });
   final String image;
-  final String regularFee;
+  final double? regularFee;
   final String? recommend;
 
   final String name;
@@ -37,7 +38,7 @@ class DetailsWidget extends StatefulWidget {
 class _DetailsWidgetState extends State<DetailsWidget> {
   @override
   Widget build(BuildContext context) {
-    final amountParse = double.parse(widget.regularFee) * 100.round();
+    final amountParse = (widget.regularFee)! * 100.round();
     final regularFee = amountParse.toInt();
     final getRegularFee = regularFee + 1;
 

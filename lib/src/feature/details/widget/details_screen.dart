@@ -21,13 +21,13 @@ class DetailsScreen extends StatefulWidget {
   const DetailsScreen({
     super.key,
     this.image = '',
-    this.regularFee = '',
+    this.regularFee = 0,
     this.recommend,
     this.name = '',
   });
 
   final String image;
-  final String regularFee;
+  final double? regularFee;
   final String? recommend;
   final String name;
 
@@ -55,30 +55,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
           ),
         ),
       ),
-      child: BlocConsumer<DetailsBloc, DetailsState>(
-        listener: (context, state) {
-          if (state.status == DetailsStateStatus.failure &&
-              state.errorMessage.isNotEmpty) {
-            context.showErrorBar<String>(content: Text(state.errorMessage));
-          }
-        },
-        builder: (context, state) {
-          //  if (state.status == DetailsStateStatus.loading) {
-          //   return const Center(
-          //     child: CupertinoActivityIndicator(
-          //       color: CupertinoColors.activeBlue,
-          //     ),
-          //   );
-          // } else {
-          return DetailsWidget(
-            regularFee: regularFee,
-            image: image,
-            recommend: recommend,
-            name: name,
-          );
-          // }
-        },
+      child: DetailsWidget(
+        regularFee: regularFee,
+        image: image,
+        recommend: recommend,
+        name: name,
       ),
+      // }
     );
   }
 }

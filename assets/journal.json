@@ -2,152 +2,152 @@
 [
     {
         "type": "RECOMMENDATION",
-        "timpestamp": "1969-07-20 20:18:04Z",
+        "timpestamp": "2019-02-22 23:46:51",
         "source": {
-            "name": "Petro Poroshenko",
-            "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Official_portrait_of_Petro_Poroshenko.jpg/1200px-Official_portrait_of_Petro_Poroshenko.jpg"
+            "name": "Johnatan Vitsel",
+            "avatar": "https://img.freepik.com/premium-psd/3d-illustration-smiling-caucasian-man-cartoon-close-up-portrait-standing-caucazian-man-with-beard-purple-background-3d-avatar-ui-ux_1020-5077.jpg?w=740"
         },
         "target": {
-            "name": "Петро Порошенко",
-            "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Official_portrait_of_Petro_Poroshenko.jpg/1200px-Official_portrait_of_Petro_Poroshenko.jpg"
+            "name": "Johnatan Vitsel",
+            "avatar": "https://img.freepik.com/premium-psd/3d-illustration-smiling-caucasian-man-cartoon-close-up-portrait-standing-caucazian-man-with-beard-purple-background-3d-avatar-ui-ux_1020-5077.jpg?w=740"
         },
         "card": {
-            "name": "Найкращі цукерки тільки в мене"
+            "name": "Some card Johnatan"
         }
     },
     {
         "type": "RECOMMENDATION",
-        "timpestamp": "1969-07-20 20:18:04Z",
+        "timpestamp": "2022-11-15 11:32:12",
         "source": {
-            "name": "Petro Poroshenko",
-            "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Official_portrait_of_Petro_Poroshenko.jpg/1200px-Official_portrait_of_Petro_Poroshenko.jpg"
+            "name": "David May",
+            "avatar": "https://img.freepik.com/premium-psd/3d-illustration-smiling-caucasian-man-cartoon-close-up-portrait-standing-caucazian-man-with-beard-purple-background-3d-avatar-ui-ux_1020-5077.jpg?w=740"
         },
         "target": {
-            "name": "Юля Тимошенко",
-            "avatar": "https://media.slovoidilo.ua/media/publications/14/131116/131116-1_large.jpg"
+            "name": "David May",
+            "avatar": "https://img.freepik.com/premium-psd/3d-illustration-smiling-caucasian-man-cartoon-close-up-portrait-standing-caucazian-man-with-beard-purple-background-3d-avatar-ui-ux_1020-5077.jpg?w=740"
         },
         "card": {
-            "name": "Мирного рішення не буде"
+            "name": "Some card David"
         }
     },
     {
         "type": "RECOMMENDATION",
-        "timpestamp": "1969-07-20 20:18:04Z",
+        "timpestamp": "2021-02-02 17:02:04",
         "source": {
-            "name": "Oleksandr Povoroznyk",
-            "avatar": "https://dynamo.kiev.ua/media/posts/2021/10/06/111_dynamo.kiev.ua_6.jpg"
+            "name": "Mark Hicks",
+            "avatar": "https://img.freepik.com/premium-psd/3d-illustration-man-cartoon-close-up-portrait-standing-man-with-sunglasses-mustache-pink-background-3d-avatar-ui-ux_1020-5093.jpg"
         },
         "target": {
-            "name": "Вова Зеленський",
-            "avatar": "https://kor.ill.in.ua/m/1200x0/2781504.jpeg"
+            "name": "Mark Hicks",
+            "avatar": "https://img.freepik.com/premium-psd/3d-illustration-man-cartoon-close-up-portrait-standing-man-with-sunglasses-mustache-pink-background-3d-avatar-ui-ux_1020-5093.jpg"
         },
         "card": {
-            "name": "Вова, %баш їх бл%ть"
+            "name": "Some card Mark"
         }
     },
     {
         "type": "RECOMMENDATION",
-        "timpestamp": "1969-07-20 20:18:04Z",
+        "timpestamp": "2019-02-19 07:58:58",
         "source": {
-            "name": "Oleksandr Povoroznyk",
-            "avatar": "https://dynamo.kiev.ua/media/posts/2021/10/06/111_dynamo.kiev.ua_6.jpg"
+            "name": "Mark Hicks",
+            "avatar": "https://img.freepik.com/premium-psd/3d-illustration-man-cartoon-close-up-portrait-standing-man-with-sunglasses-mustache-pink-background-3d-avatar-ui-ux_1020-5093.jpg"
         },
         "target": {
-            "name": "Вова Зеленський",
-            "avatar": "https://kor.ill.in.ua/m/1200x0/2781504.jpeg"
+            "name": "Mark Hicks",
+            "avatar": "https://img.freepik.com/premium-psd/3d-illustration-man-cartoon-close-up-portrait-standing-man-with-sunglasses-mustache-pink-background-3d-avatar-ui-ux_1020-5093.jpg"
         },
         "card": {
-            "name": "Вова, %баш їх бл%ть"
+            "name": "Some card Mark"
         }
     },
     {
         "type": "RECOMMENDATION",
-        "timpestamp": "1969-07-20 20:18:04Z",
+        "timpestamp": "2020-11-05 06:49:04",
         "source": {
-            "name": "Oleksandr Povoroznyk",
-            "avatar": "https://dynamo.kiev.ua/media/posts/2021/10/06/111_dynamo.kiev.ua_6.jpg"
+            "name": "John Conner",
+            "avatar": "https://img.freepik.com/premium-psd/3d-cartoon-avatar-smiling-bearded-man_1020-5112.jpg?w=740"
         },
         "target": {
-            "name": "Вова Зеленський",
-            "avatar": "https://kor.ill.in.ua/m/1200x0/2781504.jpeg"
+            "name": "John Conner",
+            "avatar": "https://img.freepik.com/premium-psd/3d-cartoon-avatar-smiling-bearded-man_1020-5112.jpg?w=740"
         },
         "card": {
-            "name": "Вова, %баш їх бл%ть"
+            "name": "Some card John"
         }
     },
     {
         "type": "RECOMMENDATION",
-        "timpestamp": "1969-07-20 20:18:04Z",
+        "timpestamp": "2022-07-16 05:44:34",
         "source": {
-            "name": "Oleksandr Povoroznyk",
-            "avatar": "https://dynamo.kiev.ua/media/posts/2021/10/06/111_dynamo.kiev.ua_6.jpg"
+            "name": "John Conner",
+            "avatar": "https://img.freepik.com/premium-psd/3d-cartoon-avatar-smiling-bearded-man_1020-5112.jpg?w=740"
         },
         "target": {
-            "name": "Вова Зеленський",
-            "avatar": "https://kor.ill.in.ua/m/1200x0/2781504.jpeg"
+            "name": "John Conner",
+            "avatar": "https://img.freepik.com/premium-psd/3d-cartoon-avatar-smiling-bearded-man_1020-5112.jpg?w=740"
         },
         "card": {
-            "name": "Вова, %баш їх бл%ть"
+            "name": "Some card John"
         }
     },
     {
         "type": "RECOMMENDATION",
-        "timpestamp": "1969-07-20 20:18:04Z",
+        "timpestamp": "2020-12-29 12:34:24",
         "source": {
-            "name": "Oleksandr Povoroznyk",
-            "avatar": "https://dynamo.kiev.ua/media/posts/2021/10/06/111_dynamo.kiev.ua_6.jpg"
+            "name": "Daniel Smith",
+            "avatar": "https://img.freepik.com/premium-psd/3d-cartoon-avatar-engineer-man-with-safety-helmet_1020-5136.jpg?w=740"
         },
         "target": {
-            "name": "Вова Зеленський",
-            "avatar": "https://kor.ill.in.ua/m/1200x0/2781504.jpeg"
+            "name": "Daniel Smith",
+            "avatar": "https://img.freepik.com/premium-psd/3d-cartoon-avatar-engineer-man-with-safety-helmet_1020-5136.jpg?w=740"
         },
         "card": {
-            "name": "Вова, %баш їх бл%ть"
+            "name": "Some card Daniel"
         }
     },
     {
         "type": "RECOMMENDATION",
-        "timpestamp": "1969-07-20 20:18:04Z",
+        "timpestamp": "2021-09-11 07:35:53",
         "source": {
-            "name": "Oleksandr Povoroznyk",
-            "avatar": "https://dynamo.kiev.ua/media/posts/2021/10/06/111_dynamo.kiev.ua_6.jpg"
+            "name": "Daniel Smith",
+            "avatar": "https://img.freepik.com/premium-psd/3d-cartoon-avatar-engineer-man-with-safety-helmet_1020-5136.jpg?w=740"
         },
         "target": {
-            "name": "Вова Зеленський",
-            "avatar": "https://kor.ill.in.ua/m/1200x0/2781504.jpeg"
+            "name": "Daniel Smith",
+            "avatar": "https://img.freepik.com/premium-psd/3d-cartoon-avatar-engineer-man-with-safety-helmet_1020-5136.jpg?w=740"
         },
         "card": {
-            "name": "Вова, %баш їх бл%ть"
+            "name": "Some card Daniel"
         }
     },
     {
         "type": "RECOMMENDATION",
-        "timpestamp": "1969-07-20 20:18:04Z",
+        "timpestamp": "2019-06-09 00:46:27",
         "source": {
-            "name": "Oleksandr Povoroznyk",
-            "avatar": "https://dynamo.kiev.ua/media/posts/2021/10/06/111_dynamo.kiev.ua_6.jpg"
+            "name": "Daniel Smith",
+            "avatar": "https://img.freepik.com/premium-psd/3d-cartoon-character-isolated-3d-rendering_235528-543.jpg?w=740"
         },
         "target": {
-            "name": "Вова Зеленський",
-            "avatar": "https://kor.ill.in.ua/m/1200x0/2781504.jpeg"
+            "name": "Daniel Smith",
+            "avatar": "https://img.freepik.com/premium-psd/3d-cartoon-character-isolated-3d-rendering_235528-543.jpg?w=740"
         },
         "card": {
-            "name": "Вова, %баш їх бл%ть"
+            "name": "Some card Daniel"
         }
     },
     {
         "type": "RECOMMENDATION",
-        "timpestamp": "1969-07-20 20:18:04Z",
+        "timpestamp": "2022-03-24 04:13:05",
         "source": {
-            "name": "Oleksandr Povoroznyk",
-            "avatar": "https://dynamo.kiev.ua/media/posts/2021/10/06/111_dynamo.kiev.ua_6.jpg"
+            "name": "Daniel Smith",
+            "avatar": "https://img.freepik.com/premium-psd/3d-cartoon-character-isolated-3d-rendering_235528-543.jpg?w=740"
         },
         "target": {
-            "name": "Вова Зеленський",
-            "avatar": "https://kor.ill.in.ua/m/1200x0/2781504.jpeg"
+            "name": "Daniel Smith",
+            "avatar": "https://img.freepik.com/premium-psd/3d-cartoon-character-isolated-3d-rendering_235528-543.jpg?w=740"
         },
         "card": {
-            "name": "Вова, %баш їх бл%ть"
+            "name": "Some card Daniel"
         }
     }
 

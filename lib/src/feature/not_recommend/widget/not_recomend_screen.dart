@@ -12,9 +12,11 @@ class NotRecommendScreen extends StatefulWidget {
   const NotRecommendScreen({
     super.key,
     this.image = '',
+    this.regularFee = 0.100,
   });
 
   final String image;
+  final double? regularFee;
   @override
   State<NotRecommendScreen> createState() => _NotRecommendScreenState();
 }
@@ -22,6 +24,10 @@ class NotRecommendScreen extends StatefulWidget {
 class _NotRecommendScreenState extends State<NotRecommendScreen> {
   @override
   Widget build(BuildContext context) {
+    final amountParse = (widget.regularFee)! * 100.round();
+    final regularFee = amountParse.toInt();
+    final getRegularFee = regularFee + 1;
+
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
         middle: Text(
@@ -44,6 +50,7 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
               children: [
                 ImageWidget(
                   image: widget.image,
+                  regularFee: widget.regularFee,
                 ),
                 const Padding(
                   padding: EdgeInsets.only(top: 10),
@@ -76,9 +83,9 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                       ),
                     ),
                     const SizedBox(width: 5),
-                    const Text(
-                      '10 %',
-                      style: TextStyle(
+                    Text(
+                      '${regularFee} %',
+                      style: const TextStyle(
                         fontSize: 20,
                         color: AppColors.pecent,
                         fontWeight: FontWeight.bold,

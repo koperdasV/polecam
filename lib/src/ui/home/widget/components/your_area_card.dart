@@ -31,7 +31,7 @@ class YourAreaCard extends StatelessWidget {
               CupertinoPageRoute(
                 builder: (context) => DetailsScreen(
                   image: tmp.image.toString(),
-                  regularFee: tmp.regularFee.toString(),
+                  regularFee: tmp.regularFee,
                   name: tmp.name.toString(),
                 ),
               ),
@@ -51,7 +51,7 @@ class YourAreaCard extends StatelessWidget {
                 ),
               ),
               PercentWidget(
-                percent: tmp.regularFee.toString(),
+                percent: '${tmp.regularFee}',
                 fontSize: 22,
               ),
               Positioned(

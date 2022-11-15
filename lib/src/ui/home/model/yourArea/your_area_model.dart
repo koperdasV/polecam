@@ -22,7 +22,7 @@ abstract class YourAreaModel with _$YourAreaModel {
   const factory YourAreaModel({
     String? image,
     String? name,
-    String? regularFee,
+    double? regularFee,
     String? www,
     String? description,
     List<String>? category,
