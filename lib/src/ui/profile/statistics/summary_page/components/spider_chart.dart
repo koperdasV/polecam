@@ -147,7 +147,7 @@ class SpiderChartPainter extends CustomPainter {
     if (labels.isNotEmpty) {
       paintLabels(canvas, center, outerPoints, labels);
     }
-    paintGraphOutline(canvas, center, outerPoints);
+    paintGraphOutline(canvas, center, dataPoints);
     paintDataLines(canvas, dataPoints);
     paintDataPoints(canvas, dataPoints);
     paintText(canvas, center, dataPoints, data);
@@ -183,7 +183,7 @@ class SpiderChartPainter extends CustomPainter {
 
   void paintDataPoints(Canvas canvas, List<Offset> points) {
     for (var i = 0; i < points.length; i++) {
-      canvas.drawCircle(points[i], 4, Paint()..color = colors[i]);
+      canvas.drawCircle(points[i], 8, Paint()..color = colors[i]);
     }
   }
 
@@ -195,26 +195,28 @@ class SpiderChartPainter extends CustomPainter {
   ) {
     final textPainter = TextPainter(textDirection: TextDirection.ltr);
     for (var i = 0; i < points.length; i++) {
+      // category title with bonuses "Travel (125.32 $)"
       final s = data[i].toStringAsFixed(decimalPrecision);
       textPainter
-        ..text = TextSpan(text: s, style: const TextStyle(color: Colors.black))
+        ..text = TextSpan(
+            text: s, style: const TextStyle(color: Colors.black, fontSize: 12))
         ..layout();
       if (points[i].dx < center.dx) {
         textPainter.paint(
           canvas,
-          points[i].translate(-(textPainter.size.width + 5.0), 0),
+          points[i].translate(-(textPainter.size.width + 8.0), 0),
         );
       } else if (points[i].dx > center.dx) {
-        textPainter.paint(canvas, points[i].translate(5, 0));
+        textPainter.paint(canvas, points[i].translate(8, 0));
       } else if (points[i].dy < center.dy) {
         textPainter.paint(
           canvas,
-          points[i].translate(-(textPainter.size.width / 2), -20),
+          points[i].translate(-(textPainter.size.width / 2), -24),
         );
       } else {
         textPainter.paint(
           canvas,
-          points[i].translate(-(textPainter.size.width / 2), 4),
+          points[i].translate(-(textPainter.size.width / 2), 12),
         );
       }
     }
@@ -222,12 +224,20 @@ class SpiderChartPainter extends CustomPainter {
 
   void paintGraphOutline(Canvas canvas, Offset center, List<Offset> points) {
     for (var i = 0; i < points.length; i++) {
-      canvas.drawLine(center, points[i], spokes);
+      
+      canvas.drawLine(
+        center,
+        points[i],
+        Paint()
+          ..color = colors[i]
+          ..strokeWidth = 4,
+      );
     }
 
     canvas
-      ..drawPoints(PointMode.polygon, [...points, points[0]], spokes)
-      ..drawCircle(center, 2, spokes);
+      // ..drawPoints(PointMode.polygon, [...points, points[0]], spokes)
+      ..drawCircle(center, 8, spokes)
+      ..drawCircle(center, 4, Paint()..color = Colors.white);
   }
 
   void paintLabels(
