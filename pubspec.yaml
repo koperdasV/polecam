@@ -61,6 +61,7 @@ flutter:
     - assets/by-id.json
     - assets/near.json
     - assets/me.json
+    - assets/favourites.json
 
 
   fonts:

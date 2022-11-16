@@ -1,19 +1,19 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:polec/src/ui/favorite/data/favorite_repository.dart';
-import 'package:polec/src/ui/favorite/model/favorite_model.dart';
+import 'package:polec/src/ui/favorites/data/favorites_repository.dart';
+import 'package:polec/src/ui/favorites/model/favorite_model.dart';
 
-part 'favorite_event.dart';
-part 'favorite_state.dart';
+part 'favorites_event.dart';
+part 'favorites_state.dart';
 
 class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   FavoriteBloc({
-    required IFavoriteRepo favoriteRepo,
+    required IFavoritesRepo favoriteRepo,
   })  : _favoriteRepo = favoriteRepo,
-        super(const FavoriteState(favorite: <FavoriteModel>[])) {
+        super(const FavoriteState(favorites: <FavoritesModel>[])) {
     on<LoadFavorite>(_onLoadFavorite);
   }
-  final IFavoriteRepo _favoriteRepo;
+  final IFavoritesRepo _favoriteRepo;
 
   Future<void> _onLoadFavorite(
     LoadFavorite event,
@@ -31,13 +31,13 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
       return favorite.isNotEmpty
           ? emit(
               state.copyWith(
-                favorite: List.of(state.favorite)..addAll(favorite),
+                favorites: List.of(state.favorites)..addAll(favorite),
                 status: FavoriteStateStatus.success,
               ),
             )
           : emit(
               state.copyWith(
-                favorite: favorite,
+                favorites: favorite,
                 status: FavoriteStateStatus.success,
               ),
             );

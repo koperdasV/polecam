@@ -5,18 +5,18 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'favorite_model.freezed.dart';
 part 'favorite_model.g.dart';
 
-List<FavoriteModel> recommendedModelFromJson(String str) =>
-    List<FavoriteModel>.from(
-      json.decode(str).map(FavoriteModel.fromJson) as List<FavoriteModel>,
+List<FavoritesModel> recommendedModelFromJson(String str) =>
+    List<FavoritesModel>.from(
+      json.decode(str).map(FavoritesModel.fromJson) as List<FavoritesModel>,
     );
 
-String recommendedModelToJson(List<FavoriteModel> data) =>
+String recommendedModelToJson(List<FavoritesModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 @freezed
-abstract class FavoriteModel with _$FavoriteModel {
-  const FavoriteModel._();
-  const factory FavoriteModel({
+abstract class FavoritesModel with _$FavoriteModel {
+  const FavoritesModel._();
+  const factory FavoritesModel({
     String? image,
     String? name,
     double? regularFee,
@@ -26,7 +26,7 @@ abstract class FavoriteModel with _$FavoriteModel {
     List<Address>? address,
   }) = _FavoriteModel;
 
-  factory FavoriteModel.fromJson(Map<String, dynamic> json) =>
+  factory FavoritesModel.fromJson(Map<String, dynamic> json) =>
       _$FavoriteModelFromJson(json);
 }
 

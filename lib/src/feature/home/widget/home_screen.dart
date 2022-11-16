@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:polec/src/feature/profile/widget/profile_screen.dart';
-import 'package:polec/src/ui/favorite/favorite_page.dart';
+import 'package:polec/src/ui/favorites/favorites_page.dart';
 import 'package:polec/src/ui/home/widget/home_page.dart';
 import 'package:polec/src/ui/journal/widget/journal_page.dart';
 
@@ -12,17 +12,31 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<NavigatorState> pageOneTabNavKey =
+      GlobalKey<NavigatorState>();
+
+  final GlobalKey<NavigatorState> pageTwoTabNavKey =
+      GlobalKey<NavigatorState>();
+
+  final GlobalKey<NavigatorState> pageThreeTabNavKey =
+      GlobalKey<NavigatorState>();
+
+  final GlobalKey<NavigatorState> pageFourTabNavKey =
+      GlobalKey<NavigatorState>();
+
+  int _index = 0;
   List<Widget> pages = [
-    HomePage(),
-    FavoritePage(),
-    JournalPage(),
+    const HomePage(),
+    const FavoritesPage(),
+    const JournalPage(),
     const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
-        items: const <BottomNavigationBarItem>[
+        currentIndex: _index,
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.house_fill),
             label: 'Home',
@@ -40,43 +54,62 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Profile',
           ),
         ],
+        onTap: (index) {
+          if (index == _index) {
+            switch (index) {
+              case 0:
+                pageOneTabNavKey.currentState?.popUntil((r) => r.isFirst);
+                break;
+              case 1:
+                pageTwoTabNavKey.currentState?.popUntil((r) => r.isFirst);
+                break;
+              case 2:
+                pageThreeTabNavKey.currentState?.popUntil((r) => r.isFirst);
+                break;
+              case 3:
+                pageFourTabNavKey.currentState?.popUntil((r) => r.isFirst);
+                break;
+            }
+          }
+          _index = index;
+        },
       ),
-      tabBuilder: (BuildContext context, int index) {
+      tabBuilder: (context, index) {
+        _index = index;
         return CupertinoTabView(
-          builder: (BuildContext context) {
-            return pages[index];
-            // CupertinoPageScaffold(
-            //   // navigationBar: CupertinoNavigationBar(
-            //   //   middle: Text('Page 1 of tab $index'),
-            //   // ),
-            //   child: Center(
-            //     child: HomePage(
-            //         // onPressed: () => const RegistrationRoute().go(context),
-            //         // child: const HomePage(),
-            //         // onPressed: () {
-            //         //   Navigator.of(context).push(
-            //         //     CupertinoPageRoute<void>(
-            //         //       builder: (BuildContext context) {
-            //         //         return CupertinoPageScaffold(
-            //         //           navigationBar: CupertinoNavigationBar(
-            //         //             middle: Text('Page 2 of tab $index'),
-            //         //           ),
-            //         //           child: Center(
-            //         //             child: CupertinoButton(
-            //         //               child: const Text('Back'),
-            //         //               onPressed: () {
-            //         //                 Navigator.of(context).pop();
-            //         //               },
-            //         //             ),
-            //         //           ),
-            //         //         );
-            //         //       },
-            //         //     ),
-            //         //   );
-            //         // },
-            //         ),
-            //   ),
-            // );
+          builder: (context) {
+            switch (index) {
+              case 0:
+                return CupertinoTabView(
+                  navigatorKey: pageOneTabNavKey,
+                  builder: (BuildContext context) {
+                    return pages[index];
+                  },
+                );
+              case 1:
+                return CupertinoTabView(
+                  navigatorKey: pageTwoTabNavKey,
+                  builder: (BuildContext context) {
+                    return pages[index];
+                  },
+                );
+              case 2:
+                return CupertinoTabView(
+                  navigatorKey: pageThreeTabNavKey,
+                  builder: (BuildContext context) {
+                    return pages[index];
+                  },
+                );
+              case 3:
+                return CupertinoTabView(
+                  navigatorKey: pageFourTabNavKey,
+                  builder: (BuildContext context) {
+                    return pages[index];
+                  },
+                );
+              default:
+                return Container();
+            }
           },
         );
       },

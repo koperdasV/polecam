@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FavoriteModel _$FavoriteModelFromJson(Map<String, dynamic> json) {
+FavoritesModel _$FavoriteModelFromJson(Map<String, dynamic> json) {
   return _FavoriteModel.fromJson(json);
 }
 
@@ -30,15 +30,15 @@ mixin _$FavoriteModel {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FavoriteModelCopyWith<FavoriteModel> get copyWith =>
+  $FavoriteModelCopyWith<FavoritesModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $FavoriteModelCopyWith<$Res> {
   factory $FavoriteModelCopyWith(
-          FavoriteModel value, $Res Function(FavoriteModel) then) =
-      _$FavoriteModelCopyWithImpl<$Res, FavoriteModel>;
+          FavoritesModel value, $Res Function(FavoritesModel) then) =
+      _$FavoriteModelCopyWithImpl<$Res, FavoritesModel>;
   @useResult
   $Res call(
       {String? image,
@@ -51,7 +51,7 @@ abstract class $FavoriteModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FavoriteModelCopyWithImpl<$Res, $Val extends FavoriteModel>
+class _$FavoriteModelCopyWithImpl<$Res, $Val extends FavoritesModel>
     implements $FavoriteModelCopyWith<$Res> {
   _$FavoriteModelCopyWithImpl(this._value, this._then);
 
@@ -267,7 +267,7 @@ class _$_FavoriteModel extends _FavoriteModel {
   }
 }
 
-abstract class _FavoriteModel extends FavoriteModel {
+abstract class _FavoriteModel extends FavoritesModel {
   const factory _FavoriteModel(
       {final String? image,
       final String? name,

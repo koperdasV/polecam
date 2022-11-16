@@ -1,4 +1,4 @@
-part of 'favorite_bloc.dart';
+part of 'favorites_bloc.dart';
 
 class FavoriteEvent extends Equatable {
   const FavoriteEvent();

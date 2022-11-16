@@ -1,4 +1,4 @@
-part of 'favorite_bloc.dart';
+part of 'favorites_bloc.dart';
 
 enum FavoriteStateStatus { initial, loading, success, failure }
 
@@ -6,29 +6,29 @@ class FavoriteState extends Equatable {
   const FavoriteState({
     this.status = FavoriteStateStatus.initial,
     this.errorMessage = '',
-    required this.favorite,
+    required this.favorites,
   });
 
   final FavoriteStateStatus status;
   final String errorMessage;
-  final List<FavoriteModel> favorite;
+  final List<FavoritesModel> favorites;
 
   @override
   List<Object?> get props => [
         status,
         errorMessage,
-        favorite,
+        favorites,
       ];
 
   FavoriteState copyWith({
     FavoriteStateStatus? status,
     String? errorMessage,
-    List<FavoriteModel>? favorite,
+    List<FavoritesModel>? favorites,
   }) {
     return FavoriteState(
       status: status ?? this.status,
       errorMessage: errorMessage ?? this.errorMessage,
-      favorite: favorite ?? this.favorite,
+      favorites: favorites ?? this.favorites,
     );
   }
 }
