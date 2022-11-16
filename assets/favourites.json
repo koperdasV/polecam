@@ -1,0 +1,422 @@
+[
+    {
+        "image": "assets/images/1_1_bydgoszcz.png",
+        "name": "Manekin",
+        "regularFee": "0.100",
+        "www": "https://www.manekin.pl",
+        "description": "BOGATE SMAKI I NIEPOWTARZALNE WNĘTRZA. KAŻDY MA SWÓJ ODRĘBNY CHARAKTER. MANEKIN TO COŚ WIĘCEJ NIŻ JEDZENIE, TO STYL BYCIA. POSZUKAJ SWOJEGO ULUBIONEGO ...",
+        "category": [
+            "Jedzenie"
+        ],
+        "address": [
+            {
+                "street": "Marszałka Focha 14",
+                "city": "Bydgoszcz",
+                "code": "85-070",
+                "country": "Polska",
+                "lat": "53.1245639",
+                "lng": "18.0007695",
+                "phone": [
+                    "+48 52 349 39 76"
+                ],
+                "email": "bydgoszcz@manekin.pl",
+                "open": {
+                    "monday": "10:00 - 22:00",
+                    "tuesday": "10:00 - 22:00",
+                    "wednesday": "10:00 - 22:00",
+                    "thursday": "10:00 - 22:00",
+                    "friday": "10:00 - 23:00",
+                    "saturday": "10:00 - 23:00",
+                    "sunday": "10:00 - 22:00"
+                }
+            },
+            {
+                "street": "Plac Wolności 1/Gdańska 22",
+                "city": "Bydgoszcz",
+                "code": "85-006",
+                "country": "Polska",
+                "lat": "53.127422",
+                "lng": "18.005477",
+                "phone": [
+                    "+48 52 321 60 06"
+                ],
+                "email": "gdanska@manekin.pl",
+                "open": {
+                    "monday": "9:00 - 22:00",
+                    "tuesday": "9:00 - 22:00",
+                    "wednesday": "9:00 - 22:00",
+                    "thursday": "9:00 - 22:00",
+                    "friday": "9:00 - 23:00",
+                    "saturday": "9:00 - 23:00",
+                    "sunday": "9:00 - 22:00"
+                }
+            }
+        ]
+    },
+    {
+        "image": "assets/images/1646393363.png",
+        "name": "52 City Diner",
+        "regularFee": "0.200",
+        "www": "https://www.52citydiner.pl",
+        "description": "Nasza kuchnia przygotowuje lunche, wspaniałe burgery ze 100% wołowiny z przepysznymi frytkami, rozpływające się w ustach żeberka, flagowe zupy BBQ, chilli con carne, desery, naturalne shake oraz lemoniady. Przygotowujemy również steaki oraz perełki z kuchni meksykańskiej. Doskonała zupa z kaktusem czy burrito nie może umknąć Waszej uwadze. Oferujemy bogaty wybór dań kuchni tex-mex. Zapraszamy na degustacje piw, win oraz alkoholi mocnych.",
+        "category": [
+            "Jedzenie",
+            "Kuchnia amerykańska"
+        ],
+        "address": [
+            {
+                "street": "Gdańska 22",
+                "city": "Bydgoszcz",
+                "code": "85-006",
+                "country": "Polska",
+                "lat": "53.127709",
+                "lng": "18.005786",
+                "phone": [
+                    "+48 52 524 45 24"
+                ],
+                "email": "manager@52city.pl",
+                "open": {
+                    "monday": "zamknięte",
+                    "tuesday": "12:00 - 21:00",
+                    "wednesday": "12:00 - 21:00",
+                    "thursday": "12:00 - 21:00",
+                    "friday": "12:00 - 21:00",
+                    "saturday": "11:00 - 21:00",
+                    "sunday": "11:00 - 21:00"
+                }
+            }
+        ]
+    },
+    {
+        "image": "assets/images/66123767_2325899637730403_3400668604331458560_n.jpg",
+        "name": "Cafe Primo",
+        "regularFee": "0.100",
+        "www": "https://www.facebook.com/pages/Cafe-Primo/529704583761960",
+        "description": "Cafe Primo. Najlepsze lody w mieście",
+        "category": [
+            "Jedzenie",
+            "Lody"
+        ],
+        "address": [
+            {
+                "street": "Gdańska 18",
+                "city": "Bydgoszcz",
+                "code": "85-006",
+                "country": "Polska",
+                "lat": "53.12624",
+                "lng": "18.004184",
+                "phone": [
+                    "brak"
+                ],
+                "email": "brak",
+                "open": {
+                    "monday": "10:00 - 19:00",
+                    "tuesday": "10:00 - 19:00",
+                    "wednesday": "10:00 - 19:00",
+                    "thursday": "10:00 - 19:00",
+                    "friday": "10:00 - 19:00",
+                    "saturday": "10:00 - 19:00",
+                    "sunday": "10:00 - 19:00"
+                }
+            }
+        ]
+    },
+    {
+        "image": "assets/images/305536932_484404977026940_5764474552308747797_n.jpg",
+        "name": "Zimmer Caffe",
+        "regularFee": "0.100",
+        "www": "https://pl-pl.facebook.com/people/Zimmer-Caffe/100063723264631/",
+        "description": "Kochani, w końcu nadszedł tak długo wyczekiwany przez nas dzień !!! Już jutro ruszamy od 9.00 do 21.00. Mamy nadzieję że także stęskniliście się za nami, tak jak my za Wami, dlatego nie możemy się już doczekać kiedy będziemy mogli Was ugościć aromatyczną kawą, niepowtarzalnymi sernikami mascarpone, lodami tajskimi czy też ogromnymi deserami lodowymi czekamy na Was drodzy Goście do zobaczenia!",
+        "category": [
+            "Jedzenie",
+            "Kawiarnia"
+        ],
+        "address": [
+            {
+                "street": "Gdańska 7",
+                "city": "Bydgoszcz",
+                "code": "85-006",
+                "country": "Polska",
+                "lat": "53.125199",
+                "lng": "18.002862",
+                "phone": [
+                    "+48 52 385 83 50"
+                ],
+                "email": "zimmercaffe@gmail.com",
+                "open": {
+                    "monday": "9:00 - 21:00",
+                    "tuesday": "9:00 - 21:00",
+                    "wednesday": "9:00 - 21:00",
+                    "thursday": "9:00 - 21:00",
+                    "friday": "9:00 - 21:00",
+                    "saturday": "10:00 - 21:00",
+                    "sunday": "10:00 - 21:00"
+                }
+            }
+        ]
+    },
+    {
+        "image": "assets/images/Big-Logo-1.png",
+        "name": "Mr Lock Escape Room Bydgoszcz",
+        "regularFee": "0.300",
+        "www": "https://mrlock.pl",
+        "description": "Czym jest escape room? i dlaczego dobrze się tu pobawisz. Wyobraź sobie, że wskakujesz na bungee do fabuły swojego ulubionego filmu czy książki. To Ty przeżywasz przygodę życia w świecie jak z filmu. Przypomnij sobie emocje jakie daje Ci sport, gry czy wieczorne spotkania z kumplami. Pomyśl co czułeś, gdy udało Ci się umówić na pierwszą randkę. Poczuj to olśnienie, gdy wreszcie przypomnisz sobie coś, nad czym myślałeś cały dzień. Zmiksuj to razem i skompresuj do 70 minut. Jesteś już blisko emocji i przygody w Mr Lock Escape Room Bydgoszcz.",
+        "category": [
+            "Kultura i rozrywka"
+        ],
+        "address": [
+            {
+                "street": "Gdańska 49",
+                "city": "Bydgoszcz",
+                "code": "85-005",
+                "country": "Polska",
+                "lat": "53.129349",
+                "lng": "18.006813",
+                "phone": [
+                    "+48 788 788 527"
+                ],
+                "email": "mrlockrezerwacje@gmail.com",
+                "open": {
+                    "monday": "11:00 - 21:01",
+                    "tuesday": "10:00 - 21:01",
+                    "wednesday": "10:00 - 21:01",
+                    "thursday": "10:00 - 21:01",
+                    "friday": "10:00 - 21:01",
+                    "saturday": "9:00 - 22:02",
+                    "sunday": "9:00 - 22:02"
+                }
+            }
+        ]
+    },
+    {
+        "image": "assets/images/2021-11-29.png",
+        "name": "Podologia, Kosmetyka - Podomedika",
+        "regularFee": "0.200",
+        "www": "https://podomedika.business.site",
+        "description": "Pewien czas temu zaczęliśmy świadczyć usługi. Salon Podomedika założyliśmy w Bydgoszczy, a zarządza nami Katarzyna Sawicka-Glezman. Zajmujemy się przede wszystkim zabiegami z zakresu podologii. Mamy w tym duże doświadczenie i dzięki temu pomagamy w leczeniu chorób stóp. To ważne, by odpowiednio się tym zająć, a my jesteśmy do tego przygotowani. Zapewniamy pedicure podologiczny oraz rekonstrukcje płytki paznokci. Trudnimy się leczeniem grzybicy stóp, w tym grzybicy paznokci. Prowadzimy też terapię stopy cukrzycowej. Zgłosić nam można problem z wrastającymi piętami. Aby to wyeliminować, zakładamy na paznokcie specjalne klamry ortonyksyjne. Dodatkowo wykonujemy korekty wrastających paznokci. Ponadto przygotowaliśmy zabiegi dotyczące usuwania odcisków, modzeli i nagniotków. Oferujemy również plastykę wałów okołopaznokciowych. Nasze Klientki przychodzą też z problemem pękających pięt. Mamy w ofercie także inne zabiegi kosmetyczne. Jest to między innymi stylizacja rzęs, brwi oraz paznokci.",
+        "category": [
+            "Uroda"
+        ],
+        "address": [
+            {
+                "street": "Gdańska 67",
+                "city": "Bydgoszcz",
+                "code": "85-005",
+                "country": "Polska",
+                "lat": "53.131006",
+                "lng": "18.008301",
+                "phone": [
+                    "+48 693 376 357"
+                ],
+                "email": "mrlockrezerwacje@gmail.com",
+                "open": {
+                    "monday": "9:00 - 19:00",
+                    "tuesday": "9:00 - 19:00",
+                    "wednesday": "9:00 - 19:00",
+                    "thursday": "9:00 - 19:00",
+                    "friday": "9:00 - 19:00",
+                    "saturday": "9:00 - 14:00",
+                    "sunday": "zamknięte"
+                }
+            }
+        ]
+    },
+    {
+        "image": "assets/images/2020-12-30.jpg",
+        "name": "Bucik",
+        "regularFee": "0.200",
+        "www": "https://bucik-bydgoszcz.business.site",
+        "description": "Sklep Obuwniczy w: Bydgoszcz",
+        "category": [
+            "Moda"
+        ],
+        "address": [
+            {
+                "street": "Gdańska 115",
+                "city": "Bydgoszcz",
+                "code": "85-022",
+                "country": "Polska",
+                "lat": "53.134804",
+                "lng": "18.012617",
+                "phone": [
+                    "+48 502 108 513"
+                ],
+                "email": "brak",
+                "open": {
+                    "monday": "10:00 - 18:00",
+                    "tuesday": "10:00 - 18:00",
+                    "wednesday": "10:00 - 18:00",
+                    "thursday": "10:00 - 18:00",
+                    "friday": "10:00 - 18:00",
+                    "saturday": "10:00 - 14:00",
+                    "sunday": "11:00 - 13:00"
+                }
+            }
+        ]
+    },
+    {
+        "image": "assets/images/P1030885_.JPG",
+        "name": "Antykwariat Szperalnia.pl",
+        "regularFee": "0.200",
+        "www": "https://www.szperalnia.pl",
+        "description": "Miło mi powitać wszystkich miłośników szelestu kartek. Choć czasy nie najlepsze, prognozy nie najweselsze, na przekór pesymistom i czarnowidzom, odważyłam się prowadzić antykwariat. Może antykwariat to zbyt duże słowo, lecz jak mawiają: Jeśli spadać – to z wysokiego konia. Zapraszam więc do antykwariatu / szperalni. W Szperalni znajdą Państwo używane książki o różnorodnej tematyce, poczynając od poradników, poprzez tytuły historyczne, religijne, literaturę piękną i literaturoznawstwo, na kryminałach i romansach kończąc.",
+        "category": [
+            "Kultura i rozrywka"
+        ],
+        "address": [
+            {
+                "street": "Gdańska 73",
+                "city": "Bydgoszcz",
+                "code": "85-005",
+                "country": "Polska",
+                "lat": "53.131527",
+                "lng": "18.009363",
+                "phone": [
+                    "+48 697 646 204"
+                ],
+                "email": "brak",
+                "open": {
+                    "monday": "zamknięte",
+                    "tuesday": "11:00 - 18:00",
+                    "wednesday": "11:00 - 18:00",
+                    "thursday": "11:00 - 18:00",
+                    "friday": "11:00 - 18:00",
+                    "saturday": "zamknięte",
+                    "sunday": "zamknięte"
+                }
+            }
+        ]
+    },
+    {
+        "image": "assets/images/302094393_487594430038502_85009270249139931_n.png",
+        "name": "Salon Optyczny Optomed",
+        "regularFee": "0.200",
+        "www": "https://www.facebook.com/optomedBydgoszcz/",
+        "description": "Wybór okularów nie jest prosty ale w Optomed Bydgoszcz możesz liczyć na naszą pomoc. Ponieważ okulary nie tylko korygują wzrok ale stanowią codzienna biżuterię.",
+        "category": [
+            "Zdrowie i uroda"
+        ],
+        "address": [
+            {
+                "street": "Gdańska 77",
+                "city": "Bydgoszcz",
+                "code": "85-005",
+                "country": "Polska",
+                "lat": "53.13166",
+                "lng": "18.009155",
+                "phone": [
+                    "+48 52 328 71 76"
+                ],
+                "email": "brak",
+                "open": {
+                    "monday": "10:00 - 18:00",
+                    "tuesday": "10:00 - 18:00",
+                    "wednesday": "10:00 - 18:00",
+                    "thursday": "10:00 - 18:00",
+                    "friday": "10:00 - 18:00",
+                    "saturday": "10:00 - 14:00",
+                    "sunday": "zamknięte"
+                }
+            }
+        ]
+    },
+    {
+        "image": "assets/images/ismoking-wszystko-do-palenia-logo-1597187786.jpg",
+        "name": "iSmoking Bydgoszcz",
+        "regularFee": "0.100",
+        "www": "https://www.ismoking.pl",
+        "description": "iSmoking to sklep z akcesoriami do palenia. W naszej ofercie znajdziesz szeroki wybór produktów oraz akcesoriów do palenia tytoniu, a wśród nich e-papierosy, produkty z nikotyną i akcesoria, z których można korzystać w procesie palenia. Wszystkie produkty w naszym sklepie mają jedno zadanie - uprzyjemnić Ci chwile spędzone na paleniu tytoniu. Z tego względu w naszym asortymencie znajdziesz różnego rodzaju akcesoria, takie jak: e-papierosy, bongo, shisha, CBD, yerba mate i wszelkiej maści wyroby tytoniowe oraz poszczególne części do akcesoriów, a wśród nich między innymi: bibułki, gilzy, nabijarki, zwijarki, filtry, papierośnice, popielniczki czy zapalniczki. W przypadku e-papierosów możesz liczyć na premixy, grzałki, liquidy, atomizery i ładowarki, ale także płyny beznikotynowe oraz baterie. Wśród akcesoriów do palenia znajdziesz: lufki, bongosy, waporyzatory, cybuchy, grindery i wiele innych. Zajmujemy się także sprzedażą suszu, jointów i liquidów z substancją odprężającą CBD. Znajdziesz u nas również wszystkie niezbędne elementy do palenia shishy: fajki wodne w różnych kształtach i rozmiarach, a także akcesoria do fajek, czyli cybuchy, węże, kamienie i węgielki. Proponujemy akcesoria do palenia fajki oraz dodatki do tytoniu papierosowego. Przede wszystkim znajdziesz u nas jednak duży wybór wyrobów tytoniowych - tytonie papierosowe i fajkowe, cygaretki, cygara i tabaki.",
+        "category": [
+            "Inne"
+        ],
+        "address": [
+            {
+                "street": "Gdańska 78",
+                "city": "Bydgoszcz",
+                "code": "85-021",
+                "country": "Polska",
+                "lat": "53.132744",
+                "lng": "18.010586",
+                "phone": [
+                    "+48 722 347 103"
+                ],
+                "email": "brak",
+                "open": {
+                    "monday": "9:00 - 19:00",
+                    "tuesday": "9:00 - 19:00",
+                    "wednesday": "9:00 - 19:00",
+                    "thursday": "9:00 - 19:00",
+                    "friday": "9:00 - 19:00",
+                    "saturday": "11:00 - 18:00",
+                    "sunday": "zamknięte"
+                }
+            }
+        ]
+    },
+    {
+        "image": "assets/images/2021-11-01.jpg",
+        "name": "PARTY SHOP Bydgoszcz",
+        "regularFee": "0.100",
+        "www": "https://pl-pl.facebook.com/people/Party-Shop-Bydgoszcz-Balony-z-helem-Dekoracje/100063528668676/",
+        "description": "Lato w pełni a imprezy hawajskie co weekend. I to lubimy. Balony gumowe i foliowe z helem - bardzo szeroki wybór w różnych rodzajach oraz wielkościach, wszystkie napełniamy na miejscu helem. Zapraszamy do Party Shop Gdańska 101",
+        "category": [
+            "Dziecko"
+        ],
+        "address": [
+            {
+                "street": "Gdańska 101",
+                "city": "Bydgoszcz",
+                "code": "85-022",
+                "country": "Polska",
+                "lat": "53.133953",
+                "lng": "18.011784",
+                "phone": [
+                    "+48 52 345 44 40"
+                ],
+                "email": "balony-bamado@bydgoszcz.com",
+                "open": {
+                    "monday": "9:00 - 17:00",
+                    "tuesday": "9:00 - 17:00",
+                    "wednesday": "9:00 - 17:00",
+                    "thursday": "9:00 - 17:00",
+                    "friday": "9:00 - 17:00",
+                    "saturday": "10:00 - 14:00",
+                    "sunday": "zamknięte"
+                }
+            }
+        ]
+    },
+    {
+        "image": "assets/images/302442654_479026270898282_7485722115949443994_n.png",
+        "name": "Coffeeshop Amsterdam Polska",
+        "regularFee": "0.100",
+        "www": "https://www.facebook.com/csamsterdam/",
+        "description": "Z marzenia stworzyliśmy firmę zajmującą się dystrybucją artykułów opartych o konopie - oleje",
+        "category": [
+            "Zdrowie"
+        ],
+        "address": [
+            {
+                "street": "Gdańska 103",
+                "city": "Bydgoszcz",
+                "code": "85-022",
+                "country": "Polska",
+                "lat": "53.133903",
+                "lng": "18.011441",
+                "phone": [
+                    "+48 570 279 172"
+                ],
+                "email": "brak",
+                "open": {
+                    "monday": "10:00 - 18:00",
+                    "tuesday": "10:00 - 18:00",
+                    "wednesday": "10:00 - 18:00",
+                    "thursday": "10:00 - 18:00",
+                    "friday": "10:00 - 18:00",
+                    "saturday": "10:00 - 15:00",
+                    "sunday": "zamknięte"
+                }
+            }
+        ]
+    }
+]

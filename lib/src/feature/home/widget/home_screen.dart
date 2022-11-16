@@ -14,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Widget> pages = [
     HomePage(),
-    const FavoritePage(),
+    FavoritePage(),
     JournalPage(),
     const ProfileScreen(),
   ];

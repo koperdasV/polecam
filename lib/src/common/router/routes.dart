@@ -9,6 +9,8 @@ import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart'
 import 'package:polec/src/feature/registration/widget/registration_screen.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/data/detail_repository.dart';
+import 'package:polec/src/ui/favorite/bloc/favorite_bloc.dart';
+import 'package:polec/src/ui/favorite/data/favorite_repository.dart';
 import 'package:polec/src/ui/home/blocs/blocs.dart';
 import 'package:polec/src/ui/home/data/categories_repository.dart';
 import 'package:polec/src/ui/home/data/recommended_repository.dart';
@@ -84,6 +86,11 @@ class HomeRoute extends GoRouteData {
           create: (context) => AccountBloc(
             accountRepo: AccountRepository(),
           )..add(const LoadAccount()),
+        ),
+        BlocProvider(
+          create: (context) => FavoriteBloc(
+            favoriteRepo: FavoriteRepository(),
+          )..add(const LoadFavorite()),
         ),
       ],
       child: const HomeScreen(),
