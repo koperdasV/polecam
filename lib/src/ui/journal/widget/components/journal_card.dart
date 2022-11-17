@@ -50,20 +50,18 @@ class JournalCard extends StatelessWidget {
         ),
       ),
       onTap: () {
-        alertDialog(context, _controller, journalModel);
+        alertDialog(context, journalModel);
       },
     );
   }
 }
 
-Future<void> alertDialog(BuildContext context, PageController _controller,
-    JournalModel journalModel) {
+Future<void> alertDialog(BuildContext context, JournalModel journalModel) {
   return showDialog<void>(
     context: context,
     builder: (BuildContext context) {
       return AlertDialogWidget(
         journalModel: journalModel,
-        controller: _controller,
       );
     },
   );

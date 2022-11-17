@@ -15,7 +15,7 @@ class ShowDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.transparent,
-      insetPadding: const EdgeInsets.all(10),
+      insetPadding: const EdgeInsets.all(15),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -23,22 +23,20 @@ class ShowDialog extends StatelessWidget {
             width: double.infinity,
             height: height,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(40),
               color: Colors.white,
             ),
             padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Container(
-                  width: double.infinity,
-                  height: 50,alignment: Alignment.centerRight,
-                  child: CupertinoButton(
-                    child: const Icon(
-                      Icons.close,
-                      color: Colors.black,
-                    ),
-                    onPressed: () => Navigator.pop(context),
+                CupertinoButton(
+                  child: const Icon(
+                    Icons.close,
+                    color: Colors.black,
+                    size: 36,
                   ),
+                  onPressed: () => Navigator.pop(context),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
