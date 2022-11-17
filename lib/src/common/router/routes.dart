@@ -9,6 +9,8 @@ import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart'
 import 'package:polec/src/feature/registration/widget/registration_screen.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/data/detail_repository.dart';
+import 'package:polec/src/ui/favorites/bloc/favorites_bloc.dart';
+import 'package:polec/src/ui/favorites/data/favorites_repository.dart';
 import 'package:polec/src/ui/home/blocs/blocs.dart';
 import 'package:polec/src/ui/home/data/categories_repository.dart';
 import 'package:polec/src/ui/home/data/recommended_repository.dart';
@@ -23,30 +25,6 @@ part 'routes.g.dart';
 /// HomeRoute
 @TypedGoRoute<HomeRoute>(
   path: '/',
-  // routes: <TypedGoRoute<GoRouteData>>[
-  //   TypedGoRoute<SettingsRoute>(
-  //     path: 'settings',
-  //   ),
-  //   TypedGoRoute<ProfileRoute>(
-  //     path: 'profile',
-  //   ),
-  //   TypedGoRoute<PackagesRoute>(
-  //     path: 'packages',
-  //     routes: <TypedGoRoute<GoRouteData>>[
-  //       TypedGoRoute<PackageRoute>(
-  //         path: 'package/:name',
-  //         routes: <TypedGoRoute<GoRouteData>>[
-  //           TypedGoRoute<VersionRoute>(
-  //             path: 'version/:version',
-  //           ),
-  //         ],
-  //       ),
-  //     ],
-  //   ),
-  //   TypedGoRoute<FavoritesRoute>(
-  //     path: 'favorites',
-  //   ),
-  // ],
 )
 class HomeRoute extends GoRouteData {
   const HomeRoute();
@@ -84,6 +62,11 @@ class HomeRoute extends GoRouteData {
           create: (context) => AccountBloc(
             accountRepo: AccountRepository(),
           )..add(const LoadAccount()),
+        ),
+        BlocProvider(
+          create: (context) => FavoriteBloc(
+            favoriteRepo: FavoritesRepository(),
+          )..add(const LoadFavorite()),
         ),
       ],
       child: const HomeScreen(),

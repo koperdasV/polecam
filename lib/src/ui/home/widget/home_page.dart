@@ -1,10 +1,7 @@
 // ignore_for_file: use_super_parameters
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/feature/map/widget/map_screen.dart';
-import 'package:polec/src/ui/home/blocs/categories/categories_bloc.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_list_widget.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/home_app_bar.dart';

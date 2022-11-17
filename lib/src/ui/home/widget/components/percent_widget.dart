@@ -15,7 +15,7 @@ class PercentWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Text(
-        percent,
+        '$percent%',
         style: TextStyle(
           fontSize: fontSize,
           color: Colors.white,

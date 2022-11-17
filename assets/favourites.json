@@ -1,0 +1,167 @@
+[
+    {
+        "image": "https://vitok.ua/tmp/cache/images/b5/016/pic3-1065x684-r.jpg",
+        "name": "Oreo Salon pielęgnacji psów",
+        "regularFee": 0.200,
+        "www": "https://oreo-salon-pielegnacji-psow.business.site",
+        "description": "Każdy opiekun psa chce, by jego ulubieniec był zadbany, czuł się komfortowo, a przy tym cieszył się doskonałym zdrowiem. Wizyta w salonie pielęgnacji Oreo w Bydgoszczy pozwoli zatroszczyć się o wszystkie te kwestie. Salon powstał z miłości do każdego pupila bez względu na rozmiar czy rasę. Oreo zajmuje się pielęgnacją psów z myślą nie tylko o ich wyglądzie, ale też bezpieczeństwie, poprawie kondycji sierści oraz satysfakcji. Salonik proponuje strzyżenie, kąpiele lecznicze, obcinanie pazurków i wiele więcej – zapraszamy do zapoznania się z pełną gamą usług!",
+        "category": [
+            "Zwierzęta"
+        ],
+        "address": [
+            {
+                "street": "Teofila Gackowskiego 1C",
+                "city": "Bydgoszcz",
+                "code": "85-137",
+                "country": "Polska",
+                "lat": "53.111679",
+                "lng": "17.988560",
+                "phone": [
+                    "+48 603 426 497"
+                ],
+                "email": "salon.oreo@gmail.com",
+                "open": {
+                    "monday": "9:00 - 17:00",
+                    "tuesday": "9:00 - 17:00",
+                    "wednesday": "9:00 - 17:00",
+                    "thursday": "9:00 - 17:00",
+                    "friday": "9:00 - 17:00",
+                    "saturday": "9:00 - 13:00",
+                    "sunday": "zamknięte"
+                }
+            }
+        ]
+    },
+    {
+        "image": "https://x100-venus-sm-ua.gumlet.io/SKU/SUSHI-MASTER/%D0%A1%D0%B5%D1%82%D0%B8/6503E6C1-3107-11ED-B49D-176D6E48CD1B-1969%D1%851100_0001_%D0%A1%D0%B5%D1%82-%D0%9D%D0%B5%D0%B7%D0%BB%D0%B0%D0%BC%D0%BD%D0%B8%D0%B9.png?alt=media&token=5b82c865-8e7f-4b8f-90ed-19f3e6a0915b&w=800&format=webp&mode=fit&q=59",
+        "name": "Falla",
+        "regularFee": 0.300,
+        "www": "https://fallawege.pl",
+        "description": "Orientalne dania rodem z Bliskiego Wschodu to tylko punkt wyjścia. Dzisiaj serwujemy w Falli dania inspirowane wszystkimi kierunkami Świata. Wpadnij i przekonaj się sam, jak ciekawa może być roślinna kuchnia!",
+        "category": [
+            "Jedzenie"
+        ],
+        "address": [
+            {
+                "street": "Gdańska 26",
+                "city": "Bydgoszcz",
+                "code": "85-006",
+                "country": "Polska",
+                "lat": "53.127960",
+                "lng": "18.006060",
+                "phone": [
+                    "+48 510 909 184"
+                ],
+                "email": "bydgoszcz@fallawege.pl",
+                "open": {
+                    "monday": "12:00 - 17:00",
+                    "tuesday": "12:00 - 20:00",
+                    "wednesday": "12:00 - 20:00",
+                    "thursday": "12:00 - 20:00",
+                    "friday": "12:00 - 20:00",
+                    "saturday": "12:00 - 20:00",
+                    "sunday": "12:00 - 19:00"
+                }
+            }
+        ]
+    },
+    {
+        "image": "https://emosurff.com/i/0004R8005tf0/img_3911.jpg",
+        "name": "Roller Park",
+        "regularFee": 0.500,
+        "www": "https://www.rollerpark.pl",
+        "description": "Wejście na czas Kupując bilet uzyskujesz dostęp do Toru 500 ㎡ bez rezerwacji. System pomiaru czasu pozwala rozpocząć i zakończyć zabawę w dowolnym momencie. Do dyspozycji również: Szatnie i prywatna szafka zamykana na kluczyk, Bezpłatny parking bezpośrednio przy obiekcie, Kanapy, gdzie można komfortowo poczekać na swoje dziecko czy partnera, którzy jeżdżą na torze, Miejsce z widokiem tor dla osób towarzyszących",
+        "category": [
+            "Sport"
+        ],
+        "address": [
+            {
+                "street": "Fordońska 44B",
+                "city": "Bydgoszcz",
+                "code": "85-739",
+                "country": "Polska",
+                "lat": "53.119970",
+                "lng": "18.049050",
+                "phone": [
+                    "+48 575 088 885"
+                ],
+                "email": "biuro@rollerpark.pl",
+                "open": {
+                    "monday": "14:00 - 19:00",
+                    "tuesday": "14:00 - 19:00",
+                    "wednesday": "14:00 - 19:00",
+                    "thursday": "14:00 - 19:00",
+                    "friday": "14:00 - 21:00",
+                    "saturday": "12:00 - 22:00",
+                    "sunday": "12:00 - 20:00"
+                }
+            }
+        ]
+    },
+    {
+        "image": "http://cdn.vkusnoo.com.ua/images/16153/16153-1345801090_fri.png",
+        "name": "Grzegorzewicz Stomatologia",
+        "regularFee": 0.250,
+        "www": "https://grzegorzewicz-stomatologia.pl/?gclid=Cj0KCQjw94WZBhDtARIsAKxWG-_05Qx5o_MuHwUkwtmh7eH7PDYHTmBrDPnZ2kGDc85MynUm1Vul_0saAh80EALw_wcB",
+        "description": "Stomatologia Grzegorzewicz to prywatna placówka dentystyczna z siedzibą w Bydgoszczy, przy ulicy Ks. Józefa Szulca 7. W gabinecie pacjentów przyjmują obecnie dwie dentystki: lek. dent. Marta Grzegorzewicz i lek. dent. Agnieszka Sroczkowska. Oferujemy kompleksowe usługi z zakresu prawidłowej higieny jamy ustnej oraz leczenia stomatologicznego. W naszej ofercie znajdziecie Państwo diagnostykę oraz profilaktykę, które obejmują wszelkie konsultacje oraz zabiegi. Jeśli zaś chodzi o leczenie, zajmujemy się zarówno stomatologią zachowawczą, endodoncją, a także chirurgią dentystyczną, na periodontologii kończąc. W razie potrzeby służymy również usługami protetycznymi. Posiadamy spore doświadczenie oraz liczne kwalifikacje dentystyczne, które nieustannie podnosimy zdobywając kolejne certyfikaty. Pod pewnymi warunkami udzielamy rocznej gwarancji na niektóre wykonane przez nas usługi stomatologiczne. Uśmiech wzbogaca życie każdego z nas, a my staramy się by był on wizytówką naszych pacjentów. Gabinet stomatologiczny Grzegorzewicz w Bydgoszczy to profesjonalizm i miła atmosfera, sprawdź sam.",
+        "category": [
+            "Zdrowie"
+        ],
+        "address": [
+            {
+                "street": "Księdza Józefa Schulza 7",
+                "city": "Bydgoszcz",
+                "code": "85-315",
+                "country": "Polska",
+                "lat": "53.116330",
+                "lng": "17.956810",
+                "phone": [
+                    "+48 515 515 527"
+                ],
+                "email": "gabinet@grzegorzewicz-stomatologia.pl",
+                "open": {
+                    "monday": "9:00 - 20:00",
+                    "tuesday": "9:00 - 19:00",
+                    "wednesday": "9:00 - 15:00",
+                    "thursday": "9:00 - 20:00",
+                    "friday": "9:00 - 15:00",
+                    "saturday": "zamknięte",
+                    "sunday": "zamknięte"
+                }
+            }
+        ]
+    },
+    {
+        "image": "https://img.delo-vcusa.ru/2020/11/Borshh-s-yablokami.jpg",
+        "name": "Family Park",
+        "regularFee": 0.60,
+        "www": "https://familypark.pl/o-nas/",
+        "description": "Centrum Zabaw Rodzinnych FAMILY PARK  powstało z myślą o wszystkich, którzy poszukują ciekawej formy spędzania czasu z bliskimi. Naszym pragnieniem było zapewnianie możliwości aktywnego wypoczynku z dozą relaksu wszystkim członkom rodziny w różnym wieku. Nasz obiekt to ponad 4000 m2  W obiekcie znajduje się sala zabaw dla najmłodszych, którzy pod czujnym okiem animatorów będą mogli odkrywać świat, spędzając przy tym wesoło czas. Ściana wspinaczkowa, samochodziki akumulatorowe, strefa trampolin oraz wiele innych atrakcji dla dzieci które pozwolą im zdobywać nowe umiejętności podczas rozmaitych aktywności fizycznych. Posiadamy również kręgielnię – idealną na rodzinne zawody bądź rozgrywkę między znajomymi.  Jesteśmy dumni, że kolejne pokolenie zaczyna poznawać świat bawiąc się i ucząc w Family Park.",
+        "category": [
+            "Dziecko"
+        ],
+        "address": [
+            {
+                "street": "Fordońska 246",
+                "city": "Bydgoszcz",
+                "code": "85-766",
+                "country": "Polska",
+                "lat": "53.125789",
+                "lng": "18.066841",
+                "phone": [
+                    "+48 500 474 107"
+                ],
+                "email": "recepcja@familypark.pl",
+                "open": {
+                    "monday": "zamknięte",
+                    "tuesday": "13:00 - 20:00",
+                    "wednesday": "13:00 - 20:00",
+                    "thursday": "13:00 - 20:00",
+                    "friday": "13:00 - 20:00",
+                    "saturday": "9:00 - 20:00",
+                    "sunday": "9:00 - 20:00"
+                }
+            }
+        ]
+    }
+]
