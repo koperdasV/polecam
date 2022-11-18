@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
-import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
+import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
@@ -11,7 +11,7 @@ class CardWidget extends StatelessWidget {
     required this.tmp,
   }) : super(key: key);
 
-  final RecommendedModel tmp;
+  final YourAreaModel tmp;
 
   @override
   Widget build(BuildContext context) {

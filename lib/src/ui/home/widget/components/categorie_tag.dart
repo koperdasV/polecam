@@ -8,7 +8,6 @@ class CategorieTag extends StatelessWidget {
   }) : super(key: key);
 
   final String tag;
-  
 
   @override
   Widget build(BuildContext context) {
