@@ -1,3 +1,4 @@
+import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,8 +10,8 @@ class ContactWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final detailModel = context.read<DetailsBloc>().state.detailModel;
-    if (detailModel == null) return const SizedBox.shrink();
+    // final detailModel = context.read<DetailsBloc>().state.detailModel;
+    // if (detailModel == null) return const SizedBox.shrink();
 
     const titleStyle = TextStyle(
       fontSize: 16,
@@ -23,48 +24,67 @@ class ContactWidget extends StatelessWidget {
       color: AppColor.subTitleColor,
     );
 
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
-      child: SizedBox(
-        width: double.infinity,
-        height: 140,
-        child: Column(
-          children: [
-            Text(
-              'Street:',
-              style: titleStyle,
+    return BlocBuilder<DetailsBloc, DetailsState>(
+      builder: (context, state) {
+        if (state.status == DetailsStateStatus.failure &&
+            state.errorMessage.isNotEmpty) {
+          context.showErrorBar<String>(
+            content: Text(state.errorMessage),
+          );
+        }
+        if (state.status == DetailsStateStatus.loading) {
+          return const Center(
+            child: CupertinoActivityIndicator(),
+          );
+        }
+        if (state.status == DetailsStateStatus.success) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: SizedBox(
+              width: double.infinity,
+              height: 140,
+              child: Column(
+                children: [
+                  const Text(
+                    'Street:',
+                    style: titleStyle,
+                  ),
+                  Text(
+                    state.detailModel.addresses![0].street.toString(),
+                    style: subtitleStyle,
+                  ),
+                  const Text(
+                    'City:',
+                    style: titleStyle,
+                  ),
+                  Text(
+                    state.detailModel.addresses![0].city.toString(),
+                    style: subtitleStyle,
+                  ),
+                  Text(
+                    'Country:',
+                    style: titleStyle,
+                  ),
+                  Text(
+                    state.detailModel.addresses![0].country.toString(),
+                    style: subtitleStyle,
+                  ),
+                  Text(
+                    'Phones:',
+                    style: titleStyle,
+                  ),
+                  Text(
+                    state.detailModel.addresses![0].phones![0].toString(),
+                    style: subtitleStyle,
+                  ),
+                ],
+              ),
             ),
-            Text(
-              detailModel.addresses![0].street.toString(),
-              style: subtitleStyle,
-            ),
-            Text(
-              'City:',
-              style: titleStyle,
-            ),
-            Text(
-              detailModel.addresses![0].city.toString(),
-              style: subtitleStyle,
-            ),
-            Text(
-              'Country:',
-              style: titleStyle,
-            ),
-            Text(
-              detailModel.addresses![0].country.toString(),
-              style: subtitleStyle,
-            ),
-            Text(
-              'Phones:',
-              style: titleStyle,
-            ),
-            Text(
-              detailModel.addresses![0].phones![0].toString(),
-              style: subtitleStyle,
-            ),
-          ],
-        ),
-      ),
+          );
+        } else {
+          return const Text('No data');
+        }
+      },
     );
   }
 }

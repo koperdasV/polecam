@@ -66,9 +66,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       value: checkValue,
                       checkColor: Colors.white,
                       activeColor: Colors.blue,
-                      onChanged: (value1) {
+                      onChanged: (value) {
                         setState(() {
-                          checkValue = value1!;
+                          checkValue = value!;
                         });
                       },
                     ),
@@ -117,7 +117,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   width: MediaQuery.of(context).size.width,
                   child: CupertinoButton.filled(
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {
+                      if (formKey.currentState!.validate() && checkValue == true) {
                         context.go('/');
                       }
                     },
