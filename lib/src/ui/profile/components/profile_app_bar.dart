@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
-import 'package:polec/src/ui/profile/account/edit_profile_widget.dart';
-import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
+import 'package:polec/src/ui/profile/account/edit_components/notifier.dart';
 
 class ProfileAppBar extends StatefulWidget {
   const ProfileAppBar({super.key});
@@ -71,13 +70,10 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                 visible: true,
                 child: CupertinoButton(
                   onPressed: () {
-                    //    Navigator.push(
-                    //   context,
-                    //   CupertinoPageRoute(
-                    //     builder: (context) => const EditProfilePage(),
-                    //   ),
-                    // );
-                    setState(changeEditWidget);
+                    setState(() {
+// TODO edit_button_state
+                      // MyNotifier().changeData(false, true);
+                    });
                   },
                   child: Icon(
                     Icons.mode,
@@ -94,7 +90,18 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
     });
   }
 
-  void changeEditWidget() {
-    detailWidget.update(Detail.account, (value) => const EditProfileWidget());
-  }
+  // void changeEditWidget() {
+  //   detailWidget.update(Detail.account, (value) => const EditProfileWidget());
+  // }
 }
+
+//    Navigator.push(
+//   context,
+//   CupertinoPageRoute(
+//     builder: (context) => const EditProfilePage(),
+//   ),
+// );
+
+// getAccWidgetViss;
+// if()
+// EditWidget(accWidgetVis: false, editWidgetVis: null,);

@@ -11,6 +11,7 @@ class ProfileTextField extends StatelessWidget {
     required this.validatorRegExp,
     required this.errorMessage,
     this.prefix,
+    this.obscureText = false,
   });
 
   final String placeholder;
@@ -19,10 +20,12 @@ class ProfileTextField extends StatelessWidget {
   final String validatorRegExp;
   final String errorMessage;
   final Widget? prefix;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoTextFormFieldRow(
+      obscureText: obscureText,
       padding: EdgeInsets.all(0),
       placeholder: placeholder,
       controller: controller,

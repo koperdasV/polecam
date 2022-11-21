@@ -1,6 +1,7 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:polec/src/ui/profile/account/components/profile_text_field.dart';
 import 'package:polec/src/ui/profile/account/edit_components/gender_nav_bar.dart';
 import 'package:polec/src/ui/profile/account/edit_components/title_text_field.dart';
@@ -36,6 +37,7 @@ class EditBasicInformation extends StatefulWidget {
 
 class _EditBasicInformationState extends State<EditBasicInformation> {
   CountryCode _countryCode = CountryCode(code: 'PL', dialCode: '+48');
+  DateTime _dateTime = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -92,8 +94,8 @@ class _EditBasicInformationState extends State<EditBasicInformation> {
           placeholder: 'XXXXXXXXXXX',
           controller: widget.peselController,
           keyboardType: TextInputType.phone,
-          validatorRegExp: '',
-          errorMessage: '',
+          validatorRegExp: r'^\d\d\d\d\d\d\d\d\d\d\d+$',
+          errorMessage: 'Enter correct PESEL. For example, XXXXXXXXXXX',
         ),
         const SizedBox(height: 10),
         const TitleTextWidget(
@@ -193,8 +195,8 @@ class _EditBasicInformationState extends State<EditBasicInformation> {
                 text: 'Post code',
                 placeholder: 'XX-XXX',
                 controller: widget.postCodeController,
-                validatorRegExp: '',
-                errorMessage: '',
+                validatorRegExp: r'^\d\d-\d\d\d+$',
+                errorMessage: 'Enter correct code. For example, XX-XXX',
               ),
             ),
             const SizedBox(width: 10),
@@ -225,24 +227,60 @@ class _EditBasicInformationState extends State<EditBasicInformation> {
           ],
         ),
         const SizedBox(height: 10),
+        const TitleTextWidget(
+          text: 'Date of birth',
+        ),
         Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Expanded(
-              child: TitleTextField(
-                text: 'Date of birth',
-                placeholder: '21 february 1993',
-                controller: widget.dateOfBirthController,
-                validatorRegExp: '',
-                errorMessage: '',
+            SizedBox(
+              height: 30,
+              width: 30,
+              child: CupertinoButton(
+                color: Colors.transparent,
+                padding: EdgeInsets.all(0),
+                child: const Icon(
+                  Icons.calendar_month_rounded,
+                  color: Colors.black,
+                ),
+                onPressed: () {
+                  showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(1920),
+                    lastDate: DateTime(2030),
+                  ).then((date) {
+                    setState(() {
+                      _dateTime = date!;
+                    });
+                  });
+                },
               ),
             ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Container(),
+            Text(
+              DateFormat('yyyy/MM/dd')
+                  .format(DateTime.parse(_dateTime.toString())),
+              // _dateTime.toString(),
             ),
           ],
-        ),
+        )
+        // Row(
+        //   crossAxisAlignment: CrossAxisAlignment.end,
+        //   children: [
+        //     Expanded(
+        //       child: TitleTextField(
+        //         text: 'Date of birth',
+        //         placeholder: '21 february 1993',
+        //         controller: widget.dateOfBirthController,
+        //         validatorRegExp: '',
+        //         errorMessage: '',
+        //       ),
+        //     ),
+        //     const SizedBox(width: 10),
+        //     Expanded(
+        //       child: Container(),
+        //     ),
+        //   ],
+        // ),
       ],
     );
   }

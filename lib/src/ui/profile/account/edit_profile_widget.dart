@@ -14,36 +14,44 @@ import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class EditProfileWidget extends StatefulWidget {
-  const EditProfileWidget({super.key});
+  const EditProfileWidget({
+    super.key,
+    required this.emailController,
+    required this.nameController,
+    required this.surnameController,
+    required this.phoneController,
+    required this.streetController,
+    required this.sityController,
+    required this.postCodeController,
+    required this.peselController,
+    required this.dateOfBirthController,
+  });
+
+  final TextEditingController emailController;
+  final TextEditingController nameController;
+  final TextEditingController surnameController;
+  final TextEditingController phoneController;
+  final TextEditingController streetController;
+  final TextEditingController sityController;
+  final TextEditingController postCodeController;
+  final TextEditingController peselController;
+  final TextEditingController dateOfBirthController;
 
   @override
   State<EditProfileWidget> createState() => _EditProfileWidgetState();
 }
 
 class _EditProfileWidgetState extends State<EditProfileWidget> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController surnameController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController streetController = TextEditingController();
-  final TextEditingController sityController = TextEditingController();
-  final TextEditingController postCodeController = TextEditingController();
-  final TextEditingController peselController = TextEditingController();
-  final TextEditingController dateOfBirthController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
-  @override
-  void dispose() {
-    dateOfBirthController.dispose();
-    emailController.dispose();
-    nameController.dispose();
-    surnameController.dispose();
-    peselController.dispose();
-    phoneController.dispose();
-    postCodeController.dispose();
-    sityController.dispose();
-    streetController.dispose();
-    super.dispose();
-  }
+  // final TextEditingController emailController = TextEditingController();
+  // final TextEditingController nameController = TextEditingController();
+  // final TextEditingController surnameController = TextEditingController();
+  // final TextEditingController phoneController = TextEditingController();
+  // final TextEditingController streetController = TextEditingController();
+  // final TextEditingController sityController = TextEditingController();
+  // final TextEditingController postCodeController = TextEditingController();
+  // final TextEditingController peselController = TextEditingController();
+  // final TextEditingController dateOfBirthController = TextEditingController();
+  // final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -57,82 +65,78 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
       builder: (context, state) {
         return GestureDetector(
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-          child: Form(
-            key: formKey,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Basic Information',
-                      style: textStyle,
-                    ),
-                    const SizedBox(height: 20),
-                    EditBasicInformation(
-                      dateOfBirthController: dateOfBirthController,
-                      emailController: emailController,
-                      nameController: nameController,
-                      surnameController: surnameController,
-                      peselController: peselController,
-                      phoneController: phoneController,
-                      postCodeController: postCodeController,
-                      sityController: sityController,
-                      streetController: streetController,
-                    ),
-                    //////////////////////////////////////////////////////////////
-                    const SizedBox(height: 20),
-                    Text(
-                      'Password',
-                      style: textStyle,
-                    ),
-                    const SizedBox(height: 20),
-                    const EditPassword(),
-                    const SizedBox(height: 20),
-                    RecommendedButton(
-                      textButton: 'Save',
-                      gradient: const LinearGradient(
-                        colors: [
-                          AppColors.gradientStart,
-                          AppColors.gradientEnd,
-                        ],
-                      ),
-                      imageColor: Colors.white,
-                      textColor: Colors.white,
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          // AccountModel(
-                          //   firstName: nameController.text,
-                          //   lastName: surnameController.text,
-                          //   email: emailController.text,
-                          //   phone: phoneController.text,
-                          //   street: streetController.text,
-                          //   sity: sityController.text,
-                          //   postCode: postCodeController.text,
-                          //   pesel: peselController.text,
-                          //   dateOfBirth: dateOfBirthController.text,
-                          // ).toJson();
-                          // accountModelToJson(AccountModel(
-                          //   firstName: nameController.text,
-                          //   lastName: surnameController.text,
-                          //   email: emailController.text,
-                          //   phone: phoneController.text,
-                          //   street: streetController.text,
-                          //   sity: sityController.text,
-                          //   postCode: postCodeController.text,
-                          //   pesel: peselController.text,
-                          //   dateOfBirth: dateOfBirthController.text,
-                          // ));
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Basic Information',
+                    style: textStyle,
+                  ),
+                  const SizedBox(height: 20),
+                  EditBasicInformation(
+                    dateOfBirthController: widget.dateOfBirthController,
+                    emailController: widget.emailController,
+                    nameController: widget.nameController,
+                    surnameController: widget.surnameController,
+                    peselController: widget.peselController,
+                    phoneController: widget.phoneController,
+                    postCodeController: widget.postCodeController,
+                    sityController: widget.sityController,
+                    streetController: widget.streetController,
+                  ),
+                  //////////////////////////////////////////////////////////////
+                  const SizedBox(height: 20),
+                  Text(
+                    'Password',
+                    style: textStyle,
+                  ),
+                  const SizedBox(height: 20),
+                  const EditPassword(),
+                  const SizedBox(height: 20),
+                  // RecommendedButton(
+                  //   textButton: 'Save',
+                  //   gradient: const LinearGradient(
+                  //     colors: [
+                  //       AppColors.gradientStart,
+                  //       AppColors.gradientEnd,
+                  //     ],
+                  //   ),
+                  //   imageColor: Colors.white,
+                  //   textColor: Colors.white,
+                  //   onPressed: () {
+                  //     if (formKey.currentState!.validate()) {
+                  //       // AccountModel(
+                  //       //   firstName: nameController.text,
+                  //       //   lastName: surnameController.text,
+                  //       //   email: emailController.text,
+                  //       //   phone: phoneController.text,
+                  //       //   street: streetController.text,
+                  //       //   sity: sityController.text,
+                  //       //   postCode: postCodeController.text,
+                  //       //   pesel: peselController.text,
+                  //       //   dateOfBirth: dateOfBirthController.text,
+                  //       // ).toJson();
+                  //       // accountModelToJson(AccountModel(
+                  //       //   firstName: nameController.text,
+                  //       //   lastName: surnameController.text,
+                  //       //   email: emailController.text,
+                  //       //   phone: phoneController.text,
+                  //       //   street: streetController.text,
+                  //       //   sity: sityController.text,
+                  //       //   postCode: postCodeController.text,
+                  //       //   pesel: peselController.text,
+                  //       //   dateOfBirth: dateOfBirthController.text,
+                  //       // ));
 
-                          changeEditWidget();
-                        }
-                        // setState(() {});
-                      },
-                    ),
-                    const SizedBox(height: 10),
-                  ],
-                ),
+                  //       changeEditWidget();
+                  //     }
+                  //   },
+                  // ),
+                  const SizedBox(height: 10),
+                ],
               ),
             ),
           ),
@@ -141,7 +145,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
     );
   }
 
-  void changeEditWidget() async {
-    await detailWidget.update(Detail.account, (value) => const AccountWidget());
-  }
+  // void changeEditWidget() async {
+  //   await detailWidget.update(Detail.account, (value) => AccountWidget());
+  // }
 }

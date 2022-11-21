@@ -6,8 +6,8 @@ part of 'favorite_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_FavoriteModel _$$_FavoriteModelFromJson(Map<String, dynamic> json) =>
-    _$_FavoriteModel(
+_$_FavoritesModel _$$_FavoritesModelFromJson(Map<String, dynamic> json) =>
+    _$_FavoritesModel(
       image: json['image'] as String?,
       name: json['name'] as String?,
       regularFee: (json['regularFee'] as num?)?.toDouble(),
@@ -21,7 +21,7 @@ _$_FavoriteModel _$$_FavoriteModelFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_FavoriteModelToJson(_$_FavoriteModel instance) =>
+Map<String, dynamic> _$$_FavoritesModelToJson(_$_FavoritesModel instance) =>
     <String, dynamic>{
       'image': instance.image,
       'name': instance.name,

@@ -22,6 +22,7 @@ class AccountModel with _$AccountModel {
     String? postCode,
     String? pesel,
     String? dateOfBirth,
+    String? gender,
   }) = _AccountModel;
 
   factory AccountModel.fromJson(Map<String, dynamic> json) =>
