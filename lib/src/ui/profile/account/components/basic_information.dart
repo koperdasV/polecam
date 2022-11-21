@@ -11,8 +11,8 @@ class BasicInformationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final accountModel = context.read<AccountBloc>().state.accountModel;
-    if (accountModel == null) return const SizedBox.shrink();
+    // final accountModel = context.read<AccountBloc>().state.accountModel;
+    // if (accountModel == null) return const SizedBox.shrink();
 
     final titleTextStyle = TextStyle(
       fontSize: 14,
@@ -38,7 +38,7 @@ class BasicInformationWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  '${accountModel.firstName} ${accountModel.lastName}',
+                  '${state.accountModel.firstName} ${state.accountModel.lastName}',
                   style: subtitleTextStyle,
                 ),
               ],
@@ -53,7 +53,7 @@ class BasicInformationWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  accountModel.phone.toString(),
+                  state.accountModel.phone.toString(),
                   style: subtitleTextStyle,
                 ),
               ],
@@ -68,7 +68,7 @@ class BasicInformationWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  '${accountModel.street}, ${accountModel.sity}',
+                  '${state.accountModel.street}, ${state.accountModel.sity}',
                   style: subtitleTextStyle,
                 ),
               ],
@@ -98,7 +98,7 @@ class BasicInformationWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  accountModel.dateOfBirth.toString(),
+                  state.accountModel.dateOfBirth.toString(),
                   style: subtitleTextStyle,
                 ),
               ],
@@ -113,7 +113,7 @@ class BasicInformationWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  accountModel.pesel.toString(),
+                  state.accountModel.pesel.toString(),
                   style: subtitleTextStyle,
                 ),
               ],

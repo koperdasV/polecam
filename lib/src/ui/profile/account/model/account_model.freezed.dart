@@ -30,6 +30,7 @@ mixin _$AccountModel {
   String? get postCode => throw _privateConstructorUsedError;
   String? get pesel => throw _privateConstructorUsedError;
   String? get dateOfBirth => throw _privateConstructorUsedError;
+  String? get gender => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +54,8 @@ abstract class $AccountModelCopyWith<$Res> {
       String? sity,
       String? postCode,
       String? pesel,
-      String? dateOfBirth});
+      String? dateOfBirth,
+      String? gender});
 }
 
 /// @nodoc
@@ -79,6 +81,7 @@ class _$AccountModelCopyWithImpl<$Res, $Val extends AccountModel>
     Object? postCode = freezed,
     Object? pesel = freezed,
     Object? dateOfBirth = freezed,
+    Object? gender = freezed,
   }) {
     return _then(_value.copyWith(
       firstName: freezed == firstName
@@ -121,6 +124,10 @@ class _$AccountModelCopyWithImpl<$Res, $Val extends AccountModel>
           ? _value.dateOfBirth
           : dateOfBirth // ignore: cast_nullable_to_non_nullable
               as String?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -143,7 +150,8 @@ abstract class _$$_AccountModelCopyWith<$Res>
       String? sity,
       String? postCode,
       String? pesel,
-      String? dateOfBirth});
+      String? dateOfBirth,
+      String? gender});
 }
 
 /// @nodoc
@@ -167,6 +175,7 @@ class __$$_AccountModelCopyWithImpl<$Res>
     Object? postCode = freezed,
     Object? pesel = freezed,
     Object? dateOfBirth = freezed,
+    Object? gender = freezed,
   }) {
     return _then(_$_AccountModel(
       firstName: freezed == firstName
@@ -209,6 +218,10 @@ class __$$_AccountModelCopyWithImpl<$Res>
           ? _value.dateOfBirth
           : dateOfBirth // ignore: cast_nullable_to_non_nullable
               as String?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -226,7 +239,8 @@ class _$_AccountModel implements _AccountModel {
       this.sity,
       this.postCode,
       this.pesel,
-      this.dateOfBirth});
+      this.dateOfBirth,
+      this.gender});
 
   factory _$_AccountModel.fromJson(Map<String, dynamic> json) =>
       _$$_AccountModelFromJson(json);
@@ -251,10 +265,12 @@ class _$_AccountModel implements _AccountModel {
   final String? pesel;
   @override
   final String? dateOfBirth;
+  @override
+  final String? gender;
 
   @override
   String toString() {
-    return 'AccountModel(firstName: $firstName, lastName: $lastName, avatar: $avatar, email: $email, phone: $phone, street: $street, sity: $sity, postCode: $postCode, pesel: $pesel, dateOfBirth: $dateOfBirth)';
+    return 'AccountModel(firstName: $firstName, lastName: $lastName, avatar: $avatar, email: $email, phone: $phone, street: $street, sity: $sity, postCode: $postCode, pesel: $pesel, dateOfBirth: $dateOfBirth, gender: $gender)';
   }
 
   @override
@@ -275,13 +291,14 @@ class _$_AccountModel implements _AccountModel {
                 other.postCode == postCode) &&
             (identical(other.pesel, pesel) || other.pesel == pesel) &&
             (identical(other.dateOfBirth, dateOfBirth) ||
-                other.dateOfBirth == dateOfBirth));
+                other.dateOfBirth == dateOfBirth) &&
+            (identical(other.gender, gender) || other.gender == gender));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, firstName, lastName, avatar,
-      email, phone, street, sity, postCode, pesel, dateOfBirth);
+      email, phone, street, sity, postCode, pesel, dateOfBirth, gender);
 
   @JsonKey(ignore: true)
   @override
@@ -308,7 +325,8 @@ abstract class _AccountModel implements AccountModel {
       final String? sity,
       final String? postCode,
       final String? pesel,
-      final String? dateOfBirth}) = _$_AccountModel;
+      final String? dateOfBirth,
+      final String? gender}) = _$_AccountModel;
 
   factory _AccountModel.fromJson(Map<String, dynamic> json) =
       _$_AccountModel.fromJson;
@@ -333,6 +351,8 @@ abstract class _AccountModel implements AccountModel {
   String? get pesel;
   @override
   String? get dateOfBirth;
+  @override
+  String? get gender;
   @override
   @JsonKey(ignore: true)
   _$$_AccountModelCopyWith<_$_AccountModel> get copyWith =>

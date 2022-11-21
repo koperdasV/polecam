@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:polec/src/ui/profile/account/account_widget.dart';
+import 'package:polec/src/ui/profile/account/edit_components/edit_widget.dart';
 import 'package:polec/src/ui/profile/level/level_widget.dart';
 import 'package:polec/src/ui/profile/statistics/statistics_widget.dart';
 import 'package:polec/theme/app_colors.dart';
@@ -13,7 +13,7 @@ enum Detail {
 Map<Detail, Widget> detailWidget = <Detail, Widget>{
   Detail.statistics: const StatisticsWidget(),
   Detail.level: const LevelWidget(),
-  Detail.account: const AccountWidget(),
+  Detail.account: EditWidget(),
 };
 
 class ProfileNavigationBar extends StatefulWidget {

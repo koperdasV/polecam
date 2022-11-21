@@ -11,12 +11,16 @@ class TitleTextField extends StatelessWidget {
     required this.placeholder,
     required this.controller,
     this.keyboardType,
+    required this.validatorRegExp,
+    required this.errorMessage,
   });
 
   final String text;
   final String placeholder;
   final TextEditingController controller;
   final TextInputType? keyboardType;
+  final String validatorRegExp;
+  final String errorMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +34,8 @@ class TitleTextField extends StatelessWidget {
           placeholder: placeholder,
           controller: controller,
           keyboardType: keyboardType,
+          validatorRegExp: validatorRegExp,
+          errorMessage: errorMessage,
         ),
       ],
     );

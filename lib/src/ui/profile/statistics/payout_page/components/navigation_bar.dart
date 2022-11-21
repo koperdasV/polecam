@@ -74,15 +74,12 @@ class _PayoutNavigationBarState extends State<PayoutNavigationBar> {
     );
   }
 
-  Padding buildSegment(String title) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Text(
-        title,
-        style: const TextStyle(
-          color: CupertinoColors.black,
-          fontSize: 14,
-        ),
+  Text buildSegment(String title) {
+    return Text(
+      title,
+      style: const TextStyle(
+        color: CupertinoColors.black,
+        fontSize: 14,
       ),
     );
   }

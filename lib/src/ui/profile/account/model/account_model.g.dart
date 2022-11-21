@@ -18,6 +18,7 @@ _$_AccountModel _$$_AccountModelFromJson(Map<String, dynamic> json) =>
       postCode: json['postCode'] as String?,
       pesel: json['pesel'] as String?,
       dateOfBirth: json['dateOfBirth'] as String?,
+      gender: json['gender'] as String?,
     );
 
 Map<String, dynamic> _$$_AccountModelToJson(_$_AccountModel instance) =>
@@ -32,4 +33,5 @@ Map<String, dynamic> _$$_AccountModelToJson(_$_AccountModel instance) =>
       'postCode': instance.postCode,
       'pesel': instance.pesel,
       'dateOfBirth': instance.dateOfBirth,
+      'gender': instance.gender,
     };

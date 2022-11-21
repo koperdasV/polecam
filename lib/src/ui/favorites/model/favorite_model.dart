@@ -14,8 +14,7 @@ String recommendedModelToJson(List<FavoritesModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 @freezed
-abstract class FavoritesModel with _$FavoriteModel {
-  const FavoritesModel._();
+class FavoritesModel with _$FavoritesModel {
   const factory FavoritesModel({
     String? image,
     String? name,
@@ -24,14 +23,14 @@ abstract class FavoritesModel with _$FavoriteModel {
     String? description,
     List<String>? category,
     List<Address>? address,
-  }) = _FavoriteModel;
+  }) = _FavoritesModel;
 
   factory FavoritesModel.fromJson(Map<String, dynamic> json) =>
-      _$FavoriteModelFromJson(json);
+      _$FavoritesModelFromJson(json);
 }
 
 @freezed
-abstract class Address with _$Address {
+class Address with _$Address {
   const factory Address({
     String? street,
     String? city,
@@ -49,7 +48,7 @@ abstract class Address with _$Address {
 }
 
 @freezed
-abstract class Open with _$Open {
+class Open with _$Open {
   const factory Open({
     String? monday,
     String? tuesday,
