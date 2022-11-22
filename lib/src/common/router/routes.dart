@@ -18,6 +18,7 @@ import 'package:polec/src/ui/home/data/your_area_repository.dart';
 import 'package:polec/src/ui/journal/bloc/journals_bloc.dart';
 import 'package:polec/src/ui/journal/data/journals_repository.dart';
 import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
+import 'package:polec/src/ui/profile/account/cubit/account_cubit.dart';
 import 'package:polec/src/ui/profile/account/data/account_repository.dart';
 
 part 'routes.g.dart';
@@ -68,6 +69,7 @@ class HomeRoute extends GoRouteData {
             favoriteRepo: FavoritesRepository(),
           )..add(const LoadFavorite()),
         ),
+        BlocProvider(create: (context) => AccountCubit()),
       ],
       child: const HomeScreen(),
     );

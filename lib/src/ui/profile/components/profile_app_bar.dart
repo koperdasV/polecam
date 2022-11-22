@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
-import 'package:polec/src/ui/profile/account/edit_components/notifier.dart';
+import 'package:polec/src/ui/profile/account/cubit/account_cubit.dart';
 
 class ProfileAppBar extends StatefulWidget {
-  const ProfileAppBar({super.key});
+  ProfileAppBar({
+    super.key,
+  });
 
   @override
   State<ProfileAppBar> createState() => _ProfileAppBarState();
@@ -66,19 +68,13 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                   ),
                 ],
               ),
-              Visibility(
-                visible: true,
-                child: CupertinoButton(
-                  onPressed: () {
-                    setState(() {
-// TODO edit_button_state
-                      // MyNotifier().changeData(false, true);
-                    });
-                  },
-                  child: Icon(
-                    Icons.mode,
-                    color: AppColor.subTitleColor,
-                  ),
+              CupertinoButton(
+                onPressed: () {
+                  context.read<AccountCubit>().editingAcc(editingAccount: true);
+                },
+                child: Icon(
+                  Icons.mode,
+                  color: AppColor.subTitleColor,
                 ),
               ),
             ],

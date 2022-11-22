@@ -1,0 +1,50 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:intl/intl.dart';
+
+class CalendarWidget extends StatefulWidget {
+  const CalendarWidget({super.key});
+
+  @override
+  State<CalendarWidget> createState() => _CalendarWidgetState();
+}
+
+class _CalendarWidgetState extends State<CalendarWidget> {
+  DateTime _dateTime = DateTime.now();
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        SizedBox(
+          height: 30,
+          width: 30,
+          child: CupertinoButton(
+            color: Colors.transparent,
+            padding: const EdgeInsets.all(0),
+            child: const Icon(
+              Icons.calendar_month_rounded,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              showDatePicker(
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime(1920),
+                lastDate: DateTime(2030),
+              ).then((date) {
+                setState(() {
+                  _dateTime = date!;
+                });
+              });
+            },
+          ),
+        ),
+        Text(
+          DateFormat('yyyy/MM/dd').format(DateTime.parse(_dateTime.toString())),
+        ),
+      ],
+    );
+  }
+}
