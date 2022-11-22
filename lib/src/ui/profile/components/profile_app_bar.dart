@@ -7,7 +7,12 @@ import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
 import 'package:polec/src/ui/profile/account/edit_components/notifier.dart';
 
 class ProfileAppBar extends StatefulWidget {
-  const ProfileAppBar({super.key});
+  ProfileAppBar({
+    super.key,
+    required this.editing,
+  });
+
+  bool editing;
 
   @override
   State<ProfileAppBar> createState() => _ProfileAppBarState();
@@ -66,19 +71,15 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                   ),
                 ],
               ),
-              Visibility(
-                visible: true,
-                child: CupertinoButton(
-                  onPressed: () {
-                    setState(() {
+              CupertinoButton(
+                onPressed: () {
+                  widget.editing = false;
 // TODO edit_button_state
-                      // MyNotifier().changeData(false, true);
-                    });
-                  },
-                  child: Icon(
-                    Icons.mode,
-                    color: AppColor.subTitleColor,
-                  ),
+                  // MyNotifier().changeData(false, true);
+                },
+                child: Icon(
+                  Icons.mode,
+                  color: AppColor.subTitleColor,
                 ),
               ),
             ],
