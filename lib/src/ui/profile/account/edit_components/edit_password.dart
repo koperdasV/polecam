@@ -31,9 +31,6 @@ class _EditPasswordState extends State<EditPassword> {
         TitleTextWidget(
           text: 'Enter a new password',
         ),
-        // ProfileTextField(
-        //   placeholder: 'Enter a new password',
-        // ),
         CupertinoTextField(
           placeholder: 'Enter a new password',
           obscureText: !_passwordVisible,
@@ -64,10 +61,6 @@ class _EditPasswordState extends State<EditPassword> {
         const TitleTextWidget(
           text: 'Confirm new password',
         ),
-        // ProfileTextField(
-        //   placeholder: 'Confirm new password',
-        // ),
-
         CupertinoTextField(
           placeholder: 'Confirm a new password',
           obscureText: !_passwordVisible,
@@ -94,14 +87,6 @@ class _EditPasswordState extends State<EditPassword> {
             ),
           ),
         ),
-        // CupertinoTextFormFieldRow(
-        //   padding: EdgeInsets.all(0),
-        //   placeholder: 'Confirm new password',
-        //   decoration: BoxDecoration(
-        //     color: AppColors.bgAccountPage,
-        //     borderRadius: BorderRadius.circular(10),
-        //   ),
-        // ),
       ],
     );
   }

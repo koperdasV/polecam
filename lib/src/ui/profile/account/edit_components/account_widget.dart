@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
+import 'package:polec/src/ui/details/components/recomended_button.dart';
 import 'package:polec/src/ui/profile/account/components/basic_information.dart';
+import 'package:polec/theme/app_colors.dart';
 
 class AccountWidget extends StatelessWidget {
   const AccountWidget({
     super.key,
+    required this.onPressed,
   });
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -74,29 +78,19 @@ class AccountWidget extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            // RecommendedButton(
-            //     textButton: 'Reconnect now',
-            //     gradient: const LinearGradient(
-            //       colors: [
-            //         AppColors.gradientStartActive,
-            //         AppColors.gradientEndActive,
-            //       ],
-            //     ),
-            //     imageColor: Colors.white,
-            //     textColor: Colors.white,
-            //     onPressed: () {
-            //       setState(() {
-            //         if (widget.isVisible == true &&
-            //             widget.isVisibleTwo == false) {
-            //           widget.isVisible = false;
-            //           widget.isVisibleTwo = true;
-            //         } else {
-            //           widget.isVisible = true;
-            //           widget.isVisibleTwo = false;
-            //         }
-            //         ;
-            //       });
-            //     }),
+            RecommendedButton(
+              textButton: 'Reconnect now',
+              gradient: const LinearGradient(
+                colors: [
+                  AppColors.gradientStartActive,
+                  AppColors.gradientEndActive,
+                ],
+              ),
+              imageColor: Colors.white,
+              textColor: Colors.white,
+              onPressed: onPressed,
+            ),
+            const SizedBox(height: 10),
           ],
         ),
       ),
