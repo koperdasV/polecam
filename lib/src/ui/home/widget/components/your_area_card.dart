@@ -37,46 +37,49 @@ class YourAreaCard extends StatelessWidget {
               ),
             );
           },
-          child: Stack(
-            children: [
-              SizedBox(
-                height: 190,
-                width: 166,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image.network(
-                    tmp.image.toString(),
-                    fit: BoxFit.cover,
+          child: Padding(
+            padding: const EdgeInsets.only(right: 15),
+            child: Stack(
+              children: [
+                SizedBox(
+                  height: 190,
+                  width: 166,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image.network(
+                      tmp.image.toString(),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
-              PercentWidget(
-                percent: '${tmp.regularFee}',
-                fontSize: 22,
-              ),
-              Positioned(
-                right: 0,
-                bottom: 0,
-                child: CupertinoButton(
-                  borderRadius: BorderRadius.circular(100),
-                  onPressed: () {},
-                  child: Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: AppColor.favoriteButtonColor,
-                    ),
-                    child: Center(
-                      child: Icon(
-                        CupertinoIcons.heart,
-                        color: AppColor.textButtonColor,
+                PercentWidget(
+                  percent: '${tmp.regularFee}',
+                  fontSize: 22,
+                ),
+                Positioned(
+                  right: 0,
+                  bottom: 0,
+                  child: CupertinoButton(
+                    borderRadius: BorderRadius.circular(100),
+                    onPressed: () {},
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColor.favoriteButtonColor,
+                      ),
+                      child: Center(
+                        child: Icon(
+                          CupertinoIcons.heart,
+                          color: AppColor.textButtonColor,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         Padding(
@@ -88,12 +91,17 @@ class YourAreaCard extends StatelessWidget {
             ),
           ),
         ),
-        const Text(
-          'Polecone przez: Paweł Woźniak',
-          style: TextStyle(
-            fontSize: 12,
-            color: Color(0xFF9fa2b1),
-            fontWeight: FontWeight.normal,
+        SizedBox(
+          width: 160,
+          child: Text(
+            tmp.description.toString(),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontSize: 12,
+              color: Color(0xFF9fa2b1),
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ),
       ],

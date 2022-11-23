@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:polec/src/ui/favorites/model/favorite_model.dart';
 
-abstract class IFavoritesRepo {
+mixin IFavoritesRepo {
   Future<List<FavoritesModel>> fetchFavorite();
 }
 
