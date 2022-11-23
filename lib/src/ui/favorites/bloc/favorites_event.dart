@@ -13,3 +13,12 @@ class LoadFavorite extends FavoriteEvent {
   @override
   List<Object?> get props => [];
 }
+
+class AddFavorites extends FavoriteEvent {
+  const AddFavorites(this.favoritesModel);
+
+  final FavoritesModel favoritesModel;
+
+  @override
+  List<Object?> get props => [];
+}

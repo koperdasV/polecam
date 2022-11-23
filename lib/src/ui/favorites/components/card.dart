@@ -54,7 +54,7 @@ class CardFavorites extends StatelessWidget {
                   fontSize: 34,
                 ),
                 Positioned(
-                  right: 0,
+                  left: 0,
                   bottom: 0,
                   child: Row(
                     children: const [
@@ -65,6 +65,28 @@ class CardFavorites extends StatelessWidget {
                         tag: 'Food',
                       ),
                     ],
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  bottom: 0,
+                  child: CupertinoButton(
+                    borderRadius: BorderRadius.circular(100),
+                    onPressed: () {},
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColor.favoriteButtonColor,
+                      ),
+                      child: Center(
+                        child: Icon(
+                          CupertinoIcons.heart_fill,
+                          color: AppColor.textButtonColor,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],

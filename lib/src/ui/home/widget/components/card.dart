@@ -54,7 +54,7 @@ class CardWidget extends StatelessWidget {
                 fontSize: fontSize,
               ),
               Positioned(
-                right: 0,
+                left: 0,
                 bottom: 0,
                 child: Row(
                   children: const [
@@ -63,29 +63,56 @@ class CardWidget extends StatelessWidget {
                   ],
                 ),
               ),
+              Positioned(
+                right: 0,
+                bottom: 0,
+                child: CupertinoButton(
+                  borderRadius: BorderRadius.circular(100),
+                  onPressed: () {},
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColor.favoriteButtonColor,
+                    ),
+                    child: Center(
+                      child: Icon(
+                        CupertinoIcons.heart_fill,
+                        color: AppColor.unFavoritesColor,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
         SizedBox(
-          width: 160,
+          width: 250,
           child: Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
               tmp.name.toString(),
               maxLines: 1,
               style: const TextStyle(
-                overflow: TextOverflow.ellipsis,
+                overflow: TextOverflow.clip,
                 fontSize: 18,
               ),
             ),
           ),
         ),
-        Text(
-          'recommended.toString()',
-          style: TextStyle(
-            fontSize: 12,
-            color: AppColor.subTitleColor,
-            fontWeight: FontWeight.normal,
+        SizedBox(
+          width: 250,
+          child: Text(
+            tmp.description.toString(),
+            maxLines: 1,
+            style: TextStyle(
+              fontSize: 12,
+              color: AppColor.subTitleColor,
+              fontWeight: FontWeight.normal,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ),
       ],

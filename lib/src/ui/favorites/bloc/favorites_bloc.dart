@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:polec/src/ui/favorites/data/favorites_repository.dart';
@@ -12,6 +14,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   })  : _favoriteRepo = favoriteRepo,
         super(const FavoriteState(favorites: <FavoritesModel>[])) {
     on<LoadFavorite>(_onLoadFavorite);
+    on<AddFavorites>(_onAddFavorites);
   }
   final IFavoritesRepo _favoriteRepo;
 
@@ -49,5 +52,12 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
         ),
       );
     }
+  }
+
+  Future<void> _onAddFavorites(
+    AddFavorites event,
+    Emitter<FavoriteState> emit,
+  ) async {
+    
   }
 }
