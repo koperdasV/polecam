@@ -7,7 +7,7 @@ class UserPreferences {
       surname: 'Kot',
       phone: '+482355652857',
       street: 'Bydgoszcz',
-      sity: 'Poland',
+      city: 'Poland',
       postCode: 'XX-XXX',
       pesel: 'XXXXXXXXXXX',
       dateOfBirth: '21 february 1993');

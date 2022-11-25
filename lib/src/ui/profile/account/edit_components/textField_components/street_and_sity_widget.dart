@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:polec/src/ui/profile/account/edit_components/title_text_field.dart';
 
-class StreetAndSityWidget extends StatelessWidget {
-  const StreetAndSityWidget({
+class StreetAndCityWidget extends StatelessWidget {
+  const StreetAndCityWidget({
     super.key,
     required this.streetController,
-    required this.sityController,
+    required this.cityController,
   });
 
   final TextEditingController streetController;
-  final TextEditingController sityController;
+  final TextEditingController cityController;
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +22,18 @@ class StreetAndSityWidget extends StatelessWidget {
             placeholder: 'Street and number',
             controller: streetController,
             keyboardType: TextInputType.streetAddress,
-            validatorRegExp: r'^[a-z A-Z]+$',
+            validatorRegExp: r'^[a-z A-Z][0-9]+$',
             errorMessage: 'Enter correct street and number',
           ),
         ),
         const SizedBox(width: 10),
         Expanded(
           child: TitleTextField(
-            text: 'Sity',
-            placeholder: 'Sity',
-            controller: sityController,
+            text: 'City',
+            placeholder: 'City',
+            controller: cityController,
             validatorRegExp: r'^[a-z A-Z]+$',
-            errorMessage: 'Enter correct sity',
+            errorMessage: 'Enter correct city',
           ),
         )
       ],

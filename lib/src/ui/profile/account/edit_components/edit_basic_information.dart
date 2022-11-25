@@ -21,7 +21,7 @@ class EditBasicInformation extends StatefulWidget {
     required this.surnameController,
     required this.phoneController,
     required this.streetController,
-    required this.sityController,
+    required this.cityController,
     required this.postCodeController,
     required this.peselController,
     required this.dateOfBirthController,
@@ -31,7 +31,7 @@ class EditBasicInformation extends StatefulWidget {
   final TextEditingController surnameController;
   final TextEditingController phoneController;
   final TextEditingController streetController;
-  final TextEditingController sityController;
+  final TextEditingController cityController;
   final TextEditingController postCodeController;
   final TextEditingController peselController;
   final TextEditingController dateOfBirthController;
@@ -57,8 +57,8 @@ class _EditBasicInformationState extends State<EditBasicInformation> {
         const SizedBox(height: 10),
         PhoneWidget(controller: widget.phoneController),
         const SizedBox(height: 10),
-        StreetAndSityWidget(
-          sityController: widget.sityController,
+        StreetAndCityWidget(
+          cityController: widget.cityController,
           streetController: widget.streetController,
         ),
         const SizedBox(height: 10),

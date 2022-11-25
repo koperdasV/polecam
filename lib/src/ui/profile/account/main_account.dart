@@ -33,7 +33,7 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
   final TextEditingController surnameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController streetController = TextEditingController();
-  final TextEditingController sityController = TextEditingController();
+  final TextEditingController cityController = TextEditingController();
   final TextEditingController postCodeController = TextEditingController();
   final TextEditingController peselController = TextEditingController();
   final TextEditingController dateOfBirthController = TextEditingController();
@@ -47,7 +47,7 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
     peselController.dispose();
     phoneController.dispose();
     postCodeController.dispose();
-    sityController.dispose();
+    cityController.dispose();
     streetController.dispose();
     super.dispose();
   }
@@ -88,7 +88,7 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
                   peselController: peselController,
                   phoneController: phoneController,
                   postCodeController: postCodeController,
-                  sityController: sityController,
+                  cityController: cityController,
                   streetController: streetController,
                   onPressed: () {
                     setState(() {
@@ -102,7 +102,7 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
                         //   email: emailController.text,
                         //   phone: phoneController.text,
                         //   street: streetController.text,
-                        //   sity: sityController.text,
+                        //   city: cityController.text,
                         //   postCode: postCodeController.text,
                         //   pesel: peselController.text,
                         //   dateOfBirth: dateOfBirthController.text,
@@ -114,7 +114,7 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
                       //     email: emailController.text,
                       //     phone: phoneController.text,
                       //     street: streetController.text,
-                      //     sity: sityController.text,
+                      //     city: cityController.text,
                       //     postCode: postCodeController.text,
                       //     pesel: peselController.text,
                       //     dateOfBirth: dateOfBirthController.text,

@@ -26,7 +26,7 @@ mixin _$AccountModel {
   String? get email => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get street => throw _privateConstructorUsedError;
-  String? get sity => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
   String? get postCode => throw _privateConstructorUsedError;
   String? get pesel => throw _privateConstructorUsedError;
   String? get dateOfBirth => throw _privateConstructorUsedError;
@@ -51,7 +51,7 @@ abstract class $AccountModelCopyWith<$Res> {
       String? email,
       String? phone,
       String? street,
-      String? sity,
+      String? city,
       String? postCode,
       String? pesel,
       String? dateOfBirth,
@@ -77,7 +77,7 @@ class _$AccountModelCopyWithImpl<$Res, $Val extends AccountModel>
     Object? email = freezed,
     Object? phone = freezed,
     Object? street = freezed,
-    Object? sity = freezed,
+    Object? city = freezed,
     Object? postCode = freezed,
     Object? pesel = freezed,
     Object? dateOfBirth = freezed,
@@ -108,9 +108,9 @@ class _$AccountModelCopyWithImpl<$Res, $Val extends AccountModel>
           ? _value.street
           : street // ignore: cast_nullable_to_non_nullable
               as String?,
-      sity: freezed == sity
-          ? _value.sity
-          : sity // ignore: cast_nullable_to_non_nullable
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
               as String?,
       postCode: freezed == postCode
           ? _value.postCode
@@ -147,7 +147,7 @@ abstract class _$$_AccountModelCopyWith<$Res>
       String? email,
       String? phone,
       String? street,
-      String? sity,
+      String? city,
       String? postCode,
       String? pesel,
       String? dateOfBirth,
@@ -171,7 +171,7 @@ class __$$_AccountModelCopyWithImpl<$Res>
     Object? email = freezed,
     Object? phone = freezed,
     Object? street = freezed,
-    Object? sity = freezed,
+    Object? city = freezed,
     Object? postCode = freezed,
     Object? pesel = freezed,
     Object? dateOfBirth = freezed,
@@ -202,9 +202,9 @@ class __$$_AccountModelCopyWithImpl<$Res>
           ? _value.street
           : street // ignore: cast_nullable_to_non_nullable
               as String?,
-      sity: freezed == sity
-          ? _value.sity
-          : sity // ignore: cast_nullable_to_non_nullable
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
               as String?,
       postCode: freezed == postCode
           ? _value.postCode
@@ -236,7 +236,7 @@ class _$_AccountModel implements _AccountModel {
       this.email,
       this.phone,
       this.street,
-      this.sity,
+      this.city,
       this.postCode,
       this.pesel,
       this.dateOfBirth,
@@ -258,7 +258,7 @@ class _$_AccountModel implements _AccountModel {
   @override
   final String? street;
   @override
-  final String? sity;
+  final String? city;
   @override
   final String? postCode;
   @override
@@ -270,7 +270,7 @@ class _$_AccountModel implements _AccountModel {
 
   @override
   String toString() {
-    return 'AccountModel(firstName: $firstName, lastName: $lastName, avatar: $avatar, email: $email, phone: $phone, street: $street, sity: $sity, postCode: $postCode, pesel: $pesel, dateOfBirth: $dateOfBirth, gender: $gender)';
+    return 'AccountModel(firstName: $firstName, lastName: $lastName, avatar: $avatar, email: $email, phone: $phone, street: $street, city: $city, postCode: $postCode, pesel: $pesel, dateOfBirth: $dateOfBirth, gender: $gender)';
   }
 
   @override
@@ -286,7 +286,7 @@ class _$_AccountModel implements _AccountModel {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.street, street) || other.street == street) &&
-            (identical(other.sity, sity) || other.sity == sity) &&
+            (identical(other.city, city) || other.city == city) &&
             (identical(other.postCode, postCode) ||
                 other.postCode == postCode) &&
             (identical(other.pesel, pesel) || other.pesel == pesel) &&
@@ -298,7 +298,7 @@ class _$_AccountModel implements _AccountModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, firstName, lastName, avatar,
-      email, phone, street, sity, postCode, pesel, dateOfBirth, gender);
+      email, phone, street, city, postCode, pesel, dateOfBirth, gender);
 
   @JsonKey(ignore: true)
   @override
@@ -322,7 +322,7 @@ abstract class _AccountModel implements AccountModel {
       final String? email,
       final String? phone,
       final String? street,
-      final String? sity,
+      final String? city,
       final String? postCode,
       final String? pesel,
       final String? dateOfBirth,
@@ -344,7 +344,7 @@ abstract class _AccountModel implements AccountModel {
   @override
   String? get street;
   @override
-  String? get sity;
+  String? get city;
   @override
   String? get postCode;
   @override
