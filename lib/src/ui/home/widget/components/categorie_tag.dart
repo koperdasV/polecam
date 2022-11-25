@@ -11,21 +11,30 @@ class CategorieTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: AppColor.categorieColor,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 7),
-          child: Center(
-            child: Text(
-              tag,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Colors.white,
+    return SizedBox(
+      width: 200,
+      height: 50,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        //physics: const NeverScrollableScrollPhysics(),
+        itemCount: tag.length,
+        itemBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: AppColor.categorieColor,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 7),
+              child: Center(
+                child: Text(
+                  tag,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ),

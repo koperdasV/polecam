@@ -53,20 +53,20 @@ class CardWidget extends StatelessWidget {
                   percent: tmp.regularFee.toString(),
                   fontSize: 34,
                 ),
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: Row(
-                    children: const [
-                      CategorieTag(
-                        tag: 'Thai cuisine',
-                      ),
-                      CategorieTag(
-                        tag: 'Food',
-                      ),
-                    ],
-                  ),
-                ),
+                // Positioned(
+                //   right: 0,
+                //   bottom: 0,
+                //   child: Row(
+                //     children: [
+                //       CategorieTag(
+                //         tag: tmp.category.toList(),
+                //       ),
+                //       // CategorieTag(
+                //       //   tag: 'Food',
+                //       // ),
+                //     ],
+                //   ),
+                // ),
               ],
             ),
           ),

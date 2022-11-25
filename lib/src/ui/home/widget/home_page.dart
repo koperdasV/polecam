@@ -69,20 +69,10 @@ class HomePage extends StatelessWidget {
                     },
                   ),
                 ),
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                   child: SizedBox(
                     height: 280,
                     child: HorizontalListScroll(
-                      child: Row(
-                        children: const [
-                          CategorieTag(
-                            tag: 'Food',
-                          ),
-                          CategorieTag(
-                            tag: 'Asia',
-                          ),
-                        ],
-                      ),
                     ),
                   ),
                 ),

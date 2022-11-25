@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:polec/resources/colors.dart';
+import 'package:polec/src/ui/home/widget/components/in_active_button.dart';
 import 'package:polec/src/ui/home/widget/components/title_widget.dart';
 import 'package:polec/src/ui/profile/statistics/components/payout_card.dart';
 import 'package:polec/src/ui/profile/statistics/components/payout_history.dart';
@@ -51,6 +52,13 @@ class StatisticsWidget extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+            child: InActiveButton(
+              text: 'Payout funds',
+              gradient: AppColor.payoutButton,
+            ),
           ),
           TitleWidget(
             title: r'Summary: x.xx$',

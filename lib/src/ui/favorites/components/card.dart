@@ -53,20 +53,13 @@ class CardFavorites extends StatelessWidget {
                   percent: tmp.regularFee.toString(),
                   fontSize: 34,
                 ),
-                Positioned(
-                  left: 0,
-                  bottom: 0,
-                  child: Row(
-                    children: const [
-                      CategorieTag(
-                        tag: 'Thai cuisine',
-                      ),
-                      CategorieTag(
-                        tag: 'Food',
-                      ),
-                    ],
-                  ),
-                ),
+                // Positioned(
+                //   left: 0,
+                //   bottom: 0,
+                //   child: CategorieTag(
+                //     tag: tmp.category.toString(),
+                //   ),
+                // ),
                 Positioned(
                   right: 0,
                   bottom: 0,

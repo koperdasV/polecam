@@ -1,18 +1,23 @@
-import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polec/src/ui/journal/model/journal/journal_model.dart';
 
 class InActiveButton extends StatelessWidget {
   const InActiveButton({
     Key? key,
     required this.text,
-    this.fontSize = 17,
+    this.fontSize = 17, this.gradient = const LinearGradient(
+          colors: [
+            Color(0xFFd93150),
+            Color(0xFFf17088),
+            Color(0xFFfc8ca1),
+          ],
+        ),
   }) : super(key: key);
 
   final String text;
   final double? fontSize;
+  final Gradient? gradient;
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +26,10 @@ class InActiveButton extends StatelessWidget {
       height: 57,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        gradient: const LinearGradient(
-          colors: [
-            Color(0xFFd93150),
-            Color(0xFFf17088),
-            Color(0xFFfc8ca1),
-          ],
-        ),
+        gradient: gradient,
       ),
       child: CupertinoButton(
-        onPressed: (){},
+        onPressed: () {},
         child: Text(
           text,
           style: TextStyle(
