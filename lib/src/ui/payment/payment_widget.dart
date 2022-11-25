@@ -143,7 +143,7 @@ class PaymentWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        const CustomNavigationBar(),
+        CustomNavigationBar(),
         const SizedBox(height: 10),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),

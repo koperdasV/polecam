@@ -24,10 +24,12 @@ class DetailsWidget extends StatefulWidget {
     required this.regularFee,
     this.recommend,
     required this.name,
+    required this.description,
   });
   final String image;
   final double? regularFee;
   final String? recommend;
+  final String description;
 
   final String name;
 
@@ -207,7 +209,9 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                 ),
               ),
               const SizedBox(height: 10),
-              const CustomNavigationBar(),
+              CustomNavigationBar(
+                description: widget.description,
+              ),
               const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),

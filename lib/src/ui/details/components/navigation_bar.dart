@@ -7,15 +7,20 @@ import 'package:polec/theme/app_colors.dart';
 enum Detail { about, contact, open }
 
 Map<Detail, Widget> detailWidget = <Detail, Widget>{
-  Detail.about: const AboutWidget(),
+  Detail.about: AboutWidget(
+    about: anyDescription,
+  ),
   Detail.open: const OpenWidget(),
   Detail.contact: const ContactWidget(),
 };
+late final String anyDescription;
 
 class CustomNavigationBar extends StatefulWidget {
   const CustomNavigationBar({
     super.key,
+    this.description,
   });
+  final String? description;
 
   @override
   State<CustomNavigationBar> createState() => _CustomNavigationBarState();
@@ -23,6 +28,13 @@ class CustomNavigationBar extends StatefulWidget {
 
 class _CustomNavigationBarState extends State<CustomNavigationBar> {
   Detail _selectedSegment = Detail.about;
+
+  @override
+  void initState() {
+    anyDescription = widget.description.toString();
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {

@@ -10,7 +10,7 @@ import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 class AboutWidget extends StatelessWidget {
   const AboutWidget({
     super.key,
-    this.about = '',
+    required this.about,
   });
 
   final String about;
@@ -39,7 +39,7 @@ class AboutWidget extends StatelessWidget {
               width: double.infinity,
               // height: 140,
               child: Text(
-                state.detailModel.description.toString(),
+                about,
                 style: TextStyle(
                   color: AppColor.subTitleColor,
                   fontWeight: FontWeight.normal,

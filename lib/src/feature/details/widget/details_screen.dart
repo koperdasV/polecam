@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/src/ui/details/details_widget.dart';
 
-
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({
     super.key,
@@ -10,12 +9,14 @@ class DetailsScreen extends StatefulWidget {
     this.regularFee = 0,
     this.recommend,
     this.name = '',
+    this.description = '',
   });
 
   final String image;
   final double? regularFee;
   final String? recommend;
   final String name;
+  final String description;
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
@@ -27,6 +28,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
     final image = widget.image;
     final regularFee = widget.regularFee;
     final recommend = widget.recommend;
+    final description = widget.description;
 
     final name = widget.name;
 
@@ -46,6 +48,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
         image: image,
         recommend: recommend,
         name: name,
+        description: description,
       ),
     );
   }

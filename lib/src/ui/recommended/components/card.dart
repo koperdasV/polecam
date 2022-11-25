@@ -32,6 +32,7 @@ class CardWidget extends StatelessWidget {
                     image: tmp.image.toString(),
                     regularFee: tmp.regularFee,
                     name: tmp.name.toString(),
+                    description: tmp.description.toString(),
                   ),
                 ),
               );
