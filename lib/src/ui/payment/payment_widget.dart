@@ -16,10 +16,10 @@ class PaymentWidget extends StatelessWidget {
   const PaymentWidget({
     super.key,
     required this.image,
-    this.regularFee = 0.100,
+    this.regularFee = 0,
   });
   final String image;
-  final double? regularFee;
+  final int? regularFee;
 
   @override
   Widget build(BuildContext context) {

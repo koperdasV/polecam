@@ -13,7 +13,7 @@ class ImageWidget extends StatelessWidget {
   });
 
   final String image;
-  final double? regularFee;
+  final int? regularFee;
 
   @override
   Widget build(BuildContext context) {

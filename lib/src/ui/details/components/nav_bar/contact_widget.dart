@@ -42,40 +42,63 @@ class ContactWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: SizedBox(
               width: double.infinity,
-              height: 140,
+              // height: 140,
               child: Column(
                 children: [
-                  const Text(
-                    'Street:',
-                    style: titleStyle,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Street: ',
+                        style: titleStyle,
+                      ),
+                      Text(
+                        state.detailModel.addresses![0].street.toString(),
+                        style: subtitleStyle,
+                      ),
+                    ],
                   ),
-                  Text(
-                    state.detailModel.addresses![0].street.toString(),
-                    style: subtitleStyle,
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'City: ',
+                        style: titleStyle,
+                      ),
+                      Text(
+                        state.detailModel.addresses![0].city.toString(),
+                        style: subtitleStyle,
+                      ),
+                    ],
                   ),
-                  const Text(
-                    'City:',
-                    style: titleStyle,
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Country: ',
+                        style: titleStyle,
+                      ),
+                      Text(
+                        state.detailModel.addresses![0].country.toString(),
+                        style: subtitleStyle,
+                      ),
+                    ],
                   ),
-                  Text(
-                    state.detailModel.addresses![0].city.toString(),
-                    style: subtitleStyle,
-                  ),
-                  Text(
-                    'Country:',
-                    style: titleStyle,
-                  ),
-                  Text(
-                    state.detailModel.addresses![0].country.toString(),
-                    style: subtitleStyle,
-                  ),
-                  Text(
-                    'Phones:',
-                    style: titleStyle,
-                  ),
-                  Text(
-                    state.detailModel.addresses![0].phones![0].toString(),
-                    style: subtitleStyle,
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Phones: ',
+                        style: titleStyle,
+                      ),
+                      Text(
+                        state.detailModel.addresses![0].phones![0].toString(),
+                        style: subtitleStyle,
+                      ),
+                    ],
                   ),
                 ],
               ),

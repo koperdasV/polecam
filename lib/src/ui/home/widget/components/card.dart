@@ -20,6 +20,8 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final amountParse = (tmp.regularFee)! * 100.round();
+    final percent = amountParse.toInt();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -51,7 +53,7 @@ class CardWidget extends StatelessWidget {
                 ),
               ),
               PercentWidget(
-                percent: tmp.regularFee.toString(),
+                percent: percent.toString(),
                 fontSize: fontSize,
               ),
               Positioned(

@@ -21,6 +21,8 @@ class YourAreaCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final amountParse = (tmp.regularFee)! * 100.round();
+    final percent = amountParse.toInt();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -56,7 +58,7 @@ class YourAreaCard extends StatelessWidget {
                 ),
               ),
               PercentWidget(
-                percent: '${tmp.regularFee}',
+                percent: percent.toString(),
                 fontSize: 22,
               ),
               Positioned(

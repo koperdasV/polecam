@@ -41,8 +41,8 @@ class _DetailsWidgetState extends State<DetailsWidget> {
   @override
   Widget build(BuildContext context) {
     final amountParse = (widget.regularFee)! * 100.round();
-    final regularFee = amountParse.toInt();
-    final getRegularFee = regularFee + 1;
+    final percent = amountParse.toInt();
+    final getRegularFee = percent + 1;
 
     // final detailModel = context.read<DetailsBloc>().state.detailModel;
 
@@ -72,7 +72,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                   children: [
                     ImageWidget(
                       image: widget.image,
-                      regularFee: widget.regularFee,
+                      regularFee: percent,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
@@ -117,7 +117,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                         const SizedBox(width: 5),
                         Text(
                           // textAlign: TextAlign.justify,
-                          '${regularFee} %',
+                          '${percent} %',
                           style: TextStyle(
                             fontSize: 20,
                             color: AppColors.pecent,
@@ -228,14 +228,16 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                     ],
                   ),
                   textColor: Colors.white,
-                  onPressed: () => Navigator.push(
-                    context,
-                    CupertinoPageRoute(
-                      builder: (context) => PaymentScreen(
-                        image: widget.image,
-                      ),
-                    ),
-                  ),
+                  onPressed: () {
+                    // Navigator.push(
+                    //   context,
+                    //   CupertinoPageRoute(
+                    //     builder: (context) => PaymentScreen(
+                    //       image: widget.image,
+                    //     ),
+                    //   ),
+                    // );
+                  },
                 ),
               ),
               const SizedBox(height: 20),

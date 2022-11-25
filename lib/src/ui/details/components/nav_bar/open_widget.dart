@@ -12,6 +12,7 @@ class OpenWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     // final detailModel = context.read<DetailsBloc>().state.detailModel;
     // if (detailModel == null) return const SizedBox.shrink();
+    final MainAxisAlignment mainAxis = MainAxisAlignment.center;
 
     const titleStyle = TextStyle(
       fontSize: 16,
@@ -39,67 +40,114 @@ class OpenWidget extends StatelessWidget {
         }
         if (state.status == DetailsStateStatus.success) {
           return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: SizedBox(
                 width: double.infinity,
                 child: Column(
                   children: [
-                    Text(
-                      'Monday: ',
-                      style: titleStyle,
+                    Row(
+                      mainAxisAlignment: mainAxis,
+                      children: [
+                        const Text(
+                          'Monday: ',
+                          style: titleStyle,
+                        ),
+                        Text(
+                          state.detailModel.addresses![0].open!.monday
+                              .toString(),
+                          style: subtitleStyle,
+                        ),
+                      ],
                     ),
-                    Text(
-                      state.detailModel.addresses![0].open!.monday.toString(),
-                      style: subtitleStyle,
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: mainAxis,
+                      children: [
+                        const Text(
+                          'Tuesday: ',
+                          style: titleStyle,
+                        ),
+                        Text(
+                          state.detailModel.addresses![0].open!.tuesday
+                              .toString(),
+                          style: subtitleStyle,
+                        ),
+                      ],
                     ),
-                    Text(
-                      'Tuesday: ',
-                      style: titleStyle,
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: mainAxis,
+                      children: [
+                        const Text(
+                          'Wednesday: ',
+                          style: titleStyle,
+                        ),
+                        Text(
+                          state.detailModel.addresses![0].open!.wednesday
+                              .toString(),
+                          style: subtitleStyle,
+                        ),
+                      ],
                     ),
-                    Text(
-                      state.detailModel.addresses![0].open!.tuesday.toString(),
-                      style: subtitleStyle,
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: mainAxis,
+                      children: [
+                        const Text(
+                          'Thursday: ',
+                          style: titleStyle,
+                        ),
+                        Text(
+                          state.detailModel.addresses![0].open!.thursday
+                              .toString(),
+                          style: subtitleStyle,
+                        ),
+                      ],
                     ),
-                    Text(
-                      'Wednesday: ',
-                      style: titleStyle,
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: mainAxis,
+                      children: [
+                        const Text(
+                          'Friday: ',
+                          style: titleStyle,
+                        ),
+                        Text(
+                          state.detailModel.addresses![0].open!.friday
+                              .toString(),
+                          style: subtitleStyle,
+                        ),
+                      ],
                     ),
-                    Text(
-                      state.detailModel.addresses![0].open!.wednesday
-                          .toString(),
-                      style: subtitleStyle,
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: mainAxis,
+                      children: [
+                        const Text(
+                          'Saturday: ',
+                          style: titleStyle,
+                        ),
+                        Text(
+                          state.detailModel.addresses![0].open!.saturday
+                              .toString(),
+                          style: subtitleStyle,
+                        ),
+                      ],
                     ),
-                    Text(
-                      'Thursday: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      state.detailModel.addresses![0].open!.thursday.toString(),
-                      style: subtitleStyle,
-                    ),
-                    Text(
-                      'Friday: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      state.detailModel.addresses![0].open!.friday.toString(),
-                      style: subtitleStyle,
-                    ),
-                    Text(
-                      'Saturday: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      state.detailModel.addresses![0].open!.saturday.toString(),
-                      style: subtitleStyle,
-                    ),
-                    Text(
-                      'Sunday: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      state.detailModel.addresses![0].open!.sunday.toString(),
-                      style: subtitleStyle,
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: mainAxis,
+                      children: [
+                        const Text(
+                          'Sunday: ',
+                          style: titleStyle,
+                        ),
+                        Text(
+                          state.detailModel.addresses![0].open!.sunday
+                              .toString(),
+                          style: subtitleStyle,
+                        ),
+                      ],
                     ),
                   ],
                 )),

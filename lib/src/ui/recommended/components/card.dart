@@ -15,6 +15,8 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+          final amountParse = (tmp.regularFee)! * 100.round();
+    final percent = amountParse.toInt();
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
@@ -51,7 +53,7 @@ class CardWidget extends StatelessWidget {
                   ),
                 ),
                 PercentWidget(
-                  percent: tmp.regularFee.toString(),
+                  percent: percent.toString(),
                   fontSize: 34,
                 ),
                 Positioned(
