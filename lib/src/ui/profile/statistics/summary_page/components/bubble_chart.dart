@@ -133,7 +133,7 @@ class BubbleChartPainter extends CustomPainter {
         text: TextSpan(
           text: entry.label,
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 14,
             color: AppColor.categorieColor,
           ),
         ),

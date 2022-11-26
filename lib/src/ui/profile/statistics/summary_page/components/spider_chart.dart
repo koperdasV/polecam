@@ -227,7 +227,7 @@ class SpiderChartPainter extends CustomPainter {
   ) {
     final textPainter = TextPainter(textDirection: TextDirection.ltr);
     final textStyle = TextStyle(
-      fontSize: 16,
+      fontSize: 14,
       color: AppColor.categorieColor,
     );
 
