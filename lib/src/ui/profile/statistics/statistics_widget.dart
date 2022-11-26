@@ -57,7 +57,9 @@ class StatisticsWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             child: InActiveButton(
               text: 'Payout funds',
+              onPressed: () {},
               gradient: AppColor.payoutButton,
+              borderRadius: 20,
             ),
           ),
           TitleWidget(

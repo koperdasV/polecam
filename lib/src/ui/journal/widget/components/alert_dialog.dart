@@ -47,10 +47,11 @@ class AlertDialogWidget extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(top: 20),
             child: InActiveButton(
               text: 'Save the Card',
+              onPressed: () {},
               fontSize: 22,
             ),
           ),

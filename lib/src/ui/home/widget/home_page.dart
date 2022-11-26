@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:polec/src/feature/map/widget/map_screen.dart';
+import 'package:polec/src/feature/profile/widget/profile_screen.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_list_widget.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/home_app_bar.dart';
@@ -40,10 +41,19 @@ class HomePage extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 8),
             child: SearchWidget(),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             child: InActiveButton(
               text: 'Inactive Account',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  
+                  CupertinoPageRoute(
+                    builder: (context) => const ProfileScreen(),
+                  ),
+                );
+              },
             ),
           ),
           Expanded(
@@ -72,8 +82,7 @@ class HomePage extends StatelessWidget {
                 const SliverToBoxAdapter(
                   child: SizedBox(
                     height: 280,
-                    child: HorizontalListScroll(
-                    ),
+                    child: HorizontalListScroll(),
                   ),
                 ),
                 SliverToBoxAdapter(

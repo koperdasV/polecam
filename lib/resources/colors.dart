@@ -67,10 +67,12 @@ abstract class AppColor {
   );
 
   static LinearGradient payoutButton = const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
     colors: [
+      Color(0xFF57D84C),
       Color(0xFF1F9D15),
       Color(0xFF15770E),
-      Color(0xFF57D84C),
     ],
   );
 }
