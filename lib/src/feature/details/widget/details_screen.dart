@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/src/ui/details/details_widget.dart';
 
-
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({
     super.key,
@@ -10,12 +9,15 @@ class DetailsScreen extends StatefulWidget {
     this.regularFee = 0,
     this.recommend,
     this.name = '',
+    this.tag,
   });
 
   final String image;
   final double? regularFee;
   final String? recommend;
   final String name;
+
+  final List<String>? tag;
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
@@ -24,12 +26,6 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    final image = widget.image;
-    final regularFee = widget.regularFee;
-    final recommend = widget.recommend;
-
-    final name = widget.name;
-
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
         middle: Text(
@@ -42,10 +38,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
         ),
       ),
       child: DetailsWidget(
-        regularFee: regularFee,
-        image: image,
-        recommend: recommend,
-        name: name,
+        regularFee: widget.regularFee,
+        image: widget.image,
+        recommend: widget.recommend,
+        name: widget.name,
+        tag: widget.tag?.toList(),
       ),
     );
   }

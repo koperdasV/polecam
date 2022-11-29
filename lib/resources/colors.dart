@@ -15,27 +15,27 @@ abstract class AppColor {
   //BUBBLE CHART COLORS GRADIENT\\
   static List<Color> blueBall = const [
     Color.fromRGBO(0, 178, 211, 1),
-    Color.fromRGBO(64, 214, 242, 0.5),
+    Color.fromRGBO(64, 214, 242, 1),
   ];
   static List<Color> purpleBall = const [
     Color.fromRGBO(124, 29, 255, 1),
-    Color.fromRGBO(159, 95, 247, 0.7),
+    Color.fromRGBO(159, 95, 247, 1),
   ];
   static List<Color> pinkBall = const [
     Color.fromRGBO(197, 28, 227, 1),
-    Color.fromRGBO(237, 137, 255, 0.7),
+    Color.fromRGBO(237, 137, 255, 1),
   ];
   static List<Color> yellowBall = const [
     Color.fromRGBO(226, 199, 1, 1),
-    Color.fromRGBO(255, 228, 23, 0.7),
+    Color.fromRGBO(255, 228, 23, 1),
   ];
   static List<Color> greenBall = const [
     Color.fromRGBO(36, 180, 74, 1),
-    Color.fromRGBO(55, 208, 96, 0.7),
+    Color.fromRGBO(55, 208, 96, 1),
   ];
   static List<Color> redBall = const [
     Color.fromRGBO(237, 62, 62, 1),
-    Color.fromRGBO(252, 121, 121, 0.7),
+    Color.fromRGBO(252, 121, 121, 1),
   ];
 
   static BoxDecoration moneybackColor = BoxDecoration(
@@ -64,5 +64,15 @@ abstract class AppColor {
         Color(0xFF52d6c0),
       ],
     ),
+  );
+
+  static LinearGradient payoutButton = const LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      Color(0xFF57D84C),
+      Color(0xFF1F9D15),
+      Color(0xFF15770E),
+    ],
   );
 }

@@ -1,12 +1,9 @@
 import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/resourses/app_images.dart';
-import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart';
 import 'package:polec/src/feature/payment/widget/payment_screen.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/components/image_widget.dart';
@@ -14,7 +11,6 @@ import 'package:polec/src/ui/details/components/navigation_bar.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
 import 'package:polec/src/ui/details/components/recommendations.dart';
 import 'package:polec/src/ui/details/components/show_dialog.dart';
-import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class DetailsWidget extends StatefulWidget {
@@ -24,12 +20,15 @@ class DetailsWidget extends StatefulWidget {
     required this.regularFee,
     this.recommend,
     required this.name,
+    this.tag,
   });
   final String image;
   final double? regularFee;
   final String? recommend;
 
   final String name;
+
+  final List<String>? tag;
 
   @override
   State<DetailsWidget> createState() => _DetailsWidgetState();
@@ -38,11 +37,9 @@ class DetailsWidget extends StatefulWidget {
 class _DetailsWidgetState extends State<DetailsWidget> {
   @override
   Widget build(BuildContext context) {
-    final amountParse = (widget.regularFee)! * 100.round();
+    final amountParse = (widget.regularFee)! * 100;
     final regularFee = amountParse.toInt();
     final getRegularFee = regularFee + 1;
-
-    // final detailModel = context.read<DetailsBloc>().state.detailModel;
 
     return BlocBuilder<DetailsBloc, DetailsState>(
       builder: (context, state) {
@@ -71,24 +68,27 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                     ImageWidget(
                       image: widget.image,
                       regularFee: widget.regularFee,
+                      tag: widget.tag!.toList(),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: Text(
                         widget.name,
-                        // detailModel.name.toString(),
                         style: const TextStyle(
-                          fontSize: 18,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                    Text(
-                      'Recommend by: Paweł Woźniak',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: AppColor.subTitleColor,
-                        fontWeight: FontWeight.normal,
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5),
+                      child: Text(
+                        'Recommend by: Paweł Woźniak',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: AppColor.subTitleColor,
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
                     ),
                   ],
@@ -104,7 +104,6 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                       textBaseline: TextBaseline.ideographic,
                       children: [
                         Text(
-                          //textAlign: TextAlign.justify,
                           'Your discount:',
                           style: TextStyle(
                             fontSize: 14,
@@ -114,9 +113,8 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                         ),
                         const SizedBox(width: 5),
                         Text(
-                          // textAlign: TextAlign.justify,
-                          '${regularFee} %',
-                          style: TextStyle(
+                          '$regularFee %',
+                          style: const TextStyle(
                             fontSize: 20,
                             color: AppColors.pecent,
                             fontWeight: FontWeight.bold,
@@ -163,7 +161,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                           ),
                         ),
                       ),
-                      child: Container(
+                      child: DecoratedBox(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           gradient: const LinearGradient(
@@ -191,7 +189,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                                 ),
                               ),
                               Text(
-                                '${getRegularFee}%',
+                                '$getRegularFee%',
                                 style: const TextStyle(
                                   fontSize: 20,
                                   color: Colors.white,
@@ -206,9 +204,10 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
-              const CustomNavigationBar(),
-              const SizedBox(height: 10),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: CustomNavigationBar(),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: RecommendedButton(

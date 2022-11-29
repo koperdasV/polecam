@@ -13,10 +13,6 @@ class JournalCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _controller = PageController(viewportFraction: 0.5);
-
-    final dateTime = DateFormat.yMMMMd();
-    final time = DateFormat.jms();
     return ListTile(
       leading: CircleAvatar(
         backgroundImage: NetworkImage(
@@ -42,8 +38,6 @@ class JournalCard extends StatelessWidget {
       trailing: Text(
         DateFormat('KK:mm:ss a')
             .format(DateTime.parse(journalModel.timpestamp)),
-        //  DateFormat().formatDuration(DateTime.parse(journalModel.timpestamp)),
-        // journalModel.timpestamp.toString(),
         style: const TextStyle(
           fontWeight: FontWeight.normal,
           fontSize: 14,

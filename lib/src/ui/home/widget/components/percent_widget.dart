@@ -14,26 +14,18 @@ class PercentWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8),
-      child: Stack(
-        children: [
-          Text(
-            '$percent%',
-            style: TextStyle(
-              foreground: Paint()
-                ..style = PaintingStyle.stroke
-                ..strokeWidth = 1.5
-                ..color = Colors.black,
-              fontSize: fontSize,
+      child: Text(
+        '$percent%',
+        style: TextStyle(
+          fontSize: fontSize,
+          color: Colors.white,
+          shadows: const [
+            Shadow(
+              offset: Offset(2, 2),
+              blurRadius: 10,
             ),
-          ),
-          Text(
-            '$percent%',
-            style: TextStyle(
-              fontSize: fontSize,
-              color: Colors.white,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

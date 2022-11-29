@@ -33,6 +33,7 @@ class YourAreaCard extends StatelessWidget {
                   image: tmp.image.toString(),
                   regularFee: tmp.regularFee,
                   name: tmp.name.toString(),
+                  tag: tmp.category,
                 ),
               ),
             );

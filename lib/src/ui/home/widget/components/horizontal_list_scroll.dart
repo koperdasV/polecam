@@ -8,11 +8,9 @@ class HorizontalListScroll extends StatelessWidget {
   const HorizontalListScroll({
     Key? key,
     this.fontSize = 34,
-    this.child,
   }) : super(key: key);
 
   final double? fontSize;
-  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +40,6 @@ class HorizontalListScroll extends StatelessWidget {
                 child: CardWidget(
                   tmp: state.recommended[index],
                   fontSize: fontSize,
-                  child: child,
                 ),
               );
             },

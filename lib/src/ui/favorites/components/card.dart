@@ -32,6 +32,7 @@ class CardFavorites extends StatelessWidget {
                     image: tmp.image.toString(),
                     regularFee: tmp.regularFee,
                     name: tmp.name.toString(),
+                    tag: tmp.category,
                   ),
                 ),
               );
@@ -54,17 +55,9 @@ class CardFavorites extends StatelessWidget {
                   fontSize: 34,
                 ),
                 Positioned(
-                  left: 0,
                   bottom: 0,
-                  child: Row(
-                    children: const [
-                      CategorieTag(
-                        tag: 'Thai cuisine',
-                      ),
-                      CategorieTag(
-                        tag: 'Food',
-                      ),
-                    ],
+                  child: CategorieTag(
+                    tag: tmp.category!,
                   ),
                 ),
                 Positioned(

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
@@ -9,12 +10,10 @@ class CardWidget extends StatelessWidget {
   const CardWidget({
     Key? key,
     this.fontSize,
-    this.child,
     required this.tmp,
   }) : super(key: key);
 
   final double? fontSize;
-  final Widget? child;
 
   final RecommendedModel tmp;
 
@@ -32,6 +31,7 @@ class CardWidget extends StatelessWidget {
                   image: tmp.image.toString(),
                   regularFee: tmp.regularFee,
                   name: tmp.name.toString(),
+                  tag: tmp.category,
                 ),
               ),
             );
@@ -56,11 +56,8 @@ class CardWidget extends StatelessWidget {
               Positioned(
                 left: 0,
                 bottom: 0,
-                child: Row(
-                  children: const [
-                    CategorieTag(tag: 'Food'),
-                    CategorieTag(tag: 'Food'),
-                  ],
+                child: CategorieTag(
+                  tag: tmp.category!,
                 ),
               ),
               Positioned(

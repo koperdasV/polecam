@@ -40,6 +40,7 @@ class PaymentWidget extends StatelessWidget {
                 child: ImageWidget(
                   image: image,
                   regularFee: regularFee,
+                  tag: [],
                 ),
                 onTap: () => Navigator.push(
                   context,

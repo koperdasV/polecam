@@ -186,7 +186,7 @@ class _SummaryPageState extends State<SummaryPage> {
               ),
             ),
             const TitleWidget(
-              title: 'Polecam',
+              title: 'Recommendation',
               fontSizeTitle: 16,
             ),
             Padding(

@@ -32,6 +32,7 @@ class CardWidget extends StatelessWidget {
                     image: tmp.image.toString(),
                     regularFee: tmp.regularFee,
                     name: tmp.name.toString(),
+                    tag: tmp.category,
                   ),
                 ),
               );
@@ -56,15 +57,8 @@ class CardWidget extends StatelessWidget {
                 Positioned(
                   right: 0,
                   bottom: 0,
-                  child: Row(
-                    children: const [
-                      CategorieTag(
-                        tag: 'Thai cuisine',
-                      ),
-                      CategorieTag(
-                        tag: 'Food',
-                      ),
-                    ],
+                  child: CategorieTag(
+                    tag: tmp.category!,
                   ),
                 ),
               ],
