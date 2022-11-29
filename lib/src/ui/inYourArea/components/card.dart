@@ -32,6 +32,7 @@ class CardWidget extends StatelessWidget {
                     image: tmp.image.toString(),
                     regularFee: tmp.regularFee,
                     name: tmp.name.toString(),
+                    tag: tmp.category,
                   ),
                 ),
               );
@@ -53,20 +54,13 @@ class CardWidget extends StatelessWidget {
                   percent: tmp.regularFee.toString(),
                   fontSize: 34,
                 ),
-                // Positioned(
-                //   right: 0,
-                //   bottom: 0,
-                //   child: Row(
-                //     children: [
-                //       CategorieTag(
-                //         tag: tmp,
-                //       ),
-                //       CategorieTag(
-                //         tag: tmp,
-                //       ),
-                //     ],
-                //   ),
-                // ),
+                Positioned(
+                  left: 0,
+                  bottom: 0,
+                  child: CategorieTag(
+                    tag: tmp.category!,
+                  ),
+                ),
               ],
             ),
           ),

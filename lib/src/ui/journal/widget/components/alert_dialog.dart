@@ -4,16 +4,18 @@ import 'package:polec/src/ui/home/widget/components/in_active_button.dart';
 import 'package:polec/src/ui/journal/model/journal/journal_model.dart';
 
 class AlertDialogWidget extends StatelessWidget {
-  const AlertDialogWidget({
+  AlertDialogWidget({
     Key? key,
     required this.journalModel,
   }) : super(key: key);
 
   final JournalModel journalModel;
+  final _snackKey = GlobalKey<ScaffoldMessengerState>();
 
   @override
   Widget build(BuildContext context) {
     return ShowDialog(
+      key: _snackKey,
       height: 520,
       child: Column(
         children: [
@@ -48,10 +50,12 @@ class AlertDialogWidget extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 20),
             child: InActiveButton(
               text: 'Save the Card',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
               fontSize: 22,
             ),
           ),

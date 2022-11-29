@@ -32,9 +32,9 @@ class ShowDialog extends StatelessWidget {
               children: [
                 CupertinoButton(
                   child: const Icon(
-                    Icons.close,
+                    Icons.close_rounded,
                     color: Colors.black,
-                    size: 36,
+                    size: 38,
                   ),
                   onPressed: () => Navigator.pop(context),
                 ),

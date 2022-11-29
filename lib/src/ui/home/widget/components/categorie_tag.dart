@@ -7,16 +7,16 @@ class CategorieTag extends StatelessWidget {
     required this.tag,
   }) : super(key: key);
 
-  final String tag;
+  final List<String> tag;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 200,
+      width: 150,
       height: 50,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        //physics: const NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: tag.length,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
@@ -29,7 +29,7 @@ class CategorieTag extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 7),
               child: Center(
                 child: Text(
-                  tag,
+                  tag[index],
                   style: const TextStyle(
                     fontSize: 12,
                     color: Colors.white,

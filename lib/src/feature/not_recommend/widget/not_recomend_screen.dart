@@ -51,6 +51,7 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                 ImageWidget(
                   image: widget.image,
                   regularFee: widget.regularFee,
+                  tag: [],
                 ),
                 const Padding(
                   padding: EdgeInsets.only(top: 10),

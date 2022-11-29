@@ -32,6 +32,7 @@ class CardFavorites extends StatelessWidget {
                     image: tmp.image.toString(),
                     regularFee: tmp.regularFee,
                     name: tmp.name.toString(),
+                    tag: tmp.category,
                   ),
                 ),
               );
@@ -53,13 +54,12 @@ class CardFavorites extends StatelessWidget {
                   percent: tmp.regularFee.toString(),
                   fontSize: 34,
                 ),
-                // Positioned(
-                //   left: 0,
-                //   bottom: 0,
-                //   child: CategorieTag(
-                //     tag: tmp.category.toString(),
-                //   ),
-                // ),
+                Positioned(
+                  bottom: 0,
+                  child: CategorieTag(
+                    tag: tmp.category!,
+                  ),
+                ),
                 Positioned(
                   right: 0,
                   bottom: 0,

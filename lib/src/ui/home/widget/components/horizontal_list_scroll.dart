@@ -3,17 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/home/blocs/recommended/recommended_bloc.dart';
 import 'package:polec/src/ui/home/widget/components/card.dart';
-import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 
 class HorizontalListScroll extends StatelessWidget {
   const HorizontalListScroll({
     Key? key,
     this.fontSize = 34,
-    this.child,
   }) : super(key: key);
 
   final double? fontSize;
-  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +40,6 @@ class HorizontalListScroll extends StatelessWidget {
                 child: CardWidget(
                   tmp: state.recommended[index],
                   fontSize: fontSize,
-                  child: CategorieTag(
-                    tag: '${state.recommended[index]}',
-                  ),
                 ),
               );
             },

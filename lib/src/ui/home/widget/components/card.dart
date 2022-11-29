@@ -10,12 +10,10 @@ class CardWidget extends StatelessWidget {
   const CardWidget({
     Key? key,
     this.fontSize,
-    this.child,
     required this.tmp,
   }) : super(key: key);
 
   final double? fontSize;
-  final Widget? child;
 
   final RecommendedModel tmp;
 
@@ -33,6 +31,7 @@ class CardWidget extends StatelessWidget {
                   image: tmp.image.toString(),
                   regularFee: tmp.regularFee,
                   name: tmp.name.toString(),
+                  tag: tmp.category,
                 ),
               ),
             );
@@ -58,7 +57,7 @@ class CardWidget extends StatelessWidget {
                 left: 0,
                 bottom: 0,
                 child: CategorieTag(
-                  tag: tmp.category.toString(),
+                  tag: tmp.category!,
                 ),
               ),
               Positioned(
@@ -114,55 +113,6 @@ class CardWidget extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class CategorieWidget extends StatelessWidget {
-  const CategorieWidget({
-    Key? key,
-    required this.tmp,
-  }) : super(key: key);
-
-  final RecommendedModel tmp;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 200,
-      height: 50,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        //physics: const NeverScrollableScrollPhysics(),
-        itemCount: tmp.category!.length,
-        itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 5,
-            vertical: 10,
-          ),
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: AppColor.categorieColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 8,
-                vertical: 7,
-              ),
-              child: Center(
-                child: Text(
-                  tmp.category![index],
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
     );
   }
 }
