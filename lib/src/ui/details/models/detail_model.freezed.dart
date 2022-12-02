@@ -20,6 +20,7 @@ DetailModel _$DetailModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DetailModel {
+  String? get id => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   double? get regularFee => throw _privateConstructorUsedError;
@@ -42,7 +43,8 @@ abstract class $DetailModelCopyWith<$Res> {
       _$DetailModelCopyWithImpl<$Res, DetailModel>;
   @useResult
   $Res call(
-      {String? image,
+      {String? id,
+      String? image,
       String? name,
       double? regularFee,
       String? url,
@@ -64,6 +66,7 @@ class _$DetailModelCopyWithImpl<$Res, $Val extends DetailModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? image = freezed,
     Object? name = freezed,
     Object? regularFee = freezed,
@@ -73,6 +76,10 @@ class _$DetailModelCopyWithImpl<$Res, $Val extends DetailModel>
     Object? recommendations = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -114,7 +121,8 @@ abstract class _$$_DetailModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? image,
+      {String? id,
+      String? image,
       String? name,
       double? regularFee,
       String? url,
@@ -134,6 +142,7 @@ class __$$_DetailModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? image = freezed,
     Object? name = freezed,
     Object? regularFee = freezed,
@@ -143,6 +152,10 @@ class __$$_DetailModelCopyWithImpl<$Res>
     Object? recommendations = freezed,
   }) {
     return _then(_$_DetailModel(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -179,7 +192,8 @@ class __$$_DetailModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DetailModel implements _DetailModel {
   const _$_DetailModel(
-      {this.image,
+      {this.id,
+      this.image,
       this.name,
       this.regularFee,
       this.url,
@@ -192,6 +206,8 @@ class _$_DetailModel implements _DetailModel {
   factory _$_DetailModel.fromJson(Map<String, dynamic> json) =>
       _$$_DetailModelFromJson(json);
 
+  @override
+  final String? id;
   @override
   final String? image;
   @override
@@ -222,7 +238,7 @@ class _$_DetailModel implements _DetailModel {
 
   @override
   String toString() {
-    return 'DetailModel(image: $image, name: $name, regularFee: $regularFee, url: $url, description: $description, addresses: $addresses, recommendations: $recommendations)';
+    return 'DetailModel(id: $id, image: $image, name: $name, regularFee: $regularFee, url: $url, description: $description, addresses: $addresses, recommendations: $recommendations)';
   }
 
   @override
@@ -230,6 +246,7 @@ class _$_DetailModel implements _DetailModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DetailModel &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.regularFee, regularFee) ||
@@ -247,6 +264,7 @@ class _$_DetailModel implements _DetailModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       image,
       name,
       regularFee,
@@ -271,7 +289,8 @@ class _$_DetailModel implements _DetailModel {
 
 abstract class _DetailModel implements DetailModel {
   const factory _DetailModel(
-      {final String? image,
+      {final String? id,
+      final String? image,
       final String? name,
       final double? regularFee,
       final String? url,
@@ -282,6 +301,8 @@ abstract class _DetailModel implements DetailModel {
   factory _DetailModel.fromJson(Map<String, dynamic> json) =
       _$_DetailModel.fromJson;
 
+  @override
+  String? get id;
   @override
   String? get image;
   @override

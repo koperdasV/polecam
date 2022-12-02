@@ -32,15 +32,13 @@ class YourAreaCard extends StatelessWidget {
               context,
               CupertinoPageRoute(
                 builder: (context) => DetailsScreen(
-                  image: tmp.image.toString(),
-                  regularFee: tmp.regularFee,
-                  name: tmp.name.toString(),
-                  description: tmp.description!.isNotEmpty
-                      ? tmp.description.toString()
-                      : 'fuck',
+                    image: tmp.image.toString(),
+                    regularFee: tmp.regularFee,
+                    name: tmp.name.toString(),
+                    description: tmp.description.toString()
 
-                  // tmp.description.toString(),
-                ),
+                    // tmp.description.toString(),
+                    ),
               ),
             );
           },

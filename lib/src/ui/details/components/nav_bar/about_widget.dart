@@ -1,5 +1,3 @@
-// ignore_for_file: lines_longer_than_80_chars
-
 import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,10 +15,9 @@ class AboutWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final detailModel = context.read<DetailsBloc>().state.detailModel;
-    // if (detailModel == null) return const SizedBox.shrink();
     return BlocBuilder<DetailsBloc, DetailsState>(
       builder: (context, state) {
+        
         if (state.status == DetailsStateStatus.failure &&
             state.errorMessage.isNotEmpty) {
           context.showErrorBar<String>(

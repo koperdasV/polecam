@@ -1,10 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polec/src/ui/journal/model/journal/journal_model.dart';
 
-class InActiveButton extends StatelessWidget {
+class InActiveButton extends StatefulWidget {
   const InActiveButton({
     Key? key,
     required this.text,
@@ -14,6 +11,11 @@ class InActiveButton extends StatelessWidget {
   final String text;
   final double? fontSize;
 
+  @override
+  State<InActiveButton> createState() => _InActiveButtonState();
+}
+
+class _InActiveButtonState extends State<InActiveButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,12 +32,12 @@ class InActiveButton extends StatelessWidget {
         ),
       ),
       child: CupertinoButton(
-        onPressed: (){},
+        onPressed: () {},
         child: Text(
-          text,
+          widget.text,
           style: TextStyle(
             color: Colors.white,
-            fontSize: fontSize,
+            fontSize: widget.fontSize,
             fontWeight: FontWeight.w700,
           ),
         ),

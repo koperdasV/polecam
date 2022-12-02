@@ -8,6 +8,7 @@ part of 'recommended_model.dart';
 
 _$_RecommendedModel _$$_RecommendedModelFromJson(Map<String, dynamic> json) =>
     _$_RecommendedModel(
+      id: json['id'] as String?,
       image: json['image'] as String?,
       name: json['name'] as String?,
       regularFee: (json['regularFee'] as num?)?.toDouble(),
@@ -23,6 +24,7 @@ _$_RecommendedModel _$$_RecommendedModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_RecommendedModelToJson(_$_RecommendedModel instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'image': instance.image,
       'name': instance.name,
       'regularFee': instance.regularFee,

@@ -3,8 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
+import 'package:polec/src/ui/details/components/navigation_bar.dart';
 import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
 import 'package:polec/src/ui/profile/account/cubit/account_cubit.dart';
+import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
 
 class ProfileAppBar extends StatefulWidget {
   ProfileAppBar({
@@ -16,6 +18,8 @@ class ProfileAppBar extends StatefulWidget {
 }
 
 class _ProfileAppBarState extends State<ProfileAppBar> {
+  bool stateEditAcc = true;
+  bool stateCloseAcc = false;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AccountBloc, AccountState>(builder: (context, state) {
@@ -68,14 +72,54 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                   ),
                 ],
               ),
-              CupertinoButton(
-                onPressed: () {
-                  context.read<AccountCubit>().editingAcc(editingAccount: true);
+              BlocBuilder<AccountCubit, AccountEditState>(
+                builder: (context, state) {
+                  bool account = state.editing;
+
+                  if (account == true) {
+                    stateEditAcc = false;
+                    stateCloseAcc = true;
+                  } else {
+                    stateEditAcc = true;
+                    stateCloseAcc = false;
+                  }
+                  return Row(
+                    children: [
+                      Visibility(
+                        visible: stateCloseAcc,
+                        child: CupertinoButton(
+                          onPressed: () {
+                            context
+                                .read<AccountCubit>()
+                                .editingAcc(editingAccount: false);
+                          },
+                          child: Icon(
+                            Icons.close,
+                            color: AppColor.subTitleColor,
+                          ),
+                        ),
+                      ),
+                      Visibility(
+                        visible: stateEditAcc,
+                        child: CupertinoButton(
+                          onPressed: () {
+                            context
+                                .read<AccountCubit>()
+                                .editingAcc(editingAccount: true);
+                                setState(() {
+                                   context.read();
+                                });
+                           
+                          },
+                          child: Icon(
+                            Icons.mode,
+                            color: AppColor.subTitleColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
                 },
-                child: Icon(
-                  Icons.mode,
-                  color: AppColor.subTitleColor,
-                ),
               ),
             ],
           ),

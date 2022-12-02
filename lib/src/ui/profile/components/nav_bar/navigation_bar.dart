@@ -4,16 +4,16 @@ import 'package:polec/src/ui/profile/level/level_widget.dart';
 import 'package:polec/src/ui/profile/statistics/statistics_widget.dart';
 import 'package:polec/theme/app_colors.dart';
 
-enum Detail {
+enum Account {
   statistics,
   level,
   account,
 }
 
-Map<Detail, Widget> detailWidget = <Detail, Widget>{
-  Detail.statistics: const StatisticsWidget(),
-  Detail.level: const LevelWidget(),
-  Detail.account: MainAccountWidget(),
+Map<Account, Widget> accountWidget = <Account, Widget>{
+  Account.statistics: const StatisticsWidget(),
+  Account.level: const LevelWidget(),
+  Account.account: MainAccountWidget(),
 };
 
 class ProfileNavigationBar extends StatefulWidget {
@@ -24,7 +24,7 @@ class ProfileNavigationBar extends StatefulWidget {
 }
 
 class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
-  Detail _selectedSegment = Detail.statistics;
+  Account _selectedSegment = Account.statistics;
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +36,13 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
             child: SizedBox(
               width: double.infinity,
-              child: CupertinoSlidingSegmentedControl<Detail>(
+              child: CupertinoSlidingSegmentedControl<Account>(
                 backgroundColor: AppColors.bgAccountPage,
                 thumbColor: const Color(0xffffffff),
                 // This represents the currently selected segmented control.
                 groupValue: _selectedSegment,
                 // Callback that sets the selected segmented control.
-                onValueChanged: (Detail? value) {
+                onValueChanged: (Account? value) {
                   if (value != null) {
                     setState(
                       () {
@@ -51,17 +51,17 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
                     );
                   }
                 },
-                children: <Detail, Widget>{
-                  Detail.statistics: buildSegment('Statistics'),
-                  Detail.level: buildSegment('Level'),
-                  Detail.account: buildSegment('Account'),
+                children: <Account, Widget>{
+                  Account.statistics: buildSegment('Statistics'),
+                  Account.level: buildSegment('Level'),
+                  Account.account: buildSegment('Account'),
                 },
               ),
             ),
           ),
           Expanded(
             child: SingleChildScrollView(
-              child: detailWidget[_selectedSegment],
+              child: accountWidget[_selectedSegment],
             ),
           ),
         ],

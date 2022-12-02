@@ -8,6 +8,7 @@ part of 'your_area_model.dart';
 
 _$_YourAreaModel _$$_YourAreaModelFromJson(Map<String, dynamic> json) =>
     _$_YourAreaModel(
+      id: json['id'] as String?,
       image: json['image'] as String?,
       name: json['name'] as String?,
       regularFee: (json['regularFee'] as num?)?.toDouble(),
@@ -23,6 +24,7 @@ _$_YourAreaModel _$$_YourAreaModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_YourAreaModelToJson(_$_YourAreaModel instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'image': instance.image,
       'name': instance.name,
       'regularFee': instance.regularFee,

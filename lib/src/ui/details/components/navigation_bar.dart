@@ -32,9 +32,9 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   @override
   void initState() {
     anyDescription = widget.description.toString();
+
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {

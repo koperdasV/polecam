@@ -15,6 +15,7 @@ String recommendedModelToJson(List<RecommendedModel> data) =>
 @freezed
 abstract class RecommendedModel with _$RecommendedModel {
   const factory RecommendedModel({
+    String? id,
     String? image,
     String? name,
     double? regularFee,

@@ -12,6 +12,7 @@ String? detailsModelToJson(DetailModel data) => json.encode(data.toJson());
 @freezed
 class DetailModel with _$DetailModel {
   const factory DetailModel({
+    String? id,
     String? image,
     String? name,
     double? regularFee,

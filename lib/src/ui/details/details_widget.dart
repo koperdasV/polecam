@@ -14,6 +14,9 @@ import 'package:polec/src/ui/details/components/navigation_bar.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
 import 'package:polec/src/ui/details/components/recommendations.dart';
 import 'package:polec/src/ui/details/components/show_dialog.dart';
+import 'package:polec/src/ui/favorites/bloc/favorites_bloc.dart';
+import 'package:polec/src/ui/home/blocs/recommended/recommended_bloc.dart';
+import 'package:polec/src/ui/home/blocs/yourArea/your_area_bloc.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 import 'package:polec/theme/app_colors.dart';
 
@@ -118,7 +121,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                         Text(
                           // textAlign: TextAlign.justify,
                           '${percent} %',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             color: AppColors.pecent,
                             fontWeight: FontWeight.bold,

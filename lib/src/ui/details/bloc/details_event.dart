@@ -8,7 +8,11 @@ class DetailsEvent extends Equatable {
 }
 
 class LoadDetails extends DetailsEvent {
-  const LoadDetails();
+  const LoadDetails({
+    this.id = '',
+  });
+
+  final String id;
 
   @override
   List<Object?> get props => [];

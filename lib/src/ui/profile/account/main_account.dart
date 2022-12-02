@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
+import 'package:polec/src/ui/profile/account/data/account_repository.dart';
 import 'package:polec/src/ui/profile/account/edit_components/account_widget.dart';
 import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
 import 'package:polec/src/ui/profile/account/cubit/account_cubit.dart';
@@ -96,18 +97,20 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
                         context
                             .read<AccountCubit>()
                             .editingAcc(editingAccount: false);
-                        // AccountModel(
-                        //   firstName: nameController.text,
-                        //   lastName: surnameController.text,
-                        //   email: emailController.text,
-                        //   phone: phoneController.text,
-                        //   street: streetController.text,
-                        //   city: cityController.text,
-                        //   postCode: postCodeController.text,
-                        //   pesel: peselController.text,
-                        //   dateOfBirth: dateOfBirthController.text,
-                        // ).toJson();
                       }
+                      AccountModel(
+                        firstName: nameController.text,
+                        lastName: surnameController.text,
+                        email: emailController.text,
+                        phone: phoneController.text,
+                        street: streetController.text,
+                        city: cityController.text,
+                        postCode: postCodeController.text,
+                        pesel: peselController.text,
+                        dateOfBirth: dateOfBirthController.text,
+                        gender: editGender(),
+                      ).toJson();
+
                       //   accountModelToJson(AccountModel(
                       //     firstName: nameController.text,
                       //     lastName: surnameController.text,
@@ -130,10 +133,12 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
     );
   }
 
-  // void editGender(String male, String female) {
-  //   if (GenderNavBar == Gender.male) {}
-  //   male = 'Male';
-  // } else {
-  //   female = ' female';
-  // }
+  String editGender() {
+    final String gender;
+    if (GenderNavBar == Gender.male) {
+      return gender = 'Male';
+    } else {
+      return gender = 'Female';
+    }
+  }
 }
