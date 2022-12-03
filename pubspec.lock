@@ -308,6 +308,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  fluttertoast:
+    dependency: "direct main"
+    description:
+      name: fluttertoast
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "8.1.1"
   freezed:
     dependency: "direct main"
     description:
@@ -873,13 +880,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  top_snackbar_flutter:
-    dependency: "direct main"
-    description:
-      name: top_snackbar_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.0"
   tuple:
     dependency: transitive
     description:

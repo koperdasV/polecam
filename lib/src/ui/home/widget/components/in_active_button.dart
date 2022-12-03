@@ -15,10 +15,12 @@ class InActiveButton extends StatelessWidget {
     ),
     required this.onPressed,
     this.borderRadius = 10,
+    this.width = double.infinity,
   }) : super(key: key);
 
   final String text;
   final double? fontSize;
+  final double? width;
   final double? borderRadius;
   final Gradient? gradient;
   final Function() onPressed;
@@ -26,7 +28,7 @@ class InActiveButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: width,
       height: 57,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius!),
