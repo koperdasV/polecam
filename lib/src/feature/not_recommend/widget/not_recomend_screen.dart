@@ -13,9 +13,11 @@ class NotRecommendScreen extends StatefulWidget {
     super.key,
     this.image = '',
     this.regularFee = 0.100,
+    this.tag,
   });
 
   final String image;
+  final List<String>? tag;
   final double? regularFee;
   @override
   State<NotRecommendScreen> createState() => _NotRecommendScreenState();
@@ -51,7 +53,7 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                 ImageWidget(
                   image: widget.image,
                   regularFee: widget.regularFee,
-                  tag: [],
+                  tag: [widget.tag.toString()],
                 ),
                 const Padding(
                   padding: EdgeInsets.only(top: 10),

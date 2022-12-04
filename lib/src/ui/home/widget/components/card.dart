@@ -1,12 +1,15 @@
+// ignore_for_file: always_declare_return_types, inference_failure_on_function_return_type
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
-class CardWidget extends StatelessWidget {
+class CardWidget extends StatefulWidget {
   const CardWidget({
     Key? key,
     this.fontSize,
@@ -16,6 +19,53 @@ class CardWidget extends StatelessWidget {
   final double? fontSize;
 
   final RecommendedModel tmp;
+
+  @override
+  State<CardWidget> createState() => _CardWidgetState();
+}
+
+class _CardWidgetState extends State<CardWidget> {
+  FToast? fToast;
+
+  @override
+  void initState() {
+    fToast = FToast();
+    fToast!.init(context);
+    super.initState();
+  }
+
+  _showToast() {
+    final toast = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        gradient: LinearGradient(colors: AppColor.inActiveButtonColor),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: const [
+          Icon(
+            CupertinoIcons.heart,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 14,
+          ),
+          Text(
+            'Added to favorites',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+
+    fToast!.showToast(
+      child: toast,
+      gravity: ToastGravity.BOTTOM,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +78,10 @@ class CardWidget extends StatelessWidget {
               context,
               CupertinoPageRoute(
                 builder: (context) => DetailsScreen(
-                  image: tmp.image.toString(),
-                  regularFee: tmp.regularFee,
-                  name: tmp.name.toString(),
-                  tag: tmp.category,
+                  image: widget.tmp.image.toString(),
+                  regularFee: widget.tmp.regularFee,
+                  name: widget.tmp.name.toString(),
+                  tag: widget.tmp.category,
                 ),
               ),
             );
@@ -44,20 +94,20 @@ class CardWidget extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.network(
-                    tmp.image.toString(),
+                    widget.tmp.image.toString(),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
               PercentWidget(
-                percent: tmp.regularFee.toString(),
-                fontSize: fontSize,
+                percent: widget.tmp.regularFee.toString(),
+                fontSize: widget.fontSize,
               ),
               Positioned(
                 left: 0,
                 bottom: 0,
                 child: CategorieTag(
-                  tag: tmp.category!,
+                  tag: widget.tmp.category!,
                 ),
               ),
               Positioned(
@@ -65,7 +115,7 @@ class CardWidget extends StatelessWidget {
                 bottom: 0,
                 child: CupertinoButton(
                   borderRadius: BorderRadius.circular(100),
-                  onPressed: () {},
+                  onPressed: _showToast,
                   child: Container(
                     width: 50,
                     height: 50,
@@ -90,7 +140,7 @@ class CardWidget extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
-              tmp.name.toString(),
+              widget.tmp.name.toString(),
               maxLines: 1,
               style: const TextStyle(
                 overflow: TextOverflow.clip,
@@ -102,7 +152,7 @@ class CardWidget extends StatelessWidget {
         SizedBox(
           width: 250,
           child: Text(
-            tmp.description.toString(),
+            widget.tmp.description.toString(),
             maxLines: 1,
             style: TextStyle(
               fontSize: 12,

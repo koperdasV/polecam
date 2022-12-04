@@ -1,17 +1,68 @@
+// ignore_for_file: inference_failure_on_function_return_type
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
 import 'package:polec/src/ui/favorites/model/favorite_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
-class CardFavorites extends StatelessWidget {
+class CardFavorites extends StatefulWidget {
   const CardFavorites({
     Key? key,
     required this.tmp,
   }) : super(key: key);
 
   final FavoritesModel tmp;
+
+  @override
+  State<CardFavorites> createState() => _CardFavoritesState();
+}
+
+class _CardFavoritesState extends State<CardFavorites> {
+  FToast? fToast;
+
+  @override
+  void initState() {
+    fToast = FToast();
+    fToast!.init(context);
+    super.initState();
+  }
+
+  _showToast() {
+    final toast = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        gradient: LinearGradient(colors: AppColor.inActiveButtonColor),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: const [
+          Icon(
+            CupertinoIcons.heart_fill,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 14,
+          ),
+          Text(
+            'Removed from favorites',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+
+    fToast!.showToast(
+      child: toast,
+      gravity: ToastGravity.BOTTOM,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +80,10 @@ class CardFavorites extends StatelessWidget {
                 context,
                 CupertinoPageRoute(
                   builder: (context) => DetailsScreen(
-                    image: tmp.image.toString(),
-                    regularFee: tmp.regularFee,
-                    name: tmp.name.toString(),
-                    tag: tmp.category,
+                    image: widget.tmp.image.toString(),
+                    regularFee: widget.tmp.regularFee,
+                    name: widget.tmp.name.toString(),
+                    tag: widget.tmp.category,
                   ),
                 ),
               );
@@ -45,19 +96,19 @@ class CardFavorites extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Image.network(
-                      tmp.image.toString(),
+                      widget.tmp.image.toString(),
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 PercentWidget(
-                  percent: tmp.regularFee.toString(),
+                  percent: widget.tmp.regularFee.toString(),
                   fontSize: 34,
                 ),
                 Positioned(
                   bottom: 0,
                   child: CategorieTag(
-                    tag: tmp.category!,
+                    tag: widget.tmp.category!,
                   ),
                 ),
                 Positioned(
@@ -65,7 +116,7 @@ class CardFavorites extends StatelessWidget {
                   bottom: 0,
                   child: CupertinoButton(
                     borderRadius: BorderRadius.circular(100),
-                    onPressed: () {},
+                    onPressed: _showToast,
                     child: Container(
                       width: 50,
                       height: 50,
@@ -88,7 +139,7 @@ class CardFavorites extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
-              tmp.name.toString(),
+              widget.tmp.name.toString(),
               style: const TextStyle(
                 fontSize: 18,
               ),
@@ -96,7 +147,7 @@ class CardFavorites extends StatelessWidget {
           ),
           Text(
             maxLines: 1,
-            tmp.description.toString(),
+            widget.tmp.description.toString(),
             style: TextStyle(
               fontSize: 12,
               color: AppColor.subTitleColor,
