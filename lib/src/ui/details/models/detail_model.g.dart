@@ -14,7 +14,7 @@ _$_DetailModel _$$_DetailModelFromJson(Map<String, dynamic> json) =>
       regularFee: (json['regularFee'] as num?)?.toDouble(),
       url: json['url'] as String?,
       description: json['description'] as String?,
-      addresses: (json['addresses'] as List<dynamic>?)
+      addresses: (json['address'] as List<dynamic>?)
           ?.map((e) => Addresses.fromJson(e as Map<String, dynamic>))
           .toList(),
       recommendations: (json['recommendations'] as List<dynamic>?)
@@ -30,7 +30,7 @@ Map<String, dynamic> _$$_DetailModelToJson(_$_DetailModel instance) =>
       'regularFee': instance.regularFee,
       'url': instance.url,
       'description': instance.description,
-      'addresses': instance.addresses,
+      'address': instance.addresses,
       'recommendations': instance.recommendations,
     };
 

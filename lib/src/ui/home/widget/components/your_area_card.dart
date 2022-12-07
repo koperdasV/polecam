@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
+import 'package:polec/src/feature/product_details/bloc/product_details_bloc.dart';
+import 'package:polec/src/feature/product_details/widget/product_details.dart';
+import 'package:polec/src/ui/details/data/detail_repository.dart';
 import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
@@ -31,14 +35,11 @@ class YourAreaCard extends StatelessWidget {
             Navigator.push(
               context,
               CupertinoPageRoute(
-                builder: (context) => DetailsScreen(
-                    image: tmp.image.toString(),
-                    regularFee: tmp.regularFee,
-                    name: tmp.name.toString(),
-                    description: tmp.description.toString()
-
-                    // tmp.description.toString(),
-                    ),
+                builder: (context) => BlocProvider<ProductDetailsBloc>(
+                  create: (context) =>
+                      ProductDetailsBloc(detailsRepo: DetailRepository()),
+                  child: ProductDetails(productId: tmp.id!),
+                ),
               ),
             );
           },

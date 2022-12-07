@@ -18,7 +18,7 @@ class DetailModel with _$DetailModel {
     double? regularFee,
     String? url,
     String? description,
-    List<Addresses>? addresses,
+    @JsonKey(name: 'address') List<Addresses>? addresses,
     List<Recommendations>? recommendations,
   }) = _DetailModel;
 

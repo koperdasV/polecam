@@ -26,6 +26,7 @@ mixin _$DetailModel {
   double? get regularFee => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  @JsonKey(name: 'address')
   List<Addresses>? get addresses => throw _privateConstructorUsedError;
   List<Recommendations>? get recommendations =>
       throw _privateConstructorUsedError;
@@ -49,7 +50,7 @@ abstract class $DetailModelCopyWith<$Res> {
       double? regularFee,
       String? url,
       String? description,
-      List<Addresses>? addresses,
+      @JsonKey(name: 'address') List<Addresses>? addresses,
       List<Recommendations>? recommendations});
 }
 
@@ -127,7 +128,7 @@ abstract class _$$_DetailModelCopyWith<$Res>
       double? regularFee,
       String? url,
       String? description,
-      List<Addresses>? addresses,
+      @JsonKey(name: 'address') List<Addresses>? addresses,
       List<Recommendations>? recommendations});
 }
 
@@ -198,7 +199,7 @@ class _$_DetailModel implements _DetailModel {
       this.regularFee,
       this.url,
       this.description,
-      final List<Addresses>? addresses,
+      @JsonKey(name: 'address') final List<Addresses>? addresses,
       final List<Recommendations>? recommendations})
       : _addresses = addresses,
         _recommendations = recommendations;
@@ -220,6 +221,7 @@ class _$_DetailModel implements _DetailModel {
   final String? description;
   final List<Addresses>? _addresses;
   @override
+  @JsonKey(name: 'address')
   List<Addresses>? get addresses {
     final value = _addresses;
     if (value == null) return null;
@@ -295,7 +297,7 @@ abstract class _DetailModel implements DetailModel {
       final double? regularFee,
       final String? url,
       final String? description,
-      final List<Addresses>? addresses,
+      @JsonKey(name: 'address') final List<Addresses>? addresses,
       final List<Recommendations>? recommendations}) = _$_DetailModel;
 
   factory _DetailModel.fromJson(Map<String, dynamic> json) =
@@ -314,6 +316,7 @@ abstract class _DetailModel implements DetailModel {
   @override
   String? get description;
   @override
+  @JsonKey(name: 'address')
   List<Addresses>? get addresses;
   @override
   List<Recommendations>? get recommendations;

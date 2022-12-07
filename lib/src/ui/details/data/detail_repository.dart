@@ -5,6 +5,7 @@ import 'package:polec/src/ui/details/models/detail_model.dart';
 
 abstract class IDetailRepo {
   Future<DetailModel> fetchDetails();
+  Future<DetailModel?> fetchProductDetails({required String id});
 }
 
 class DetailRepository implements IDetailRepo {
@@ -47,5 +48,20 @@ class DetailRepository implements IDetailRepo {
     // var response = tmp.firstWhere((element) => element.id = id, orElse: () => null);
     // final detailModel = DetailModel.fromJson(json as Map<String, dynamic>);
     // return detailModel;
+  }
+
+  @override
+  Future<DetailModel?> fetchProductDetails({required String id}) async {
+  
+    final response = await rootBundle.loadString('assets/recommended.json');
+    final json = await jsonDecode(response);
+
+    final tmp = (json as List).firstWhere(
+      (element) => element['id'] == id,
+      orElse: () => null,
+    );
+    return tmp == null
+        ? null
+        : DetailModel.fromJson(tmp as Map<String, dynamic>);
   }
 }
