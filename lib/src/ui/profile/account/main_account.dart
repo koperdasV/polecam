@@ -98,30 +98,6 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
                             .read<AccountCubit>()
                             .editingAcc(editingAccount: false);
                       }
-                      AccountModel(
-                        firstName: nameController.text,
-                        lastName: surnameController.text,
-                        email: emailController.text,
-                        phone: phoneController.text,
-                        street: streetController.text,
-                        city: cityController.text,
-                        postCode: postCodeController.text,
-                        pesel: peselController.text,
-                        dateOfBirth: dateOfBirthController.text,
-                        gender: editGender(),
-                      ).toJson();
-
-                      //   accountModelToJson(AccountModel(
-                      //     firstName: nameController.text,
-                      //     lastName: surnameController.text,
-                      //     email: emailController.text,
-                      //     phone: phoneController.text,
-                      //     street: streetController.text,
-                      //     city: cityController.text,
-                      //     postCode: postCodeController.text,
-                      //     pesel: peselController.text,
-                      //     dateOfBirth: dateOfBirthController.text,
-                      //   ));
                     });
                   },
                 ),
@@ -132,13 +108,13 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
       },
     );
   }
-
-  String editGender() {
-    final String gender;
-    if (GenderNavBar == Gender.male) {
-      return gender = 'Male';
-    } else {
-      return gender = 'Female';
-    }
-  }
+//////// Can use this method for a writing gender data
+  // String editGender() {
+  //   final String gender;
+  //   if (GenderNavBar == Gender.male) {
+  //     return gender = 'Male';
+  //   } else {
+  //     return gender = 'Female';
+  //   }
+  // }
 }

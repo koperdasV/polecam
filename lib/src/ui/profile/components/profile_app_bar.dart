@@ -11,17 +11,41 @@ import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
 class ProfileAppBar extends StatefulWidget {
   ProfileAppBar({
     super.key,
+    this.stateEditAcc = true,
+    this.stateCloseAcc = false,
   });
+
+  bool stateEditAcc;
+  bool stateCloseAcc;
 
   @override
   State<ProfileAppBar> createState() => _ProfileAppBarState();
 }
 
 class _ProfileAppBarState extends State<ProfileAppBar> {
-  bool stateEditAcc = true;
-  bool stateCloseAcc = false;
+  late bool stateEditAcc;
+  late bool stateCloseAcc;
+  
+  @override
+  void setState(VoidCallback fn) {
+    stateEditAcc = widget.stateEditAcc;
+    stateCloseAcc = widget.stateCloseAcc;
+    super.setState(fn);
+  }
+
   @override
   Widget build(BuildContext context) {
+    // var profileNav = context.read<ProfileNavigationBar>();
+    // editAcc() {
+    //   if (profileNav.selectedSegment == Account.statistics &&
+    //       profileNav.selectedSegment == Account.level) {
+    //     stateEditAcc = false;
+    //     stateCloseAcc = false;
+    //   } else {
+    //     stateEditAcc = true;
+    //   }
+    // }
+
     return BlocBuilder<AccountBloc, AccountState>(builder: (context, state) {
       if (state.status == AccountStateStatus.failure &&
           state.errorMessage.isNotEmpty) {
@@ -106,10 +130,6 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                             context
                                 .read<AccountCubit>()
                                 .editingAcc(editingAccount: true);
-                                setState(() {
-                                   context.read();
-                                });
-                           
                           },
                           child: Icon(
                             Icons.mode,

@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/profile/account/main_account.dart';
+import 'package:polec/src/ui/profile/components/profile_app_bar.dart';
 import 'package:polec/src/ui/profile/level/level_widget.dart';
 import 'package:polec/src/ui/profile/statistics/statistics_widget.dart';
 import 'package:polec/theme/app_colors.dart';
@@ -17,17 +19,32 @@ Map<Account, Widget> accountWidget = <Account, Widget>{
 };
 
 class ProfileNavigationBar extends StatefulWidget {
-  const ProfileNavigationBar({super.key});
+  ProfileNavigationBar({
+    super.key,
+
+  });
+
+  late Account selectedSegment = Account.statistics;
 
   @override
   State<ProfileNavigationBar> createState() => _ProfileNavigationBarState();
 }
 
 class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
-  Account _selectedSegment = Account.statistics;
-
   @override
   Widget build(BuildContext context) {
+    // Account _selectedSegment = widget.selectedSegment;
+    // final profileNav = context.read<ProfileAppBar>();
+    // editAcc() {
+    //   if (_selectedSegment == Account.statistics &&
+    //       _selectedSegment == Account.level) {
+    //     profileNav.stateEditAcc = false;
+    //     profileNav.stateCloseAcc = false;
+    //   } else {
+    //     profileNav.stateEditAcc = true;
+    //   }
+    // }
+
     return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -40,13 +57,13 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
                 backgroundColor: AppColors.bgAccountPage,
                 thumbColor: const Color(0xffffffff),
                 // This represents the currently selected segmented control.
-                groupValue: _selectedSegment,
+                groupValue: widget.selectedSegment,
                 // Callback that sets the selected segmented control.
                 onValueChanged: (Account? value) {
                   if (value != null) {
                     setState(
                       () {
-                        _selectedSegment = value;
+                       widget.selectedSegment = value;
                       },
                     );
                   }
@@ -61,7 +78,7 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
           ),
           Expanded(
             child: SingleChildScrollView(
-              child: accountWidget[_selectedSegment],
+              child: accountWidget[widget.selectedSegment],
             ),
           ),
         ],
