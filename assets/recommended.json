@@ -73,7 +73,8 @@
         "www": "https://www.rollerpark.pl",
         "description": "Wejście na czas Kupując bilet uzyskujesz dostęp do Toru 500 ㎡ bez rezerwacji. System pomiaru czasu pozwala rozpocząć i zakończyć zabawę w dowolnym momencie. Do dyspozycji również: Szatnie i prywatna szafka zamykana na kluczyk, Bezpłatny parking bezpośrednio przy obiekcie, Kanapy, gdzie można komfortowo poczekać na swoje dziecko czy partnera, którzy jeżdżą na torze, Miejsce z widokiem tor dla osób towarzyszących",
         "category": [
-            "Sport"
+            "Sport",
+            "Jedzenie"
         ],
         "address": [
             {
@@ -106,7 +107,8 @@
         "www": "https://grzegorzewicz-stomatologia.pl/?gclid=Cj0KCQjw94WZBhDtARIsAKxWG-_05Qx5o_MuHwUkwtmh7eH7PDYHTmBrDPnZ2kGDc85MynUm1Vul_0saAh80EALw_wcB",
         "description": "Stomatologia Grzegorzewicz to prywatna placówka dentystyczna z siedzibą w Bydgoszczy, przy ulicy Ks. Józefa Szulca 7. W gabinecie pacjentów przyjmują obecnie dwie dentystki: lek. dent. Marta Grzegorzewicz i lek. dent. Agnieszka Sroczkowska. Oferujemy kompleksowe usługi z zakresu prawidłowej higieny jamy ustnej oraz leczenia stomatologicznego. W naszej ofercie znajdziecie Państwo diagnostykę oraz profilaktykę, które obejmują wszelkie konsultacje oraz zabiegi. Jeśli zaś chodzi o leczenie, zajmujemy się zarówno stomatologią zachowawczą, endodoncją, a także chirurgią dentystyczną, na periodontologii kończąc. W razie potrzeby służymy również usługami protetycznymi. Posiadamy spore doświadczenie oraz liczne kwalifikacje dentystyczne, które nieustannie podnosimy zdobywając kolejne certyfikaty. Pod pewnymi warunkami udzielamy rocznej gwarancji na niektóre wykonane przez nas usługi stomatologiczne. Uśmiech wzbogaca życie każdego z nas, a my staramy się by był on wizytówką naszych pacjentów. Gabinet stomatologiczny Grzegorzewicz w Bydgoszczy to profesjonalizm i miła atmosfera, sprawdź sam.",
         "category": [
-            "Zdrowie"
+            "Zdrowie",
+            "Dziecko"
         ],
         "address": [
             {
@@ -139,7 +141,8 @@
         "www": "https://familypark.pl/o-nas/",
         "description": "Centrum Zabaw Rodzinnych FAMILY PARK  powstało z myślą o wszystkich, którzy poszukują ciekawej formy spędzania czasu z bliskimi. Naszym pragnieniem było zapewnianie możliwości aktywnego wypoczynku z dozą relaksu wszystkim członkom rodziny w różnym wieku. Nasz obiekt to ponad 4000 m2  W obiekcie znajduje się sala zabaw dla najmłodszych, którzy pod czujnym okiem animatorów będą mogli odkrywać świat, spędzając przy tym wesoło czas. Ściana wspinaczkowa, samochodziki akumulatorowe, strefa trampolin oraz wiele innych atrakcji dla dzieci które pozwolą im zdobywać nowe umiejętności podczas rozmaitych aktywności fizycznych. Posiadamy również kręgielnię – idealną na rodzinne zawody bądź rozgrywkę między znajomymi.  Jesteśmy dumni, że kolejne pokolenie zaczyna poznawać świat bawiąc się i ucząc w Family Park.",
         "category": [
-            "Dziecko"
+            "Dziecko",
+            "Asia"
         ],
         "address": [
             {

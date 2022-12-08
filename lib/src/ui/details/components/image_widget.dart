@@ -35,7 +35,7 @@ class ImageWidget extends StatelessWidget {
           fontSize: 34,
         ),
         Positioned(
-          right: 0,
+          left: 0,
           bottom: 0,
           child: CategorieTag(
             tag: tag,

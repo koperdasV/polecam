@@ -15,6 +15,8 @@ class CategorieTag extends StatelessWidget {
       width: 150,
       height: 50,
       child: ListView.builder(
+        //reverse: true,
+        //shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: tag.length,
