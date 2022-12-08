@@ -24,18 +24,41 @@ class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<NavigatorState> pageFourTabNavKey =
       GlobalKey<NavigatorState>();
 
-  int _index = 0;
+  int _selectedIndex = 0;
   List<Widget> pages = [
     const HomePage(),
     const FavoritesPage(),
     const JournalPage(),
     const ProfileScreen(),
   ];
+
+  void _onItemTapped(int index) {
+    {
+      if (index == _selectedIndex) {
+        switch (index) {
+          case 0:
+            pageOneTabNavKey.currentState?.popUntil((r) => r.isFirst);
+            break;
+          case 1:
+            pageTwoTabNavKey.currentState?.popUntil((r) => r.isFirst);
+            break;
+          case 2:
+            pageThreeTabNavKey.currentState?.popUntil((r) => r.isFirst);
+            break;
+          case 3:
+            pageFourTabNavKey.currentState?.popUntil((r) => r.isFirst);
+            break;
+        }
+      }
+      _selectedIndex = index;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
-        currentIndex: _index,
+        currentIndex: _selectedIndex,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.house_fill),
@@ -54,28 +77,10 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Profile',
           ),
         ],
-        onTap: (index) {
-          if (index == _index) {
-            switch (index) {
-              case 0:
-                pageOneTabNavKey.currentState?.popUntil((r) => r.isFirst);
-                break;
-              case 1:
-                pageTwoTabNavKey.currentState?.popUntil((r) => r.isFirst);
-                break;
-              case 2:
-                pageThreeTabNavKey.currentState?.popUntil((r) => r.isFirst);
-                break;
-              case 3:
-                pageFourTabNavKey.currentState?.popUntil((r) => r.isFirst);
-                break;
-            }
-          }
-          _index = index;
-        },
+        onTap: _onItemTapped,
       ),
       tabBuilder: (context, index) {
-        _index = index;
+        _selectedIndex = index;
         return CupertinoTabView(
           builder: (context) {
             switch (index) {

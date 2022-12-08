@@ -1,16 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:polec/src/ui/details/components/recomended_button.dart';
-import 'package:polec/src/ui/profile/account/edit_components/account_widget.dart';
-import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
 import 'package:polec/src/ui/profile/account/cubit/account_cubit.dart';
-import 'package:polec/src/ui/profile/account/edit_components/gender_nav_bar.dart';
+import 'package:polec/src/ui/profile/account/edit_components/account_widget.dart';
 import 'package:polec/src/ui/profile/account/edit_components/edit_profile_widget.dart';
-import 'package:polec/src/ui/profile/account/model/account_model.dart';
-import 'package:polec/theme/app_colors.dart';
 
 class MainAccountWidget extends StatefulWidget {
   MainAccountWidget({
@@ -56,8 +49,7 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
   Widget build(BuildContext context) {
     return BlocBuilder<AccountCubit, AccountEditState>(
       builder: (context, state) {
-        bool account = state.editing;
-
+        final account = state.editing;
         if (account == true) {
           widget
             ..accWidgetVis = false

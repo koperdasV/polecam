@@ -3,12 +3,13 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 
-abstract class IRecommendedRepo {
+mixin IRecommendedRepo {
   Future<List<RecommendedModel>> fetchRecommended();
 }
-class RecommendedRepository implements IRecommendedRepo {  
+
+class RecommendedRepository implements IRecommendedRepo {
   @override
-  Future<List<RecommendedModel>> fetchRecommended() async{
+  Future<List<RecommendedModel>> fetchRecommended() async {
     final response = await rootBundle.loadString('assets/recommended.json');
     final json = jsonDecode(response) as List<dynamic>;
     final recommended = json
