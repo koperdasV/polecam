@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
-import 'package:polec/src/feature/product_details/bloc/product_details_bloc.dart';
-import 'package:polec/src/feature/product_details/widget/product_details.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/data/detail_repository.dart';
 import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';
@@ -26,92 +24,95 @@ class YourAreaCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final amountParse = (tmp.regularFee)! * 100.round();
+    final amountParse = (tmp.regularFee)! * 100;
     final percent = amountParse.toInt();
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              CupertinoPageRoute(
-                builder: (context) => BlocProvider<DetailsBloc>(
-                  create: (context) =>
-                      DetailsBloc(detailsRepo: DetailRepository()),
-                  child: DetailsScreen(
-                    productId: tmp.id!,
-                    productType: 'yourArea',
-                  ),
-                ),
-              ),
-            );
-          },
-          child: Stack(
-            children: [
-              SizedBox(
-                height: 190,
-                width: 166,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Image.network(
-                    tmp.image.toString(),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              PercentWidget(
-                percent: percent.toString(),
-                fontSize: 22,
-              ),
-              Positioned(
-                right: 0,
-                bottom: 0,
-                child: CupertinoButton(
-                  borderRadius: BorderRadius.circular(100),
-                  onPressed: () {},
-                  child: Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: AppColor.favoriteButtonColor,
+    return Padding(
+      padding: const EdgeInsets.only(right: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => BlocProvider<DetailsBloc>(
+                    create: (context) =>
+                        DetailsBloc(detailsRepo: DetailRepository()),
+                    child: DetailsScreen(
+                      productId: tmp.id!,
+                      productType: 'yourArea',
                     ),
-                    child: Center(
-                      child: Icon(
-                        CupertinoIcons.heart,
-                        color: AppColor.textButtonColor,
+                  ),
+                ),
+              );
+            },
+            child: Stack(
+              children: [
+                SizedBox(
+                  height: 190,
+                  width: 166,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image.network(
+                      tmp.image.toString(),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                PercentWidget(
+                  percent: percent.toString(),
+                  fontSize: 22,
+                ),
+                Positioned(
+                  right: 0,
+                  bottom: 0,
+                  child: CupertinoButton(
+                    borderRadius: BorderRadius.circular(100),
+                    onPressed: () {},
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColor.favoriteButtonColor,
+                      ),
+                      child: Center(
+                        child: Icon(
+                          CupertinoIcons.heart,
+                          color: AppColor.textButtonColor,
+                        ),
                       ),
                     ),
                   ),
                 ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Text(
+              tmp.name.toString(),
+              style: const TextStyle(
+                fontSize: 18,
               ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: Text(
-            tmp.name.toString(),
-            style: const TextStyle(
-              fontSize: 18,
             ),
           ),
-        ),
-        SizedBox(
-          width: 160,
-          child: Text(
-            tmp.description.toString(),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontSize: 12,
-              color: Color(0xFF9fa2b1),
-              fontWeight: FontWeight.normal,
+          SizedBox(
+            width: 160,
+            child: Text(
+              tmp.description.toString(),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 12,
+                color: Color(0xFF9fa2b1),
+                fontWeight: FontWeight.normal,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

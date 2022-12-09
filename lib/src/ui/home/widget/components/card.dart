@@ -2,12 +2,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
-import 'package:polec/src/feature/product_details/bloc/product_details_bloc.dart';
-import 'package:polec/src/feature/product_details/widget/product_details.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/data/detail_repository.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
@@ -89,7 +87,7 @@ class _CardWidgetState extends State<CardWidget> {
                       DetailsBloc(detailsRepo: DetailRepository()),
                   child: DetailsScreen(
                     productId: widget.tmp.id!,
-                     productType: 'recommended',
+                    productType: 'recommended',
                   ),
                 ),
               ),
@@ -134,6 +132,13 @@ class _CardWidgetState extends State<CardWidget> {
                   ),
                 ),
               ),
+              Positioned(
+                left: 0,
+                bottom: 0,
+                child: CategorieTag(
+                  tag: widget.tmp.category!.toList(),
+                ),
+              )
             ],
           ),
         ),

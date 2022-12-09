@@ -7,22 +7,3 @@ class DetailsEvent with _$DetailsEvent {
     required String productType,
   }) = _LoadProduct;
 }
-
-
-// class DetailsEvent extends Equatable {
-//   const DetailsEvent();
-
-//   @override
-//   List<Object?> get props => [];
-// }
-
-// class LoadDetails extends DetailsEvent {
-//   const LoadDetails({
-//     this.id = '',
-//   });
-
-//   final String id;
-
-//   @override
-//   List<Object?> get props => [];
-// }
