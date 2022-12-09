@@ -20,6 +20,7 @@ class DetailModel with _$DetailModel {
     String? description,
     @JsonKey(name: 'address') List<Addresses>? addresses,
     List<Recommendations>? recommendations,
+    List<String>? category,
   }) = _DetailModel;
 
   factory DetailModel.fromJson(Map<String, dynamic> json) =>

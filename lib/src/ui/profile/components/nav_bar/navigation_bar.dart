@@ -17,14 +17,14 @@ Map<Account, Widget> accountWidget = <Account, Widget>{
   Account.level: const LevelWidget(),
   Account.account: MainAccountWidget(),
 };
-
+   Account selectedSegment = Account.statistics;
 class ProfileNavigationBar extends StatefulWidget {
   ProfileNavigationBar({
     super.key,
 
   });
 
-  late Account selectedSegment = Account.statistics;
+
 
   @override
   State<ProfileNavigationBar> createState() => _ProfileNavigationBarState();
@@ -57,13 +57,13 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
                 backgroundColor: AppColors.bgAccountPage,
                 thumbColor: const Color(0xffffffff),
                 // This represents the currently selected segmented control.
-                groupValue: widget.selectedSegment,
+                groupValue: selectedSegment,
                 // Callback that sets the selected segmented control.
                 onValueChanged: (Account? value) {
                   if (value != null) {
                     setState(
                       () {
-                       widget.selectedSegment = value;
+                       selectedSegment = value;
                       },
                     );
                   }
@@ -78,7 +78,7 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
           ),
           Expanded(
             child: SingleChildScrollView(
-              child: accountWidget[widget.selectedSegment],
+              child: accountWidget[selectedSegment],
             ),
           ),
         ],

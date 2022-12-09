@@ -57,7 +57,7 @@ class HomeRoute extends GoRouteData {
         BlocProvider(
           create: (context) => DetailsBloc(
             detailsRepo: DetailRepository(),
-          )..add(const LoadDetails()),
+          ),
         ),
         BlocProvider(
           create: (context) => AccountBloc(

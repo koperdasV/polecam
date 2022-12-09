@@ -23,26 +23,16 @@ class ProfileAppBar extends StatefulWidget {
 }
 
 class _ProfileAppBarState extends State<ProfileAppBar> {
-  late bool stateEditAcc;
-  late bool stateCloseAcc;
-  
-  @override
-  void setState(VoidCallback fn) {
-    stateEditAcc = widget.stateEditAcc;
-    stateCloseAcc = widget.stateCloseAcc;
-    super.setState(fn);
-  }
-
   @override
   Widget build(BuildContext context) {
     // var profileNav = context.read<ProfileNavigationBar>();
     // editAcc() {
-    //   if (profileNav.selectedSegment == Account.statistics &&
-    //       profileNav.selectedSegment == Account.level) {
-    //     stateEditAcc = false;
-    //     stateCloseAcc = false;
+    //   if (selectedSegment == Account.statistics ||
+    //       selectedSegment == Account.level) {
+    //     widget.stateEditAcc = false;
+    //     widget.stateCloseAcc = false;
     //   } else {
-    //     stateEditAcc = true;
+    //     widget.stateEditAcc = true;
     //   }
     // }
 
@@ -100,17 +90,26 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                 builder: (context, state) {
                   bool account = state.editing;
 
+                  if (selectedSegment == Account.statistics ||
+                      selectedSegment == Account.level) {
+                    widget.stateEditAcc = false;
+                    widget.stateCloseAcc = false;
+                  }
+                  if (selectedSegment == Account.account) {
+                    widget.stateEditAcc = true;
+                    widget.stateCloseAcc = false;
+                  }
                   if (account == true) {
-                    stateEditAcc = false;
-                    stateCloseAcc = true;
-                  } else {
-                    stateEditAcc = true;
-                    stateCloseAcc = false;
+                    widget.stateEditAcc = false;
+                    widget.stateCloseAcc = true;
+                  } if(account == false){
+                    widget.stateEditAcc = true;
+                    widget.stateCloseAcc = false;
                   }
                   return Row(
                     children: [
                       Visibility(
-                        visible: stateCloseAcc,
+                        visible: widget.stateCloseAcc,
                         child: CupertinoButton(
                           onPressed: () {
                             context
@@ -124,7 +123,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                         ),
                       ),
                       Visibility(
-                        visible: stateEditAcc,
+                        visible: widget.stateEditAcc,
                         child: CupertinoButton(
                           onPressed: () {
                             context

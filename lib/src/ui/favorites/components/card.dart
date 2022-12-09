@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
+import 'package:polec/src/ui/details/bloc/details_bloc.dart';
+import 'package:polec/src/ui/details/data/detail_repository.dart';
 import 'package:polec/src/ui/favorites/model/favorite_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
@@ -29,14 +32,16 @@ class CardFavorites extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                CupertinoPageRoute(
-                  builder: (context) => DetailsScreen(
-                    image: tmp.image.toString(),
-                    regularFee: tmp.regularFee,
-                    name: tmp.name.toString(),
-                    description: tmp.description.toString(),
+               CupertinoPageRoute(
+                builder: (context) => BlocProvider<DetailsBloc>(
+                  create: (context) =>
+                      DetailsBloc(detailsRepo: DetailRepository()),
+                  child: DetailsScreen(
+                    productId: tmp.id!,
+                    productType: 'favourites',
                   ),
                 ),
+              ),
               );
             },
             child: Stack(

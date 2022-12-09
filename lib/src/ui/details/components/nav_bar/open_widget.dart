@@ -25,137 +25,126 @@ class OpenWidget extends StatelessWidget {
       color: AppColor.subTitleColor,
     );
 
-    return BlocBuilder<DetailsBloc, DetailsState>(
-      builder: (context, state) {
-        if (state.status == DetailsStateStatus.failure &&
-            state.errorMessage.isNotEmpty) {
-          context.showErrorBar<String>(
-            content: Text(state.errorMessage),
-          );
-        }
-        if (state.status == DetailsStateStatus.loading) {
-          return const Center(
-            child: CupertinoActivityIndicator(),
-          );
-        }
-        if (state.status == DetailsStateStatus.success) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: SizedBox(
-                width: double.infinity,
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: mainAxis,
-                      children: [
-                        const Text(
-                          'Monday: ',
-                          style: titleStyle,
-                        ),
-                        Text(
-                          state.detailModel.addresses![0].open!.monday
-                              .toString(),
-                          style: subtitleStyle,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    Row(
-                      mainAxisAlignment: mainAxis,
-                      children: [
-                        const Text(
-                          'Tuesday: ',
-                          style: titleStyle,
-                        ),
-                        Text(
-                          state.detailModel.addresses![0].open!.tuesday
-                              .toString(),
-                          style: subtitleStyle,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    Row(
-                      mainAxisAlignment: mainAxis,
-                      children: [
-                        const Text(
-                          'Wednesday: ',
-                          style: titleStyle,
-                        ),
-                        Text(
-                          state.detailModel.addresses![0].open!.wednesday
-                              .toString(),
-                          style: subtitleStyle,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    Row(
-                      mainAxisAlignment: mainAxis,
-                      children: [
-                        const Text(
-                          'Thursday: ',
-                          style: titleStyle,
-                        ),
-                        Text(
-                          state.detailModel.addresses![0].open!.thursday
-                              .toString(),
-                          style: subtitleStyle,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    Row(
-                      mainAxisAlignment: mainAxis,
-                      children: [
-                        const Text(
-                          'Friday: ',
-                          style: titleStyle,
-                        ),
-                        Text(
-                          state.detailModel.addresses![0].open!.friday
-                              .toString(),
-                          style: subtitleStyle,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    Row(
-                      mainAxisAlignment: mainAxis,
-                      children: [
-                        const Text(
-                          'Saturday: ',
-                          style: titleStyle,
-                        ),
-                        Text(
-                          state.detailModel.addresses![0].open!.saturday
-                              .toString(),
-                          style: subtitleStyle,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    Row(
-                      mainAxisAlignment: mainAxis,
-                      children: [
-                        const Text(
-                          'Sunday: ',
-                          style: titleStyle,
-                        ),
-                        Text(
-                          state.detailModel.addresses![0].open!.sunday
-                              .toString(),
-                          style: subtitleStyle,
-                        ),
-                      ],
-                    ),
-                  ],
-                )),
-          );
-        } else {
-          return const Text('No data');
-        }
-      },
+    return BlocConsumer<DetailsBloc, DetailsState>(
+      listener: (context, state) => state.whenOrNull(
+        error: (errorMessage) async =>
+            context.showErrorBar(content: Text(errorMessage)),
+      ),
+      builder: (context, state) => state.maybeWhen(
+        orElse: () => const Center(
+          child: CircularProgressIndicator.adaptive(),
+        ),
+        notFound: () => Center(
+          child: Text('not found product by id'),
+        ),
+        loaded: (productDetails) => Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: SizedBox(
+              width: double.infinity,
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: mainAxis,
+                    children: [
+                      const Text(
+                        'Monday: ',
+                        style: titleStyle,
+                      ),
+                      Text(
+                        productDetails.addresses![0].open!.monday.toString(),
+                        style: subtitleStyle,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: mainAxis,
+                    children: [
+                      const Text(
+                        'Tuesday: ',
+                        style: titleStyle,
+                      ),
+                      Text(
+                        productDetails.addresses![0].open!.tuesday.toString(),
+                        style: subtitleStyle,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: mainAxis,
+                    children: [
+                      const Text(
+                        'Wednesday: ',
+                        style: titleStyle,
+                      ),
+                      Text(
+                        productDetails.addresses![0].open!.wednesday.toString(),
+                        style: subtitleStyle,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: mainAxis,
+                    children: [
+                      const Text(
+                        'Thursday: ',
+                        style: titleStyle,
+                      ),
+                      Text(
+                        productDetails.addresses![0].open!.thursday.toString(),
+                        style: subtitleStyle,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: mainAxis,
+                    children: [
+                      const Text(
+                        'Friday: ',
+                        style: titleStyle,
+                      ),
+                      Text(
+                        productDetails.addresses![0].open!.friday.toString(),
+                        style: subtitleStyle,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: mainAxis,
+                    children: [
+                      const Text(
+                        'Saturday: ',
+                        style: titleStyle,
+                      ),
+                      Text(
+                        productDetails.addresses![0].open!.saturday.toString(),
+                        style: subtitleStyle,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: mainAxis,
+                    children: [
+                      const Text(
+                        'Sunday: ',
+                        style: titleStyle,
+                      ),
+                      Text(
+                        productDetails.addresses![0].open!.sunday.toString(),
+                        style: subtitleStyle,
+                      ),
+                    ],
+                  ),
+                ],
+              )),
+        ),
+        error: (errorMessage) => Center(child: FlutterLogo()),
+      ),
     );
   }
 }

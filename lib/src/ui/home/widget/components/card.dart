@@ -4,6 +4,7 @@ import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
 import 'package:polec/src/feature/product_details/bloc/product_details_bloc.dart';
 import 'package:polec/src/feature/product_details/widget/product_details.dart';
+import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/data/detail_repository.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
@@ -34,10 +35,13 @@ class CardWidget extends StatelessWidget {
             Navigator.push(
               context,
               CupertinoPageRoute(
-                builder: (context) => BlocProvider<ProductDetailsBloc>(
+                builder: (context) => BlocProvider<DetailsBloc>(
                   create: (context) =>
-                      ProductDetailsBloc(detailsRepo: DetailRepository()),
-                  child: ProductDetails(productId: tmp.id!),
+                      DetailsBloc(detailsRepo: DetailRepository()),
+                  child: DetailsScreen(
+                    productId: tmp.id!,
+                     productType: 'recommended',
+                  ),
                 ),
               ),
             );

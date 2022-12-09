@@ -31,6 +31,24 @@
                     "sunday": "zamknięte"
                 }
             }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+55$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+555$"
+            }
         ]
     },
     {
@@ -64,6 +82,24 @@
                     "saturday": "12:00 - 20:00",
                     "sunday": "12:00 - 19:00"
                 }
+            }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+66$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+666$"
             }
         ]
     },
@@ -99,6 +135,24 @@
                     "sunday": "12:00 - 20:00"
                 }
             }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+77$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+777$"
+            }
         ]
     },
     {
@@ -133,6 +187,24 @@
                     "sunday": "zamknięte"
                 }
             }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+88$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+888$"
+            }
         ]
     },
     {
@@ -166,6 +238,24 @@
                     "saturday": "9:00 - 20:00",
                     "sunday": "9:00 - 20:00"
                 }
+            }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+99$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+999$"
             }
         ]
     }

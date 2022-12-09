@@ -20,6 +20,9 @@ _$_DetailModel _$$_DetailModelFromJson(Map<String, dynamic> json) =>
       recommendations: (json['recommendations'] as List<dynamic>?)
           ?.map((e) => Recommendations.fromJson(e as Map<String, dynamic>))
           .toList(),
+      category: (json['category'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$$_DetailModelToJson(_$_DetailModel instance) =>
@@ -32,6 +35,7 @@ Map<String, dynamic> _$$_DetailModelToJson(_$_DetailModel instance) =>
       'description': instance.description,
       'address': instance.addresses,
       'recommendations': instance.recommendations,
+      'category': instance.category,
     };
 
 _$_Addresses _$$_AddressesFromJson(Map<String, dynamic> json) => _$_Addresses(

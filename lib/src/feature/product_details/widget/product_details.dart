@@ -6,8 +6,13 @@ import 'package:polec/src/feature/product_details/bloc/product_details_bloc.dart
 import 'product_details_body.dart';
 
 class ProductDetails extends StatefulWidget {
-  const ProductDetails({super.key, required this.productId});
+  const ProductDetails({
+    super.key,
+    required this.productId,
+    required this.productType,
+  });
   final String productId;
+  final String productType;
 
   @override
   State<ProductDetails> createState() => _ProductDetailsState();
@@ -16,9 +21,8 @@ class ProductDetails extends StatefulWidget {
 class _ProductDetailsState extends State<ProductDetails> {
   @override
   void initState() {
-    context
-        .read<ProductDetailsBloc>()
-        .add(ProductDetailsEvent.loadProduct(productId: widget.productId));
+    context.read<ProductDetailsBloc>().add(ProductDetailsEvent.loadProduct(
+        productId: widget.productId, productType: widget.productType));
     super.initState();
   }
 
@@ -40,8 +44,10 @@ class _ProductDetailsState extends State<ProductDetails> {
           orElse: () =>
               const Center(child: CircularProgressIndicator.adaptive()),
           notFound: () => Center(child: Text('not found product by id')),
-          loaded: (productDetails) =>
-              Center(child: ProductDetailsBody(detailModel: productDetails,)),
+          loaded: (productDetails) => Center(
+              child: ProductDetailsBody(
+            detailModel: productDetails,
+          )),
           error: (errorMessage) => Center(child: FlutterLogo()),
         ),
       ),

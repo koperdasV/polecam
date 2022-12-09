@@ -25,11 +25,12 @@ class ProductDetailsBloc
     Emitter<ProductDetailsState> emit,
   ) async {
     try {
-       await Future.delayed(Duration(milliseconds: 300));
-      final productDetails =
-          await _detailsRepo.fetchProductDetails(id: event.productId);
+      await Future.delayed(Duration(milliseconds: 300));
+      final productDetails = await _detailsRepo.fetchProductDetails(
+        id: event.productId,
+        type: event.productType,
+      );
       if (productDetails != null) {
-       
         return emit(ProductDetailsState.loaded(productDetails: productDetails));
       } else {
         return emit(const ProductDetailsState.notFound());

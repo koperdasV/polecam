@@ -5,7 +5,10 @@ import 'package:polec/src/ui/details/models/detail_model.dart';
 
 abstract class IDetailRepo {
   Future<DetailModel> fetchDetails();
-  Future<DetailModel?> fetchProductDetails({required String id});
+  Future<DetailModel?> fetchProductDetails({
+    required String id,
+    required String type,
+  });
 }
 
 class DetailRepository implements IDetailRepo {
@@ -51,11 +54,17 @@ class DetailRepository implements IDetailRepo {
   }
 
   @override
-  Future<DetailModel?> fetchProductDetails({required String id}) async {
-  
-    final response = await rootBundle.loadString('assets/recommended.json');
+  Future<DetailModel?> fetchProductDetails(
+      {required String id, required String type}) async {
+    String response = '';
+    if (type == 'recommended') {
+      response = await rootBundle.loadString('assets/recommended.json');
+    } else if (type == 'yourArea') {
+      response = await rootBundle.loadString('assets/near.json');
+    } else if (type == 'favourites') {
+      response = await rootBundle.loadString('assets/favourites.json');
+    }
     final json = await jsonDecode(response);
-
     final tmp = (json as List).firstWhere(
       (element) => element['id'] == id,
       orElse: () => null,

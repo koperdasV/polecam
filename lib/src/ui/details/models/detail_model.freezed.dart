@@ -30,6 +30,7 @@ mixin _$DetailModel {
   List<Addresses>? get addresses => throw _privateConstructorUsedError;
   List<Recommendations>? get recommendations =>
       throw _privateConstructorUsedError;
+  List<String>? get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +52,8 @@ abstract class $DetailModelCopyWith<$Res> {
       String? url,
       String? description,
       @JsonKey(name: 'address') List<Addresses>? addresses,
-      List<Recommendations>? recommendations});
+      List<Recommendations>? recommendations,
+      List<String>? category});
 }
 
 /// @nodoc
@@ -75,6 +77,7 @@ class _$DetailModelCopyWithImpl<$Res, $Val extends DetailModel>
     Object? description = freezed,
     Object? addresses = freezed,
     Object? recommendations = freezed,
+    Object? category = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -109,6 +112,10 @@ class _$DetailModelCopyWithImpl<$Res, $Val extends DetailModel>
           ? _value.recommendations
           : recommendations // ignore: cast_nullable_to_non_nullable
               as List<Recommendations>?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -129,7 +136,8 @@ abstract class _$$_DetailModelCopyWith<$Res>
       String? url,
       String? description,
       @JsonKey(name: 'address') List<Addresses>? addresses,
-      List<Recommendations>? recommendations});
+      List<Recommendations>? recommendations,
+      List<String>? category});
 }
 
 /// @nodoc
@@ -151,6 +159,7 @@ class __$$_DetailModelCopyWithImpl<$Res>
     Object? description = freezed,
     Object? addresses = freezed,
     Object? recommendations = freezed,
+    Object? category = freezed,
   }) {
     return _then(_$_DetailModel(
       id: freezed == id
@@ -185,6 +194,10 @@ class __$$_DetailModelCopyWithImpl<$Res>
           ? _value._recommendations
           : recommendations // ignore: cast_nullable_to_non_nullable
               as List<Recommendations>?,
+      category: freezed == category
+          ? _value._category
+          : category // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -200,9 +213,11 @@ class _$_DetailModel implements _DetailModel {
       this.url,
       this.description,
       @JsonKey(name: 'address') final List<Addresses>? addresses,
-      final List<Recommendations>? recommendations})
+      final List<Recommendations>? recommendations,
+      final List<String>? category})
       : _addresses = addresses,
-        _recommendations = recommendations;
+        _recommendations = recommendations,
+        _category = category;
 
   factory _$_DetailModel.fromJson(Map<String, dynamic> json) =>
       _$$_DetailModelFromJson(json);
@@ -238,9 +253,18 @@ class _$_DetailModel implements _DetailModel {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<String>? _category;
+  @override
+  List<String>? get category {
+    final value = _category;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'DetailModel(id: $id, image: $image, name: $name, regularFee: $regularFee, url: $url, description: $description, addresses: $addresses, recommendations: $recommendations)';
+    return 'DetailModel(id: $id, image: $image, name: $name, regularFee: $regularFee, url: $url, description: $description, addresses: $addresses, recommendations: $recommendations, category: $category)';
   }
 
   @override
@@ -259,7 +283,8 @@ class _$_DetailModel implements _DetailModel {
             const DeepCollectionEquality()
                 .equals(other._addresses, _addresses) &&
             const DeepCollectionEquality()
-                .equals(other._recommendations, _recommendations));
+                .equals(other._recommendations, _recommendations) &&
+            const DeepCollectionEquality().equals(other._category, _category));
   }
 
   @JsonKey(ignore: true)
@@ -273,7 +298,8 @@ class _$_DetailModel implements _DetailModel {
       url,
       description,
       const DeepCollectionEquality().hash(_addresses),
-      const DeepCollectionEquality().hash(_recommendations));
+      const DeepCollectionEquality().hash(_recommendations),
+      const DeepCollectionEquality().hash(_category));
 
   @JsonKey(ignore: true)
   @override
@@ -298,7 +324,8 @@ abstract class _DetailModel implements DetailModel {
       final String? url,
       final String? description,
       @JsonKey(name: 'address') final List<Addresses>? addresses,
-      final List<Recommendations>? recommendations}) = _$_DetailModel;
+      final List<Recommendations>? recommendations,
+      final List<String>? category}) = _$_DetailModel;
 
   factory _DetailModel.fromJson(Map<String, dynamic> json) =
       _$_DetailModel.fromJson;
@@ -320,6 +347,8 @@ abstract class _DetailModel implements DetailModel {
   List<Addresses>? get addresses;
   @override
   List<Recommendations>? get recommendations;
+  @override
+  List<String>? get category;
   @override
   @JsonKey(ignore: true)
   _$$_DetailModelCopyWith<_$_DetailModel> get copyWith =>

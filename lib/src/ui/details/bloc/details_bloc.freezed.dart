@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'product_details_bloc.dart';
+part of 'details_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$ProductDetailsEvent {
+mixin _$DetailsEvent {
   String get productId => throw _privateConstructorUsedError;
   String get productType => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,23 +52,23 @@ mixin _$ProductDetailsEvent {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ProductDetailsEventCopyWith<ProductDetailsEvent> get copyWith =>
+  $DetailsEventCopyWith<DetailsEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProductDetailsEventCopyWith<$Res> {
-  factory $ProductDetailsEventCopyWith(
-          ProductDetailsEvent value, $Res Function(ProductDetailsEvent) then) =
-      _$ProductDetailsEventCopyWithImpl<$Res, ProductDetailsEvent>;
+abstract class $DetailsEventCopyWith<$Res> {
+  factory $DetailsEventCopyWith(
+          DetailsEvent value, $Res Function(DetailsEvent) then) =
+      _$DetailsEventCopyWithImpl<$Res, DetailsEvent>;
   @useResult
   $Res call({String productId, String productType});
 }
 
 /// @nodoc
-class _$ProductDetailsEventCopyWithImpl<$Res, $Val extends ProductDetailsEvent>
-    implements $ProductDetailsEventCopyWith<$Res> {
-  _$ProductDetailsEventCopyWithImpl(this._value, this._then);
+class _$DetailsEventCopyWithImpl<$Res, $Val extends DetailsEvent>
+    implements $DetailsEventCopyWith<$Res> {
+  _$DetailsEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -96,7 +96,7 @@ class _$ProductDetailsEventCopyWithImpl<$Res, $Val extends ProductDetailsEvent>
 
 /// @nodoc
 abstract class _$$_LoadProductCopyWith<$Res>
-    implements $ProductDetailsEventCopyWith<$Res> {
+    implements $DetailsEventCopyWith<$Res> {
   factory _$$_LoadProductCopyWith(
           _$_LoadProduct value, $Res Function(_$_LoadProduct) then) =
       __$$_LoadProductCopyWithImpl<$Res>;
@@ -107,7 +107,7 @@ abstract class _$$_LoadProductCopyWith<$Res>
 
 /// @nodoc
 class __$$_LoadProductCopyWithImpl<$Res>
-    extends _$ProductDetailsEventCopyWithImpl<$Res, _$_LoadProduct>
+    extends _$DetailsEventCopyWithImpl<$Res, _$_LoadProduct>
     implements _$$_LoadProductCopyWith<$Res> {
   __$$_LoadProductCopyWithImpl(
       _$_LoadProduct _value, $Res Function(_$_LoadProduct) _then)
@@ -144,7 +144,7 @@ class _$_LoadProduct implements _LoadProduct {
 
   @override
   String toString() {
-    return 'ProductDetailsEvent.loadProduct(productId: $productId, productType: $productType)';
+    return 'DetailsEvent.loadProduct(productId: $productId, productType: $productType)';
   }
 
   @override
@@ -224,7 +224,7 @@ class _$_LoadProduct implements _LoadProduct {
   }
 }
 
-abstract class _LoadProduct implements ProductDetailsEvent {
+abstract class _LoadProduct implements DetailsEvent {
   const factory _LoadProduct(
       {required final String productId,
       required final String productType}) = _$_LoadProduct;
@@ -240,7 +240,7 @@ abstract class _LoadProduct implements ProductDetailsEvent {
 }
 
 /// @nodoc
-mixin _$ProductDetailsState {
+mixin _$DetailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -294,16 +294,16 @@ mixin _$ProductDetailsState {
 }
 
 /// @nodoc
-abstract class $ProductDetailsStateCopyWith<$Res> {
-  factory $ProductDetailsStateCopyWith(
-          ProductDetailsState value, $Res Function(ProductDetailsState) then) =
-      _$ProductDetailsStateCopyWithImpl<$Res, ProductDetailsState>;
+abstract class $DetailsStateCopyWith<$Res> {
+  factory $DetailsStateCopyWith(
+          DetailsState value, $Res Function(DetailsState) then) =
+      _$DetailsStateCopyWithImpl<$Res, DetailsState>;
 }
 
 /// @nodoc
-class _$ProductDetailsStateCopyWithImpl<$Res, $Val extends ProductDetailsState>
-    implements $ProductDetailsStateCopyWith<$Res> {
-  _$ProductDetailsStateCopyWithImpl(this._value, this._then);
+class _$DetailsStateCopyWithImpl<$Res, $Val extends DetailsState>
+    implements $DetailsStateCopyWith<$Res> {
+  _$DetailsStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -320,7 +320,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$ProductDetailsStateCopyWithImpl<$Res, _$_Initial>
+    extends _$DetailsStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -333,7 +333,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'ProductDetailsState.initial()';
+    return 'DetailsState.initial()';
   }
 
   @override
@@ -420,7 +420,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements ProductDetailsState {
+abstract class _Initial implements DetailsState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -436,7 +436,7 @@ abstract class _$$_LoadedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadedCopyWithImpl<$Res>
-    extends _$ProductDetailsStateCopyWithImpl<$Res, _$_Loaded>
+    extends _$DetailsStateCopyWithImpl<$Res, _$_Loaded>
     implements _$$_LoadedCopyWith<$Res> {
   __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
       : super(_value, _then);
@@ -473,7 +473,7 @@ class _$_Loaded implements _Loaded {
 
   @override
   String toString() {
-    return 'ProductDetailsState.loaded(productDetails: $productDetails)';
+    return 'DetailsState.loaded(productDetails: $productDetails)';
   }
 
   @override
@@ -569,7 +569,7 @@ class _$_Loaded implements _Loaded {
   }
 }
 
-abstract class _Loaded implements ProductDetailsState {
+abstract class _Loaded implements DetailsState {
   const factory _Loaded({required final DetailModel productDetails}) =
       _$_Loaded;
 
@@ -589,7 +589,7 @@ abstract class _$$_ErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ErrorCopyWithImpl<$Res>
-    extends _$ProductDetailsStateCopyWithImpl<$Res, _$_Error>
+    extends _$DetailsStateCopyWithImpl<$Res, _$_Error>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
       : super(_value, _then);
@@ -618,7 +618,7 @@ class _$_Error implements _Error {
 
   @override
   String toString() {
-    return 'ProductDetailsState.error(errorMessage: $errorMessage)';
+    return 'DetailsState.error(errorMessage: $errorMessage)';
   }
 
   @override
@@ -714,7 +714,7 @@ class _$_Error implements _Error {
   }
 }
 
-abstract class _Error implements ProductDetailsState {
+abstract class _Error implements DetailsState {
   const factory _Error({required final String errorMessage}) = _$_Error;
 
   String get errorMessage;
@@ -732,7 +732,7 @@ abstract class _$$_NotFoundCopyWith<$Res> {
 
 /// @nodoc
 class __$$_NotFoundCopyWithImpl<$Res>
-    extends _$ProductDetailsStateCopyWithImpl<$Res, _$_NotFound>
+    extends _$DetailsStateCopyWithImpl<$Res, _$_NotFound>
     implements _$$_NotFoundCopyWith<$Res> {
   __$$_NotFoundCopyWithImpl(
       _$_NotFound _value, $Res Function(_$_NotFound) _then)
@@ -746,7 +746,7 @@ class _$_NotFound implements _NotFound {
 
   @override
   String toString() {
-    return 'ProductDetailsState.notFound()';
+    return 'DetailsState.notFound()';
   }
 
   @override
@@ -833,6 +833,6 @@ class _$_NotFound implements _NotFound {
   }
 }
 
-abstract class _NotFound implements ProductDetailsState {
+abstract class _NotFound implements DetailsState {
   const factory _NotFound() = _$_NotFound;
 }

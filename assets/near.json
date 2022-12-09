@@ -32,6 +32,24 @@
                     "sunday": "12:00 - 23:00"
                 }
             }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+111$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+111$"
+            }
         ]
     },
     {
@@ -65,6 +83,24 @@
                     "saturday": "12:00 - 23:00",
                     "sunday": "12:00 - 20:00"
                 }
+            }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+222$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+202$"
             }
         ]
     },
@@ -102,6 +138,24 @@
                     "sunday": "zamknięte"
                 }
             }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+333$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+303$"
+            }
         ]
     },
     {
@@ -136,6 +190,24 @@
                     "saturday": "24 h",
                     "sunday": "24 h"
                 }
+            }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+444$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+404$"
             }
         ]
     }
