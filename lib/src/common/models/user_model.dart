@@ -4,7 +4,7 @@ class UserModel {
   String surname;
   String phone;
   String street;
-  String sity;
+  String city;
   String postCode;
   String pesel;
   String dateOfBirth;
@@ -15,7 +15,7 @@ class UserModel {
     required this.surname,
     required this.phone,
     required this.street,
-    required this.sity,
+    required this.city,
     required this.postCode,
     required this.pesel,
     required this.dateOfBirth,

@@ -7,7 +7,7 @@ import 'package:polec/theme/app_colors.dart';
 enum Detail { about, contact, open }
 
 Map<Detail, Widget> detailWidget = <Detail, Widget>{
-  Detail.about: const AboutWidget(),
+  Detail.about: AboutWidget(),
   Detail.open: const OpenWidget(),
   Detail.contact: const ContactWidget(),
 };

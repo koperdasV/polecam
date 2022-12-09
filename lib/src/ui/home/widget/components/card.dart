@@ -3,8 +3,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
+import 'package:polec/src/feature/product_details/bloc/product_details_bloc.dart';
+import 'package:polec/src/feature/product_details/widget/product_details.dart';
+import 'package:polec/src/ui/details/bloc/details_bloc.dart';
+import 'package:polec/src/ui/details/data/detail_repository.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
@@ -69,6 +74,8 @@ class _CardWidgetState extends State<CardWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final amountParse = (widget.tmp.regularFee)! * 100.round();
+    final percent = amountParse.toInt();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -77,11 +84,13 @@ class _CardWidgetState extends State<CardWidget> {
             Navigator.push(
               context,
               CupertinoPageRoute(
-                builder: (context) => DetailsScreen(
-                  image: widget.tmp.image.toString(),
-                  regularFee: widget.tmp.regularFee,
-                  name: widget.tmp.name.toString(),
-                  tag: widget.tmp.category,
+                builder: (context) => BlocProvider<DetailsBloc>(
+                  create: (context) =>
+                      DetailsBloc(detailsRepo: DetailRepository()),
+                  child: DetailsScreen(
+                    productId: widget.tmp.id!,
+                     productType: 'recommended',
+                  ),
                 ),
               ),
             );
@@ -100,15 +109,8 @@ class _CardWidgetState extends State<CardWidget> {
                 ),
               ),
               PercentWidget(
-                percent: widget.tmp.regularFee.toString(),
+                percent: percent.toString(),
                 fontSize: widget.fontSize,
-              ),
-              Positioned(
-                left: 0,
-                bottom: 0,
-                child: CategorieTag(
-                  tag: widget.tmp.category!,
-                ),
               ),
               Positioned(
                 right: 0,

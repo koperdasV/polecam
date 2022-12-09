@@ -24,67 +24,86 @@ class ContactWidget extends StatelessWidget {
       color: AppColor.subTitleColor,
     );
 
-    return BlocBuilder<DetailsBloc, DetailsState>(
-      builder: (context, state) {
-        if (state.status == DetailsStateStatus.failure &&
-            state.errorMessage.isNotEmpty) {
-          context.showErrorBar<String>(
-            content: Text(state.errorMessage),
-          );
-        }
-        if (state.status == DetailsStateStatus.loading) {
-          return const Center(
-            child: CupertinoActivityIndicator(),
-          );
-        }
-        if (state.status == DetailsStateStatus.success) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: SizedBox(
-              width: double.infinity,
-              height: 140,
-              child: Column(
-                children: [
-                  const Text(
-                    'Street:',
-                    style: titleStyle,
-                  ),
-                  Text(
-                    state.detailModel.addresses![0].street.toString(),
-                    style: subtitleStyle,
-                  ),
-                  const Text(
-                    'City:',
-                    style: titleStyle,
-                  ),
-                  Text(
-                    state.detailModel.addresses![0].city.toString(),
-                    style: subtitleStyle,
-                  ),
-                  Text(
-                    'Country:',
-                    style: titleStyle,
-                  ),
-                  Text(
-                    state.detailModel.addresses![0].country.toString(),
-                    style: subtitleStyle,
-                  ),
-                  Text(
-                    'Phones:',
-                    style: titleStyle,
-                  ),
-                  Text(
-                    state.detailModel.addresses![0].phones![0].toString(),
-                    style: subtitleStyle,
-                  ),
-                ],
-              ),
+    return BlocConsumer<DetailsBloc, DetailsState>(
+      listener: (context, state) => state.whenOrNull(
+        error: (errorMessage) async =>
+            context.showErrorBar(content: Text(errorMessage)),
+      ),
+      builder: (context, state) => state.maybeWhen(
+        orElse: () => const Center(
+          child: CircularProgressIndicator.adaptive(),
+        ),
+        notFound: () => Center(
+          child: Text('not found product by id'),
+        ),
+        loaded: (productDetails) => Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: SizedBox(
+            width: double.infinity,
+            // height: 140,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Street: ',
+                      style: titleStyle,
+                    ),
+                    Text(
+                      productDetails.addresses![0].street.toString(),
+                      style: subtitleStyle,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 5),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'City: ',
+                      style: titleStyle,
+                    ),
+                    Text(
+                      productDetails.addresses![0].city.toString(),
+                      style: subtitleStyle,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 5),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Country: ',
+                      style: titleStyle,
+                    ),
+                    Text(
+                      productDetails.addresses![0].country.toString(),
+                      style: subtitleStyle,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 5),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Phones: ',
+                      style: titleStyle,
+                    ),
+                    Text(
+                      productDetails.addresses![0].phones.toString(),
+                      style: subtitleStyle,
+                    ),
+                  ],
+                ),
+              ],
             ),
-          );
-        } else {
-          return const Text('No data');
-        }
-      },
+          ),
+        ),
+        error: (errorMessage) => const Center(child: FlutterLogo()),
+      ),
     );
   }
 }

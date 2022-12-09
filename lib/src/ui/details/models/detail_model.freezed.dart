@@ -20,14 +20,17 @@ DetailModel _$DetailModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DetailModel {
+  String? get id => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   double? get regularFee => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  @JsonKey(name: 'address')
   List<Addresses>? get addresses => throw _privateConstructorUsedError;
   List<Recommendations>? get recommendations =>
       throw _privateConstructorUsedError;
+  List<String>? get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,13 +45,15 @@ abstract class $DetailModelCopyWith<$Res> {
       _$DetailModelCopyWithImpl<$Res, DetailModel>;
   @useResult
   $Res call(
-      {String? image,
+      {String? id,
+      String? image,
       String? name,
       double? regularFee,
       String? url,
       String? description,
-      List<Addresses>? addresses,
-      List<Recommendations>? recommendations});
+      @JsonKey(name: 'address') List<Addresses>? addresses,
+      List<Recommendations>? recommendations,
+      List<String>? category});
 }
 
 /// @nodoc
@@ -64,6 +69,7 @@ class _$DetailModelCopyWithImpl<$Res, $Val extends DetailModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? image = freezed,
     Object? name = freezed,
     Object? regularFee = freezed,
@@ -71,8 +77,13 @@ class _$DetailModelCopyWithImpl<$Res, $Val extends DetailModel>
     Object? description = freezed,
     Object? addresses = freezed,
     Object? recommendations = freezed,
+    Object? category = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -101,6 +112,10 @@ class _$DetailModelCopyWithImpl<$Res, $Val extends DetailModel>
           ? _value.recommendations
           : recommendations // ignore: cast_nullable_to_non_nullable
               as List<Recommendations>?,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -114,13 +129,15 @@ abstract class _$$_DetailModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? image,
+      {String? id,
+      String? image,
       String? name,
       double? regularFee,
       String? url,
       String? description,
-      List<Addresses>? addresses,
-      List<Recommendations>? recommendations});
+      @JsonKey(name: 'address') List<Addresses>? addresses,
+      List<Recommendations>? recommendations,
+      List<String>? category});
 }
 
 /// @nodoc
@@ -134,6 +151,7 @@ class __$$_DetailModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? image = freezed,
     Object? name = freezed,
     Object? regularFee = freezed,
@@ -141,8 +159,13 @@ class __$$_DetailModelCopyWithImpl<$Res>
     Object? description = freezed,
     Object? addresses = freezed,
     Object? recommendations = freezed,
+    Object? category = freezed,
   }) {
     return _then(_$_DetailModel(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -171,6 +194,10 @@ class __$$_DetailModelCopyWithImpl<$Res>
           ? _value._recommendations
           : recommendations // ignore: cast_nullable_to_non_nullable
               as List<Recommendations>?,
+      category: freezed == category
+          ? _value._category
+          : category // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -179,19 +206,24 @@ class __$$_DetailModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DetailModel implements _DetailModel {
   const _$_DetailModel(
-      {this.image,
+      {this.id,
+      this.image,
       this.name,
       this.regularFee,
       this.url,
       this.description,
-      final List<Addresses>? addresses,
-      final List<Recommendations>? recommendations})
+      @JsonKey(name: 'address') final List<Addresses>? addresses,
+      final List<Recommendations>? recommendations,
+      final List<String>? category})
       : _addresses = addresses,
-        _recommendations = recommendations;
+        _recommendations = recommendations,
+        _category = category;
 
   factory _$_DetailModel.fromJson(Map<String, dynamic> json) =>
       _$$_DetailModelFromJson(json);
 
+  @override
+  final String? id;
   @override
   final String? image;
   @override
@@ -204,6 +236,7 @@ class _$_DetailModel implements _DetailModel {
   final String? description;
   final List<Addresses>? _addresses;
   @override
+  @JsonKey(name: 'address')
   List<Addresses>? get addresses {
     final value = _addresses;
     if (value == null) return null;
@@ -220,9 +253,18 @@ class _$_DetailModel implements _DetailModel {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<String>? _category;
+  @override
+  List<String>? get category {
+    final value = _category;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'DetailModel(image: $image, name: $name, regularFee: $regularFee, url: $url, description: $description, addresses: $addresses, recommendations: $recommendations)';
+    return 'DetailModel(id: $id, image: $image, name: $name, regularFee: $regularFee, url: $url, description: $description, addresses: $addresses, recommendations: $recommendations, category: $category)';
   }
 
   @override
@@ -230,6 +272,7 @@ class _$_DetailModel implements _DetailModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DetailModel &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.regularFee, regularFee) ||
@@ -240,20 +283,23 @@ class _$_DetailModel implements _DetailModel {
             const DeepCollectionEquality()
                 .equals(other._addresses, _addresses) &&
             const DeepCollectionEquality()
-                .equals(other._recommendations, _recommendations));
+                .equals(other._recommendations, _recommendations) &&
+            const DeepCollectionEquality().equals(other._category, _category));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       image,
       name,
       regularFee,
       url,
       description,
       const DeepCollectionEquality().hash(_addresses),
-      const DeepCollectionEquality().hash(_recommendations));
+      const DeepCollectionEquality().hash(_recommendations),
+      const DeepCollectionEquality().hash(_category));
 
   @JsonKey(ignore: true)
   @override
@@ -271,17 +317,21 @@ class _$_DetailModel implements _DetailModel {
 
 abstract class _DetailModel implements DetailModel {
   const factory _DetailModel(
-      {final String? image,
+      {final String? id,
+      final String? image,
       final String? name,
       final double? regularFee,
       final String? url,
       final String? description,
-      final List<Addresses>? addresses,
-      final List<Recommendations>? recommendations}) = _$_DetailModel;
+      @JsonKey(name: 'address') final List<Addresses>? addresses,
+      final List<Recommendations>? recommendations,
+      final List<String>? category}) = _$_DetailModel;
 
   factory _DetailModel.fromJson(Map<String, dynamic> json) =
       _$_DetailModel.fromJson;
 
+  @override
+  String? get id;
   @override
   String? get image;
   @override
@@ -293,9 +343,12 @@ abstract class _DetailModel implements DetailModel {
   @override
   String? get description;
   @override
+  @JsonKey(name: 'address')
   List<Addresses>? get addresses;
   @override
   List<Recommendations>? get recommendations;
+  @override
+  List<String>? get category;
   @override
   @JsonKey(ignore: true)
   _$$_DetailModelCopyWith<_$_DetailModel> get copyWith =>

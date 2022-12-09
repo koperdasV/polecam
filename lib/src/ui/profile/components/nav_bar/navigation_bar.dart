@@ -1,33 +1,50 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/profile/account/main_account.dart';
+import 'package:polec/src/ui/profile/components/profile_app_bar.dart';
 import 'package:polec/src/ui/profile/level/level_widget.dart';
 import 'package:polec/src/ui/profile/statistics/statistics_widget.dart';
 import 'package:polec/theme/app_colors.dart';
 
-enum Detail {
+enum Account {
   statistics,
   level,
   account,
 }
 
-Map<Detail, Widget> detailWidget = <Detail, Widget>{
-  Detail.statistics: const StatisticsWidget(),
-  Detail.level: const LevelWidget(),
-  Detail.account: MainAccountWidget(),
+Map<Account, Widget> accountWidget = <Account, Widget>{
+  Account.statistics: const StatisticsWidget(),
+  Account.level: const LevelWidget(),
+  Account.account: MainAccountWidget(),
 };
-
+   Account selectedSegment = Account.statistics;
 class ProfileNavigationBar extends StatefulWidget {
-  const ProfileNavigationBar({super.key});
+  ProfileNavigationBar({
+    super.key,
+
+  });
+
+
 
   @override
   State<ProfileNavigationBar> createState() => _ProfileNavigationBarState();
 }
 
 class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
-  Detail _selectedSegment = Detail.statistics;
-
   @override
   Widget build(BuildContext context) {
+    // Account _selectedSegment = widget.selectedSegment;
+    // final profileNav = context.read<ProfileAppBar>();
+    // editAcc() {
+    //   if (_selectedSegment == Account.statistics &&
+    //       _selectedSegment == Account.level) {
+    //     profileNav.stateEditAcc = false;
+    //     profileNav.stateCloseAcc = false;
+    //   } else {
+    //     profileNav.stateEditAcc = true;
+    //   }
+    // }
+
     return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -36,32 +53,32 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
             child: SizedBox(
               width: double.infinity,
-              child: CupertinoSlidingSegmentedControl<Detail>(
+              child: CupertinoSlidingSegmentedControl<Account>(
                 backgroundColor: AppColors.bgAccountPage,
                 thumbColor: const Color(0xffffffff),
                 // This represents the currently selected segmented control.
-                groupValue: _selectedSegment,
+                groupValue: selectedSegment,
                 // Callback that sets the selected segmented control.
-                onValueChanged: (Detail? value) {
+                onValueChanged: (Account? value) {
                   if (value != null) {
                     setState(
                       () {
-                        _selectedSegment = value;
+                       selectedSegment = value;
                       },
                     );
                   }
                 },
-                children: <Detail, Widget>{
-                  Detail.statistics: buildSegment('Statistics'),
-                  Detail.level: buildSegment('Level'),
-                  Detail.account: buildSegment('Account'),
+                children: <Account, Widget>{
+                  Account.statistics: buildSegment('Statistics'),
+                  Account.level: buildSegment('Level'),
+                  Account.account: buildSegment('Account'),
                 },
               ),
             ),
           ),
           Expanded(
             child: SingleChildScrollView(
-              child: detailWidget[_selectedSegment],
+              child: accountWidget[selectedSegment],
             ),
           ),
         ],

@@ -8,6 +8,7 @@ part of 'favorite_model.dart';
 
 _$_FavoritesModel _$$_FavoritesModelFromJson(Map<String, dynamic> json) =>
     _$_FavoritesModel(
+      id: json['id'] as String?,
       image: json['image'] as String?,
       name: json['name'] as String?,
       regularFee: (json['regularFee'] as num?)?.toDouble(),
@@ -23,6 +24,7 @@ _$_FavoritesModel _$$_FavoritesModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_FavoritesModelToJson(_$_FavoritesModel instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'image': instance.image,
       'name': instance.name,
       'regularFee': instance.regularFee,

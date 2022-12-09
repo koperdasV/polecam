@@ -23,7 +23,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
       children: [
         CustomTextField(
           controller: _nameController,
-          placeholder: 'Imię',
+          placeholder: 'Name',
           keyboardType: TextInputType.name,
           validatorRegExp: r'^[a-z A-Z]+$',
           errorMessage: 'Enter correct name',
@@ -37,7 +37,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         ),
         CustomTextField(
           controller: _phoneController,
-          placeholder: 'Numer telefonu',
+          placeholder: 'Phone number',
           keyboardType: TextInputType.phone,
           validatorRegExp: r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$',
           errorMessage: 'Enter correct phone number',

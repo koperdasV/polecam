@@ -12,6 +12,7 @@ class ProfileTextField extends StatelessWidget {
     required this.errorMessage,
     this.prefix,
     this.obscureText = false,
+    this.validator,
   });
 
   final String placeholder;
@@ -21,6 +22,7 @@ class ProfileTextField extends StatelessWidget {
   final String errorMessage;
   final Widget? prefix;
   final bool obscureText;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class ProfileTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       validator: (value) {
-        if (value!.isEmpty || !RegExp(validatorRegExp).hasMatch(value)) {
+        if (value!.isNotEmpty && !RegExp(validatorRegExp).hasMatch(value)) {
           return errorMessage;
         } else {
           return null;

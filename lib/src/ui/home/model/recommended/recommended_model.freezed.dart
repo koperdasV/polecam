@@ -20,6 +20,7 @@ RecommendedModel _$RecommendedModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecommendedModel {
+  String? get id => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   double? get regularFee => throw _privateConstructorUsedError;
@@ -41,7 +42,8 @@ abstract class $RecommendedModelCopyWith<$Res> {
       _$RecommendedModelCopyWithImpl<$Res, RecommendedModel>;
   @useResult
   $Res call(
-      {String? image,
+      {String? id,
+      String? image,
       String? name,
       double? regularFee,
       String? www,
@@ -63,6 +65,7 @@ class _$RecommendedModelCopyWithImpl<$Res, $Val extends RecommendedModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? image = freezed,
     Object? name = freezed,
     Object? regularFee = freezed,
@@ -72,6 +75,10 @@ class _$RecommendedModelCopyWithImpl<$Res, $Val extends RecommendedModel>
     Object? address = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -113,7 +120,8 @@ abstract class _$$_RecommendedModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? image,
+      {String? id,
+      String? image,
       String? name,
       double? regularFee,
       String? www,
@@ -133,6 +141,7 @@ class __$$_RecommendedModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? image = freezed,
     Object? name = freezed,
     Object? regularFee = freezed,
@@ -142,6 +151,10 @@ class __$$_RecommendedModelCopyWithImpl<$Res>
     Object? address = freezed,
   }) {
     return _then(_$_RecommendedModel(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -178,7 +191,8 @@ class __$$_RecommendedModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RecommendedModel implements _RecommendedModel {
   const _$_RecommendedModel(
-      {this.image,
+      {this.id,
+      this.image,
       this.name,
       this.regularFee,
       this.www,
@@ -191,6 +205,8 @@ class _$_RecommendedModel implements _RecommendedModel {
   factory _$_RecommendedModel.fromJson(Map<String, dynamic> json) =>
       _$$_RecommendedModelFromJson(json);
 
+  @override
+  final String? id;
   @override
   final String? image;
   @override
@@ -221,7 +237,7 @@ class _$_RecommendedModel implements _RecommendedModel {
 
   @override
   String toString() {
-    return 'RecommendedModel(image: $image, name: $name, regularFee: $regularFee, www: $www, description: $description, category: $category, address: $address)';
+    return 'RecommendedModel(id: $id, image: $image, name: $name, regularFee: $regularFee, www: $www, description: $description, category: $category, address: $address)';
   }
 
   @override
@@ -229,6 +245,7 @@ class _$_RecommendedModel implements _RecommendedModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RecommendedModel &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.regularFee, regularFee) ||
@@ -244,6 +261,7 @@ class _$_RecommendedModel implements _RecommendedModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       image,
       name,
       regularFee,
@@ -268,7 +286,8 @@ class _$_RecommendedModel implements _RecommendedModel {
 
 abstract class _RecommendedModel implements RecommendedModel {
   const factory _RecommendedModel(
-      {final String? image,
+      {final String? id,
+      final String? image,
       final String? name,
       final double? regularFee,
       final String? www,
@@ -279,6 +298,8 @@ abstract class _RecommendedModel implements RecommendedModel {
   factory _RecommendedModel.fromJson(Map<String, dynamic> json) =
       _$_RecommendedModel.fromJson;
 
+  @override
+  String? get id;
   @override
   String? get image;
   @override

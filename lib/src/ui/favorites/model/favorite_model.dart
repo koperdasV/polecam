@@ -16,6 +16,7 @@ String recommendedModelToJson(List<FavoritesModel> data) =>
 @freezed
 class FavoritesModel with _$FavoritesModel {
   const factory FavoritesModel({
+    String? id,
     String? image,
     String? name,
     double? regularFee,

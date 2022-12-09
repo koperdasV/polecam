@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/profile/account/cubit/account_cubit.dart';
+import 'package:polec/src/ui/profile/account/data/account_repository.dart';
 import 'package:polec/src/ui/profile/account/edit_components/account_widget.dart';
 import 'package:polec/src/ui/profile/account/edit_components/edit_profile_widget.dart';
 
@@ -26,7 +27,7 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
   final TextEditingController surnameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController streetController = TextEditingController();
-  final TextEditingController sityController = TextEditingController();
+  final TextEditingController cityController = TextEditingController();
   final TextEditingController postCodeController = TextEditingController();
   final TextEditingController peselController = TextEditingController();
   final TextEditingController dateOfBirthController = TextEditingController();
@@ -40,7 +41,7 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
     peselController.dispose();
     phoneController.dispose();
     postCodeController.dispose();
-    sityController.dispose();
+    cityController.dispose();
     streetController.dispose();
     super.dispose();
   }
@@ -80,7 +81,7 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
                   peselController: peselController,
                   phoneController: phoneController,
                   postCodeController: postCodeController,
-                  sityController: sityController,
+                  cityController: cityController,
                   streetController: streetController,
                   onPressed: () {
                     setState(() {
@@ -88,29 +89,7 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
                         context
                             .read<AccountCubit>()
                             .editingAcc(editingAccount: false);
-                        // AccountModel(
-                        //   firstName: nameController.text,
-                        //   lastName: surnameController.text,
-                        //   email: emailController.text,
-                        //   phone: phoneController.text,
-                        //   street: streetController.text,
-                        //   sity: sityController.text,
-                        //   postCode: postCodeController.text,
-                        //   pesel: peselController.text,
-                        //   dateOfBirth: dateOfBirthController.text,
-                        // ).toJson();
                       }
-                      //   accountModelToJson(AccountModel(
-                      //     firstName: nameController.text,
-                      //     lastName: surnameController.text,
-                      //     email: emailController.text,
-                      //     phone: phoneController.text,
-                      //     street: streetController.text,
-                      //     sity: sityController.text,
-                      //     postCode: postCodeController.text,
-                      //     pesel: peselController.text,
-                      //     dateOfBirth: dateOfBirthController.text,
-                      //   ));
                     });
                   },
                 ),
@@ -121,11 +100,13 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
       },
     );
   }
-
-  // void editGender(String male, String female) {
-  //   if (GenderNavBar == Gender.male) {}
-  //   male = 'Male';
-  // } else {
-  //   female = ' female';
+//////// Can use this method for a writing gender data
+  // String editGender() {
+  //   final String gender;
+  //   if (GenderNavBar == Gender.male) {
+  //     return gender = 'Male';
+  //   } else {
+  //     return gender = 'Female';
+  //   }
   // }
 }

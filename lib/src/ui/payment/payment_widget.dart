@@ -1,29 +1,31 @@
+import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/resourses/app_images.dart';
 import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart';
+import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/components/image_widget.dart';
 import 'package:polec/src/ui/details/components/navigation_bar.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
 import 'package:polec/src/ui/details/components/recommendations.dart';
 import 'package:polec/src/ui/details/components/show_dialog.dart';
+import 'package:polec/src/ui/details/models/detail_model.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class PaymentWidget extends StatelessWidget {
   const PaymentWidget({
     super.key,
-    required this.image,
-    this.regularFee = 0.100,
+    required this.detailModel,
   });
-  final String image;
-  final double? regularFee;
+  final DetailModel detailModel;
 
   @override
   Widget build(BuildContext context) {
-    final amountParse = (regularFee)! * 100.round();
+    final amountParse = (detailModel.regularFee)! * 100.round();
     final regularFeePer = amountParse.toInt();
     final getRegularFee = regularFeePer + 1;
     return ListView(
@@ -38,14 +40,15 @@ class PaymentWidget extends StatelessWidget {
             children: [
               GestureDetector(
                 child: ImageWidget(
-                  image: image,
-                  regularFee: regularFee,
-                  tag: [],
+                  image: detailModel.image.toString(),
+                  regularFee: regularFeePer,
                 ),
                 onTap: () => Navigator.push(
                   context,
                   CupertinoPageRoute(
-                    builder: (context) => NotRecommendScreen(image: image),
+                    builder: (context) => NotRecommendScreen(
+                      image: detailModel.image.toString(),
+                    ),
                   ),
                 ),
               ),
@@ -119,8 +122,8 @@ class PaymentWidget extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.ideographic,
-                    children: [
-                      const Text(
+                    children: const [
+                      Text(
                         'Get ',
                         style: TextStyle(
                           fontSize: 14,
@@ -129,8 +132,8 @@ class PaymentWidget extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '${getRegularFee}%',
-                        style: const TextStyle(
+                        '%',
+                        style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -205,7 +208,7 @@ class PaymentWidget extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 10),
-////////////////////////////////////
+              ////////////////////////////////////
               RecommendedButton(
                 textButton: 'Pay',
                 gradient: const LinearGradient(
@@ -262,7 +265,9 @@ class PaymentWidget extends StatelessWidget {
             ),
           ),
         ),
-        const RecomendationsWidget(),
+        RecomendationsWidget(
+          detailModel: detailModel,
+        ),
       ],
     );
   }

@@ -12,13 +12,15 @@ String? detailsModelToJson(DetailModel data) => json.encode(data.toJson());
 @freezed
 class DetailModel with _$DetailModel {
   const factory DetailModel({
+    String? id,
     String? image,
     String? name,
     double? regularFee,
     String? url,
     String? description,
-    List<Addresses>? addresses,
+    @JsonKey(name: 'address') List<Addresses>? addresses,
     List<Recommendations>? recommendations,
+    List<String>? category,
   }) = _DetailModel;
 
   factory DetailModel.fromJson(Map<String, dynamic> json) =>

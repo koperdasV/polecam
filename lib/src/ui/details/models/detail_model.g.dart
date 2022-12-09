@@ -8,28 +8,34 @@ part of 'detail_model.dart';
 
 _$_DetailModel _$$_DetailModelFromJson(Map<String, dynamic> json) =>
     _$_DetailModel(
+      id: json['id'] as String?,
       image: json['image'] as String?,
       name: json['name'] as String?,
       regularFee: (json['regularFee'] as num?)?.toDouble(),
       url: json['url'] as String?,
       description: json['description'] as String?,
-      addresses: (json['addresses'] as List<dynamic>?)
+      addresses: (json['address'] as List<dynamic>?)
           ?.map((e) => Addresses.fromJson(e as Map<String, dynamic>))
           .toList(),
       recommendations: (json['recommendations'] as List<dynamic>?)
           ?.map((e) => Recommendations.fromJson(e as Map<String, dynamic>))
           .toList(),
+      category: (json['category'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$$_DetailModelToJson(_$_DetailModel instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'image': instance.image,
       'name': instance.name,
       'regularFee': instance.regularFee,
       'url': instance.url,
       'description': instance.description,
-      'addresses': instance.addresses,
+      'address': instance.addresses,
       'recommendations': instance.recommendations,
+      'category': instance.category,
     };
 
 _$_Addresses _$$_AddressesFromJson(Map<String, dynamic> json) => _$_Addresses(

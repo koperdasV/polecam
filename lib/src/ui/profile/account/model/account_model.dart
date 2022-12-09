@@ -18,7 +18,7 @@ class AccountModel with _$AccountModel {
     String? email,
     String? phone,
     String? street,
-    String? sity,
+    String? city,
     String? postCode,
     String? pesel,
     String? dateOfBirth,

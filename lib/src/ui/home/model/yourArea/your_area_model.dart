@@ -20,6 +20,7 @@ String yourAreaModelToJson(List<YourAreaModel> data) =>
 @freezed
 abstract class YourAreaModel with _$YourAreaModel {
   const factory YourAreaModel({
+    String? id,
     String? image,
     String? name,
     double? regularFee,

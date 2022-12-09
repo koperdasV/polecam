@@ -5,6 +5,10 @@ import 'package:polec/src/ui/details/models/detail_model.dart';
 
 abstract class IDetailRepo {
   Future<DetailModel> fetchDetails();
+  Future<DetailModel?> fetchProductDetails({
+    required String id,
+    required String type,
+  });
 }
 
 class DetailRepository implements IDetailRepo {
@@ -16,9 +20,57 @@ class DetailRepository implements IDetailRepo {
     //     List<String>.generate(5, (int index) => 'index: $index; ',
     //         growable: false));
 
-    final response = await rootBundle.loadString('assets/by-id.json');
+    final response = await rootBundle.loadString('assets/recommended.json');
     final json = await jsonDecode(response);
     final detailModel = DetailModel.fromJson(json as Map<String, dynamic>);
     return detailModel;
+
+    // final res = (json as List)
+    //     .firstWhere((element) => element['id'] == id, orElse: () => null);
+    // if (res != null) {
+    //   return DetailModel.fromJson(res as Map<String, dynamic>);
+    // } else {
+    //   return null;
+    // }
+
+//     .add() Function are use to insert value in a list
+
+// your code should be like this
+
+// List<int> eligibility = [];
+
+// for(Map map in widget.eligibility){
+//   // where the widget.eligibility is came from previous widget
+//   // which seems a list of map in your code
+//   eligibility.add(map['id']);
+// }
+
+// setState((){});
+
+    // List tmp;
+    // var response = tmp.firstWhere((element) => element.id = id, orElse: () => null);
+    // final detailModel = DetailModel.fromJson(json as Map<String, dynamic>);
+    // return detailModel;
+  }
+
+  @override
+  Future<DetailModel?> fetchProductDetails(
+      {required String id, required String type}) async {
+    String response = '';
+    if (type == 'recommended') {
+      response = await rootBundle.loadString('assets/recommended.json');
+    } else if (type == 'yourArea') {
+      response = await rootBundle.loadString('assets/near.json');
+    } else if (type == 'favourites') {
+      response = await rootBundle.loadString('assets/favourites.json');
+    }
+    final json = await jsonDecode(response);
+    final tmp = (json as List).firstWhere(
+      (element) => element['id'] == id,
+      orElse: () => null,
+    );
+    return tmp == null
+        ? null
+        : DetailModel.fromJson(tmp as Map<String, dynamic>);
   }
 }

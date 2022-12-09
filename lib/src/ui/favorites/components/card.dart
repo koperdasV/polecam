@@ -3,8 +3,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
+import 'package:polec/src/ui/details/bloc/details_bloc.dart';
+import 'package:polec/src/ui/details/data/detail_repository.dart';
 import 'package:polec/src/ui/favorites/model/favorite_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
@@ -66,6 +69,8 @@ class _CardFavoritesState extends State<CardFavorites> {
 
   @override
   Widget build(BuildContext context) {
+    final amountParse = (widget.tmp.regularFee)! * 100.round();
+    final percent = amountParse.toInt();
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
@@ -78,14 +83,16 @@ class _CardFavoritesState extends State<CardFavorites> {
             onTap: () {
               Navigator.push(
                 context,
-                CupertinoPageRoute(
-                  builder: (context) => DetailsScreen(
-                    image: widget.tmp.image.toString(),
-                    regularFee: widget.tmp.regularFee,
-                    name: widget.tmp.name.toString(),
-                    tag: widget.tmp.category,
+               CupertinoPageRoute(
+                builder: (context) => BlocProvider<DetailsBloc>(
+                  create: (context) =>
+                      DetailsBloc(detailsRepo: DetailRepository()),
+                  child: DetailsScreen(
+                    productId: widget.tmp.id!,
+                    productType: 'favourites',
                   ),
                 ),
+              ),
               );
             },
             child: Stack(
@@ -102,7 +109,7 @@ class _CardFavoritesState extends State<CardFavorites> {
                   ),
                 ),
                 PercentWidget(
-                  percent: widget.tmp.regularFee.toString(),
+                  percent: percent.toString(),
                   fontSize: 34,
                 ),
                 Positioned(

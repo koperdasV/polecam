@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
+import 'package:polec/src/ui/details/bloc/details_bloc.dart';
+import 'package:polec/src/ui/details/data/detail_repository.dart';
 import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
@@ -15,6 +18,8 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final amountParse = (tmp.regularFee)! * 100.round();
+    final percent = amountParse.toInt();
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
@@ -28,11 +33,13 @@ class CardWidget extends StatelessWidget {
               Navigator.push(
                 context,
                 CupertinoPageRoute(
-                  builder: (context) => DetailsScreen(
-                    image: tmp.image.toString(),
-                    regularFee: tmp.regularFee,
-                    name: tmp.name.toString(),
-                    tag: tmp.category,
+                  builder: (context) => BlocProvider<DetailsBloc>(
+                    create: (context) =>
+                        DetailsBloc(detailsRepo: DetailRepository()),
+                    child: DetailsScreen(
+                      productId: tmp.id!,
+                      productType: 'yourArea',
+                    ),
                   ),
                 ),
               );
@@ -51,7 +58,7 @@ class CardWidget extends StatelessWidget {
                   ),
                 ),
                 PercentWidget(
-                  percent: tmp.regularFee.toString(),
+                  percent: percent.toString(),
                   fontSize: 34,
                 ),
                 Positioned(

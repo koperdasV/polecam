@@ -12,7 +12,9 @@ class CalendarWidget extends StatefulWidget {
 }
 
 class _CalendarWidgetState extends State<CalendarWidget> {
-  DateTime _dateTime = DateTime.now();
+  DateTime lastDateTime = DateTime(
+      DateTime.now().year - 18, DateTime.now().month, DateTime.now().day);
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -30,19 +32,21 @@ class _CalendarWidgetState extends State<CalendarWidget> {
             onPressed: () {
               showDatePicker(
                 context: context,
-                initialDate: DateTime.now(),
+                initialDate: lastDateTime,
                 firstDate: DateTime(1920),
-                lastDate: DateTime(2030),
+                lastDate: lastDateTime,
+                currentDate: null,
               ).then((date) {
                 setState(() {
-                  _dateTime = date!;
+                  lastDateTime = date!;
                 });
               });
             },
           ),
         ),
         Text(
-          DateFormat('yyyy/MM/dd').format(DateTime.parse(_dateTime.toString())),
+          DateFormat('yyyy/MM/dd')
+              .format(DateTime.parse(lastDateTime.toString())),
         ),
       ],
     );

@@ -1,4 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:polec/src/ui/details/bloc/details_bloc.dart';
+import 'package:polec/src/ui/details/models/detail_model.dart';
+import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
@@ -7,13 +11,12 @@ class ImageWidget extends StatelessWidget {
     super.key,
     required this.image,
     this.regularFee = 0,
-    required this.tag,
+    this.detailModel,
   });
 
   final String image;
-  final double? regularFee;
-
-  final List<String> tag;
+  final int? regularFee;
+  final DetailModel? detailModel;
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +40,15 @@ class ImageWidget extends StatelessWidget {
         Positioned(
           left: 0,
           bottom: 0,
-          child: CategorieTag(
-            tag: tag,
+          child: Row(
+            children: [
+              CategorieTag(
+                tag: detailModel!.category!,
+              ),
+              CategorieTag(
+                tag: detailModel!.category!,
+              ),
+            ],
           ),
         ),
       ],

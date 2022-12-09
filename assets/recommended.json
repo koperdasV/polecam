@@ -1,5 +1,6 @@
 [
     {
+        "id": "recomendedIdFirst",
         "image": "https://vitok.ua/tmp/cache/images/b5/016/pic3-1065x684-r.jpg",
         "name": "Oreo Salon pielęgnacji psów",
         "regularFee": 0.200,
@@ -31,9 +32,28 @@
                     "sunday": "zamknięte"
                 }
             }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+11$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+101$"
+            }
         ]
     },
     {
+        "id": "recomendedIdSecond",
         "image": "https://x100-venus-sm-ua.gumlet.io/SKU/SUSHI-MASTER/%D0%A1%D0%B5%D1%82%D0%B8/6503E6C1-3107-11ED-B49D-176D6E48CD1B-1969%D1%851100_0001_%D0%A1%D0%B5%D1%82-%D0%9D%D0%B5%D0%B7%D0%BB%D0%B0%D0%BC%D0%BD%D0%B8%D0%B9.png?alt=media&token=5b82c865-8e7f-4b8f-90ed-19f3e6a0915b&w=800&format=webp&mode=fit&q=59",
         "name": "Falla",
         "regularFee": 0.300,
@@ -64,9 +84,28 @@
                     "sunday": "12:00 - 19:00"
                 }
             }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+22$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+102$"
+            }
         ]
     },
     {
+        "id": "recomendedIdThird",
         "image": "https://emosurff.com/i/0004R8005tf0/img_3911.jpg",
         "name": "Roller Park",
         "regularFee": 0.500,
@@ -98,9 +137,28 @@
                     "sunday": "12:00 - 20:00"
                 }
             }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+33$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+103$"
+            }
         ]
     },
     {
+        "id": "recomendedIdFourth",
         "image": "http://cdn.vkusnoo.com.ua/images/16153/16153-1345801090_fri.png",
         "name": "Grzegorzewicz Stomatologia",
         "regularFee": 0.250,
@@ -132,9 +190,28 @@
                     "sunday": "zamknięte"
                 }
             }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+44$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+104$"
+            }
         ]
     },
     {
+        "id": "recomendedIdFifth",
         "image": "https://foodandmood.com.ua/i/70/84/51/708451/d3ca6d299627ce8d8d90d658541b4a9c-quality_75Xresize_crop_1Xallow_enlarge_0Xw_740Xh_493.jpg",
         "name": "Family Park",
         "regularFee": 0.60,
@@ -165,6 +242,24 @@
                     "saturday": "9:00 - 20:00",
                     "sunday": "9:00 - 20:00"
                 }
+            }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+55$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+105$"
             }
         ]
     }

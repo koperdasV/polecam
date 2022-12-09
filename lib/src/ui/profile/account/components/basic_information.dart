@@ -68,7 +68,7 @@ class BasicInformationWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  '${state.accountModel.street}, ${state.accountModel.sity}',
+                  '${state.accountModel.street}, ${state.accountModel.city}',
                   style: subtitleTextStyle,
                 ),
               ],

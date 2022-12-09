@@ -20,6 +20,7 @@ YourAreaModel _$YourAreaModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$YourAreaModel {
+  String? get id => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   double? get regularFee => throw _privateConstructorUsedError;
@@ -41,7 +42,8 @@ abstract class $YourAreaModelCopyWith<$Res> {
       _$YourAreaModelCopyWithImpl<$Res, YourAreaModel>;
   @useResult
   $Res call(
-      {String? image,
+      {String? id,
+      String? image,
       String? name,
       double? regularFee,
       String? www,
@@ -63,6 +65,7 @@ class _$YourAreaModelCopyWithImpl<$Res, $Val extends YourAreaModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? image = freezed,
     Object? name = freezed,
     Object? regularFee = freezed,
@@ -72,6 +75,10 @@ class _$YourAreaModelCopyWithImpl<$Res, $Val extends YourAreaModel>
     Object? addresses = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -113,7 +120,8 @@ abstract class _$$_YourAreaModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? image,
+      {String? id,
+      String? image,
       String? name,
       double? regularFee,
       String? www,
@@ -133,6 +141,7 @@ class __$$_YourAreaModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? image = freezed,
     Object? name = freezed,
     Object? regularFee = freezed,
@@ -142,6 +151,10 @@ class __$$_YourAreaModelCopyWithImpl<$Res>
     Object? addresses = freezed,
   }) {
     return _then(_$_YourAreaModel(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -178,7 +191,8 @@ class __$$_YourAreaModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_YourAreaModel implements _YourAreaModel {
   const _$_YourAreaModel(
-      {this.image,
+      {this.id,
+      this.image,
       this.name,
       this.regularFee,
       this.www,
@@ -191,6 +205,8 @@ class _$_YourAreaModel implements _YourAreaModel {
   factory _$_YourAreaModel.fromJson(Map<String, dynamic> json) =>
       _$$_YourAreaModelFromJson(json);
 
+  @override
+  final String? id;
   @override
   final String? image;
   @override
@@ -221,7 +237,7 @@ class _$_YourAreaModel implements _YourAreaModel {
 
   @override
   String toString() {
-    return 'YourAreaModel(image: $image, name: $name, regularFee: $regularFee, www: $www, description: $description, category: $category, addresses: $addresses)';
+    return 'YourAreaModel(id: $id, image: $image, name: $name, regularFee: $regularFee, www: $www, description: $description, category: $category, addresses: $addresses)';
   }
 
   @override
@@ -229,6 +245,7 @@ class _$_YourAreaModel implements _YourAreaModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_YourAreaModel &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.regularFee, regularFee) ||
@@ -245,6 +262,7 @@ class _$_YourAreaModel implements _YourAreaModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       image,
       name,
       regularFee,
@@ -269,7 +287,8 @@ class _$_YourAreaModel implements _YourAreaModel {
 
 abstract class _YourAreaModel implements YourAreaModel {
   const factory _YourAreaModel(
-      {final String? image,
+      {final String? id,
+      final String? image,
       final String? name,
       final double? regularFee,
       final String? www,
@@ -280,6 +299,8 @@ abstract class _YourAreaModel implements YourAreaModel {
   factory _YourAreaModel.fromJson(Map<String, dynamic> json) =
       _$_YourAreaModel.fromJson;
 
+  @override
+  String? get id;
   @override
   String? get image;
   @override

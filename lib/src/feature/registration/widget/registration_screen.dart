@@ -40,7 +40,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
                 const SizedBox(height: 30),
                 const Text(
-                  'Utwórz konto',
+                  'Create account',
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
@@ -73,7 +73,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       },
                     ),
                     const Text(
-                      'Akceptuję',
+                      'I accept',
                       style: TextStyle(
                         fontSize: 14,
                         color: AppColors.greyDark,
@@ -83,7 +83,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       padding: const EdgeInsets.only(left: 5, right: 5),
                       onPressed: () {},
                       child: const Text(
-                        'warunki korzystania',
+                        'terms of use',
                         style: TextStyle(
                           fontSize: 14,
                           color: Colors.blue,
@@ -92,7 +92,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       ),
                     ),
                     const Text(
-                      'i',
+                      'and',
                       style: TextStyle(
                         fontSize: 14,
                         color: AppColors.greyDark,
@@ -102,7 +102,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       padding: const EdgeInsets.only(left: 5),
                       onPressed: () {},
                       child: const Text(
-                        'regulamin',
+                        'statute',
                         style: TextStyle(
                           fontSize: 14,
                           color: Colors.blue,
@@ -121,7 +121,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         context.go('/');
                       }
                     },
-                    child: const Text('Utwórz konto'),
+                    child: const Text('Create account'),
                   ),
                 ),
                 const SizedBox(height: 30),
@@ -129,7 +129,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Masz już konto?',
+                      'Already have an account?',
                       style: TextStyle(
                         fontSize: 16,
                         color: AppColors.greyDark,
@@ -139,7 +139,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       padding: const EdgeInsets.only(left: 5),
                       onPressed: () {},
                       child: const Text(
-                        'Zaloguj się',
+                        'Log in',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.blue,

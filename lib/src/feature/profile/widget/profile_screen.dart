@@ -9,7 +9,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       child: Column(
-        children: const [
+        children: [
           ProfileAppBar(),
           ProfileNavigationBar(),
         ],

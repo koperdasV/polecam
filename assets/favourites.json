@@ -1,5 +1,6 @@
 [
     {
+        "id": "favoriteIdFirst",
         "image": "https://vitok.ua/tmp/cache/images/b5/016/pic3-1065x684-r.jpg",
         "name": "Oreo Salon pielęgnacji psów",
         "regularFee": 0.200,
@@ -30,9 +31,28 @@
                     "sunday": "zamknięte"
                 }
             }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+55$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+555$"
+            }
         ]
     },
     {
+        "id": "favoriteIdSecond",
         "image": "https://x100-venus-sm-ua.gumlet.io/SKU/SUSHI-MASTER/%D0%A1%D0%B5%D1%82%D0%B8/6503E6C1-3107-11ED-B49D-176D6E48CD1B-1969%D1%851100_0001_%D0%A1%D0%B5%D1%82-%D0%9D%D0%B5%D0%B7%D0%BB%D0%B0%D0%BC%D0%BD%D0%B8%D0%B9.png?alt=media&token=5b82c865-8e7f-4b8f-90ed-19f3e6a0915b&w=800&format=webp&mode=fit&q=59",
         "name": "Falla",
         "regularFee": 0.300,
@@ -63,9 +83,28 @@
                     "sunday": "12:00 - 19:00"
                 }
             }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+66$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+666$"
+            }
         ]
     },
     {
+        "id": "favoriteIdThird",
         "image": "https://emosurff.com/i/0004R8005tf0/img_3911.jpg",
         "name": "Roller Park",
         "regularFee": 0.500,
@@ -96,9 +135,28 @@
                     "sunday": "12:00 - 20:00"
                 }
             }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+77$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+777$"
+            }
         ]
     },
     {
+        "id": "favoriteIdFourth",
         "image": "http://cdn.vkusnoo.com.ua/images/16153/16153-1345801090_fri.png",
         "name": "Grzegorzewicz Stomatologia",
         "regularFee": 0.250,
@@ -129,9 +187,28 @@
                     "sunday": "zamknięte"
                 }
             }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+88$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+888$"
+            }
         ]
     },
     {
+        "id": "favoriteIdFifth",
         "image": "https://img.delo-vcusa.ru/2020/11/Borshh-s-yablokami.jpg",
         "name": "Family Park",
         "regularFee": 0.60,
@@ -161,6 +238,24 @@
                     "saturday": "9:00 - 20:00",
                     "sunday": "9:00 - 20:00"
                 }
+            }
+        ],
+        "recommendations": [
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "John",
+                "surname": "Kuleipz",
+                "subtitle_you": "You",
+                "subtitle": "John",
+                "amount": "+99$"
+            },
+            {
+                "avatar": "assets/fake_images/profile.png",
+                "name": "Douglas",
+                "surname": "Santos",
+                "subtitle_you": "You",
+                "subtitle": "Douglas",
+                "amount": "+999$"
             }
         ]
     }
