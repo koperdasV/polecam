@@ -45,9 +45,6 @@ class ImageWidget extends StatelessWidget {
               CategorieTag(
                 tag: detailModel!.category!,
               ),
-              CategorieTag(
-                tag: detailModel!.category!,
-              ),
             ],
           ),
         ),

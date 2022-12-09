@@ -1,5 +1,4 @@
 import 'package:flash/flash.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
@@ -10,8 +9,6 @@ class ContactWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final detailModel = context.read<DetailsBloc>().state.detailModel;
-    // if (detailModel == null) return const SizedBox.shrink();
 
     const titleStyle = TextStyle(
       fontSize: 16,
@@ -33,14 +30,13 @@ class ContactWidget extends StatelessWidget {
         orElse: () => const Center(
           child: CircularProgressIndicator.adaptive(),
         ),
-        notFound: () => Center(
+        notFound: () => const Center(
           child: Text('not found product by id'),
         ),
         loaded: (productDetails) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: SizedBox(
             width: double.infinity,
-            // height: 140,
             child: Column(
               children: [
                 Row(

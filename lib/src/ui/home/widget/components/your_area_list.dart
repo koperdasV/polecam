@@ -38,7 +38,8 @@ class YourAreaList extends StatelessWidget {
             itemCount: state.yourArea.length,
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20),
                 child: YourAreaCard(
                   tmp: state.yourArea[index],
                 ),

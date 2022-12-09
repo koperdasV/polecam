@@ -13,11 +13,6 @@ class DetailsScreen extends StatefulWidget {
     this.productType = '',
   });
 
-  // final String image;
-  // final double? regularFee;
-  // final String? recommend;
-  // final String name;
-  // final String description;
   final String productId;
   final String productType;
 
@@ -31,28 +26,23 @@ class _DetailsScreenState extends State<DetailsScreen> {
     context.read<DetailsBloc>().add(DetailsEvent.loadProduct(
           productId: widget.productId,
           productType: widget.productType,
-        ));
+        ),);
     super.initState();
   }
 
-  @override
-  void dispose() {
-    context.read<DetailsBloc>().add(DetailsEvent.loadProduct(
-          productId: widget.productId,
-          productType: widget.productType,
-        )); // TODO: implement dispose
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   context.read<DetailsBloc>().add(
+  //         DetailsEvent.loadProduct(
+  //           productId: widget.productId,
+  //           productType: widget.productType,
+  //         ),
+  //       );
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
-    // final image = widget.image;
-    // final regularFee = widget.regularFee;
-    // final recommend = widget.recommend;
-    // final description = widget.description;
-
-    // final name = widget.name;
-
     return BlocConsumer<DetailsBloc, DetailsState>(
       listener: (context, state) => state.whenOrNull(
         error: (errorMessage) async =>
@@ -62,7 +52,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
         orElse: () => const Center(
           child: CircularProgressIndicator.adaptive(),
         ),
-        notFound: () => Center(
+        notFound: () => const Center(
           child: Text('not found product by id'),
         ),
         loaded: (productDetails) => CupertinoPageScaffold(
@@ -77,46 +67,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
           ),
           child: DetailsWidget(
-            // regularFee: productDetails.regularFee,
-            // image: productDetails.image.toString(),
-            // recommend: productDetails.recommendations.toString(),
-            // name: productDetails.name.toString(),
-            // description: productDetails.description.toString(),
             detailModel: productDetails,
           ),
         ),
-        error: (errorMessage) => Center(child: FlutterLogo()),
+        error: (errorMessage) => const Center(child: FlutterLogo()),
       ),
     );
   }
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   final image = widget.image;
-  //   final regularFee = widget.regularFee;
-  //   final recommend = widget.recommend;
-  //   final description = widget.description;
-
-  //   final name = widget.name;
-
-  //   return CupertinoPageScaffold(
-  //     navigationBar: const CupertinoNavigationBar(
-  //       middle: Text(
-  //         'In your area',
-  //         style: TextStyle(
-  //           fontSize: 24,
-  //           fontWeight: FontWeight.bold,
-  //           color: Colors.black,
-  //         ),
-  //       ),
-  //     ),
-  //     child: DetailsWidget(
-  //       regularFee: regularFee,
-  //       image: image,
-  //       recommend: recommend,
-  //       name: name,
-  //       description: description,
-  //     ),
-  //   );
-  // }
 }
