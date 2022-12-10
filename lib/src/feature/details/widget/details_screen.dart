@@ -23,23 +23,14 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   @override
   void initState() {
-    context.read<DetailsBloc>().add(DetailsEvent.loadProduct(
-          productId: widget.productId,
-          productType: widget.productType,
-        ),);
+    context.read<DetailsBloc>().add(
+          DetailsEvent.loadProduct(
+            productId: widget.productId,
+            productType: widget.productType,
+          ),
+        );
     super.initState();
   }
-
-  // @override
-  // void dispose() {
-  //   context.read<DetailsBloc>().add(
-  //         DetailsEvent.loadProduct(
-  //           productId: widget.productId,
-  //           productType: widget.productType,
-  //         ),
-  //       );
-  //   super.dispose();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -55,23 +46,45 @@ class _DetailsScreenState extends State<DetailsScreen> {
         notFound: () => const Center(
           child: Text('not found product by id'),
         ),
-        loaded: (productDetails) => CupertinoPageScaffold(
-          navigationBar: const CupertinoNavigationBar(
-            middle: Text(
-              'In your area',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+        loaded: (productDetails) => DetailModelContext(
+          detailModel: productDetails,
+          child: CupertinoPageScaffold(
+            navigationBar: const CupertinoNavigationBar(
+              middle: Text(
+                'In your area',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
               ),
             ),
-          ),
-          child: DetailsWidget(
-            detailModel: productDetails,
+            child: DetailsWidget(
+              detailModel: productDetails,
+            ),
           ),
         ),
         error: (errorMessage) => const Center(child: FlutterLogo()),
       ),
     );
+  }
+}
+
+class DetailModelContext extends InheritedWidget {
+  const DetailModelContext({
+    super.key,
+    required this.detailModel,
+    required super.child,
+  });
+
+  final DetailModel detailModel;
+
+  static DetailModelContext? of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<DetailModelContext>();
+  }
+
+  @override
+  bool updateShouldNotify(DetailModelContext oldWidget) {
+    return detailModel != oldWidget.detailModel;
   }
 }
