@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polec/src/feature/map/widget/map_screen.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_list_widget.dart';
 import 'package:polec/src/ui/home/widget/components/home_app_bar.dart';
 import 'package:polec/src/ui/home/widget/components/search_widget.dart';

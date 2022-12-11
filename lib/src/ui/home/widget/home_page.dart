@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:polec/src/feature/map/widget/map_screen.dart';
 import 'package:polec/src/feature/profile/widget/profile_screen.dart';
 import 'package:polec/src/ui/home/blocs/blocs.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
@@ -16,6 +17,7 @@ import 'package:polec/src/ui/home/widget/components/search_widget.dart';
 import 'package:polec/src/ui/home/widget/components/title_widget.dart';
 import 'package:polec/src/ui/home/widget/components/your_area_list.dart';
 import 'package:polec/src/ui/inYourArea/in_your_area_page.dart';
+import 'package:polec/src/ui/map/map_page.dart';
 import 'package:polec/src/ui/recommended/recommended_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -82,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(
                   context,
                   CupertinoPageRoute(
-                    builder: (context) => const ProfileScreen(),
+                    builder: (context) => const MapScreen(),
                   ),
                 );
               },
