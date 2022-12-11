@@ -38,7 +38,7 @@ abstract class Address with _$Address {
     String? country,
     String? lat,
     String? lng,
-    List<String>? phone,
+    List<String>? phones,
     String? email,
     Open? open,
   }) = _Address;

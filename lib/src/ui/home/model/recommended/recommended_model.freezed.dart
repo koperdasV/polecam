@@ -332,7 +332,7 @@ mixin _$Address {
   String? get country => throw _privateConstructorUsedError;
   String? get lat => throw _privateConstructorUsedError;
   String? get lng => throw _privateConstructorUsedError;
-  List<String>? get phone => throw _privateConstructorUsedError;
+  List<String>? get phones => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   Open? get open => throw _privateConstructorUsedError;
 
@@ -353,7 +353,7 @@ abstract class $AddressCopyWith<$Res> {
       String? country,
       String? lat,
       String? lng,
-      List<String>? phone,
+      List<String>? phones,
       String? email,
       Open? open});
 
@@ -379,7 +379,7 @@ class _$AddressCopyWithImpl<$Res, $Val extends Address>
     Object? country = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
-    Object? phone = freezed,
+    Object? phones = freezed,
     Object? email = freezed,
     Object? open = freezed,
   }) {
@@ -408,9 +408,9 @@ class _$AddressCopyWithImpl<$Res, $Val extends Address>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as String?,
-      phone: freezed == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
+      phones: freezed == phones
+          ? _value.phones
+          : phones // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       email: freezed == email
           ? _value.email
@@ -450,7 +450,7 @@ abstract class _$$_AddressCopyWith<$Res> implements $AddressCopyWith<$Res> {
       String? country,
       String? lat,
       String? lng,
-      List<String>? phone,
+      List<String>? phones,
       String? email,
       Open? open});
 
@@ -474,7 +474,7 @@ class __$$_AddressCopyWithImpl<$Res>
     Object? country = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
-    Object? phone = freezed,
+    Object? phones = freezed,
     Object? email = freezed,
     Object? open = freezed,
   }) {
@@ -503,9 +503,9 @@ class __$$_AddressCopyWithImpl<$Res>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as String?,
-      phone: freezed == phone
-          ? _value._phone
-          : phone // ignore: cast_nullable_to_non_nullable
+      phones: freezed == phones
+          ? _value._phones
+          : phones // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       email: freezed == email
           ? _value.email
@@ -529,10 +529,10 @@ class _$_Address implements _Address {
       this.country,
       this.lat,
       this.lng,
-      final List<String>? phone,
+      final List<String>? phones,
       this.email,
       this.open})
-      : _phone = phone;
+      : _phones = phones;
 
   factory _$_Address.fromJson(Map<String, dynamic> json) =>
       _$$_AddressFromJson(json);
@@ -549,10 +549,10 @@ class _$_Address implements _Address {
   final String? lat;
   @override
   final String? lng;
-  final List<String>? _phone;
+  final List<String>? _phones;
   @override
-  List<String>? get phone {
-    final value = _phone;
+  List<String>? get phones {
+    final value = _phones;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
@@ -565,7 +565,7 @@ class _$_Address implements _Address {
 
   @override
   String toString() {
-    return 'Address(street: $street, city: $city, code: $code, country: $country, lat: $lat, lng: $lng, phone: $phone, email: $email, open: $open)';
+    return 'Address(street: $street, city: $city, code: $code, country: $country, lat: $lat, lng: $lng, phones: $phones, email: $email, open: $open)';
   }
 
   @override
@@ -579,7 +579,7 @@ class _$_Address implements _Address {
             (identical(other.country, country) || other.country == country) &&
             (identical(other.lat, lat) || other.lat == lat) &&
             (identical(other.lng, lng) || other.lng == lng) &&
-            const DeepCollectionEquality().equals(other._phone, _phone) &&
+            const DeepCollectionEquality().equals(other._phones, _phones) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.open, open) || other.open == open));
   }
@@ -587,7 +587,7 @@ class _$_Address implements _Address {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, street, city, code, country, lat,
-      lng, const DeepCollectionEquality().hash(_phone), email, open);
+      lng, const DeepCollectionEquality().hash(_phones), email, open);
 
   @JsonKey(ignore: true)
   @override
@@ -611,7 +611,7 @@ abstract class _Address implements Address {
       final String? country,
       final String? lat,
       final String? lng,
-      final List<String>? phone,
+      final List<String>? phones,
       final String? email,
       final Open? open}) = _$_Address;
 
@@ -630,7 +630,7 @@ abstract class _Address implements Address {
   @override
   String? get lng;
   @override
-  List<String>? get phone;
+  List<String>? get phones;
   @override
   String? get email;
   @override

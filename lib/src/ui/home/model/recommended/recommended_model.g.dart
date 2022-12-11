@@ -41,8 +41,8 @@ _$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(
       country: json['country'] as String?,
       lat: json['lat'] as String?,
       lng: json['lng'] as String?,
-      phone:
-          (json['phone'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      phones:
+          (json['phones'] as List<dynamic>?)?.map((e) => e as String).toList(),
       email: json['email'] as String?,
       open: json['open'] == null
           ? null
@@ -57,7 +57,7 @@ Map<String, dynamic> _$$_AddressToJson(_$_Address instance) =>
       'country': instance.country,
       'lat': instance.lat,
       'lng': instance.lng,
-      'phone': instance.phone,
+      'phones': instance.phones,
       'email': instance.email,
       'open': instance.open,
     };

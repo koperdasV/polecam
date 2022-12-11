@@ -18,7 +18,7 @@
                 "country": "Polska",
                 "lat": "53.111679",
                 "lng": "17.988560",
-                "phone": [
+                "phones": [
                     "+48 603 426 497"
                 ],
                 "email": "salon.oreo@gmail.com",
@@ -70,7 +70,7 @@
                 "country": "Polska",
                 "lat": "53.127960",
                 "lng": "18.006060",
-                "phone": [
+                "phones": [
                     "+48 510 909 184"
                 ],
                 "email": "bydgoszcz@fallawege.pl",
@@ -123,7 +123,7 @@
                 "country": "Polska",
                 "lat": "53.119970",
                 "lng": "18.049050",
-                "phone": [
+                "phones": [
                     "+48 575 088 885"
                 ],
                 "email": "biuro@rollerpark.pl",
@@ -176,7 +176,7 @@
                 "country": "Polska",
                 "lat": "53.116330",
                 "lng": "17.956810",
-                "phone": [
+                "phones": [
                     "+48 515 515 527"
                 ],
                 "email": "gabinet@grzegorzewicz-stomatologia.pl",
@@ -229,7 +229,7 @@
                 "country": "Polska",
                 "lat": "53.125789",
                 "lng": "18.066841",
-                "phone": [
+                "phones": [
                     "+48 500 474 107"
                 ],
                 "email": "recepcja@familypark.pl",

@@ -27,7 +27,7 @@ mixin _$YourAreaModel {
   String? get www => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   List<String>? get category => throw _privateConstructorUsedError;
-  List<Address>? get addresses => throw _privateConstructorUsedError;
+  List<Address>? get address => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +49,7 @@ abstract class $YourAreaModelCopyWith<$Res> {
       String? www,
       String? description,
       List<String>? category,
-      List<Address>? addresses});
+      List<Address>? address});
 }
 
 /// @nodoc
@@ -72,7 +72,7 @@ class _$YourAreaModelCopyWithImpl<$Res, $Val extends YourAreaModel>
     Object? www = freezed,
     Object? description = freezed,
     Object? category = freezed,
-    Object? addresses = freezed,
+    Object? address = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -103,9 +103,9 @@ class _$YourAreaModelCopyWithImpl<$Res, $Val extends YourAreaModel>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      addresses: freezed == addresses
-          ? _value.addresses
-          : addresses // ignore: cast_nullable_to_non_nullable
+      address: freezed == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
               as List<Address>?,
     ) as $Val);
   }
@@ -127,7 +127,7 @@ abstract class _$$_YourAreaModelCopyWith<$Res>
       String? www,
       String? description,
       List<String>? category,
-      List<Address>? addresses});
+      List<Address>? address});
 }
 
 /// @nodoc
@@ -148,7 +148,7 @@ class __$$_YourAreaModelCopyWithImpl<$Res>
     Object? www = freezed,
     Object? description = freezed,
     Object? category = freezed,
-    Object? addresses = freezed,
+    Object? address = freezed,
   }) {
     return _then(_$_YourAreaModel(
       id: freezed == id
@@ -179,9 +179,9 @@ class __$$_YourAreaModelCopyWithImpl<$Res>
           ? _value._category
           : category // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      addresses: freezed == addresses
-          ? _value._addresses
-          : addresses // ignore: cast_nullable_to_non_nullable
+      address: freezed == address
+          ? _value._address
+          : address // ignore: cast_nullable_to_non_nullable
               as List<Address>?,
     ));
   }
@@ -198,9 +198,9 @@ class _$_YourAreaModel implements _YourAreaModel {
       this.www,
       this.description,
       final List<String>? category,
-      final List<Address>? addresses})
+      final List<Address>? address})
       : _category = category,
-        _addresses = addresses;
+        _address = address;
 
   factory _$_YourAreaModel.fromJson(Map<String, dynamic> json) =>
       _$$_YourAreaModelFromJson(json);
@@ -226,10 +226,10 @@ class _$_YourAreaModel implements _YourAreaModel {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<Address>? _addresses;
+  final List<Address>? _address;
   @override
-  List<Address>? get addresses {
-    final value = _addresses;
+  List<Address>? get address {
+    final value = _address;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
@@ -237,7 +237,7 @@ class _$_YourAreaModel implements _YourAreaModel {
 
   @override
   String toString() {
-    return 'YourAreaModel(id: $id, image: $image, name: $name, regularFee: $regularFee, www: $www, description: $description, category: $category, addresses: $addresses)';
+    return 'YourAreaModel(id: $id, image: $image, name: $name, regularFee: $regularFee, www: $www, description: $description, category: $category, address: $address)';
   }
 
   @override
@@ -254,8 +254,7 @@ class _$_YourAreaModel implements _YourAreaModel {
             (identical(other.description, description) ||
                 other.description == description) &&
             const DeepCollectionEquality().equals(other._category, _category) &&
-            const DeepCollectionEquality()
-                .equals(other._addresses, _addresses));
+            const DeepCollectionEquality().equals(other._address, _address));
   }
 
   @JsonKey(ignore: true)
@@ -269,7 +268,7 @@ class _$_YourAreaModel implements _YourAreaModel {
       www,
       description,
       const DeepCollectionEquality().hash(_category),
-      const DeepCollectionEquality().hash(_addresses));
+      const DeepCollectionEquality().hash(_address));
 
   @JsonKey(ignore: true)
   @override
@@ -294,7 +293,7 @@ abstract class _YourAreaModel implements YourAreaModel {
       final String? www,
       final String? description,
       final List<String>? category,
-      final List<Address>? addresses}) = _$_YourAreaModel;
+      final List<Address>? address}) = _$_YourAreaModel;
 
   factory _YourAreaModel.fromJson(Map<String, dynamic> json) =
       _$_YourAreaModel.fromJson;
@@ -314,7 +313,7 @@ abstract class _YourAreaModel implements YourAreaModel {
   @override
   List<String>? get category;
   @override
-  List<Address>? get addresses;
+  List<Address>? get address;
   @override
   @JsonKey(ignore: true)
   _$$_YourAreaModelCopyWith<_$_YourAreaModel> get copyWith =>

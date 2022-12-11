@@ -17,7 +17,7 @@ _$_YourAreaModel _$$_YourAreaModelFromJson(Map<String, dynamic> json) =>
       category: (json['category'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      addresses: (json['addresses'] as List<dynamic>?)
+      address: (json['address'] as List<dynamic>?)
           ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -31,7 +31,7 @@ Map<String, dynamic> _$$_YourAreaModelToJson(_$_YourAreaModel instance) =>
       'www': instance.www,
       'description': instance.description,
       'category': instance.category,
-      'addresses': instance.addresses,
+      'address': instance.address,
     };
 
 _$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(

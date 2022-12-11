@@ -9,7 +9,6 @@ class ContactWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     const titleStyle = TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.bold,
@@ -89,7 +88,7 @@ class ContactWidget extends StatelessWidget {
                       style: titleStyle,
                     ),
                     Text(
-                      productDetails.addresses![0].phones.toString(),
+                      productDetails.addresses![0].phones![0],
                       style: subtitleStyle,
                     ),
                   ],
