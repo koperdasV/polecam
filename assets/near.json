@@ -10,7 +10,7 @@
             "Jedzenie",
             "Sushi"
         ],
-        "addresses": [
+        "address": [
             {
                 "street": "Jatki 2",
                 "city": "Bydgoszcz",
@@ -62,7 +62,7 @@
         "category": [
             "Jedzenie"
         ],
-        "addresses": [
+        "address": [
             {
                 "street": "Grudziądzka 33",
                 "city": "Bydgoszcz",
@@ -115,7 +115,7 @@
             "Motoryzacja",
             "Auto detailing"
         ],
-        "addresses": [
+        "address": [
             {
                 "street": "Fordońska 250",
                 "city": "Bydgoszcz",
@@ -168,7 +168,7 @@
         "category": [
             "Hotele i noclegi"
         ],
-        "addresses": [
+        "address": [
             {
                 "street": "3 Maja 6",
                 "city": "Bydgoszcz",

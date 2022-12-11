@@ -23,7 +23,7 @@ class DetailsWidget extends StatefulWidget {
 class _DetailsWidgetState extends State<DetailsWidget> {
   @override
   Widget build(BuildContext context) {
-    final amountParse = (widget.detailModel.regularFee)! * 100.round();
+    final amountParse = (widget.detailModel.regularFee)! * 100;
     final percent = amountParse.toInt();
     final getRegularFee = percent + 1;
 

@@ -54,9 +54,11 @@ class DetailRepository implements IDetailRepo {
   }
 
   @override
-  Future<DetailModel?> fetchProductDetails(
-      {required String id, required String type}) async {
-    String response = '';
+  Future<DetailModel?> fetchProductDetails({
+    required String id,
+    required String type,
+  }) async {
+    var response = '';
     if (type == 'recommended') {
       response = await rootBundle.loadString('assets/recommended.json');
     } else if (type == 'yourArea') {

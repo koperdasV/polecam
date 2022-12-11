@@ -27,7 +27,7 @@ abstract class YourAreaModel with _$YourAreaModel {
     String? www,
     String? description,
     List<String>? category,
-    List<Address>? addresses,
+    List<Address>? address,
   }) = _YourAreaModel;
 
   factory YourAreaModel.fromJson(Map<String, dynamic> json) =>
