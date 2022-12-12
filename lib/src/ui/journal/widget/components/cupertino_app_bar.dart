@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:polec/src/ui/recommended/components/cupertino_nav_bar.dart';
-import 'package:polec/src/ui/recommended/components/search_box.dart';
 
 class CupertinoAppBar extends StatelessWidget with PreferredSizeWidget {
   CupertinoAppBar({
