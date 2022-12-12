@@ -25,10 +25,13 @@ class PayoutCard extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(bottom: 10, left: 8, right: 10),
-              child: Text(
-                titleText,
-                style: const TextStyle(
-                  color: Colors.white,
+              child: SizedBox(
+                height: 40,
+                child: Text(
+                  titleText,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -38,6 +41,7 @@ class PayoutCard extends StatelessWidget {
                 color: Colors.white,
                 fontSize: 20,
               ),
+              softWrap: false,
             ),
           ],
         ),

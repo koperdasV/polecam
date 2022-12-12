@@ -37,6 +37,7 @@ dependencies:
   json_annotation: ^4.7.0
   freezed: ^2.2.0
   json_serializable: ^6.5.4
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   bloc_test: ^9.1.0

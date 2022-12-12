@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/screen/bonus_screen.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/screen/moneyback_screen.dart';
@@ -58,7 +59,7 @@ class _PayoutNavigationBarState extends State<PayoutNavigationBar> {
                 },
                 children: <Detail, Widget>{
                   Detail.moneyback: buildSegment('Moneyback'),
-                  Detail.recommendation: buildSegment('Recommendation'),
+                  Detail.recommendation: buildSegment('Recommendations'),
                   Detail.bonus: buildSegment('Bonus'),
                 },
               ),
@@ -81,19 +82,7 @@ class _PayoutNavigationBarState extends State<PayoutNavigationBar> {
         color: CupertinoColors.black,
         fontSize: 14,
       ),
+      softWrap: false,
     );
   }
 }
-
-
-
-// bool isVisible() {
-//   Detail val = Detail.account;
-//   bool value;
-//   if (val == Detail.account) {
-//     value = true;
-//   } else {
-//     value = false;
-//   }
-//   return value;
-// }
