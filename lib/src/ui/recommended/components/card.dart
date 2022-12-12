@@ -62,10 +62,32 @@ class CardWidget extends StatelessWidget {
                   fontSize: 34,
                 ),
                 Positioned(
-                  right: 0,
+                  left: 0,
                   bottom: 0,
                   child: CategorieTag(
                     tag: tmp.category!,
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  bottom: 0,
+                  child: CupertinoButton(
+                    borderRadius: BorderRadius.circular(100),
+                    onPressed: () {},
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColor.favoriteButtonColor,
+                      ),
+                      child: Center(
+                        child: Icon(
+                          CupertinoIcons.heart_fill,
+                          color: AppColor.unFavoritesColor,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],
