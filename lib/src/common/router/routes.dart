@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
+import 'package:polec/src/feature/home/navigation_cubit/navigation_bar_cubit.dart';
 import 'package:polec/src/feature/home/widget/home_screen.dart';
 import 'package:polec/src/feature/not_found/widget/not_found_screen.dart';
 import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart';
@@ -20,6 +21,7 @@ import 'package:polec/src/ui/journal/data/journals_repository.dart';
 import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
 import 'package:polec/src/ui/profile/account/cubit/account_cubit.dart';
 import 'package:polec/src/ui/profile/account/data/account_repository.dart';
+import 'package:provider/provider.dart';
 
 part 'routes.g.dart';
 
@@ -70,8 +72,12 @@ class HomeRoute extends GoRouteData {
           )..add(const LoadFavorite()),
         ),
         BlocProvider(create: (context) => AccountCubit()),
+        BlocProvider(create: (context) => NavigationCubit()),
       ],
-      child: const HomeScreen(),
+      child: ChangeNotifierProvider<BottomNavigationBarProvider>(
+        create: (context) => BottomNavigationBarProvider(),
+        child: const HomeScreen(),
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/models/detail_model.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
@@ -46,6 +47,28 @@ class ImageWidget extends StatelessWidget {
                 tag: detailModel!.category!,
               ),
             ],
+          ),
+        ),
+        Positioned(
+          right: 0,
+          bottom: 0,
+          child: CupertinoButton(
+            borderRadius: BorderRadius.circular(100),
+            onPressed: () {},
+            child: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: AppColor.favoriteButtonColor,
+              ),
+              child: Center(
+                child: Icon(
+                  CupertinoIcons.heart_fill,
+                  color: AppColor.unFavoritesColor,
+                ),
+              ),
+            ),
           ),
         ),
       ],

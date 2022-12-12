@@ -79,8 +79,8 @@ class YourAreaCard extends StatelessWidget {
                       ),
                       child: Center(
                         child: Icon(
-                          CupertinoIcons.heart,
-                          color: AppColor.textButtonColor,
+                          CupertinoIcons.heart_fill,
+                          color: AppColor.unFavoritesColor,
                         ),
                       ),
                     ),
