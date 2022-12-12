@@ -7,6 +7,7 @@ import 'package:polec/src/ui/profile/statistics/components/payout_card.dart';
 import 'package:polec/src/ui/profile/statistics/components/progress_indicator.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/components/line_diagram.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/components/title_widget.dart';
+import 'package:polec/src/ui/profile/statistics/payout_page/components/toltip_widget.dart';
 import 'package:polec/src/ui/profile/statistics/summary_page/components/bubble_chart.dart';
 import 'package:polec/src/ui/profile/statistics/summary_page/components/list_charts.dart';
 import 'package:polec/src/ui/profile/statistics/summary_page/components/spider_chart.dart';
@@ -27,12 +28,12 @@ class _SummaryPageState extends State<SummaryPage> {
   @override
   void initState() {
     _tooltipBehavior = TooltipBehavior(
-      enable: true,
       color: Colors.white,
-      shadowColor: Colors.grey,
-      textStyle: TextStyle(
-        color: AppColor.categorieTextColor,
-      ),
+      enable: true,
+      builder: (data, point, series, pointIndex, seriesIndex) {
+        final pointY = point.y as double;
+        return tooltipBuild(pointY);
+      },
     );
     _zoomPanBehavior = ZoomPanBehavior(
       enablePinching: true,
