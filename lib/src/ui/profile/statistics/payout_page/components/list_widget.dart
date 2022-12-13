@@ -25,7 +25,7 @@ class ListWidget extends StatelessWidget {
           slivers: [
             SliverList(
               delegate: SliverChildBuilderDelegate(
-                childCount: state.journals.length - 10,
+                childCount: state.journals.length,
                 (context, index) => Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 19,
@@ -41,7 +41,7 @@ class ListWidget extends StatelessWidget {
                             padding: const EdgeInsets.only(right: 15),
                             child: CircleAvatar(
                               radius: 30,
-                              backgroundColor: color,
+                            
                               backgroundImage: NetworkImage(
                                 state.journals[index].source.avatar,
                               ),
