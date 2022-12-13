@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/screen/bonus_screen.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/screen/moneyback_screen.dart';

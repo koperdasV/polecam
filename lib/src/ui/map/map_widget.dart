@@ -53,8 +53,6 @@ class _MapWidgetState extends State<MapWidget> {
                     userAgentPackageName: 'com.example.app',
                   ),
                   MarkerLayer(
-                    // rotate: true,
-                    // rotateAlignment: Alignment.topLeft,
                     markers: [
                       Marker(
                         point: LatLng(_defaulLat, _defaulLng),
@@ -89,18 +87,22 @@ class _MapWidgetState extends State<MapWidget> {
                         builder: (_) {
                           return Visibility(
                             visible: infoVisibleFirst,
-                            child: const InfoCardWidget(
+                            child: InfoCardWidget(
                               color: Colors.white,
+                              tmp: state.recommended[0],
                             ),
                           );
                         },
                       ),
                       Marker(
                         point: LatLng(
-                            double.parse(state.recommended[0].address![0].lat
-                                .toString()),
-                            double.parse(state.recommended[0].address![0].lng
-                                .toString())),
+                          double.parse(
+                            state.recommended[0].address![0].lat.toString(),
+                          ),
+                          double.parse(
+                            state.recommended[0].address![0].lng.toString(),
+                          ),
+                        ),
                         builder: (_) {
                           return GestureDetector(
                             child: DecoratedBox(
@@ -131,9 +133,12 @@ class _MapWidgetState extends State<MapWidget> {
                         anchorPos: AnchorPos.exactly(Anchor(155, -5)),
                         builder: (_) {
                           return Visibility(
-                              visible: infoVisibleSecond,
-                              child: const InfoCardWidget(
-                                  color: AppColors.bgMapInfo,),);
+                            visible: infoVisibleSecond,
+                            child: InfoCardWidget(
+                              color: AppColors.bgMapInfo,
+                              tmp: state.recommended[0],
+                            ),
+                          );
                         },
                       ),
                       Marker(
@@ -169,8 +174,9 @@ class _MapWidgetState extends State<MapWidget> {
                         builder: (_) {
                           return Visibility(
                             visible: infoVisibleThird,
-                            child: const InfoCardWidget(
+                            child: InfoCardWidget(
                               color: Colors.white,
+                              tmp: state.recommended[0],
                             ),
                           );
                         },
@@ -208,8 +214,9 @@ class _MapWidgetState extends State<MapWidget> {
                         builder: (_) {
                           return Visibility(
                             visible: infoVisibleFourth,
-                            child: const InfoCardWidget(
+                            child: InfoCardWidget(
                               color: Colors.white,
+                              tmp: state.recommended[0],
                             ),
                           );
                         },
