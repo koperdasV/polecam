@@ -58,7 +58,8 @@ class BubbleChartData {
   BubbleChartData(
     this.x,
     this.y,
-    this.pointColorMapper, this.bubbleSize,
+    this.pointColorMapper,
+    this.bubbleSize,
   );
   final String x;
   final double y;

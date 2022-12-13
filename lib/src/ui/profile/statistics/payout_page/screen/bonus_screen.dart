@@ -5,6 +5,7 @@ import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/components/line_diagram.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/components/list_widget.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/components/title_widget.dart';
+import 'package:polec/src/ui/profile/statistics/payout_page/components/toltip_widget.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class BonusScreen extends StatefulWidget {
@@ -20,7 +21,14 @@ class _BonusScreenState extends State<BonusScreen> {
 
   @override
   void initState() {
-    _tooltipBehavior = TooltipBehavior(enable: true);
+    _tooltipBehavior = TooltipBehavior(
+      color: Colors.white,
+      enable: true,
+      builder: (data, point, series, pointIndex, seriesIndex) {
+        final pointY = point.y as double;
+        return tooltipBuild(pointY);
+      },
+    );
     _zoomPanBehavior = ZoomPanBehavior(
       enablePinching: true,
       zoomMode: ZoomMode.x,
