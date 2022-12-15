@@ -72,7 +72,7 @@ class _CardWidgetState extends State<CardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final amountParse = (widget.tmp.regularFee)! * 100.round();
+    final amountParse = (widget.tmp.regularFee) * 100;
     final percent = amountParse.toInt();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,7 +86,7 @@ class _CardWidgetState extends State<CardWidget> {
                   create: (context) =>
                       DetailsBloc(detailsRepo: DetailRepository()),
                   child: DetailsScreen(
-                    productId: widget.tmp.id!,
+                    productId: widget.tmp.id,
                     productType: 'recommended',
                   ),
                 ),
@@ -101,7 +101,7 @@ class _CardWidgetState extends State<CardWidget> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.network(
-                    widget.tmp.image.toString(),
+                    widget.tmp.image,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -136,7 +136,7 @@ class _CardWidgetState extends State<CardWidget> {
                 left: 0,
                 bottom: 0,
                 child: CategorieTag(
-                  tag: widget.tmp.category!.toList(),
+                  tag: widget.tmp.category.toList(),
                 ),
               )
             ],
@@ -147,7 +147,7 @@ class _CardWidgetState extends State<CardWidget> {
           child: Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
-              widget.tmp.name.toString(),
+              widget.tmp.name,
               maxLines: 1,
               style: const TextStyle(
                 overflow: TextOverflow.clip,
@@ -159,7 +159,7 @@ class _CardWidgetState extends State<CardWidget> {
         SizedBox(
           width: 250,
           child: Text(
-            widget.tmp.description.toString(),
+            widget.tmp.description,
             maxLines: 1,
             style: TextStyle(
               fontSize: 12,

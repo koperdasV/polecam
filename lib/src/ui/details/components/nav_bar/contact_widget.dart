@@ -46,7 +46,7 @@ class ContactWidget extends StatelessWidget {
                       style: titleStyle,
                     ),
                     Text(
-                      productDetails.addresses![0].street.toString(),
+                      productDetails.address[0].street,
                       style: subtitleStyle,
                     ),
                   ],
@@ -60,7 +60,7 @@ class ContactWidget extends StatelessWidget {
                       style: titleStyle,
                     ),
                     Text(
-                      productDetails.addresses![0].city.toString(),
+                      productDetails.address[0].city,
                       style: subtitleStyle,
                     ),
                   ],
@@ -74,7 +74,7 @@ class ContactWidget extends StatelessWidget {
                       style: titleStyle,
                     ),
                     Text(
-                      productDetails.addresses![0].country.toString(),
+                      productDetails.address[0].country,
                       style: subtitleStyle,
                     ),
                   ],
@@ -88,7 +88,7 @@ class ContactWidget extends StatelessWidget {
                       style: titleStyle,
                     ),
                     Text(
-                      productDetails.addresses![0].phones![0],
+                      productDetails.address[0].phones[0],
                       style: subtitleStyle,
                     ),
                   ],

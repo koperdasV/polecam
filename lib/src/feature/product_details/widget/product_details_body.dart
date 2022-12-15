@@ -9,13 +9,13 @@ class ProductDetailsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('${detailModel.id}'),
-        Text('${detailModel.addresses}'),
-        Text('${detailModel.name}'),
+        Text(detailModel.id),
+        Text('${detailModel.address}'),
+        Text(detailModel.name),
         Text('${detailModel.regularFee}'),
         Text('${detailModel.recommendations}'),
-        Text('${detailModel.url}'),
-        ...detailModel.addresses!.map((e) => Text(e.city!)).toList(),
+        Text(detailModel.www),
+        ...detailModel.address.map((e) => Text(e.city)).toList(),
       ],
     );
   }

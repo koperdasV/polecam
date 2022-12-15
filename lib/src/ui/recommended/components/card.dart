@@ -18,7 +18,7 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final amountParse = (tmp.regularFee)! * 100.round();
+    final amountParse = (tmp.regularFee) * 100;
     final percent = amountParse.toInt();
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -37,7 +37,7 @@ class CardWidget extends StatelessWidget {
                     create: (context) =>
                         DetailsBloc(detailsRepo: DetailRepository()),
                     child: DetailsScreen(
-                      productId: tmp.id!,
+                      productId: tmp.id,
                       productType: 'recommended',
                     ),
                   ),
@@ -52,7 +52,7 @@ class CardWidget extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Image.network(
-                      tmp.image.toString(),
+                      tmp.image,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -65,7 +65,7 @@ class CardWidget extends StatelessWidget {
                   left: 0,
                   bottom: 0,
                   child: CategorieTag(
-                    tag: tmp.category!,
+                    tag: tmp.category,
                   ),
                 ),
                 Positioned(

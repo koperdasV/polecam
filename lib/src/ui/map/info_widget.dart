@@ -37,7 +37,7 @@ class InfoCardWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                tmp.name!,
+                tmp.name,
                 style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
@@ -54,14 +54,14 @@ class InfoCardWidget extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                tmp.regularFee!.toString(),
+                tmp.regularFee.toString(),
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                tmp.address![0].street!,
+                tmp.address[0].street,
                 style: TextStyle(
                   fontSize: 9,
                   fontWeight: FontWeight.normal,
@@ -73,7 +73,7 @@ class InfoCardWidget extends StatelessWidget {
         ),
       ),
       onTap: () {
-        if (color == Colors.white) {
+        // if (color == Colors.white) {
           Navigator.push(
             context,
             CupertinoPageRoute(
@@ -81,20 +81,20 @@ class InfoCardWidget extends StatelessWidget {
                 create: (context) =>
                     DetailsBloc(detailsRepo: DetailRepository()),
                 child: DetailsScreen(
-                  productId: tmp.id!,
+                  productId: tmp.id,
                   productType: 'recommended',
                 ),
               ),
             ),
           );
-        } else {
-          Navigator.push(
-            context,
-            CupertinoPageRoute(
-              builder: (context) => const NotRecommendScreen(),
-            ),
-          );
-        }
+        // } else {
+        //   Navigator.push(
+        //     context,
+        //     CupertinoPageRoute(
+        //       builder: (context) => const NotRecommendScreen(),
+        //     ),
+        //   );
+        // }
       },
     );
   }

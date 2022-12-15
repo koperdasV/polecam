@@ -13,8 +13,8 @@ class MarkerX extends Marker {
           height: 260,
           width: 300,
           point: LatLng(
-            double.parse(recommendedModel.address!.first.lat!),
-            double.parse(recommendedModel.address!.first.lng!),
+            double.parse(recommendedModel.address.first.lat),
+            double.parse(recommendedModel.address.first.lng),
           ),
           builder: (context) => Column(
             children: [
@@ -42,7 +42,7 @@ class MarkerX extends Marker {
                 onTap: () {
                   context
                       .read<RecommendedBloc>()
-                      .add(VisiblePoint(recommendedModel.id!));
+                      .add(VisiblePoint(recommendedModel.id));
                 },
                 child: Align(
                   child: SizedBox(

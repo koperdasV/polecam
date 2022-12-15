@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/feature/product_details/bloc/product_details_bloc.dart';
 
-import 'product_details_body.dart';
+import 'package:polec/src/feature/product_details/widget/product_details_body.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({
@@ -21,8 +21,12 @@ class ProductDetails extends StatefulWidget {
 class _ProductDetailsState extends State<ProductDetails> {
   @override
   void initState() {
-    context.read<ProductDetailsBloc>().add(ProductDetailsEvent.loadProduct(
-        productId: widget.productId, productType: widget.productType));
+    context.read<ProductDetailsBloc>().add(
+          ProductDetailsEvent.loadProduct(
+            productId: widget.productId,
+            productType: widget.productType,
+          ),
+        );
     super.initState();
   }
 
@@ -43,12 +47,12 @@ class _ProductDetailsState extends State<ProductDetails> {
         builder: (context, state) => state.maybeWhen(
           orElse: () =>
               const Center(child: CircularProgressIndicator.adaptive()),
-          notFound: () => Center(child: Text('not found product by id')),
+          notFound: () => const Center(child: Text('not found product by id')),
           loaded: (productDetails) => Center(
               child: ProductDetailsBody(
             detailModel: productDetails,
           )),
-          error: (errorMessage) => Center(child: FlutterLogo()),
+          error: (errorMessage) => const Center(child: FlutterLogo()),
         ),
       ),
     );
