@@ -20,6 +20,7 @@ _$_RecommendedModel _$$_RecommendedModelFromJson(Map<String, dynamic> json) =>
       address: (json['address'] as List<dynamic>?)
           ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
           .toList(),
+      visibleOnMap: json['visibleOnMap'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$_RecommendedModelToJson(_$_RecommendedModel instance) =>
@@ -32,6 +33,7 @@ Map<String, dynamic> _$$_RecommendedModelToJson(_$_RecommendedModel instance) =>
       'description': instance.description,
       'category': instance.category,
       'address': instance.address,
+      'visibleOnMap': instance.visibleOnMap,
     };
 
 _$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(
