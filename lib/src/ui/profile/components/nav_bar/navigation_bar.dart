@@ -19,7 +19,7 @@ Map<Account, Widget> accountWidget = <Account, Widget>{
 };
    Account selectedSegment = Account.statistics;
 class ProfileNavigationBar extends StatefulWidget {
-  ProfileNavigationBar({
+  const ProfileNavigationBar({
     super.key,
 
   });
