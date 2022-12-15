@@ -23,6 +23,7 @@ abstract class RecommendedModel with _$RecommendedModel {
     String? description,
     List<String>? category,
     List<Address>? address,
+    @Default(false) bool visibleOnMap,
   }) = _RecommendedModel;
 
   factory RecommendedModel.fromJson(Map<String, dynamic> json) =>

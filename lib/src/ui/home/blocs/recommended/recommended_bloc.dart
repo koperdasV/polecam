@@ -14,6 +14,7 @@ class RecommendedBloc extends Bloc<RecommendedEvent, RecommendedState> {
   })  : _recommendedRepo = recommendedRepo,
         super(const RecommendedState(recommended: <RecommendedModel>[])) {
     on<LoadRecommended>(_onLoadRecommended);
+    on<VisiblePoint>(_onVisiblePoint);
   }
   final IRecommendedRepo _recommendedRepo;
 
@@ -51,5 +52,26 @@ class RecommendedBloc extends Bloc<RecommendedEvent, RecommendedState> {
         ),
       );
     }
+  }
+
+  Future<void> _onVisiblePoint(
+    VisiblePoint event,
+    Emitter<RecommendedState> emit,
+  ) async {
+    final r = state.recommended
+        .map(
+          (e) => e.copyWith(
+            visibleOnMap:
+                (e.visibleOnMap && e.id == event.id) ? false : e.id == event.id,
+          ),
+        )
+        .toList(growable: false)
+      ..sort((a, b) => b.visibleOnMap ? -1 : 1);
+    return emit(
+      state.copyWith(
+        recommended: r,
+        status: RecommendedStateStatus.success,
+      ),
+    );
   }
 }

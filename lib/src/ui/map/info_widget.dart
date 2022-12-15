@@ -15,90 +15,87 @@ class InfoCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10, top: 10),
-      child: GestureDetector(
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: const BorderRadius.all(
-              Radius.circular(10),
+    return GestureDetector(
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: const BorderRadius.all(
+            Radius.circular(10),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.4),
+              blurRadius: 8,
+              offset: const Offset(0, 5),
             ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.4),
-                blurRadius: 8,
-                offset: const Offset(0, 5),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                tmp.name!,
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+                maxLines: 1,
+              ),
+              Text(
+                'Recommended by: Paweł Woźniak',
+                style: TextStyle(
+                  fontSize: 9,
+                  fontWeight: FontWeight.normal,
+                  color: AppColor.subTitleColor,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                tmp.regularFee!.toString(),
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                tmp.address![0].street!,
+                style: TextStyle(
+                  fontSize: 9,
+                  fontWeight: FontWeight.normal,
+                  color: AppColor.subTitleColor,
+                ),
               ),
             ],
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  tmp.name!,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  maxLines: 1,
-                ),
-                Text(
-                  'Recommended by: Paweł Woźniak',
-                  style: TextStyle(
-                    fontSize: 9,
-                    fontWeight: FontWeight.normal,
-                    color: AppColor.subTitleColor,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  tmp.regularFee!.toString(),
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  tmp.address![0].street!,
-                  style: TextStyle(
-                    fontSize: 9,
-                    fontWeight: FontWeight.normal,
-                    color: AppColor.subTitleColor,
-                  ),
-                ),
-              ],
-            ),
-          ),
         ),
-        onTap: () {
-          if (color == Colors.white) {
-            Navigator.push(
-              context,
-              CupertinoPageRoute(
-                builder: (context) => BlocProvider<DetailsBloc>(
-                  create: (context) =>
-                      DetailsBloc(detailsRepo: DetailRepository()),
-                  child: DetailsScreen(
-                    productId: tmp.id!,
-                    productType: 'recommended',
-                  ),
+      ),
+      onTap: () {
+        if (color == Colors.white) {
+          Navigator.push(
+            context,
+            CupertinoPageRoute(
+              builder: (context) => BlocProvider<DetailsBloc>(
+                create: (context) =>
+                    DetailsBloc(detailsRepo: DetailRepository()),
+                child: DetailsScreen(
+                  productId: tmp.id!,
+                  productType: 'recommended',
                 ),
               ),
-            );
-          } else {
-            Navigator.push(
-              context,
-              CupertinoPageRoute(
-                builder: (context) => const NotRecommendScreen(),
-              ),
-            );
-          }
-        },
-      ),
+            ),
+          );
+        } else {
+          Navigator.push(
+            context,
+            CupertinoPageRoute(
+              builder: (context) => const NotRecommendScreen(),
+            ),
+          );
+        }
+      },
     );
   }
 }

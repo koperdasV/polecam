@@ -28,6 +28,7 @@ mixin _$RecommendedModel {
   String? get description => throw _privateConstructorUsedError;
   List<String>? get category => throw _privateConstructorUsedError;
   List<Address>? get address => throw _privateConstructorUsedError;
+  bool get visibleOnMap => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +50,8 @@ abstract class $RecommendedModelCopyWith<$Res> {
       String? www,
       String? description,
       List<String>? category,
-      List<Address>? address});
+      List<Address>? address,
+      bool visibleOnMap});
 }
 
 /// @nodoc
@@ -73,6 +75,7 @@ class _$RecommendedModelCopyWithImpl<$Res, $Val extends RecommendedModel>
     Object? description = freezed,
     Object? category = freezed,
     Object? address = freezed,
+    Object? visibleOnMap = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -107,6 +110,10 @@ class _$RecommendedModelCopyWithImpl<$Res, $Val extends RecommendedModel>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as List<Address>?,
+      visibleOnMap: null == visibleOnMap
+          ? _value.visibleOnMap
+          : visibleOnMap // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -127,7 +134,8 @@ abstract class _$$_RecommendedModelCopyWith<$Res>
       String? www,
       String? description,
       List<String>? category,
-      List<Address>? address});
+      List<Address>? address,
+      bool visibleOnMap});
 }
 
 /// @nodoc
@@ -149,6 +157,7 @@ class __$$_RecommendedModelCopyWithImpl<$Res>
     Object? description = freezed,
     Object? category = freezed,
     Object? address = freezed,
+    Object? visibleOnMap = null,
   }) {
     return _then(_$_RecommendedModel(
       id: freezed == id
@@ -183,6 +192,10 @@ class __$$_RecommendedModelCopyWithImpl<$Res>
           ? _value._address
           : address // ignore: cast_nullable_to_non_nullable
               as List<Address>?,
+      visibleOnMap: null == visibleOnMap
+          ? _value.visibleOnMap
+          : visibleOnMap // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -198,7 +211,8 @@ class _$_RecommendedModel implements _RecommendedModel {
       this.www,
       this.description,
       final List<String>? category,
-      final List<Address>? address})
+      final List<Address>? address,
+      this.visibleOnMap = false})
       : _category = category,
         _address = address;
 
@@ -236,8 +250,12 @@ class _$_RecommendedModel implements _RecommendedModel {
   }
 
   @override
+  @JsonKey()
+  final bool visibleOnMap;
+
+  @override
   String toString() {
-    return 'RecommendedModel(id: $id, image: $image, name: $name, regularFee: $regularFee, www: $www, description: $description, category: $category, address: $address)';
+    return 'RecommendedModel(id: $id, image: $image, name: $name, regularFee: $regularFee, www: $www, description: $description, category: $category, address: $address, visibleOnMap: $visibleOnMap)';
   }
 
   @override
@@ -254,7 +272,9 @@ class _$_RecommendedModel implements _RecommendedModel {
             (identical(other.description, description) ||
                 other.description == description) &&
             const DeepCollectionEquality().equals(other._category, _category) &&
-            const DeepCollectionEquality().equals(other._address, _address));
+            const DeepCollectionEquality().equals(other._address, _address) &&
+            (identical(other.visibleOnMap, visibleOnMap) ||
+                other.visibleOnMap == visibleOnMap));
   }
 
   @JsonKey(ignore: true)
@@ -268,7 +288,8 @@ class _$_RecommendedModel implements _RecommendedModel {
       www,
       description,
       const DeepCollectionEquality().hash(_category),
-      const DeepCollectionEquality().hash(_address));
+      const DeepCollectionEquality().hash(_address),
+      visibleOnMap);
 
   @JsonKey(ignore: true)
   @override
@@ -293,7 +314,8 @@ abstract class _RecommendedModel implements RecommendedModel {
       final String? www,
       final String? description,
       final List<String>? category,
-      final List<Address>? address}) = _$_RecommendedModel;
+      final List<Address>? address,
+      final bool visibleOnMap}) = _$_RecommendedModel;
 
   factory _RecommendedModel.fromJson(Map<String, dynamic> json) =
       _$_RecommendedModel.fromJson;
@@ -314,6 +336,8 @@ abstract class _RecommendedModel implements RecommendedModel {
   List<String>? get category;
   @override
   List<Address>? get address;
+  @override
+  bool get visibleOnMap;
   @override
   @JsonKey(ignore: true)
   _$$_RecommendedModelCopyWith<_$_RecommendedModel> get copyWith =>
