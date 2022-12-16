@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:motion_toast/motion_toast.dart';
+import 'package:motion_toast/resources/arrays.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
@@ -7,7 +10,7 @@ import 'package:polec/src/ui/details/data/detail_repository.dart';
 import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
-class YourAreaCard extends StatelessWidget {
+class YourAreaCard extends StatefulWidget {
   const YourAreaCard({
     Key? key,
     this.height,
@@ -23,8 +26,13 @@ class YourAreaCard extends StatelessWidget {
   final YourAreaModel tmp;
 
   @override
+  State<YourAreaCard> createState() => _YourAreaCardState();
+}
+
+class _YourAreaCardState extends State<YourAreaCard> {
+  @override
   Widget build(BuildContext context) {
-    final amountParse = (tmp.regularFee)! * 100;
+    final amountParse = (widget.tmp.regularFee)! * 100;
     final percent = amountParse.toInt();
     return Padding(
       padding: const EdgeInsets.only(right: 20),
@@ -40,7 +48,7 @@ class YourAreaCard extends StatelessWidget {
                     create: (context) =>
                         DetailsBloc(detailsRepo: DetailRepository()),
                     child: DetailsScreen(
-                      productId: tmp.id!,
+                      productId: widget.tmp.id!,
                       productType: 'yourArea',
                     ),
                   ),
@@ -55,7 +63,7 @@ class YourAreaCard extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Image.network(
-                      tmp.image.toString(),
+                      widget.tmp.image.toString(),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -69,7 +77,7 @@ class YourAreaCard extends StatelessWidget {
                   bottom: 0,
                   child: CupertinoButton(
                     borderRadius: BorderRadius.circular(100),
-                    onPressed: () {},
+                    onPressed: _addFavorites,
                     child: Container(
                       width: 50,
                       height: 50,
@@ -92,7 +100,7 @@ class YourAreaCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
-              tmp.name.toString(),
+              widget.tmp.name.toString(),
               style: const TextStyle(
                 fontSize: 18,
               ),
@@ -101,7 +109,7 @@ class YourAreaCard extends StatelessWidget {
           SizedBox(
             width: 160,
             child: Text(
-              tmp.description.toString(),
+              widget.tmp.description.toString(),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
@@ -115,4 +123,33 @@ class YourAreaCard extends StatelessWidget {
       ),
     );
   }
-}
+
+void _addFavorites() {
+      MotionToast(
+        displaySideBar: false,
+        displayBorder: true,
+        primaryColor: AppColor.textButtonColor,
+        backgroundType: BackgroundType.solid,
+        width: 230,
+        height: 50,
+        toastDuration: const Duration(seconds: 2),
+        description: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(
+              CupertinoIcons.heart_fill,
+              color: Colors.white,
+            ),
+            SizedBox(
+              width: 14,
+            ),
+            Text(
+              'Added to favorites',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ).show(context);
+    }}

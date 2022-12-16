@@ -2,8 +2,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:motion_toast/motion_toast.dart';
+import 'package:motion_toast/resources/arrays.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
@@ -25,48 +26,6 @@ class CardFavorites extends StatefulWidget {
 }
 
 class _CardFavoritesState extends State<CardFavorites> {
-  FToast? removeToast;
-
-  @override
-  void initState() {
-    removeToast = FToast();
-    removeToast!.init(context);
-    super.initState();
-  }
-
-  _showToast() {
-    final toast = Container(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
-        gradient: LinearGradient(colors: AppColor.inActiveButtonColor),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: const [
-          Icon(
-            CupertinoIcons.heart_fill,
-            color: Colors.white,
-          ),
-          SizedBox(
-            width: 14,
-          ),
-          Text(
-            'Removed from favorites',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
-    );
-
-    removeToast!.showToast(
-      child: toast,
-      gravity: ToastGravity.BOTTOM,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final amountParse = (widget.tmp.regularFee)! * 100;
@@ -83,16 +42,16 @@ class _CardFavoritesState extends State<CardFavorites> {
             onTap: () {
               Navigator.push(
                 context,
-               CupertinoPageRoute(
-                builder: (context) => BlocProvider<DetailsBloc>(
-                  create: (context) =>
-                      DetailsBloc(detailsRepo: DetailRepository()),
-                  child: DetailsScreen(
-                    productId: widget.tmp.id!,
-                    productType: 'favourites',
+                CupertinoPageRoute(
+                  builder: (context) => BlocProvider<DetailsBloc>(
+                    create: (context) =>
+                        DetailsBloc(detailsRepo: DetailRepository()),
+                    child: DetailsScreen(
+                      productId: widget.tmp.id!,
+                      productType: 'favourites',
+                    ),
                   ),
                 ),
-              ),
               );
             },
             child: Stack(
@@ -123,7 +82,7 @@ class _CardFavoritesState extends State<CardFavorites> {
                   bottom: 0,
                   child: CupertinoButton(
                     borderRadius: BorderRadius.circular(100),
-                    onPressed: _showToast,
+                    onPressed: _removedFavorites,
                     child: Container(
                       width: 50,
                       height: 50,
@@ -165,5 +124,33 @@ class _CardFavoritesState extends State<CardFavorites> {
         ],
       ),
     );
+  }
+
+  void _removedFavorites() {
+    MotionToast(
+      displaySideBar: false,
+      primaryColor: AppColor.textButtonColor,
+      backgroundType: BackgroundType.solid,
+      width: 250,
+      height: 50,
+      description: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Icon(
+            CupertinoIcons.heart,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 14,
+          ),
+          Text(
+            'Removed from favorites',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    ).show(context);
   }
 }

@@ -3,7 +3,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:motion_toast/motion_toast.dart';
+import 'package:motion_toast/resources/arrays.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
@@ -28,48 +29,6 @@ class CardWidget extends StatefulWidget {
 }
 
 class _CardWidgetState extends State<CardWidget> {
-  FToast? fToast;
-
-  @override
-  void initState() {
-    fToast = FToast();
-    fToast!.init(context);
-    super.initState();
-  }
-
-  _showToast() {
-    final toast = Container(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
-        gradient: LinearGradient(colors: AppColor.inActiveButtonColor),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: const [
-          Icon(
-            CupertinoIcons.heart,
-            color: Colors.white,
-          ),
-          SizedBox(
-            width: 14,
-          ),
-          Text(
-            'Added to favorites',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
-    );
-
-    fToast!.showToast(
-      child: toast,
-      gravity: ToastGravity.BOTTOM,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final amountParse = (widget.tmp.regularFee) * 100;
@@ -115,7 +74,7 @@ class _CardWidgetState extends State<CardWidget> {
                 bottom: 0,
                 child: CupertinoButton(
                   borderRadius: BorderRadius.circular(100),
-                  onPressed: _showToast,
+                  onPressed: _addFavorites,
                   child: Container(
                     width: 50,
                     height: 50,
@@ -171,5 +130,35 @@ class _CardWidgetState extends State<CardWidget> {
         ),
       ],
     );
+  }
+
+  void _addFavorites() {
+    MotionToast(
+      displaySideBar: false,
+      displayBorder: true,
+      backgroundType: BackgroundType.solid,
+      primaryColor: AppColor.textButtonColor,
+      width: 230,
+      height: 50,
+      toastDuration: const Duration(seconds: 2),
+      description: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Icon(
+            CupertinoIcons.heart_fill,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 14,
+          ),
+          Text(
+            'Added to favorites',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    ).show(context);
   }
 }
