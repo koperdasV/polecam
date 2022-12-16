@@ -24,7 +24,7 @@ class _MapPageState extends State<MapPage> {
             onTap: () => Navigator.push(
               context,
               CupertinoPageRoute(
-                builder: (context) => HomePage(),
+                builder: (context) => const HomePage(),
               ),
             ),
             child: const Icon(

@@ -3,22 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
-import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/data/detail_repository.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 
 class InfoCardWidget extends StatelessWidget {
-  const InfoCardWidget({super.key, required this.color, required this.tmp});
+  const InfoCardWidget({
+    super.key,
+    required this.color,
+    required this.tmp,
+  });
   final Color color;
   final RecommendedModel tmp;
 
   @override
   Widget build(BuildContext context) {
+    final amountParse = (tmp.regularFee) * 100;
+    final percent = amountParse.toInt();
     return GestureDetector(
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: color,
+          color: Colors.white,
           borderRadius: const BorderRadius.all(
             Radius.circular(10),
           ),
@@ -54,7 +59,7 @@ class InfoCardWidget extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                tmp.regularFee.toString(),
+                percent.toString(),
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -74,19 +79,18 @@ class InfoCardWidget extends StatelessWidget {
       ),
       onTap: () {
         // if (color == Colors.white) {
-          Navigator.push(
-            context,
-            CupertinoPageRoute(
-              builder: (context) => BlocProvider<DetailsBloc>(
-                create: (context) =>
-                    DetailsBloc(detailsRepo: DetailRepository()),
-                child: DetailsScreen(
-                  productId: tmp.id,
-                  productType: 'recommended',
-                ),
+        Navigator.push(
+          context,
+          CupertinoPageRoute(
+            builder: (context) => BlocProvider<DetailsBloc>(
+              create: (context) => DetailsBloc(detailsRepo: DetailRepository()),
+              child: DetailsScreen(
+                productId: tmp.id,
+                productType: 'recommended',
               ),
             ),
-          );
+          ),
+        );
         // } else {
         //   Navigator.push(
         //     context,
