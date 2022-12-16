@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:polec/src/feature/map/widget/map_screen.dart';
 import 'package:polec/src/feature/profile/widget/profile_screen.dart';
@@ -136,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SliverToBoxAdapter(
                   child: SizedBox(
-                    height: 280,
+                    height: 250,
                     child: HorizontalListScroll(
                       itemCount: _filteredProducts.length,
                       tmp: _filteredProducts,
@@ -159,12 +160,9 @@ class _HomePageState extends State<HomePage> {
                 ),
                 //IN YOUR AREA//
                 const SliverToBoxAdapter(
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 16),
-                    child: SizedBox(
-                      height: 280,
-                      child: YourAreaList(),
-                    ),
+                  child: SizedBox(
+                    height: 260,
+                    child: YourAreaList(),
                   ),
                 ),
               ],
