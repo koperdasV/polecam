@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:polec/src/ui/details/data/detail_repository.dart';
 import 'package:polec/src/ui/details/models/detail_model.dart';
@@ -27,14 +26,13 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
     Emitter<DetailsState> emit,
   ) async {
     try {
-      await Future.delayed(Duration(milliseconds: 300));
-      final productDetails =
-          await _detailsRepo.fetchProductDetails(id: event.productId, type: event.productType);
-      if (productDetails != null) {
+      await Future.delayed(const Duration(milliseconds: 300));
+      final productDetails = await _detailsRepo.fetchProductDetails(
+        id: event.productId,
+        type: event.productType,
+      );
         return emit(DetailsState.loaded(productDetails: productDetails));
-      } else {
-        return emit(const DetailsState.notFound());
-      }
+      
     } catch (e) {
       return emit(DetailsState.error(errorMessage: e.toString()));
     }

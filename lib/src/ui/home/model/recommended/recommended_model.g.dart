@@ -8,17 +8,16 @@ part of 'recommended_model.dart';
 
 _$_RecommendedModel _$$_RecommendedModelFromJson(Map<String, dynamic> json) =>
     _$_RecommendedModel(
-      id: json['id'] as String?,
-      image: json['image'] as String?,
-      name: json['name'] as String?,
-      regularFee: (json['regularFee'] as num?)?.toDouble(),
-      www: json['www'] as String?,
-      description: json['description'] as String?,
-      category: (json['category'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      address: (json['address'] as List<dynamic>?)
-          ?.map((e) => Address.fromJson(e as Map<String, dynamic>))
+      id: json['id'] as String,
+      image: json['image'] as String,
+      name: json['name'] as String,
+      regularFee: (json['regularFee'] as num).toDouble(),
+      www: json['www'] as String,
+      description: json['description'] as String,
+      category:
+          (json['category'] as List<dynamic>).map((e) => e as String).toList(),
+      address: (json['address'] as List<dynamic>)
+          .map((e) => Address.fromJson(e as Map<String, dynamic>))
           .toList(),
       visibleOnMap: json['visibleOnMap'] as bool? ?? false,
     );
@@ -37,18 +36,16 @@ Map<String, dynamic> _$$_RecommendedModelToJson(_$_RecommendedModel instance) =>
     };
 
 _$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(
-      street: json['street'] as String?,
-      city: json['city'] as String?,
-      code: json['code'] as String?,
-      country: json['country'] as String?,
-      lat: json['lat'] as String?,
-      lng: json['lng'] as String?,
+      street: json['street'] as String,
+      city: json['city'] as String,
+      code: json['code'] as String,
+      country: json['country'] as String,
+      lat: json['lat'] as String,
+      lng: json['lng'] as String,
       phones:
-          (json['phones'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      email: json['email'] as String?,
-      open: json['open'] == null
-          ? null
-          : Open.fromJson(json['open'] as Map<String, dynamic>),
+          (json['phones'] as List<dynamic>).map((e) => e as String).toList(),
+      email: json['email'] as String,
+      open: Open.fromJson(json['open'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_AddressToJson(_$_Address instance) =>
@@ -65,13 +62,13 @@ Map<String, dynamic> _$$_AddressToJson(_$_Address instance) =>
     };
 
 _$_Open _$$_OpenFromJson(Map<String, dynamic> json) => _$_Open(
-      monday: json['monday'] as String?,
-      tuesday: json['tuesday'] as String?,
-      wednesday: json['wednesday'] as String?,
-      thursday: json['thursday'] as String?,
-      friday: json['friday'] as String?,
-      saturday: json['saturday'] as String?,
-      sunday: json['sunday'] as String?,
+      monday: json['monday'] as String,
+      tuesday: json['tuesday'] as String,
+      wednesday: json['wednesday'] as String,
+      thursday: json['thursday'] as String,
+      friday: json['friday'] as String,
+      saturday: json['saturday'] as String,
+      sunday: json['sunday'] as String,
     );
 
 Map<String, dynamic> _$$_OpenToJson(_$_Open instance) => <String, dynamic>{

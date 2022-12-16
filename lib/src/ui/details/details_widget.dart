@@ -23,7 +23,7 @@ class DetailsWidget extends StatefulWidget {
 class _DetailsWidgetState extends State<DetailsWidget> {
   @override
   Widget build(BuildContext context) {
-    final amountParse = (widget.detailModel.regularFee)! * 100;
+    final amountParse = (widget.detailModel.regularFee) * 100;
     final percent = amountParse.toInt();
     final getRegularFee = percent + 1;
 
@@ -39,14 +39,14 @@ class _DetailsWidgetState extends State<DetailsWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ImageWidget(
-                image: widget.detailModel.image.toString(),
+                image: widget.detailModel.image,
                 regularFee: percent,
                 detailModel: widget.detailModel,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(
-                  widget.detailModel.name.toString(),
+                  widget.detailModel.name,
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,

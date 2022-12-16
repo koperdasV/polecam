@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:polec/src/ui/home/model/categories/categories_model.dart';
 
-abstract class ICategoriesRepo {
+mixin ICategoriesRepo {
   Future<List<CategoriesModel>> fetchCategories();
 }
 

@@ -1,13 +1,8 @@
-import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/resourses/app_images.dart';
 import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart';
-import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/components/image_widget.dart';
 import 'package:polec/src/ui/details/components/navigation_bar.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
@@ -25,9 +20,8 @@ class PaymentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final amountParse = (detailModel.regularFee)! * 100.round();
+    final amountParse = (detailModel.regularFee) * 100;
     final regularFeePer = amountParse.toInt();
-    final getRegularFee = regularFeePer + 1;
     return ListView(
       children: [
         Padding(
@@ -40,14 +34,15 @@ class PaymentWidget extends StatelessWidget {
             children: [
               GestureDetector(
                 child: ImageWidget(
-                  image: detailModel.image.toString(),
+                  image: detailModel.image,
                   regularFee: regularFeePer,
+                  detailModel: detailModel,
                 ),
                 onTap: () => Navigator.push(
                   context,
                   CupertinoPageRoute(
                     builder: (context) => NotRecommendScreen(
-                      image: detailModel.image.toString(),
+                      image: detailModel.image,
                     ),
                   ),
                 ),

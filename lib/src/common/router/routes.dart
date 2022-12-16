@@ -74,10 +74,7 @@ class HomeRoute extends GoRouteData {
         BlocProvider(create: (context) => AccountCubit()),
         BlocProvider(create: (context) => NavigationCubit()),
       ],
-      child: ChangeNotifierProvider<BottomNavigationBarProvider>(
-        create: (context) => BottomNavigationBarProvider(),
         child: const HomeScreen(),
-      ),
     );
   }
 }

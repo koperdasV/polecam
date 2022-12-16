@@ -4,12 +4,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:polec/src/feature/home/navigation_cubit/navigation_bar_cubit.dart';
-import 'package:polec/src/feature/home/navigation_cubit/navigation_bar_state.dart';
-import 'package:polec/src/feature/home/widget/home_screen.dart';
 import 'package:polec/src/feature/map/widget/map_screen.dart';
-import 'package:polec/src/feature/profile/widget/profile_screen.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_list_widget.dart';
 import 'package:polec/src/ui/home/widget/components/home_app_bar.dart';
@@ -20,7 +15,6 @@ import 'package:polec/src/ui/home/widget/components/title_widget.dart';
 import 'package:polec/src/ui/home/widget/components/your_area_list.dart';
 import 'package:polec/src/ui/inYourArea/in_your_area_page.dart';
 import 'package:polec/src/ui/recommended/recommended_page.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -48,9 +42,9 @@ class _HomePageState extends State<HomePage> {
     if (query.isNotEmpty) {
       // RECOMMENDED SEARCH //
       _filteredProducts = _recommended.where((products) {
-        final offerName = products.name!.toLowerCase();
-        final companyName = products.name!.toLowerCase();
-        final description = products.description!.toLowerCase();
+        final offerName = products.name.toLowerCase();
+        final companyName = products.name.toLowerCase();
+        final description = products.description.toLowerCase();
         return offerName.contains(query) ||
             companyName.contains(query) ||
             description.contains(query);
@@ -76,8 +70,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final _selectedIndex =
-        Provider.of<BottomNavigationBarProvider>(context).currentIndex;
     return CupertinoPageScaffold(
       child: Column(
         children: [
@@ -109,12 +101,12 @@ class _HomePageState extends State<HomePage> {
             child: InActiveButton(
               text: 'Inactive Account',
               onPressed: () {
-                setState(() {
-                  Provider.of<BottomNavigationBarProvider>(
-                    context,
-                    listen: false,
-                  ).updatePageSelection(3);
-                });
+                // setState(() {
+                //   Provider.of<BottomNavigationBarProvider>(
+                //     context,
+                //     listen: false,
+                //   ).updatePageSelection(3);
+                // });
               },
             ),
           ),

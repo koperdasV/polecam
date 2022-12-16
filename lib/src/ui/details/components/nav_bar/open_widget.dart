@@ -35,7 +35,7 @@ class OpenWidget extends StatelessWidget {
                   style: titleStyle,
                 ),
                 Text(
-                  productDetails!.addresses![0].open!.monday.toString(),
+                  productDetails!.address[0].open.monday,
                   style: subtitleStyle,
                 ),
               ],
@@ -49,7 +49,7 @@ class OpenWidget extends StatelessWidget {
                   style: titleStyle,
                 ),
                 Text(
-                  productDetails.addresses![0].open!.tuesday.toString(),
+                  productDetails.address[0].open.tuesday,
                   style: subtitleStyle,
                 ),
               ],
@@ -63,7 +63,7 @@ class OpenWidget extends StatelessWidget {
                   style: titleStyle,
                 ),
                 Text(
-                  productDetails.addresses![0].open!.wednesday.toString(),
+                  productDetails.address[0].open.wednesday,
                   style: subtitleStyle,
                 ),
               ],
@@ -77,7 +77,7 @@ class OpenWidget extends StatelessWidget {
                   style: titleStyle,
                 ),
                 Text(
-                  productDetails.addresses![0].open!.thursday.toString(),
+                  productDetails.address[0].open.thursday,
                   style: subtitleStyle,
                 ),
               ],
@@ -91,7 +91,7 @@ class OpenWidget extends StatelessWidget {
                   style: titleStyle,
                 ),
                 Text(
-                  productDetails.addresses![0].open!.friday.toString(),
+                  productDetails.address[0].open.friday,
                   style: subtitleStyle,
                 ),
               ],
@@ -105,7 +105,7 @@ class OpenWidget extends StatelessWidget {
                   style: titleStyle,
                 ),
                 Text(
-                  productDetails.addresses![0].open!.saturday.toString(),
+                  productDetails.address[0].open.saturday,
                   style: subtitleStyle,
                 ),
               ],
@@ -119,7 +119,7 @@ class OpenWidget extends StatelessWidget {
                   style: titleStyle,
                 ),
                 Text(
-                  productDetails.addresses![0].open!.sunday.toString(),
+                  productDetails.address[0].open.sunday,
                   style: subtitleStyle,
                 ),
               ],

@@ -25,12 +25,12 @@ class CardFavorites extends StatefulWidget {
 }
 
 class _CardFavoritesState extends State<CardFavorites> {
-  FToast? fToast;
+  FToast? removeToast;
 
   @override
   void initState() {
-    fToast = FToast();
-    fToast!.init(context);
+    removeToast = FToast();
+    removeToast!.init(context);
     super.initState();
   }
 
@@ -61,7 +61,7 @@ class _CardFavoritesState extends State<CardFavorites> {
       ),
     );
 
-    fToast!.showToast(
+    removeToast!.showToast(
       child: toast,
       gravity: ToastGravity.BOTTOM,
     );
@@ -69,7 +69,7 @@ class _CardFavoritesState extends State<CardFavorites> {
 
   @override
   Widget build(BuildContext context) {
-    final amountParse = (widget.tmp.regularFee)! * 100.round();
+    final amountParse = (widget.tmp.regularFee)! * 100;
     final percent = amountParse.toInt();
     return Padding(
       padding: const EdgeInsets.symmetric(

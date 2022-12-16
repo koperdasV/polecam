@@ -20,17 +20,16 @@ DetailModel _$DetailModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DetailModel {
-  String? get id => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  double? get regularFee => throw _privateConstructorUsedError;
-  String? get url => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  @JsonKey(name: 'address')
-  List<Addresses>? get addresses => throw _privateConstructorUsedError;
-  List<Recommendations>? get recommendations =>
+  String get id => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  double get regularFee => throw _privateConstructorUsedError;
+  String get www => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  List<Address> get address => throw _privateConstructorUsedError;
+  List<Recommendation>? get recommendations =>
       throw _privateConstructorUsedError;
-  List<String>? get category => throw _privateConstructorUsedError;
+  List<String> get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,15 +44,15 @@ abstract class $DetailModelCopyWith<$Res> {
       _$DetailModelCopyWithImpl<$Res, DetailModel>;
   @useResult
   $Res call(
-      {String? id,
-      String? image,
-      String? name,
-      double? regularFee,
-      String? url,
-      String? description,
-      @JsonKey(name: 'address') List<Addresses>? addresses,
-      List<Recommendations>? recommendations,
-      List<String>? category});
+      {String id,
+      String image,
+      String name,
+      double regularFee,
+      String www,
+      String description,
+      List<Address> address,
+      List<Recommendation>? recommendations,
+      List<String> category});
 }
 
 /// @nodoc
@@ -69,53 +68,53 @@ class _$DetailModelCopyWithImpl<$Res, $Val extends DetailModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? image = freezed,
-    Object? name = freezed,
-    Object? regularFee = freezed,
-    Object? url = freezed,
-    Object? description = freezed,
-    Object? addresses = freezed,
+    Object? id = null,
+    Object? image = null,
+    Object? name = null,
+    Object? regularFee = null,
+    Object? www = null,
+    Object? description = null,
+    Object? address = null,
     Object? recommendations = freezed,
-    Object? category = freezed,
+    Object? category = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
+              as String,
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
+              as String,
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      regularFee: freezed == regularFee
+              as String,
+      regularFee: null == regularFee
           ? _value.regularFee
           : regularFee // ignore: cast_nullable_to_non_nullable
-              as double?,
-      url: freezed == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
+              as double,
+      www: null == www
+          ? _value.www
+          : www // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      addresses: freezed == addresses
-          ? _value.addresses
-          : addresses // ignore: cast_nullable_to_non_nullable
-              as List<Addresses>?,
+              as String,
+      address: null == address
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as List<Address>,
       recommendations: freezed == recommendations
           ? _value.recommendations
           : recommendations // ignore: cast_nullable_to_non_nullable
-              as List<Recommendations>?,
-      category: freezed == category
+              as List<Recommendation>?,
+      category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<String>,
     ) as $Val);
   }
 }
@@ -129,15 +128,15 @@ abstract class _$$_DetailModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? id,
-      String? image,
-      String? name,
-      double? regularFee,
-      String? url,
-      String? description,
-      @JsonKey(name: 'address') List<Addresses>? addresses,
-      List<Recommendations>? recommendations,
-      List<String>? category});
+      {String id,
+      String image,
+      String name,
+      double regularFee,
+      String www,
+      String description,
+      List<Address> address,
+      List<Recommendation>? recommendations,
+      List<String> category});
 }
 
 /// @nodoc
@@ -151,53 +150,53 @@ class __$$_DetailModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? image = freezed,
-    Object? name = freezed,
-    Object? regularFee = freezed,
-    Object? url = freezed,
-    Object? description = freezed,
-    Object? addresses = freezed,
+    Object? id = null,
+    Object? image = null,
+    Object? name = null,
+    Object? regularFee = null,
+    Object? www = null,
+    Object? description = null,
+    Object? address = null,
     Object? recommendations = freezed,
-    Object? category = freezed,
+    Object? category = null,
   }) {
     return _then(_$_DetailModel(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
+              as String,
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
+              as String,
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      regularFee: freezed == regularFee
+              as String,
+      regularFee: null == regularFee
           ? _value.regularFee
           : regularFee // ignore: cast_nullable_to_non_nullable
-              as double?,
-      url: freezed == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
+              as double,
+      www: null == www
+          ? _value.www
+          : www // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      addresses: freezed == addresses
-          ? _value._addresses
-          : addresses // ignore: cast_nullable_to_non_nullable
-              as List<Addresses>?,
+              as String,
+      address: null == address
+          ? _value._address
+          : address // ignore: cast_nullable_to_non_nullable
+              as List<Address>,
       recommendations: freezed == recommendations
           ? _value._recommendations
           : recommendations // ignore: cast_nullable_to_non_nullable
-              as List<Recommendations>?,
-      category: freezed == category
+              as List<Recommendation>?,
+      category: null == category
           ? _value._category
           : category // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<String>,
     ));
   }
 }
@@ -206,16 +205,16 @@ class __$$_DetailModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DetailModel implements _DetailModel {
   const _$_DetailModel(
-      {this.id,
-      this.image,
-      this.name,
-      this.regularFee,
-      this.url,
-      this.description,
-      @JsonKey(name: 'address') final List<Addresses>? addresses,
-      final List<Recommendations>? recommendations,
-      final List<String>? category})
-      : _addresses = addresses,
+      {required this.id,
+      required this.image,
+      required this.name,
+      required this.regularFee,
+      required this.www,
+      required this.description,
+      required final List<Address> address,
+      final List<Recommendation>? recommendations,
+      required final List<String> category})
+      : _address = address,
         _recommendations = recommendations,
         _category = category;
 
@@ -223,48 +222,43 @@ class _$_DetailModel implements _DetailModel {
       _$$_DetailModelFromJson(json);
 
   @override
-  final String? id;
+  final String id;
   @override
-  final String? image;
+  final String image;
   @override
-  final String? name;
+  final String name;
   @override
-  final double? regularFee;
+  final double regularFee;
   @override
-  final String? url;
+  final String www;
   @override
-  final String? description;
-  final List<Addresses>? _addresses;
+  final String description;
+  final List<Address> _address;
   @override
-  @JsonKey(name: 'address')
-  List<Addresses>? get addresses {
-    final value = _addresses;
-    if (value == null) return null;
+  List<Address> get address {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_address);
   }
 
-  final List<Recommendations>? _recommendations;
+  final List<Recommendation>? _recommendations;
   @override
-  List<Recommendations>? get recommendations {
+  List<Recommendation>? get recommendations {
     final value = _recommendations;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<String>? _category;
+  final List<String> _category;
   @override
-  List<String>? get category {
-    final value = _category;
-    if (value == null) return null;
+  List<String> get category {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_category);
   }
 
   @override
   String toString() {
-    return 'DetailModel(id: $id, image: $image, name: $name, regularFee: $regularFee, url: $url, description: $description, addresses: $addresses, recommendations: $recommendations, category: $category)';
+    return 'DetailModel(id: $id, image: $image, name: $name, regularFee: $regularFee, www: $www, description: $description, address: $address, recommendations: $recommendations, category: $category)';
   }
 
   @override
@@ -277,11 +271,10 @@ class _$_DetailModel implements _DetailModel {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.regularFee, regularFee) ||
                 other.regularFee == regularFee) &&
-            (identical(other.url, url) || other.url == url) &&
+            (identical(other.www, www) || other.www == www) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            const DeepCollectionEquality()
-                .equals(other._addresses, _addresses) &&
+            const DeepCollectionEquality().equals(other._address, _address) &&
             const DeepCollectionEquality()
                 .equals(other._recommendations, _recommendations) &&
             const DeepCollectionEquality().equals(other._category, _category));
@@ -295,9 +288,9 @@ class _$_DetailModel implements _DetailModel {
       image,
       name,
       regularFee,
-      url,
+      www,
       description,
-      const DeepCollectionEquality().hash(_addresses),
+      const DeepCollectionEquality().hash(_address),
       const DeepCollectionEquality().hash(_recommendations),
       const DeepCollectionEquality().hash(_category));
 
@@ -317,87 +310,85 @@ class _$_DetailModel implements _DetailModel {
 
 abstract class _DetailModel implements DetailModel {
   const factory _DetailModel(
-      {final String? id,
-      final String? image,
-      final String? name,
-      final double? regularFee,
-      final String? url,
-      final String? description,
-      @JsonKey(name: 'address') final List<Addresses>? addresses,
-      final List<Recommendations>? recommendations,
-      final List<String>? category}) = _$_DetailModel;
+      {required final String id,
+      required final String image,
+      required final String name,
+      required final double regularFee,
+      required final String www,
+      required final String description,
+      required final List<Address> address,
+      final List<Recommendation>? recommendations,
+      required final List<String> category}) = _$_DetailModel;
 
   factory _DetailModel.fromJson(Map<String, dynamic> json) =
       _$_DetailModel.fromJson;
 
   @override
-  String? get id;
+  String get id;
   @override
-  String? get image;
+  String get image;
   @override
-  String? get name;
+  String get name;
   @override
-  double? get regularFee;
+  double get regularFee;
   @override
-  String? get url;
+  String get www;
   @override
-  String? get description;
+  String get description;
   @override
-  @JsonKey(name: 'address')
-  List<Addresses>? get addresses;
+  List<Address> get address;
   @override
-  List<Recommendations>? get recommendations;
+  List<Recommendation>? get recommendations;
   @override
-  List<String>? get category;
+  List<String> get category;
   @override
   @JsonKey(ignore: true)
   _$$_DetailModelCopyWith<_$_DetailModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Addresses _$AddressesFromJson(Map<String, dynamic> json) {
-  return _Addresses.fromJson(json);
+Address _$AddressFromJson(Map<String, dynamic> json) {
+  return _Address.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Addresses {
-  String? get street => throw _privateConstructorUsedError;
-  String? get city => throw _privateConstructorUsedError;
-  String? get code => throw _privateConstructorUsedError;
-  String? get country => throw _privateConstructorUsedError;
-  String? get lat => throw _privateConstructorUsedError;
-  String? get lng => throw _privateConstructorUsedError;
-  List<String>? get phones => throw _privateConstructorUsedError;
-  Open? get open => throw _privateConstructorUsedError;
+mixin _$Address {
+  String get street => throw _privateConstructorUsedError;
+  String get city => throw _privateConstructorUsedError;
+  String get code => throw _privateConstructorUsedError;
+  String get country => throw _privateConstructorUsedError;
+  String get lat => throw _privateConstructorUsedError;
+  String get lng => throw _privateConstructorUsedError;
+  List<String> get phones => throw _privateConstructorUsedError;
+  Open get open => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AddressesCopyWith<Addresses> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AddressCopyWith<Address> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AddressesCopyWith<$Res> {
-  factory $AddressesCopyWith(Addresses value, $Res Function(Addresses) then) =
-      _$AddressesCopyWithImpl<$Res, Addresses>;
+abstract class $AddressCopyWith<$Res> {
+  factory $AddressCopyWith(Address value, $Res Function(Address) then) =
+      _$AddressCopyWithImpl<$Res, Address>;
   @useResult
   $Res call(
-      {String? street,
-      String? city,
-      String? code,
-      String? country,
-      String? lat,
-      String? lng,
-      List<String>? phones,
-      Open? open});
+      {String street,
+      String city,
+      String code,
+      String country,
+      String lat,
+      String lng,
+      List<String> phones,
+      Open open});
 
-  $OpenCopyWith<$Res>? get open;
+  $OpenCopyWith<$Res> get open;
 }
 
 /// @nodoc
-class _$AddressesCopyWithImpl<$Res, $Val extends Addresses>
-    implements $AddressesCopyWith<$Res> {
-  _$AddressesCopyWithImpl(this._value, this._then);
+class _$AddressCopyWithImpl<$Res, $Val extends Address>
+    implements $AddressCopyWith<$Res> {
+  _$AddressCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -407,193 +398,186 @@ class _$AddressesCopyWithImpl<$Res, $Val extends Addresses>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? street = freezed,
-    Object? city = freezed,
-    Object? code = freezed,
-    Object? country = freezed,
-    Object? lat = freezed,
-    Object? lng = freezed,
-    Object? phones = freezed,
-    Object? open = freezed,
+    Object? street = null,
+    Object? city = null,
+    Object? code = null,
+    Object? country = null,
+    Object? lat = null,
+    Object? lng = null,
+    Object? phones = null,
+    Object? open = null,
   }) {
     return _then(_value.copyWith(
-      street: freezed == street
+      street: null == street
           ? _value.street
           : street // ignore: cast_nullable_to_non_nullable
-              as String?,
-      city: freezed == city
+              as String,
+      city: null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String?,
-      code: freezed == code
+              as String,
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: freezed == country
+              as String,
+      country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lat: freezed == lat
+              as String,
+      lat: null == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lng: freezed == lng
+              as String,
+      lng: null == lng
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phones: freezed == phones
+              as String,
+      phones: null == phones
           ? _value.phones
           : phones // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      open: freezed == open
+              as List<String>,
+      open: null == open
           ? _value.open
           : open // ignore: cast_nullable_to_non_nullable
-              as Open?,
+              as Open,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $OpenCopyWith<$Res>? get open {
-    if (_value.open == null) {
-      return null;
-    }
-
-    return $OpenCopyWith<$Res>(_value.open!, (value) {
+  $OpenCopyWith<$Res> get open {
+    return $OpenCopyWith<$Res>(_value.open, (value) {
       return _then(_value.copyWith(open: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_AddressesCopyWith<$Res> implements $AddressesCopyWith<$Res> {
-  factory _$$_AddressesCopyWith(
-          _$_Addresses value, $Res Function(_$_Addresses) then) =
-      __$$_AddressesCopyWithImpl<$Res>;
+abstract class _$$_AddressCopyWith<$Res> implements $AddressCopyWith<$Res> {
+  factory _$$_AddressCopyWith(
+          _$_Address value, $Res Function(_$_Address) then) =
+      __$$_AddressCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String? street,
-      String? city,
-      String? code,
-      String? country,
-      String? lat,
-      String? lng,
-      List<String>? phones,
-      Open? open});
+      {String street,
+      String city,
+      String code,
+      String country,
+      String lat,
+      String lng,
+      List<String> phones,
+      Open open});
 
   @override
-  $OpenCopyWith<$Res>? get open;
+  $OpenCopyWith<$Res> get open;
 }
 
 /// @nodoc
-class __$$_AddressesCopyWithImpl<$Res>
-    extends _$AddressesCopyWithImpl<$Res, _$_Addresses>
-    implements _$$_AddressesCopyWith<$Res> {
-  __$$_AddressesCopyWithImpl(
-      _$_Addresses _value, $Res Function(_$_Addresses) _then)
+class __$$_AddressCopyWithImpl<$Res>
+    extends _$AddressCopyWithImpl<$Res, _$_Address>
+    implements _$$_AddressCopyWith<$Res> {
+  __$$_AddressCopyWithImpl(_$_Address _value, $Res Function(_$_Address) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? street = freezed,
-    Object? city = freezed,
-    Object? code = freezed,
-    Object? country = freezed,
-    Object? lat = freezed,
-    Object? lng = freezed,
-    Object? phones = freezed,
-    Object? open = freezed,
+    Object? street = null,
+    Object? city = null,
+    Object? code = null,
+    Object? country = null,
+    Object? lat = null,
+    Object? lng = null,
+    Object? phones = null,
+    Object? open = null,
   }) {
-    return _then(_$_Addresses(
-      street: freezed == street
+    return _then(_$_Address(
+      street: null == street
           ? _value.street
           : street // ignore: cast_nullable_to_non_nullable
-              as String?,
-      city: freezed == city
+              as String,
+      city: null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String?,
-      code: freezed == code
+              as String,
+      code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: freezed == country
+              as String,
+      country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lat: freezed == lat
+              as String,
+      lat: null == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lng: freezed == lng
+              as String,
+      lng: null == lng
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phones: freezed == phones
+              as String,
+      phones: null == phones
           ? _value._phones
           : phones // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      open: freezed == open
+              as List<String>,
+      open: null == open
           ? _value.open
           : open // ignore: cast_nullable_to_non_nullable
-              as Open?,
+              as Open,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_Addresses implements _Addresses {
-  const _$_Addresses(
-      {this.street,
-      this.city,
-      this.code,
-      this.country,
-      this.lat,
-      this.lng,
-      final List<String>? phones,
-      this.open})
+class _$_Address implements _Address {
+  const _$_Address(
+      {required this.street,
+      required this.city,
+      required this.code,
+      required this.country,
+      required this.lat,
+      required this.lng,
+      required final List<String> phones,
+      required this.open})
       : _phones = phones;
 
-  factory _$_Addresses.fromJson(Map<String, dynamic> json) =>
-      _$$_AddressesFromJson(json);
+  factory _$_Address.fromJson(Map<String, dynamic> json) =>
+      _$$_AddressFromJson(json);
 
   @override
-  final String? street;
+  final String street;
   @override
-  final String? city;
+  final String city;
   @override
-  final String? code;
+  final String code;
   @override
-  final String? country;
+  final String country;
   @override
-  final String? lat;
+  final String lat;
   @override
-  final String? lng;
-  final List<String>? _phones;
+  final String lng;
+  final List<String> _phones;
   @override
-  List<String>? get phones {
-    final value = _phones;
-    if (value == null) return null;
+  List<String> get phones {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_phones);
   }
 
   @override
-  final Open? open;
+  final Open open;
 
   @override
   String toString() {
-    return 'Addresses(street: $street, city: $city, code: $code, country: $country, lat: $lat, lng: $lng, phones: $phones, open: $open)';
+    return 'Address(street: $street, city: $city, code: $code, country: $country, lat: $lat, lng: $lng, phones: $phones, open: $open)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Addresses &&
+            other is _$_Address &&
             (identical(other.street, street) || other.street == street) &&
             (identical(other.city, city) || other.city == city) &&
             (identical(other.code, code) || other.code == code) &&
@@ -612,50 +596,49 @@ class _$_Addresses implements _Addresses {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddressesCopyWith<_$_Addresses> get copyWith =>
-      __$$_AddressesCopyWithImpl<_$_Addresses>(this, _$identity);
+  _$$_AddressCopyWith<_$_Address> get copyWith =>
+      __$$_AddressCopyWithImpl<_$_Address>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AddressesToJson(
+    return _$$_AddressToJson(
       this,
     );
   }
 }
 
-abstract class _Addresses implements Addresses {
-  const factory _Addresses(
-      {final String? street,
-      final String? city,
-      final String? code,
-      final String? country,
-      final String? lat,
-      final String? lng,
-      final List<String>? phones,
-      final Open? open}) = _$_Addresses;
+abstract class _Address implements Address {
+  const factory _Address(
+      {required final String street,
+      required final String city,
+      required final String code,
+      required final String country,
+      required final String lat,
+      required final String lng,
+      required final List<String> phones,
+      required final Open open}) = _$_Address;
 
-  factory _Addresses.fromJson(Map<String, dynamic> json) =
-      _$_Addresses.fromJson;
+  factory _Address.fromJson(Map<String, dynamic> json) = _$_Address.fromJson;
 
   @override
-  String? get street;
+  String get street;
   @override
-  String? get city;
+  String get city;
   @override
-  String? get code;
+  String get code;
   @override
-  String? get country;
+  String get country;
   @override
-  String? get lat;
+  String get lat;
   @override
-  String? get lng;
+  String get lng;
   @override
-  List<String>? get phones;
+  List<String> get phones;
   @override
-  Open? get open;
+  Open get open;
   @override
   @JsonKey(ignore: true)
-  _$$_AddressesCopyWith<_$_Addresses> get copyWith =>
+  _$$_AddressCopyWith<_$_Address> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -665,13 +648,13 @@ Open _$OpenFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Open {
-  String? get monday => throw _privateConstructorUsedError;
-  String? get tuesday => throw _privateConstructorUsedError;
-  String? get wednesday => throw _privateConstructorUsedError;
-  String? get thursday => throw _privateConstructorUsedError;
-  String? get friday => throw _privateConstructorUsedError;
-  String? get saturday => throw _privateConstructorUsedError;
-  String? get sunday => throw _privateConstructorUsedError;
+  String get monday => throw _privateConstructorUsedError;
+  String get tuesday => throw _privateConstructorUsedError;
+  String get wednesday => throw _privateConstructorUsedError;
+  String get thursday => throw _privateConstructorUsedError;
+  String get friday => throw _privateConstructorUsedError;
+  String get saturday => throw _privateConstructorUsedError;
+  String get sunday => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -684,13 +667,13 @@ abstract class $OpenCopyWith<$Res> {
       _$OpenCopyWithImpl<$Res, Open>;
   @useResult
   $Res call(
-      {String? monday,
-      String? tuesday,
-      String? wednesday,
-      String? thursday,
-      String? friday,
-      String? saturday,
-      String? sunday});
+      {String monday,
+      String tuesday,
+      String wednesday,
+      String thursday,
+      String friday,
+      String saturday,
+      String sunday});
 }
 
 /// @nodoc
@@ -706,43 +689,43 @@ class _$OpenCopyWithImpl<$Res, $Val extends Open>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? monday = freezed,
-    Object? tuesday = freezed,
-    Object? wednesday = freezed,
-    Object? thursday = freezed,
-    Object? friday = freezed,
-    Object? saturday = freezed,
-    Object? sunday = freezed,
+    Object? monday = null,
+    Object? tuesday = null,
+    Object? wednesday = null,
+    Object? thursday = null,
+    Object? friday = null,
+    Object? saturday = null,
+    Object? sunday = null,
   }) {
     return _then(_value.copyWith(
-      monday: freezed == monday
+      monday: null == monday
           ? _value.monday
           : monday // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tuesday: freezed == tuesday
+              as String,
+      tuesday: null == tuesday
           ? _value.tuesday
           : tuesday // ignore: cast_nullable_to_non_nullable
-              as String?,
-      wednesday: freezed == wednesday
+              as String,
+      wednesday: null == wednesday
           ? _value.wednesday
           : wednesday // ignore: cast_nullable_to_non_nullable
-              as String?,
-      thursday: freezed == thursday
+              as String,
+      thursday: null == thursday
           ? _value.thursday
           : thursday // ignore: cast_nullable_to_non_nullable
-              as String?,
-      friday: freezed == friday
+              as String,
+      friday: null == friday
           ? _value.friday
           : friday // ignore: cast_nullable_to_non_nullable
-              as String?,
-      saturday: freezed == saturday
+              as String,
+      saturday: null == saturday
           ? _value.saturday
           : saturday // ignore: cast_nullable_to_non_nullable
-              as String?,
-      sunday: freezed == sunday
+              as String,
+      sunday: null == sunday
           ? _value.sunday
           : sunday // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -754,13 +737,13 @@ abstract class _$$_OpenCopyWith<$Res> implements $OpenCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? monday,
-      String? tuesday,
-      String? wednesday,
-      String? thursday,
-      String? friday,
-      String? saturday,
-      String? sunday});
+      {String monday,
+      String tuesday,
+      String wednesday,
+      String thursday,
+      String friday,
+      String saturday,
+      String sunday});
 }
 
 /// @nodoc
@@ -772,43 +755,43 @@ class __$$_OpenCopyWithImpl<$Res> extends _$OpenCopyWithImpl<$Res, _$_Open>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? monday = freezed,
-    Object? tuesday = freezed,
-    Object? wednesday = freezed,
-    Object? thursday = freezed,
-    Object? friday = freezed,
-    Object? saturday = freezed,
-    Object? sunday = freezed,
+    Object? monday = null,
+    Object? tuesday = null,
+    Object? wednesday = null,
+    Object? thursday = null,
+    Object? friday = null,
+    Object? saturday = null,
+    Object? sunday = null,
   }) {
     return _then(_$_Open(
-      monday: freezed == monday
+      monday: null == monday
           ? _value.monday
           : monday // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tuesday: freezed == tuesday
+              as String,
+      tuesday: null == tuesday
           ? _value.tuesday
           : tuesday // ignore: cast_nullable_to_non_nullable
-              as String?,
-      wednesday: freezed == wednesday
+              as String,
+      wednesday: null == wednesday
           ? _value.wednesday
           : wednesday // ignore: cast_nullable_to_non_nullable
-              as String?,
-      thursday: freezed == thursday
+              as String,
+      thursday: null == thursday
           ? _value.thursday
           : thursday // ignore: cast_nullable_to_non_nullable
-              as String?,
-      friday: freezed == friday
+              as String,
+      friday: null == friday
           ? _value.friday
           : friday // ignore: cast_nullable_to_non_nullable
-              as String?,
-      saturday: freezed == saturday
+              as String,
+      saturday: null == saturday
           ? _value.saturday
           : saturday // ignore: cast_nullable_to_non_nullable
-              as String?,
-      sunday: freezed == sunday
+              as String,
+      sunday: null == sunday
           ? _value.sunday
           : sunday // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -817,30 +800,30 @@ class __$$_OpenCopyWithImpl<$Res> extends _$OpenCopyWithImpl<$Res, _$_Open>
 @JsonSerializable()
 class _$_Open implements _Open {
   const _$_Open(
-      {this.monday,
-      this.tuesday,
-      this.wednesday,
-      this.thursday,
-      this.friday,
-      this.saturday,
-      this.sunday});
+      {required this.monday,
+      required this.tuesday,
+      required this.wednesday,
+      required this.thursday,
+      required this.friday,
+      required this.saturday,
+      required this.sunday});
 
   factory _$_Open.fromJson(Map<String, dynamic> json) => _$$_OpenFromJson(json);
 
   @override
-  final String? monday;
+  final String monday;
   @override
-  final String? tuesday;
+  final String tuesday;
   @override
-  final String? wednesday;
+  final String wednesday;
   @override
-  final String? thursday;
+  final String thursday;
   @override
-  final String? friday;
+  final String friday;
   @override
-  final String? saturday;
+  final String saturday;
   @override
-  final String? sunday;
+  final String sunday;
 
   @override
   String toString() {
@@ -885,41 +868,41 @@ class _$_Open implements _Open {
 
 abstract class _Open implements Open {
   const factory _Open(
-      {final String? monday,
-      final String? tuesday,
-      final String? wednesday,
-      final String? thursday,
-      final String? friday,
-      final String? saturday,
-      final String? sunday}) = _$_Open;
+      {required final String monday,
+      required final String tuesday,
+      required final String wednesday,
+      required final String thursday,
+      required final String friday,
+      required final String saturday,
+      required final String sunday}) = _$_Open;
 
   factory _Open.fromJson(Map<String, dynamic> json) = _$_Open.fromJson;
 
   @override
-  String? get monday;
+  String get monday;
   @override
-  String? get tuesday;
+  String get tuesday;
   @override
-  String? get wednesday;
+  String get wednesday;
   @override
-  String? get thursday;
+  String get thursday;
   @override
-  String? get friday;
+  String get friday;
   @override
-  String? get saturday;
+  String get saturday;
   @override
-  String? get sunday;
+  String get sunday;
   @override
   @JsonKey(ignore: true)
   _$$_OpenCopyWith<_$_Open> get copyWith => throw _privateConstructorUsedError;
 }
 
-Recommendations _$RecommendationsFromJson(Map<String, dynamic> json) {
-  return _Recommendations.fromJson(json);
+Recommendation _$RecommendationFromJson(Map<String, dynamic> json) {
+  return _Recommendation.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Recommendations {
+mixin _$Recommendation {
   String? get avatar => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get surname => throw _privateConstructorUsedError;
@@ -929,15 +912,15 @@ mixin _$Recommendations {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RecommendationsCopyWith<Recommendations> get copyWith =>
+  $RecommendationCopyWith<Recommendation> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RecommendationsCopyWith<$Res> {
-  factory $RecommendationsCopyWith(
-          Recommendations value, $Res Function(Recommendations) then) =
-      _$RecommendationsCopyWithImpl<$Res, Recommendations>;
+abstract class $RecommendationCopyWith<$Res> {
+  factory $RecommendationCopyWith(
+          Recommendation value, $Res Function(Recommendation) then) =
+      _$RecommendationCopyWithImpl<$Res, Recommendation>;
   @useResult
   $Res call(
       {String? avatar,
@@ -949,9 +932,9 @@ abstract class $RecommendationsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RecommendationsCopyWithImpl<$Res, $Val extends Recommendations>
-    implements $RecommendationsCopyWith<$Res> {
-  _$RecommendationsCopyWithImpl(this._value, this._then);
+class _$RecommendationCopyWithImpl<$Res, $Val extends Recommendation>
+    implements $RecommendationCopyWith<$Res> {
+  _$RecommendationCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -998,11 +981,11 @@ class _$RecommendationsCopyWithImpl<$Res, $Val extends Recommendations>
 }
 
 /// @nodoc
-abstract class _$$_RecommendationsCopyWith<$Res>
-    implements $RecommendationsCopyWith<$Res> {
-  factory _$$_RecommendationsCopyWith(
-          _$_Recommendations value, $Res Function(_$_Recommendations) then) =
-      __$$_RecommendationsCopyWithImpl<$Res>;
+abstract class _$$_RecommendationCopyWith<$Res>
+    implements $RecommendationCopyWith<$Res> {
+  factory _$$_RecommendationCopyWith(
+          _$_Recommendation value, $Res Function(_$_Recommendation) then) =
+      __$$_RecommendationCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1015,11 +998,11 @@ abstract class _$$_RecommendationsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RecommendationsCopyWithImpl<$Res>
-    extends _$RecommendationsCopyWithImpl<$Res, _$_Recommendations>
-    implements _$$_RecommendationsCopyWith<$Res> {
-  __$$_RecommendationsCopyWithImpl(
-      _$_Recommendations _value, $Res Function(_$_Recommendations) _then)
+class __$$_RecommendationCopyWithImpl<$Res>
+    extends _$RecommendationCopyWithImpl<$Res, _$_Recommendation>
+    implements _$$_RecommendationCopyWith<$Res> {
+  __$$_RecommendationCopyWithImpl(
+      _$_Recommendation _value, $Res Function(_$_Recommendation) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1032,7 +1015,7 @@ class __$$_RecommendationsCopyWithImpl<$Res>
     Object? subtitle = freezed,
     Object? amount = freezed,
   }) {
-    return _then(_$_Recommendations(
+    return _then(_$_Recommendation(
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -1063,8 +1046,8 @@ class __$$_RecommendationsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Recommendations implements _Recommendations {
-  const _$_Recommendations(
+class _$_Recommendation implements _Recommendation {
+  const _$_Recommendation(
       {this.avatar,
       this.name,
       this.surname,
@@ -1072,8 +1055,8 @@ class _$_Recommendations implements _Recommendations {
       this.subtitle,
       this.amount});
 
-  factory _$_Recommendations.fromJson(Map<String, dynamic> json) =>
-      _$$_RecommendationsFromJson(json);
+  factory _$_Recommendation.fromJson(Map<String, dynamic> json) =>
+      _$$_RecommendationFromJson(json);
 
   @override
   final String? avatar;
@@ -1090,14 +1073,14 @@ class _$_Recommendations implements _Recommendations {
 
   @override
   String toString() {
-    return 'Recommendations(avatar: $avatar, name: $name, surname: $surname, subtitleYou: $subtitleYou, subtitle: $subtitle, amount: $amount)';
+    return 'Recommendation(avatar: $avatar, name: $name, surname: $surname, subtitleYou: $subtitleYou, subtitle: $subtitle, amount: $amount)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Recommendations &&
+            other is _$_Recommendation &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.surname, surname) || other.surname == surname) &&
@@ -1116,28 +1099,28 @@ class _$_Recommendations implements _Recommendations {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RecommendationsCopyWith<_$_Recommendations> get copyWith =>
-      __$$_RecommendationsCopyWithImpl<_$_Recommendations>(this, _$identity);
+  _$$_RecommendationCopyWith<_$_Recommendation> get copyWith =>
+      __$$_RecommendationCopyWithImpl<_$_Recommendation>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RecommendationsToJson(
+    return _$$_RecommendationToJson(
       this,
     );
   }
 }
 
-abstract class _Recommendations implements Recommendations {
-  const factory _Recommendations(
+abstract class _Recommendation implements Recommendation {
+  const factory _Recommendation(
       {final String? avatar,
       final String? name,
       final String? surname,
       final String? subtitleYou,
       final String? subtitle,
-      final String? amount}) = _$_Recommendations;
+      final String? amount}) = _$_Recommendation;
 
-  factory _Recommendations.fromJson(Map<String, dynamic> json) =
-      _$_Recommendations.fromJson;
+  factory _Recommendation.fromJson(Map<String, dynamic> json) =
+      _$_Recommendation.fromJson;
 
   @override
   String? get avatar;
@@ -1153,6 +1136,6 @@ abstract class _Recommendations implements Recommendations {
   String? get amount;
   @override
   @JsonKey(ignore: true)
-  _$$_RecommendationsCopyWith<_$_Recommendations> get copyWith =>
+  _$$_RecommendationCopyWith<_$_Recommendation> get copyWith =>
       throw _privateConstructorUsedError;
 }

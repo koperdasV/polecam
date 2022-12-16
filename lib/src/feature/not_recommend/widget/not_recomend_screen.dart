@@ -6,6 +6,7 @@ import 'package:polec/src/ui/details/components/image_widget.dart';
 import 'package:polec/src/ui/details/components/navigation_bar.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
 import 'package:polec/src/ui/details/components/show_dialog.dart';
+import 'package:polec/src/ui/details/models/detail_model.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class NotRecommendScreen extends StatefulWidget {
@@ -13,12 +14,13 @@ class NotRecommendScreen extends StatefulWidget {
     super.key,
     this.image = '',
     this.regularFee = 0,
-    this.tag,
+    this.tag, this.detailModel,
   });
 
   final String image;
   final List<String>? tag;
   final int? regularFee;
+  final DetailModel? detailModel;
   @override
   State<NotRecommendScreen> createState() => _NotRecommendScreenState();
 }
@@ -26,9 +28,8 @@ class NotRecommendScreen extends StatefulWidget {
 class _NotRecommendScreenState extends State<NotRecommendScreen> {
   @override
   Widget build(BuildContext context) {
-    final amountParse = (widget.regularFee)! * 100.round();
-    final percent = amountParse.toInt();
-    final getRegularFee = percent + 1;
+    final amountParse = (widget.regularFee)! * 100;
+    final percent = amountParse;
 
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
@@ -53,6 +54,7 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                 ImageWidget(
                   image: widget.image,
                   regularFee: percent,
+                  detailModel: widget.detailModel!,
                 ),
                 const Padding(
                   padding: EdgeInsets.only(top: 10),

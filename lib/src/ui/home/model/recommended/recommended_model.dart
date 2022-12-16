@@ -15,14 +15,14 @@ String recommendedModelToJson(List<RecommendedModel> data) =>
 @freezed
 abstract class RecommendedModel with _$RecommendedModel {
   const factory RecommendedModel({
-    String? id,
-    String? image,
-    String? name,
-    double? regularFee,
-    String? www,
-    String? description,
-    List<String>? category,
-    List<Address>? address,
+   required String id,
+   required String image,
+   required String name,
+   required double regularFee,
+   required String www,
+   required String description,
+   required List<String> category,
+   required List<Address> address,
     @Default(false) bool visibleOnMap,
   }) = _RecommendedModel;
 
@@ -33,15 +33,15 @@ abstract class RecommendedModel with _$RecommendedModel {
 @freezed
 abstract class Address with _$Address {
   const factory Address({
-    String? street,
-    String? city,
-    String? code,
-    String? country,
-    String? lat,
-    String? lng,
-    List<String>? phones,
-    String? email,
-    Open? open,
+   required String street,
+  required  String city,
+   required String code,
+   required String country,
+   required String lat,
+   required String lng,
+   required List<String> phones,
+   required String email,
+   required Open open,
   }) = _Address;
 
   factory Address.fromJson(Map<String, dynamic> json) =>
@@ -51,13 +51,13 @@ abstract class Address with _$Address {
 @freezed
 abstract class Open with _$Open {
   const factory Open({
-    String? monday,
-    String? tuesday,
-    String? wednesday,
-    String? thursday,
-    String? friday,
-    String? saturday,
-    String? sunday,
+  required  String monday,
+   required String tuesday,
+   required String wednesday,
+   required String thursday,
+   required String friday,
+   required String saturday,
+   required String sunday,
   }) = _Open;
 
   factory Open.fromJson(Map<String, dynamic> json) => _$OpenFromJson(json);
