@@ -1,7 +1,10 @@
 // ignore_for_file: inference_failure_on_function_return_type
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:motion_toast/motion_toast.dart';
+import 'package:motion_toast/resources/arrays.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/details/components/show_dialog.dart';
 import 'package:polec/src/ui/home/widget/components/in_active_button.dart';
@@ -20,49 +23,6 @@ class AlertDialogWidget extends StatefulWidget {
 }
 
 class _AlertDialogWidgetState extends State<AlertDialogWidget> {
-  FToast? fToast;
-
-  @override
-  void initState() {
-    fToast = FToast();
-    fToast!.init(context);
-    super.initState();
-  }
-
-  // ignore: always_declare_return_types
-  _showToast() {
-    final toast = Container(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
-        gradient: LinearGradient(colors: AppColor.inActiveButtonColor),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: const [
-          Icon(
-            Icons.check,
-            color: Colors.white,
-          ),
-          SizedBox(
-            width: 14,
-          ),
-          Text(
-            'Your offer has been saved',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
-    );
-
-    fToast!.showToast(
-      child: toast,
-      gravity: ToastGravity.BOTTOM,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return ShowDialog(
@@ -106,7 +66,7 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
                 text: 'Save the Card',
                 onPressed: () {
                   Navigator.of(context).pop();
-                  _showToast();
+                  _offerSaved();
                 },
                 fontSize: 22,
               ),
@@ -115,5 +75,35 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
         ),
       ),
     );
+  }
+
+  void _offerSaved() {
+    MotionToast(
+      displaySideBar: false,
+      displayBorder: true,
+      primaryColor: AppColor.textButtonColor,
+      backgroundType: BackgroundType.solid,
+      width: 270,
+      height: 50,
+      toastDuration: const Duration(seconds: 2),
+      description: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Icon(
+            CupertinoIcons.check_mark,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 14,
+          ),
+          Text(
+            'Your offer has been saved',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    ).show(context);
   }
 }

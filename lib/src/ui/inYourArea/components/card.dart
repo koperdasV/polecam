@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:motion_toast/motion_toast.dart';
+import 'package:motion_toast/resources/arrays.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
@@ -18,6 +21,37 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        void _addFavorites() {
+      MotionToast(
+        displaySideBar: false,
+        displayBorder: true,
+        primaryColor: AppColor.textButtonColor,
+        backgroundType: BackgroundType.solid,
+        width: 230,
+        height: 50,
+        toastDuration: const Duration(seconds: 2),
+        description: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(
+              CupertinoIcons.heart_fill,
+              color: Colors.white,
+            ),
+            SizedBox(
+              width: 14,
+            ),
+            Text(
+              'Added to favorites',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ).show(context);
+    }
+
+
     final amountParse = (tmp.regularFee)! * 100.round();
     final percent = amountParse.toInt();
     return Padding(

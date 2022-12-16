@@ -1,21 +1,28 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:motion_toast/motion_toast.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/details/models/detail_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
-class ImageWidget extends StatelessWidget {
+class ImageWidget extends StatefulWidget {
   const ImageWidget({
     super.key,
     required this.image,
     this.regularFee = 0,
-   required this.detailModel,
+    required this.detailModel,
   });
 
   final String image;
   final int? regularFee;
   final DetailModel detailModel;
 
+  @override
+  State<ImageWidget> createState() => _ImageWidgetState();
+}
+
+class _ImageWidgetState extends State<ImageWidget> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -26,13 +33,13 @@ class ImageWidget extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child: Image.network(
-              image,
+              widget.image,
               fit: BoxFit.cover,
             ),
           ),
         ),
         PercentWidget(
-          percent: regularFee.toString(),
+          percent: widget.regularFee.toString(),
           fontSize: 34,
         ),
         Positioned(
@@ -41,7 +48,7 @@ class ImageWidget extends StatelessWidget {
           child: Row(
             children: [
               CategorieTag(
-                tag: detailModel.category,
+                tag: widget.detailModel.category,
               ),
             ],
           ),
@@ -51,7 +58,7 @@ class ImageWidget extends StatelessWidget {
           bottom: 0,
           child: CupertinoButton(
             borderRadius: BorderRadius.circular(100),
-            onPressed: () {},
+            onPressed: _addFavorites,
             child: Container(
               width: 50,
               height: 50,
@@ -70,5 +77,35 @@ class ImageWidget extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void _addFavorites() {
+    MotionToast(
+      icon: CupertinoIcons.heart,
+      displaySideBar: false,
+      displayBorder: true,
+      primaryColor: AppColor.textButtonColor,
+      width: 230,
+      height: 50,
+      toastDuration: const Duration(seconds: 2),
+      description: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Icon(
+            CupertinoIcons.heart_fill,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 14,
+          ),
+          Text(
+            'Added to favorites',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    ).show(context);
   }
 }
