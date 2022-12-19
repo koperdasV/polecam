@@ -74,14 +74,17 @@ class _PayoutNavigationBarState extends State<PayoutNavigationBar> {
     );
   }
 
-  Text buildSegment(String title) {
-    return Text(
-      title,
-      style: const TextStyle(
-        color: CupertinoColors.black,
-        fontSize: 14,
+  FittedBox buildSegment(String title) {
+    return FittedBox(
+      fit: BoxFit.fitWidth,
+      child: Text(
+        title,
+        style: const TextStyle(
+          color: CupertinoColors.black,
+          fontSize: 14,
+        ),
+        softWrap: false,
       ),
-      softWrap: false,
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/motion_toast.dart';
+import 'package:motion_toast/resources/arrays.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/details/models/detail_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
@@ -81,10 +82,10 @@ class _ImageWidgetState extends State<ImageWidget> {
 
   void _addFavorites() {
     MotionToast(
-      icon: CupertinoIcons.heart,
       displaySideBar: false,
       displayBorder: true,
       primaryColor: AppColor.textButtonColor,
+      backgroundType: BackgroundType.solid,
       width: 230,
       height: 50,
       toastDuration: const Duration(seconds: 2),
