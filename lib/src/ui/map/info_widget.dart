@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
+import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/data/detail_repository.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
+import 'package:polec/theme/app_colors.dart';
 
 class InfoCardWidget extends StatelessWidget {
   const InfoCardWidget({
@@ -20,10 +22,17 @@ class InfoCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final amountParse = (tmp.regularFee) * 100;
     final percent = amountParse.toInt();
+    final colorInfo =
+        tmp.id == "recomendedIdFirst" || tmp.id == "recomendedIdSecond"
+            ? Colors.white
+            : AppColors.bgMapInfo;
+    final colorInfoText =
+        colorInfo == Colors.white ? AppColor.subTitleColor : Colors.black;
+
     return GestureDetector(
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: colorInfo,
           borderRadius: const BorderRadius.all(
             Radius.circular(10),
           ),
@@ -54,7 +63,7 @@ class InfoCardWidget extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 9,
                   fontWeight: FontWeight.normal,
-                  color: AppColor.subTitleColor,
+                  color: colorInfoText,
                 ),
               ),
               const SizedBox(height: 10),
@@ -70,7 +79,7 @@ class InfoCardWidget extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 9,
                   fontWeight: FontWeight.normal,
-                  color: AppColor.subTitleColor,
+                  color: colorInfoText,
                 ),
               ),
             ],
@@ -84,10 +93,16 @@ class InfoCardWidget extends StatelessWidget {
           CupertinoPageRoute(
             builder: (context) => BlocProvider<DetailsBloc>(
               create: (context) => DetailsBloc(detailsRepo: DetailRepository()),
-              child: DetailsScreen(
-                productId: tmp.id,
-                productType: 'recommended',
-              ),
+              child: tmp.id == "recomendedIdFirst" ||
+                      tmp.id == "recomendedIdSecond"
+                  ? DetailsScreen(
+                      productId: tmp.id,
+                      productType: 'recommended',
+                    )
+                  : NotRecommendScreen(
+                      productId: tmp.id,
+                      productType: 'recommended',
+                    ),
             ),
           ),
         );

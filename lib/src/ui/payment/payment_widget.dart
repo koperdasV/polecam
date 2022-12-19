@@ -32,20 +32,10 @@ class PaymentWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
-                child: ImageWidget(
-                  image: detailModel.image,
-                  regularFee: regularFeePer,
-                  detailModel: detailModel,
-                ),
-                onTap: () => Navigator.push(
-                  context,
-                  CupertinoPageRoute(
-                    builder: (context) => NotRecommendScreen(
-                      image: detailModel.image,
-                    ),
-                  ),
-                ),
+              ImageWidget(
+                image: detailModel.image,
+                regularFee: regularFeePer,
+                detailModel: detailModel,
               ),
               const Padding(
                 padding: EdgeInsets.only(top: 10),
