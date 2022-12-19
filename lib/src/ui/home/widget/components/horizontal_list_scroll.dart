@@ -37,15 +37,9 @@ class HorizontalListScroll extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: itemCount,
             itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 20,
-                ),
-                child: CardWidget(
-                  tmp: tmp[index],
-                  fontSize: fontSize,
-                ),
+              return CardWidget(
+                tmp: tmp[index],
+                fontSize: fontSize,
               );
             },
           );

@@ -35,7 +35,7 @@ class _YourAreaCardState extends State<YourAreaCard> {
     final amountParse = (widget.tmp.regularFee)! * 100;
     final percent = amountParse.toInt();
     return Padding(
-      padding: const EdgeInsets.only(right: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -124,32 +124,33 @@ class _YourAreaCardState extends State<YourAreaCard> {
     );
   }
 
-void _addFavorites() {
-      MotionToast(
-        displaySideBar: false,
-        displayBorder: true,
-        primaryColor: AppColor.textButtonColor,
-        backgroundType: BackgroundType.solid,
-        width: 230,
-        height: 50,
-        toastDuration: const Duration(seconds: 2),
-        description: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(
-              CupertinoIcons.heart_fill,
+  void _addFavorites() {
+    MotionToast(
+      displaySideBar: false,
+      displayBorder: true,
+      primaryColor: AppColor.textButtonColor,
+      backgroundType: BackgroundType.solid,
+      width: 230,
+      height: 50,
+      toastDuration: const Duration(seconds: 2),
+      description: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Icon(
+            CupertinoIcons.heart_fill,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 14,
+          ),
+          Text(
+            'Added to favorites',
+            style: TextStyle(
               color: Colors.white,
             ),
-            SizedBox(
-              width: 14,
-            ),
-            Text(
-              'Added to favorites',
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ],
-        ),
-      ).show(context);
-    }}
+          ),
+        ],
+      ),
+    ).show(context);
+  }
+}

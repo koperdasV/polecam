@@ -21,7 +21,7 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        void _addFavorites() {
+    void _addFavorites() {
       MotionToast(
         displaySideBar: false,
         displayBorder: true,
@@ -51,8 +51,7 @@ class CardWidget extends StatelessWidget {
       ).show(context);
     }
 
-
-    final amountParse = (tmp.regularFee)! * 100.round();
+    final amountParse = (tmp.regularFee)! * 100;
     final percent = amountParse.toInt();
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -107,7 +106,7 @@ class CardWidget extends StatelessWidget {
                   bottom: 0,
                   child: CupertinoButton(
                     borderRadius: BorderRadius.circular(100),
-                    onPressed: () {},
+                    onPressed: _addFavorites,
                     child: Container(
                       width: 50,
                       height: 50,
