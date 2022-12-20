@@ -17,14 +17,12 @@ Map<Account, Widget> accountWidget = <Account, Widget>{
   Account.level: const LevelWidget(),
   Account.account: MainAccountWidget(),
 };
-   Account selectedSegment = Account.statistics;
+Account selectedSegment = Account.statistics;
+
 class ProfileNavigationBar extends StatefulWidget {
   const ProfileNavigationBar({
     super.key,
-
   });
-
-
 
   @override
   State<ProfileNavigationBar> createState() => _ProfileNavigationBarState();
@@ -63,7 +61,7 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
                   if (value != null) {
                     setState(
                       () {
-                       selectedSegment = value;
+                        selectedSegment = value;
                       },
                     );
                   }

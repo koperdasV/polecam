@@ -1,4 +1,3 @@
-
 part of 'your_area_bloc.dart';
 
 class YourAreaEvent extends Equatable {

@@ -41,14 +41,13 @@ class ListWidget extends StatelessWidget {
                             padding: const EdgeInsets.only(right: 15),
                             child: CircleAvatar(
                               radius: 30,
-                            
                               backgroundImage: NetworkImage(
                                 state.journals[index].source.avatar,
                               ),
                             ),
                           ),
                           Text(
-                             state.journals[index].source.name,
+                            state.journals[index].source.name,
                             style: const TextStyle(
                               fontWeight: FontWeight.normal,
                               fontSize: 16,

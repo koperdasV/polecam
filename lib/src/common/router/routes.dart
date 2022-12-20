@@ -74,7 +74,7 @@ class HomeRoute extends GoRouteData {
         BlocProvider(create: (context) => AccountCubit()),
         BlocProvider(create: (context) => NavigationCubit()),
       ],
-        child: const HomeScreen(),
+      child: const HomeScreen(),
     );
   }
 }

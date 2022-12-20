@@ -85,7 +85,8 @@ class LevelWidget extends StatelessWidget {
                       const SizedBox(
                         child: LinearProgressIndicator(
                           value: 0.4,
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.blue),
                           backgroundColor: AppColors.progressIndicatorBg,
                         ),
                       ),

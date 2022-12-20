@@ -27,7 +27,6 @@ class _DetailsWidgetState extends State<DetailsWidget> {
     final percent = amountParse.toInt();
     final getRegularFee = percent + 1;
 
-
     return ListView(
       children: [
         Padding(

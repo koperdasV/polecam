@@ -36,7 +36,8 @@ class _BonusScreenState extends State<BonusScreen> {
     );
     super.initState();
   }
-    final random = Random();
+
+  final random = Random();
 
   @override
   Widget build(BuildContext context) {

@@ -57,7 +57,5 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   Future<void> _onAddFavorites(
     AddFavorites event,
     Emitter<FavoriteState> emit,
-  ) async {
-    
-  }
+  ) async {}
 }

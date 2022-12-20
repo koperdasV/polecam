@@ -12,12 +12,11 @@ abstract class AppColor {
   static Color bonusDiagramColor = const Color.fromRGBO(47, 180, 191, 1);
   static Color unFavoritesColor = const Color.fromRGBO(190, 190, 190, 1);
 
-    static List<Color> inActiveButtonColor = const [
-        Color(0xFFd93150),
-        Color(0xFFf17088),
-        Color(0xFFfc8ca1),
+  static List<Color> inActiveButtonColor = const [
+    Color(0xFFd93150),
+    Color(0xFFf17088),
+    Color(0xFFfc8ca1),
   ];
-
 
   //BUBBLE CHART COLORS GRADIENT\\
   static List<Color> blueBall = const [

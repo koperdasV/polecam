@@ -14,7 +14,6 @@ abstract class IDetailRepo {
 class DetailRepository implements IDetailRepo {
   @override
   Future<DetailModel> fetchDetails() async {
-
     final response = await rootBundle.loadString('assets/recommended.json');
     final json = await jsonDecode(response);
     final detailModel = DetailModel.fromJson(json as Map<String, dynamic>);

@@ -19,7 +19,6 @@ class _MoneybackScreenState extends State<MoneybackScreen> {
   late TooltipBehavior _tooltipBehavior;
   late ZoomPanBehavior _zoomPanBehavior;
 
-
   @override
   void initState() {
     _tooltipBehavior = TooltipBehavior(
@@ -37,7 +36,6 @@ class _MoneybackScreenState extends State<MoneybackScreen> {
     );
     super.initState();
   }
-
 
   final random = Random();
 

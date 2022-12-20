@@ -12,7 +12,7 @@ class LoadJournals extends JournalsEvent {
   List<Object?> get props => [];
 }
 
-class RefreshJournals extends JournalsEvent{
+class RefreshJournals extends JournalsEvent {
   const RefreshJournals();
   @override
   List<Object?> get props => [];

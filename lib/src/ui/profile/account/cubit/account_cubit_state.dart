@@ -7,11 +7,11 @@ class AccountEditState {
   );
 
   final bool editing;
-  final Map<int,Widget> index;
+  final Map<int, Widget> index;
 
   AccountEditState copyWith({
     bool? editing,
-    Map<int,Widget>? index,
+    Map<int, Widget>? index,
   }) {
     return AccountEditState(
       editing ?? this.editing,

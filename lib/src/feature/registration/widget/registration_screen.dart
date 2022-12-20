@@ -117,7 +117,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   width: MediaQuery.of(context).size.width,
                   child: CupertinoButton.filled(
                     onPressed: () {
-                      if (formKey.currentState!.validate() && checkValue == true) {
+                      if (formKey.currentState!.validate() &&
+                          checkValue == true) {
                         context.go('/');
                       }
                     },

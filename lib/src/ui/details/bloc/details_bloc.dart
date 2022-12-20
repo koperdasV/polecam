@@ -31,8 +31,7 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
         id: event.productId,
         type: event.productType,
       );
-        return emit(DetailsState.loaded(productDetails: productDetails));
-      
+      return emit(DetailsState.loaded(productDetails: productDetails));
     } catch (e) {
       return emit(DetailsState.error(errorMessage: e.toString()));
     }
