@@ -5,8 +5,8 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:polec/app/app.dart';
 import 'package:polec/bootstrap.dart';
+import 'package:polec/src/app.dart';
 
 void main() {
   bootstrap(() => const App());

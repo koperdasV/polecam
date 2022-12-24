@@ -7,6 +7,7 @@ environment:
   sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
+  auto_size_text: 3.0.0
   bloc: 8.1.0
   bloc_concurrency: 0.2.0
   country_code_picker: 2.0.2
@@ -17,26 +18,25 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: 8.1.1
+  flutter_launcher_icons: 0.11.0
   flutter_localizations:
     sdk: flutter
+  flutter_map: 3.0.0
   flutter_native_splash: 2.2.9
   flutter_svg: 1.1.5
+  freezed: 2.1.0
   freezed_annotation: 2.1.0
   get_it: 7.2.0
   go_router: 5.0.2
   injectable: 1.5.3
   intl: 0.17.0
+  json_annotation: 4.7.0
+  json_serializable: 6.5.4
   meta: 1.8.0
+  motion_toast: 2.6.4
+  provider: 6.0.4
   shared_preferences: 2.0.15
   syncfusion_flutter_charts: 20.3.52
-  #Flutter map
-  flutter_map: 3.0.0
-  json_annotation: 4.7.0
-  freezed: 2.1.0
-  json_serializable: 6.5.4
-  provider: 6.0.4
-  motion_toast: 2.6.4
-  auto_size_text: 3.0.0
 
 dev_dependencies:
   bloc_test: 9.1.0
@@ -54,7 +54,7 @@ flutter:
   assets:
     - assets/images/
     - assets/fake_images/
-    - assets/icons/
+    - assets/launcher_icon/
     - assets/journal.json
     - assets/categories.json
     - assets/recommended.json
@@ -62,7 +62,6 @@ flutter:
     - assets/near.json
     - assets/me.json
     - assets/favourites.json
-
 
   fonts:
     - family: SegoeUIBlack
