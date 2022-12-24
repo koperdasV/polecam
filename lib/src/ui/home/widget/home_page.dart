@@ -3,10 +3,10 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:polec/src/feature/home/provider/navigation_bar_provider.dart';
 import 'package:polec/src/feature/map/widget/map_screen.dart';
-import 'package:polec/src/feature/profile/widget/profile_screen.dart';
+import 'package:polec/src/feature/profile/provider/profile_provider.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_list_widget.dart';
 import 'package:polec/src/ui/home/widget/components/home_app_bar.dart';
@@ -16,7 +16,9 @@ import 'package:polec/src/ui/home/widget/components/search_widget.dart';
 import 'package:polec/src/ui/home/widget/components/title_widget.dart';
 import 'package:polec/src/ui/home/widget/components/your_area_list.dart';
 import 'package:polec/src/ui/inYourArea/in_your_area_page.dart';
+import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
 import 'package:polec/src/ui/recommended/recommended_page.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -103,12 +105,12 @@ class _HomePageState extends State<HomePage> {
             child: InActiveButton(
               text: 'Inactive Account',
               onPressed: () {
-                Navigator.push(
-                  context,
-                  CupertinoPageRoute(
-                    builder: (context) => const ProfileScreen(),
-                  ),
-                );
+                Provider.of<BottomNavigationBarProvider>(context, listen: false)
+                    .updatePageSelection(3);
+                Provider.of<SlidingBarProvider>(context, listen: false)
+                    .updateSegment(Account.account);
+                Provider.of<SlidingBarProvider>(context, listen: false)
+                    .visibleMarker(visible: true);
               },
             ),
           ),
