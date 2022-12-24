@@ -3,8 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
+import 'package:polec/src/feature/profile/provider/profile_provider.dart';
 import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
 import 'package:polec/src/ui/profile/account/cubit/account_cubit.dart';
+import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
+import 'package:provider/provider.dart';
 
 class ProfileAppBar extends StatefulWidget {
   const ProfileAppBar({
@@ -17,6 +20,7 @@ class ProfileAppBar extends StatefulWidget {
 class _ProfileAppBarState extends State<ProfileAppBar> {
   @override
   Widget build(BuildContext context) {
+    final provider = context.watch<SlidingBarProvider>().markerVisible;
     return BlocBuilder<AccountBloc, AccountState>(
       builder: (context, state) {
         if (state.status == AccountStateStatus.failure &&
@@ -87,7 +91,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                           ),
                         ),
                         Visibility(
-                          visible: !state.editing,
+                          visible: provider,
                           child: CupertinoButton(
                             onPressed: () {
                               context
