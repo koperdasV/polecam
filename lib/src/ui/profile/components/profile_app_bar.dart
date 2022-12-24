@@ -94,9 +94,11 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                           visible: provider,
                           child: CupertinoButton(
                             onPressed: () {
-                              context
-                                  .read<AccountCubit>()
-                                  .editingAcc(editingAccount: true);
+                              if (provider == true) {
+                                context
+                                    .read<AccountCubit>()
+                                    .editingAcc(editingAccount: true);
+                              }
                             },
                             child: Icon(
                               Icons.mode,
