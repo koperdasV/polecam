@@ -19,3 +19,12 @@ class VisiblePoint extends RecommendedEvent {
   @override
   List<Object?> get props => [id];
 }
+
+class SearchEvent extends RecommendedEvent {
+  const SearchEvent({required this.text});
+
+  final String text;
+
+  @override
+  List<Object> get props => [text];
+}
