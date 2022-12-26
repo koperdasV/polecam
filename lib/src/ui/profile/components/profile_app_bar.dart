@@ -6,8 +6,6 @@ import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/profile/provider/profile_provider.dart';
 import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
 import 'package:polec/src/ui/profile/account/cubit/account_cubit.dart';
-import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
-import 'package:provider/provider.dart';
 
 class ProfileAppBar extends StatefulWidget {
   const ProfileAppBar({
@@ -18,6 +16,7 @@ class ProfileAppBar extends StatefulWidget {
 }
 
 class _ProfileAppBarState extends State<ProfileAppBar> {
+  bool click = false;
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<SlidingBarProvider>().markerVisible;
@@ -74,39 +73,26 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                 ),
                 BlocBuilder<AccountCubit, AccountEditState>(
                   builder: (context, state) {
-                    return Row(
-                      children: [
-                        Visibility(
-                          visible: state.editing,
-                          child: CupertinoButton(
-                            onPressed: () {
-                              context
+                    return Visibility(
+                      visible: provider,
+                      child: CupertinoButton(
+                        onPressed: () {
+                          setState(() {
+                            click = !click;
+                          });
+                          (click == false)
+                              ? context
                                   .read<AccountCubit>()
-                                  .editingAcc(editingAccount: false);
-                            },
-                            child: Icon(
-                              Icons.close,
-                              color: AppColor.subTitleColor,
-                            ),
-                          ),
+                                  .editingAcc(editingAccount: false)
+                              : context
+                                  .read<AccountCubit>()
+                                  .editingAcc(editingAccount: true);
+                        },
+                        child: Icon(
+                          (click == false) ? Icons.mode : Icons.close,
+                          color: AppColor.subTitleColor,
                         ),
-                        Visibility(
-                          visible: provider,
-                          child: CupertinoButton(
-                            onPressed: () {
-                              if (provider == true) {
-                                context
-                                    .read<AccountCubit>()
-                                    .editingAcc(editingAccount: true);
-                              }
-                            },
-                            child: Icon(
-                              Icons.mode,
-                              color: AppColor.subTitleColor,
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     );
                   },
                 ),
