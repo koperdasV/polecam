@@ -92,25 +92,40 @@ class _MapWidgetState extends State<MapWidget> {
                       userAgentPackageName: 'com.example.app',
                     ),
                     MarkerLayer(
+                      markers: [
+                        Marker(
+                          width: 50,
+                          height: 50,
+                          point: LatLng(
+                            widget.position.latitude,
+                            widget.position.longitude,
+                          ),
+                          builder: (context) {
+                            return Align(
+                  child: SizedBox(
+                    width: 30,
+                    height: 30,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(50),
+                        border: Border.all(
+                          width: 7,
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+                          },
+                        ),
+                      ],
+                    ),
+                    MarkerLayer(
                       rotate: true,
                       markers: state.recommended
                           .map((e) => MarkerX(recommendedModel: e))
                           .toList(growable: false),
                     ),
-                    // Positioned(
-                    //   bottom: 10,
-                    //   right: 10,
-                    //   child: FloatingActionButton(
-                    //     onPressed: () {
-                    //       // _getCurrentLocation().then((value) {
-                    //       //   lat = value.latitude;
-                    //       //   long = value.longitude;
-                    //       // });
-                    //       print('Latitude: $lat, Longitude: $long');
-                    //     },
-                    //     child: const Icon(CupertinoIcons.location),
-                    //   ),
-                    // ),
                   ],
                 )
               else
