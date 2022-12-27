@@ -45,7 +45,7 @@ class _MapPageState extends State<MapPage> {
           ),
         ),
         const SizedBox(height: 10),
-        const Expanded(
+        Expanded(
           child: MapWidget(),
         ),
       ],
