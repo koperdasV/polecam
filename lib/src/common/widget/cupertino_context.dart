@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:meta/meta.dart';
 import 'package:polec/l10n/l10n.dart';
@@ -24,10 +26,16 @@ class CupertinoContext extends StatefulWidget {
   State<CupertinoContext> createState() => _CupertinoContextState();
 } // CupertinoContext
 
+const systemUiOverlayStyle = SystemUiOverlayStyle(
+  statusBarColor: Colors.transparent, // status bar color
+  statusBarBrightness: Brightness.light, //status bar brigtness
+  statusBarIconBrightness: Brightness.dark, //status barIcon Brightness
+);
 /// State for widget CupertinoContext
 class _CupertinoContextState extends State<CupertinoContext> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
     final routerController = AppRouter.of(context);
     return CupertinoApp.router(
       theme: buildThemeData(),

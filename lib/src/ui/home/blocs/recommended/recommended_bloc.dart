@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:polec/src/ui/home/data/recommended_repository.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 
@@ -31,19 +32,26 @@ class RecommendedBloc extends Bloc<RecommendedEvent, RecommendedState> {
 
       final recommended = await _recommendedRepo.fetchRecommended();
 
-      return recommended.isNotEmpty
+      recommended.isNotEmpty
           ? emit(
               state.copyWith(
                 recommended: List.of(state.recommended)..addAll(recommended),
-                status: RecommendedStateStatus.success,
+                // status: RecommendedStateStatus.success,
               ),
             )
           : emit(
               state.copyWith(
                 recommended: recommended,
-                status: RecommendedStateStatus.success,
+                // status: RecommendedStateStatus.success,
               ),
             );
+      final position = await _getCurrentLocation();
+      return emit(
+        state.copyWith(
+          position: position,
+          status: RecommendedStateStatus.success,
+        ),
+      );
     } catch (e) {
       return emit(
         state.copyWith(
@@ -52,6 +60,27 @@ class RecommendedBloc extends Bloc<RecommendedEvent, RecommendedState> {
         ),
       );
     }
+  }
+
+  Future<Position> _getCurrentLocation() async {
+    final serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disable');
+    }
+
+    var permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permission are denied');
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+        'Location permissions are permanently denied, we cannot request',
+      );
+    }
+    return Geolocator.getCurrentPosition();
   }
 
   Future<void> _onVisiblePoint(
