@@ -35,8 +35,7 @@ mixin _$CategoriesModel {
 abstract class $CategoriesModelCopyWith<$Res> {
   factory $CategoriesModelCopyWith(
           CategoriesModel value, $Res Function(CategoriesModel) then) =
-      _$CategoriesModelCopyWithImpl<$Res, CategoriesModel>;
-  @useResult
+      _$CategoriesModelCopyWithImpl<$Res>;
   $Res call(
       {String name,
       String places,
@@ -46,47 +45,44 @@ abstract class $CategoriesModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CategoriesModelCopyWithImpl<$Res, $Val extends CategoriesModel>
+class _$CategoriesModelCopyWithImpl<$Res>
     implements $CategoriesModelCopyWith<$Res> {
   _$CategoriesModelCopyWithImpl(this._value, this._then);
 
+  final CategoriesModel _value;
   // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final $Res Function(CategoriesModel) _then;
 
-  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? places = null,
+    Object? name = freezed,
+    Object? places = freezed,
     Object? icon = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      places: null == places
+      places: places == freezed
           ? _value.places
           : places // ignore: cast_nullable_to_non_nullable
               as String,
-      icon: freezed == icon
+      icon: icon == freezed
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as CategoriesIcon?,
-    ) as $Val);
+    ));
   }
 
   @override
-  @pragma('vm:prefer-inline')
   $CategoriesIconCopyWith<$Res>? get icon {
     if (_value.icon == null) {
       return null;
     }
 
     return $CategoriesIconCopyWith<$Res>(_value.icon!, (value) {
-      return _then(_value.copyWith(icon: value) as $Val);
+      return _then(_value.copyWith(icon: value));
     });
   }
 }
@@ -98,7 +94,6 @@ abstract class _$$_CategoriesModelCopyWith<$Res>
           _$_CategoriesModel value, $Res Function(_$_CategoriesModel) then) =
       __$$_CategoriesModelCopyWithImpl<$Res>;
   @override
-  @useResult
   $Res call(
       {String name,
       String places,
@@ -110,29 +105,31 @@ abstract class _$$_CategoriesModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_CategoriesModelCopyWithImpl<$Res>
-    extends _$CategoriesModelCopyWithImpl<$Res, _$_CategoriesModel>
+    extends _$CategoriesModelCopyWithImpl<$Res>
     implements _$$_CategoriesModelCopyWith<$Res> {
   __$$_CategoriesModelCopyWithImpl(
       _$_CategoriesModel _value, $Res Function(_$_CategoriesModel) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_CategoriesModel));
 
-  @pragma('vm:prefer-inline')
+  @override
+  _$_CategoriesModel get _value => super._value as _$_CategoriesModel;
+
   @override
   $Res call({
-    Object? name = null,
-    Object? places = null,
+    Object? name = freezed,
+    Object? places = freezed,
     Object? icon = freezed,
   }) {
     return _then(_$_CategoriesModel(
-      name: null == name
+      name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      places: null == places
+      places: places == freezed
           ? _value.places
           : places // ignore: cast_nullable_to_non_nullable
               as String,
-      icon: freezed == icon
+      icon: icon == freezed
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as CategoriesIcon?,
@@ -169,18 +166,21 @@ class _$_CategoriesModel implements _CategoriesModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CategoriesModel &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.places, places) || other.places == places) &&
-            (identical(other.icon, icon) || other.icon == icon));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.places, places) &&
+            const DeepCollectionEquality().equals(other.icon, icon));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, places, icon);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(places),
+      const DeepCollectionEquality().hash(icon));
 
   @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
   _$$_CategoriesModelCopyWith<_$_CategoriesModel> get copyWith =>
       __$$_CategoriesModelCopyWithImpl<_$_CategoriesModel>(this, _$identity);
 
@@ -233,37 +233,34 @@ mixin _$CategoriesIcon {
 abstract class $CategoriesIconCopyWith<$Res> {
   factory $CategoriesIconCopyWith(
           CategoriesIcon value, $Res Function(CategoriesIcon) then) =
-      _$CategoriesIconCopyWithImpl<$Res, CategoriesIcon>;
-  @useResult
+      _$CategoriesIconCopyWithImpl<$Res>;
   $Res call({String? ios, String? android});
 }
 
 /// @nodoc
-class _$CategoriesIconCopyWithImpl<$Res, $Val extends CategoriesIcon>
+class _$CategoriesIconCopyWithImpl<$Res>
     implements $CategoriesIconCopyWith<$Res> {
   _$CategoriesIconCopyWithImpl(this._value, this._then);
 
+  final CategoriesIcon _value;
   // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final $Res Function(CategoriesIcon) _then;
 
-  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? ios = freezed,
     Object? android = freezed,
   }) {
     return _then(_value.copyWith(
-      ios: freezed == ios
+      ios: ios == freezed
           ? _value.ios
           : ios // ignore: cast_nullable_to_non_nullable
               as String?,
-      android: freezed == android
+      android: android == freezed
           ? _value.android
           : android // ignore: cast_nullable_to_non_nullable
               as String?,
-    ) as $Val);
+    ));
   }
 }
 
@@ -274,30 +271,31 @@ abstract class _$$_CategoriesIconCopyWith<$Res>
           _$_CategoriesIcon value, $Res Function(_$_CategoriesIcon) then) =
       __$$_CategoriesIconCopyWithImpl<$Res>;
   @override
-  @useResult
   $Res call({String? ios, String? android});
 }
 
 /// @nodoc
 class __$$_CategoriesIconCopyWithImpl<$Res>
-    extends _$CategoriesIconCopyWithImpl<$Res, _$_CategoriesIcon>
+    extends _$CategoriesIconCopyWithImpl<$Res>
     implements _$$_CategoriesIconCopyWith<$Res> {
   __$$_CategoriesIconCopyWithImpl(
       _$_CategoriesIcon _value, $Res Function(_$_CategoriesIcon) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_CategoriesIcon));
 
-  @pragma('vm:prefer-inline')
+  @override
+  _$_CategoriesIcon get _value => super._value as _$_CategoriesIcon;
+
   @override
   $Res call({
     Object? ios = freezed,
     Object? android = freezed,
   }) {
     return _then(_$_CategoriesIcon(
-      ios: freezed == ios
+      ios: ios == freezed
           ? _value.ios
           : ios // ignore: cast_nullable_to_non_nullable
               as String?,
-      android: freezed == android
+      android: android == freezed
           ? _value.android
           : android // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -328,17 +326,19 @@ class _$_CategoriesIcon implements _CategoriesIcon {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CategoriesIcon &&
-            (identical(other.ios, ios) || other.ios == ios) &&
-            (identical(other.android, android) || other.android == android));
+            const DeepCollectionEquality().equals(other.ios, ios) &&
+            const DeepCollectionEquality().equals(other.android, android));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, ios, android);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(ios),
+      const DeepCollectionEquality().hash(android));
 
   @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
   _$$_CategoriesIconCopyWith<_$_CategoriesIcon> get copyWith =>
       __$$_CategoriesIconCopyWithImpl<_$_CategoriesIcon>(this, _$identity);
 

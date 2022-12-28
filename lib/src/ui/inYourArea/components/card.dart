@@ -51,7 +51,7 @@ class CardWidget extends StatelessWidget {
       ).show(context);
     }
 
-    final amountParse = (tmp.regularFee)! * 100;
+    final amountParse = (tmp.regularFee)* 100;
     final percent = amountParse.toInt();
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -70,7 +70,7 @@ class CardWidget extends StatelessWidget {
                     create: (context) =>
                         DetailsBloc(detailsRepo: DetailRepository()),
                     child: DetailsScreen(
-                      productId: tmp.id!,
+                      productId: tmp.id,
                       productType: 'yourArea',
                     ),
                   ),
@@ -85,7 +85,7 @@ class CardWidget extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Image.network(
-                      tmp.image.toString(),
+                      tmp.image,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -98,7 +98,7 @@ class CardWidget extends StatelessWidget {
                   left: 0,
                   bottom: 0,
                   child: CategorieTag(
-                    tag: tmp.category!,
+                    tag: tmp.category,
                   ),
                 ),
                 Positioned(
@@ -129,7 +129,7 @@ class CardWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
-              tmp.name.toString(),
+              tmp.name,
               style: const TextStyle(
                 fontSize: 18,
               ),
@@ -137,7 +137,7 @@ class CardWidget extends StatelessWidget {
           ),
           Text(
             maxLines: 1,
-            tmp.description.toString(),
+            tmp.description,
             style: TextStyle(
               fontSize: 12,
               color: AppColor.subTitleColor,

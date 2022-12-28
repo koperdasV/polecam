@@ -45,7 +45,7 @@ class RecommendedBloc extends Bloc<RecommendedEvent, RecommendedState> {
                 // status: RecommendedStateStatus.success,
               ),
             );
-      final position = await _getCurrentLocation();
+      final position = await _recommendedRepo.getCurrentLocation();
       return emit(
         state.copyWith(
           position: position,
@@ -60,27 +60,6 @@ class RecommendedBloc extends Bloc<RecommendedEvent, RecommendedState> {
         ),
       );
     }
-  }
-
-  Future<Position> _getCurrentLocation() async {
-    final serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      return Future.error('Location services are disable');
-    }
-
-    var permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return Future.error('Location permission are denied');
-      }
-    }
-    if (permission == LocationPermission.deniedForever) {
-      return Future.error(
-        'Location permissions are permanently denied, we cannot request',
-      );
-    }
-    return Geolocator.getCurrentPosition();
   }
 
   Future<void> _onVisiblePoint(

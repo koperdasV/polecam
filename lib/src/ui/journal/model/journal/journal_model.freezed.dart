@@ -37,8 +37,7 @@ mixin _$JournalModel {
 abstract class $JournalModelCopyWith<$Res> {
   factory $JournalModelCopyWith(
           JournalModel value, $Res Function(JournalModel) then) =
-      _$JournalModelCopyWithImpl<$Res, JournalModel>;
-  @useResult
+      _$JournalModelCopyWithImpl<$Res>;
   $Res call(
       {Source source,
       Source target,
@@ -53,74 +52,68 @@ abstract class $JournalModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$JournalModelCopyWithImpl<$Res, $Val extends JournalModel>
-    implements $JournalModelCopyWith<$Res> {
+class _$JournalModelCopyWithImpl<$Res> implements $JournalModelCopyWith<$Res> {
   _$JournalModelCopyWithImpl(this._value, this._then);
 
+  final JournalModel _value;
   // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final $Res Function(JournalModel) _then;
 
-  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? source = null,
-    Object? target = null,
+    Object? source = freezed,
+    Object? target = freezed,
     Object? type = freezed,
-    Object? timpestamp = null,
-    Object? card = null,
+    Object? timpestamp = freezed,
+    Object? card = freezed,
     Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
-      source: null == source
+      source: source == freezed
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as Source,
-      target: null == target
+      target: target == freezed
           ? _value.target
           : target // ignore: cast_nullable_to_non_nullable
               as Source,
-      type: freezed == type
+      type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      timpestamp: null == timpestamp
+      timpestamp: timpestamp == freezed
           ? _value.timpestamp
           : timpestamp // ignore: cast_nullable_to_non_nullable
               as String,
-      card: null == card
+      card: card == freezed
           ? _value.card
           : card // ignore: cast_nullable_to_non_nullable
               as Card,
-      amount: freezed == amount
+      amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double?,
-    ) as $Val);
+    ));
   }
 
   @override
-  @pragma('vm:prefer-inline')
   $SourceCopyWith<$Res> get source {
     return $SourceCopyWith<$Res>(_value.source, (value) {
-      return _then(_value.copyWith(source: value) as $Val);
+      return _then(_value.copyWith(source: value));
     });
   }
 
   @override
-  @pragma('vm:prefer-inline')
   $SourceCopyWith<$Res> get target {
     return $SourceCopyWith<$Res>(_value.target, (value) {
-      return _then(_value.copyWith(target: value) as $Val);
+      return _then(_value.copyWith(target: value));
     });
   }
 
   @override
-  @pragma('vm:prefer-inline')
   $CardCopyWith<$Res> get card {
     return $CardCopyWith<$Res>(_value.card, (value) {
-      return _then(_value.copyWith(card: value) as $Val);
+      return _then(_value.copyWith(card: value));
     });
   }
 }
@@ -132,7 +125,6 @@ abstract class _$$_JournalModelCopyWith<$Res>
           _$_JournalModel value, $Res Function(_$_JournalModel) then) =
       __$$_JournalModelCopyWithImpl<$Res>;
   @override
-  @useResult
   $Res call(
       {Source source,
       Source target,
@@ -151,44 +143,46 @@ abstract class _$$_JournalModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_JournalModelCopyWithImpl<$Res>
-    extends _$JournalModelCopyWithImpl<$Res, _$_JournalModel>
+    extends _$JournalModelCopyWithImpl<$Res>
     implements _$$_JournalModelCopyWith<$Res> {
   __$$_JournalModelCopyWithImpl(
       _$_JournalModel _value, $Res Function(_$_JournalModel) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_JournalModel));
 
-  @pragma('vm:prefer-inline')
+  @override
+  _$_JournalModel get _value => super._value as _$_JournalModel;
+
   @override
   $Res call({
-    Object? source = null,
-    Object? target = null,
+    Object? source = freezed,
+    Object? target = freezed,
     Object? type = freezed,
-    Object? timpestamp = null,
-    Object? card = null,
+    Object? timpestamp = freezed,
+    Object? card = freezed,
     Object? amount = freezed,
   }) {
     return _then(_$_JournalModel(
-      null == source
+      source == freezed
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as Source,
-      null == target
+      target == freezed
           ? _value.target
           : target // ignore: cast_nullable_to_non_nullable
               as Source,
-      type: freezed == type
+      type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      timpestamp: null == timpestamp
+      timpestamp: timpestamp == freezed
           ? _value.timpestamp
           : timpestamp // ignore: cast_nullable_to_non_nullable
               as String,
-      card: null == card
+      card: card == freezed
           ? _value.card
           : card // ignore: cast_nullable_to_non_nullable
               as Card,
-      amount: freezed == amount
+      amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double?,
@@ -231,23 +225,28 @@ class _$_JournalModel implements _JournalModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_JournalModel &&
-            (identical(other.source, source) || other.source == source) &&
-            (identical(other.target, target) || other.target == target) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.timpestamp, timpestamp) ||
-                other.timpestamp == timpestamp) &&
-            (identical(other.card, card) || other.card == card) &&
-            (identical(other.amount, amount) || other.amount == amount));
+            const DeepCollectionEquality().equals(other.source, source) &&
+            const DeepCollectionEquality().equals(other.target, target) &&
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality()
+                .equals(other.timpestamp, timpestamp) &&
+            const DeepCollectionEquality().equals(other.card, card) &&
+            const DeepCollectionEquality().equals(other.amount, amount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, source, target, type, timpestamp, card, amount);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(source),
+      const DeepCollectionEquality().hash(target),
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(timpestamp),
+      const DeepCollectionEquality().hash(card),
+      const DeepCollectionEquality().hash(amount));
 
   @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
   _$$_JournalModelCopyWith<_$_JournalModel> get copyWith =>
       __$$_JournalModelCopyWithImpl<_$_JournalModel>(this, _$identity);
 
@@ -303,32 +302,28 @@ mixin _$Card {
 /// @nodoc
 abstract class $CardCopyWith<$Res> {
   factory $CardCopyWith(Card value, $Res Function(Card) then) =
-      _$CardCopyWithImpl<$Res, Card>;
-  @useResult
+      _$CardCopyWithImpl<$Res>;
   $Res call({String name});
 }
 
 /// @nodoc
-class _$CardCopyWithImpl<$Res, $Val extends Card>
-    implements $CardCopyWith<$Res> {
+class _$CardCopyWithImpl<$Res> implements $CardCopyWith<$Res> {
   _$CardCopyWithImpl(this._value, this._then);
 
+  final Card _value;
   // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final $Res Function(Card) _then;
 
-  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-    ) as $Val);
+    ));
   }
 }
 
@@ -337,23 +332,24 @@ abstract class _$$_CardCopyWith<$Res> implements $CardCopyWith<$Res> {
   factory _$$_CardCopyWith(_$_Card value, $Res Function(_$_Card) then) =
       __$$_CardCopyWithImpl<$Res>;
   @override
-  @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$$_CardCopyWithImpl<$Res> extends _$CardCopyWithImpl<$Res, _$_Card>
+class __$$_CardCopyWithImpl<$Res> extends _$CardCopyWithImpl<$Res>
     implements _$$_CardCopyWith<$Res> {
   __$$_CardCopyWithImpl(_$_Card _value, $Res Function(_$_Card) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_Card));
 
-  @pragma('vm:prefer-inline')
+  @override
+  _$_Card get _value => super._value as _$_Card;
+
   @override
   $Res call({
-    Object? name = null,
+    Object? name = freezed,
   }) {
     return _then(_$_Card(
-      name: null == name
+      name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
@@ -381,16 +377,16 @@ class _$_Card implements _Card {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Card &&
-            (identical(other.name, name) || other.name == name));
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
   _$$_CardCopyWith<_$_Card> get copyWith =>
       __$$_CardCopyWithImpl<_$_Card>(this, _$identity);
 
@@ -431,37 +427,33 @@ mixin _$Source {
 /// @nodoc
 abstract class $SourceCopyWith<$Res> {
   factory $SourceCopyWith(Source value, $Res Function(Source) then) =
-      _$SourceCopyWithImpl<$Res, Source>;
-  @useResult
+      _$SourceCopyWithImpl<$Res>;
   $Res call({String name, String avatar});
 }
 
 /// @nodoc
-class _$SourceCopyWithImpl<$Res, $Val extends Source>
-    implements $SourceCopyWith<$Res> {
+class _$SourceCopyWithImpl<$Res> implements $SourceCopyWith<$Res> {
   _$SourceCopyWithImpl(this._value, this._then);
 
+  final Source _value;
   // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final $Res Function(Source) _then;
 
-  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? avatar = null,
+    Object? name = freezed,
+    Object? avatar = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      avatar: null == avatar
+      avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String,
-    ) as $Val);
+    ));
   }
 }
 
@@ -470,29 +462,29 @@ abstract class _$$_SourceCopyWith<$Res> implements $SourceCopyWith<$Res> {
   factory _$$_SourceCopyWith(_$_Source value, $Res Function(_$_Source) then) =
       __$$_SourceCopyWithImpl<$Res>;
   @override
-  @useResult
   $Res call({String name, String avatar});
 }
 
 /// @nodoc
-class __$$_SourceCopyWithImpl<$Res>
-    extends _$SourceCopyWithImpl<$Res, _$_Source>
+class __$$_SourceCopyWithImpl<$Res> extends _$SourceCopyWithImpl<$Res>
     implements _$$_SourceCopyWith<$Res> {
   __$$_SourceCopyWithImpl(_$_Source _value, $Res Function(_$_Source) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_Source));
 
-  @pragma('vm:prefer-inline')
+  @override
+  _$_Source get _value => super._value as _$_Source;
+
   @override
   $Res call({
-    Object? name = null,
-    Object? avatar = null,
+    Object? name = freezed,
+    Object? avatar = freezed,
   }) {
     return _then(_$_Source(
-      null == name
+      name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      null == avatar
+      avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String,
@@ -523,17 +515,19 @@ class _$_Source implements _Source {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Source &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.avatar, avatar) || other.avatar == avatar));
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.avatar, avatar));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, avatar);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(avatar));
 
   @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
   _$$_SourceCopyWith<_$_Source> get copyWith =>
       __$$_SourceCopyWithImpl<_$_Source>(this, _$identity);
 

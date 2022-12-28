@@ -2,7 +2,6 @@ import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/home/blocs/yourArea/your_area_bloc.dart';
-import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';
 import 'package:polec/src/ui/home/widget/components/your_area_card.dart';
 
 class YourAreaList extends StatelessWidget {

@@ -42,8 +42,7 @@ mixin _$AccountModel {
 abstract class $AccountModelCopyWith<$Res> {
   factory $AccountModelCopyWith(
           AccountModel value, $Res Function(AccountModel) then) =
-      _$AccountModelCopyWithImpl<$Res, AccountModel>;
-  @useResult
+      _$AccountModelCopyWithImpl<$Res>;
   $Res call(
       {String? firstName,
       String? lastName,
@@ -59,16 +58,13 @@ abstract class $AccountModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AccountModelCopyWithImpl<$Res, $Val extends AccountModel>
-    implements $AccountModelCopyWith<$Res> {
+class _$AccountModelCopyWithImpl<$Res> implements $AccountModelCopyWith<$Res> {
   _$AccountModelCopyWithImpl(this._value, this._then);
 
+  final AccountModel _value;
   // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final $Res Function(AccountModel) _then;
 
-  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? firstName = freezed,
@@ -84,51 +80,51 @@ class _$AccountModelCopyWithImpl<$Res, $Val extends AccountModel>
     Object? gender = freezed,
   }) {
     return _then(_value.copyWith(
-      firstName: freezed == firstName
+      firstName: firstName == freezed
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String?,
-      lastName: freezed == lastName
+      lastName: lastName == freezed
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String?,
-      avatar: freezed == avatar
+      avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: freezed == email
+      email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      phone: freezed == phone
+      phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
-      street: freezed == street
+      street: street == freezed
           ? _value.street
           : street // ignore: cast_nullable_to_non_nullable
               as String?,
-      city: freezed == city
+      city: city == freezed
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String?,
-      postCode: freezed == postCode
+      postCode: postCode == freezed
           ? _value.postCode
           : postCode // ignore: cast_nullable_to_non_nullable
               as String?,
-      pesel: freezed == pesel
+      pesel: pesel == freezed
           ? _value.pesel
           : pesel // ignore: cast_nullable_to_non_nullable
               as String?,
-      dateOfBirth: freezed == dateOfBirth
+      dateOfBirth: dateOfBirth == freezed
           ? _value.dateOfBirth
           : dateOfBirth // ignore: cast_nullable_to_non_nullable
               as String?,
-      gender: freezed == gender
+      gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String?,
-    ) as $Val);
+    ));
   }
 }
 
@@ -139,7 +135,6 @@ abstract class _$$_AccountModelCopyWith<$Res>
           _$_AccountModel value, $Res Function(_$_AccountModel) then) =
       __$$_AccountModelCopyWithImpl<$Res>;
   @override
-  @useResult
   $Res call(
       {String? firstName,
       String? lastName,
@@ -156,13 +151,15 @@ abstract class _$$_AccountModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_AccountModelCopyWithImpl<$Res>
-    extends _$AccountModelCopyWithImpl<$Res, _$_AccountModel>
+    extends _$AccountModelCopyWithImpl<$Res>
     implements _$$_AccountModelCopyWith<$Res> {
   __$$_AccountModelCopyWithImpl(
       _$_AccountModel _value, $Res Function(_$_AccountModel) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_AccountModel));
 
-  @pragma('vm:prefer-inline')
+  @override
+  _$_AccountModel get _value => super._value as _$_AccountModel;
+
   @override
   $Res call({
     Object? firstName = freezed,
@@ -178,47 +175,47 @@ class __$$_AccountModelCopyWithImpl<$Res>
     Object? gender = freezed,
   }) {
     return _then(_$_AccountModel(
-      firstName: freezed == firstName
+      firstName: firstName == freezed
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String?,
-      lastName: freezed == lastName
+      lastName: lastName == freezed
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String?,
-      avatar: freezed == avatar
+      avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: freezed == email
+      email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      phone: freezed == phone
+      phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
-      street: freezed == street
+      street: street == freezed
           ? _value.street
           : street // ignore: cast_nullable_to_non_nullable
               as String?,
-      city: freezed == city
+      city: city == freezed
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String?,
-      postCode: freezed == postCode
+      postCode: postCode == freezed
           ? _value.postCode
           : postCode // ignore: cast_nullable_to_non_nullable
               as String?,
-      pesel: freezed == pesel
+      pesel: pesel == freezed
           ? _value.pesel
           : pesel // ignore: cast_nullable_to_non_nullable
               as String?,
-      dateOfBirth: freezed == dateOfBirth
+      dateOfBirth: dateOfBirth == freezed
           ? _value.dateOfBirth
           : dateOfBirth // ignore: cast_nullable_to_non_nullable
               as String?,
-      gender: freezed == gender
+      gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -278,31 +275,38 @@ class _$_AccountModel implements _AccountModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AccountModel &&
-            (identical(other.firstName, firstName) ||
-                other.firstName == firstName) &&
-            (identical(other.lastName, lastName) ||
-                other.lastName == lastName) &&
-            (identical(other.avatar, avatar) || other.avatar == avatar) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.phone, phone) || other.phone == phone) &&
-            (identical(other.street, street) || other.street == street) &&
-            (identical(other.city, city) || other.city == city) &&
-            (identical(other.postCode, postCode) ||
-                other.postCode == postCode) &&
-            (identical(other.pesel, pesel) || other.pesel == pesel) &&
-            (identical(other.dateOfBirth, dateOfBirth) ||
-                other.dateOfBirth == dateOfBirth) &&
-            (identical(other.gender, gender) || other.gender == gender));
+            const DeepCollectionEquality().equals(other.firstName, firstName) &&
+            const DeepCollectionEquality().equals(other.lastName, lastName) &&
+            const DeepCollectionEquality().equals(other.avatar, avatar) &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality().equals(other.phone, phone) &&
+            const DeepCollectionEquality().equals(other.street, street) &&
+            const DeepCollectionEquality().equals(other.city, city) &&
+            const DeepCollectionEquality().equals(other.postCode, postCode) &&
+            const DeepCollectionEquality().equals(other.pesel, pesel) &&
+            const DeepCollectionEquality()
+                .equals(other.dateOfBirth, dateOfBirth) &&
+            const DeepCollectionEquality().equals(other.gender, gender));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, firstName, lastName, avatar,
-      email, phone, street, city, postCode, pesel, dateOfBirth, gender);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(firstName),
+      const DeepCollectionEquality().hash(lastName),
+      const DeepCollectionEquality().hash(avatar),
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(phone),
+      const DeepCollectionEquality().hash(street),
+      const DeepCollectionEquality().hash(city),
+      const DeepCollectionEquality().hash(postCode),
+      const DeepCollectionEquality().hash(pesel),
+      const DeepCollectionEquality().hash(dateOfBirth),
+      const DeepCollectionEquality().hash(gender));
 
   @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
   _$$_AccountModelCopyWith<_$_AccountModel> get copyWith =>
       __$$_AccountModelCopyWithImpl<_$_AccountModel>(this, _$identity);
 
