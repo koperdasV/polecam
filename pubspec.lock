@@ -306,7 +306,7 @@ packages:
     source: hosted
     version: "3.0.0"
   flutter_native_splash:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: flutter_native_splash
       url: "https://pub.dartlang.org"
