@@ -19,20 +19,21 @@ class HorizontalListScroll extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RecommendedBloc, RecommendedState>(
-      builder: (context, state) {
+    return BlocConsumer<RecommendedBloc, RecommendedState>(
+      listener: (context, state) {
         if (state.status == RecommendedStateStatus.failure &&
             state.errorMessage.isNotEmpty) {
           context.showErrorBar<String>(
             content: Text(state.errorMessage),
           );
         }
+      },
+      builder: (context, state) {
         if (state.status == RecommendedStateStatus.loading) {
           return const Center(
             child: CupertinoActivityIndicator(),
           );
-        }
-        if (state.status == RecommendedStateStatus.success) {
+        } else {
           return ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: itemCount,
@@ -43,8 +44,6 @@ class HorizontalListScroll extends StatelessWidget {
               );
             },
           );
-        } else {
-          return const Text('Error');
         }
       },
     );

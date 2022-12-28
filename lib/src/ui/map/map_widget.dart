@@ -15,8 +15,8 @@ class MapWidget extends StatefulWidget {
 }
 
 class _MapWidgetState extends State<MapWidget> {
-  static const _latWarszawa = 50.5793055;
-  static const _lonWarszawa = 22.2867169;
+  static const _latWarszawa = 52.237049;
+  static const _lonWarszawa = 21.017532;
 
   @override
   void initState() {
