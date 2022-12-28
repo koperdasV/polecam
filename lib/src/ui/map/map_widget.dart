@@ -66,20 +66,28 @@ class _MapWidgetState extends State<MapWidget> {
                           state.position?.longitude ?? _lonWarszawa,
                         ),
                         builder: (context) {
-                          return Align(
-                            child: SizedBox(
-                              width: 30,
-                              height: 30,
-                              child: DecoratedBox(
-                                decoration: BoxDecoration(
+                          return Stack(
+                            children: [
+                              Container(
+                                width: 30,
+                                height: 30,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
                                   color: Colors.white,
-                                  borderRadius: BorderRadius.circular(50),
-                                  border: Border.all(
-                                    width: 7,
+                                ),
+                                child: FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Container(
+                                    width: 20,
+                                    height: 20,
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.blue,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
+                            ],
                           );
                         },
                       ),
