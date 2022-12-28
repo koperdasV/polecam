@@ -87,7 +87,7 @@ class InfoCardWidget extends StatelessWidget {
         ),
       ),
       onTap: () {
-        // if (color == Colors.white) {
+        //if (color == Colors.white) {
         Navigator.push(
           context,
           CupertinoPageRoute(

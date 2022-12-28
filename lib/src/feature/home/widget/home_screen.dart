@@ -14,6 +14,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<NavigatorState> pageOneTabNavKey =
+      GlobalKey<NavigatorState>();
+
+  final GlobalKey<NavigatorState> pageTwoTabNavKey =
+      GlobalKey<NavigatorState>();
+
+  final GlobalKey<NavigatorState> pageThreeTabNavKey =
+      GlobalKey<NavigatorState>();
+
+  final GlobalKey<NavigatorState> pageFourTabNavKey =
+      GlobalKey<NavigatorState>();
+
   List<Widget> pages = [
     const HomePage(),
     const FavoritesPage(),
@@ -30,6 +42,28 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void _onItemTapped(int index) {
+    {
+      if (index == _pageIndex) {
+        switch (index) {
+          case 0:
+            pageOneTabNavKey.currentState?.popUntil((r) => r.isFirst);
+            break;
+          case 1:
+            pageTwoTabNavKey.currentState?.popUntil((r) => r.isFirst);
+            break;
+          case 2:
+            pageThreeTabNavKey.currentState?.popUntil((r) => r.isFirst);
+            break;
+          case 3:
+            pageFourTabNavKey.currentState?.popUntil((r) => r.isFirst);
+            break;
+        }
+      }
+      _pageIndex = index;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<BottomNavigationBarProvider>().currentIndex;
@@ -41,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: (index) {
           Provider.of<BottomNavigationBarProvider>(context, listen: false)
               .updatePageSelection(index);
+          _onItemTapped(index);
         },
         items: const [
           BottomNavigationBarItem(
@@ -62,9 +97,40 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       tabBuilder: (context, index) {
-        return CupertinoTabView(
+return CupertinoTabView(
           builder: (context) {
-            return pages[_pageIndex];
+            switch (index) {
+              case 0:
+                return CupertinoTabView(
+                  navigatorKey: pageOneTabNavKey,
+                  builder: (BuildContext context) {
+                    return pages[_pageIndex];
+                  },
+                );
+              case 1:
+                return CupertinoTabView(
+                  navigatorKey: pageTwoTabNavKey,
+                  builder: (BuildContext context) {
+                    return pages[_pageIndex];
+                  },
+                );
+              case 2:
+                return CupertinoTabView(
+                  navigatorKey: pageThreeTabNavKey,
+                  builder: (BuildContext context) {
+                    return pages[_pageIndex];
+                  },
+                );
+              case 3:
+                return CupertinoTabView(
+                  navigatorKey: pageFourTabNavKey,
+                  builder: (BuildContext context) {
+                    return pages[_pageIndex];
+                  },
+                );
+              default:
+                return Container();
+            }
           },
         );
       },

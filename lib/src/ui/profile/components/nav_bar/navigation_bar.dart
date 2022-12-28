@@ -72,12 +72,6 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
                       listen: false,
                     ).visibleMarker();
                   }
-                  // if (value == Account.statistics) {
-                  //   Provider.of<SlidingBarProvider>(
-                  //     context,
-                  //     listen: false,
-                  //   ).visibleMarker();
-                  // }
                 },
                 children: <Account, Widget>{
                   Account.statistics: buildSegment('Statistics'),
