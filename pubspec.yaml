@@ -39,6 +39,7 @@ dependencies:
   #Flutter map
   geolocator: 9.0.2
   location: 4.4.0
+  stream_transform: 2.1.0
 
 dev_dependencies:
   bloc_test: 9.1.0

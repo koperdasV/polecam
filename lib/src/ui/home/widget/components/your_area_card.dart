@@ -32,7 +32,7 @@ class YourAreaCard extends StatefulWidget {
 class _YourAreaCardState extends State<YourAreaCard> {
   @override
   Widget build(BuildContext context) {
-    final amountParse = (widget.tmp.regularFee)! * 100;
+    final amountParse = (widget.tmp.regularFee) * 100;
     final percent = amountParse.toInt();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -48,7 +48,7 @@ class _YourAreaCardState extends State<YourAreaCard> {
                     create: (context) =>
                         DetailsBloc(detailsRepo: DetailRepository()),
                     child: DetailsScreen(
-                      productId: widget.tmp.id!,
+                      productId: widget.tmp.id,
                       productType: 'yourArea',
                     ),
                   ),
@@ -63,7 +63,7 @@ class _YourAreaCardState extends State<YourAreaCard> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Image.network(
-                      widget.tmp.image.toString(),
+                      widget.tmp.image,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -100,7 +100,7 @@ class _YourAreaCardState extends State<YourAreaCard> {
           Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
-              widget.tmp.name.toString(),
+              widget.tmp.name,
               style: const TextStyle(
                 fontSize: 18,
               ),
@@ -109,7 +109,7 @@ class _YourAreaCardState extends State<YourAreaCard> {
           SizedBox(
             width: 160,
             child: Text(
-              widget.tmp.description.toString(),
+              widget.tmp.description,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(

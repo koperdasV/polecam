@@ -1,12 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/home/widget/components/search_widget.dart';
 
 class SearchBox extends StatelessWidget {
   const SearchBox({
-    Key? key,
+    Key? key, this.controller,
   }) : super(key: key);
+
+    final TextEditingController? controller;
+
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +22,11 @@ class SearchBox extends StatelessWidget {
           ),
         ),
       ),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 15),
-        child: SearchWidget(),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 15),
+        child: SearchWidget(
+          controller: controller,
+        ),
       ),
     );
   }

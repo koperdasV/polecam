@@ -28,7 +28,7 @@ class CardFavorites extends StatefulWidget {
 class _CardFavoritesState extends State<CardFavorites> {
   @override
   Widget build(BuildContext context) {
-    final amountParse = (widget.tmp.regularFee)! * 100;
+    final amountParse = (widget.tmp.regularFee) * 100;
     final percent = amountParse.toInt();
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -47,7 +47,7 @@ class _CardFavoritesState extends State<CardFavorites> {
                     create: (context) =>
                         DetailsBloc(detailsRepo: DetailRepository()),
                     child: DetailsScreen(
-                      productId: widget.tmp.id!,
+                      productId: widget.tmp.id,
                       productType: 'favourites',
                     ),
                   ),
@@ -62,7 +62,7 @@ class _CardFavoritesState extends State<CardFavorites> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Image.network(
-                      widget.tmp.image.toString(),
+                      widget.tmp.image,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -74,7 +74,7 @@ class _CardFavoritesState extends State<CardFavorites> {
                 Positioned(
                   bottom: 0,
                   child: CategorieTag(
-                    tag: widget.tmp.category!,
+                    tag: widget.tmp.category,
                   ),
                 ),
                 Positioned(
@@ -105,7 +105,7 @@ class _CardFavoritesState extends State<CardFavorites> {
           Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
-              widget.tmp.name.toString(),
+              widget.tmp.name,
               style: const TextStyle(
                 fontSize: 18,
               ),
@@ -113,7 +113,7 @@ class _CardFavoritesState extends State<CardFavorites> {
           ),
           Text(
             maxLines: 1,
-            widget.tmp.description.toString(),
+            widget.tmp.description,
             style: TextStyle(
               fontSize: 12,
               color: AppColor.subTitleColor,
