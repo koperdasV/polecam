@@ -74,9 +74,10 @@ class LevelWidget extends StatelessWidget {
                             TextSpan(
                               text: '21/52',
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12,
-                                  color: AppColor.titleColor),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                                color: AppColor.titleColor,
+                              ),
                             ),
                           ],
                         ),
@@ -85,7 +86,9 @@ class LevelWidget extends StatelessWidget {
                       const SizedBox(
                         child: LinearProgressIndicator(
                           value: 0.4,
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            Colors.blue,
+                          ),
                           backgroundColor: AppColors.progressIndicatorBg,
                         ),
                       ),

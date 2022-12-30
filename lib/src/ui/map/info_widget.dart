@@ -106,14 +106,6 @@ class InfoCardWidget extends StatelessWidget {
             ),
           ),
         );
-        // } else {
-        //   Navigator.push(
-        //     context,
-        //     CupertinoPageRoute(
-        //       builder: (context) => const NotRecommendScreen(),
-        //     ),
-        //   );
-        // }
       },
     );
   }

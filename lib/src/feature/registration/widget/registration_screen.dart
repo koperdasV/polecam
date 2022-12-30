@@ -14,12 +14,8 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
-  CountryCode _countryCode = CountryCode(code: 'PL', dialCode: '+48');
+  final CountryCode _countryCode = CountryCode(code: 'PL', dialCode: '+48');
   final formKey = GlobalKey<FormState>();
-
-  final _nameController = TextEditingController();
-  final _emailController = TextEditingController();
-  final _phoneController = TextEditingController();
 
   bool checkValue = false;
 
@@ -31,7 +27,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(
-                left: 16, right: 16, bottom: 16, top: 110),
+              left: 16,
+              right: 16,
+              bottom: 16,
+              top: 110,
+            ),
             child: Column(
               children: [
                 SizedBox(
@@ -117,7 +117,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   width: MediaQuery.of(context).size.width,
                   child: CupertinoButton.filled(
                     onPressed: () {
-                      if (formKey.currentState!.validate() && checkValue == true) {
+                      if (formKey.currentState!.validate() &&
+                          checkValue == true) {
                         context.go('/');
                       }
                     },

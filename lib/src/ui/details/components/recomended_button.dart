@@ -1,7 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:polec/resourses/app_images.dart';
-import 'package:polec/theme/app_colors.dart';
 
 class RecommendedButton extends StatelessWidget {
   const RecommendedButton({
@@ -38,10 +35,6 @@ class RecommendedButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(child: image),
-            // Image.asset(
-            //   AppImages.logo,
-            //   color: imageColor,
-            // ),
             const SizedBox(width: 5),
             Text(
               textButton,

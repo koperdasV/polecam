@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
 
 class CalendarWidget extends StatefulWidget {
@@ -13,7 +11,7 @@ class CalendarWidget extends StatefulWidget {
 
 class _CalendarWidgetState extends State<CalendarWidget> {
   DateTime lastDateTime = DateTime(
-      DateTime.now().year - 18, DateTime.now().month, DateTime.now().day);
+      DateTime.now().year - 18, DateTime.now().month, DateTime.now().day,);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
           width: 30,
           child: CupertinoButton(
             color: Colors.transparent,
-            padding: const EdgeInsets.all(0),
+            padding: EdgeInsets.zero,
             child: const Icon(
               Icons.calendar_month_rounded,
               color: Colors.black,
@@ -35,7 +33,6 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                 initialDate: lastDateTime,
                 firstDate: DateTime(1920),
                 lastDate: lastDateTime,
-                currentDate: null,
               ).then((date) {
                 setState(() {
                   lastDateTime = date!;

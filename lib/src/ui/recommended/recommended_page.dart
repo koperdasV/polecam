@@ -1,15 +1,15 @@
 import 'dart:convert';
 
-import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/home/blocs/blocs.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 
-import 'package:polec/src/ui/recommended/components/card.dart';
 import 'package:polec/src/ui/recommended/components/categorie_list_box.dart';
 import 'package:polec/src/ui/recommended/components/cupertino_nav_bar.dart';
+import 'package:polec/src/ui/recommended/components/recommended_list.dart';
 import 'package:polec/src/ui/recommended/components/search_box.dart';
 
 class RecommendedPage extends StatefulWidget {
@@ -20,7 +20,7 @@ class RecommendedPage extends StatefulWidget {
 }
 
 class _RecommendedPageState extends State<RecommendedPage> {
-    final _searchController = TextEditingController();
+  final _searchController = TextEditingController();
   var _filteredProducts = <RecommendedModel>[];
 
   Future<void> _searchProducts() async {
@@ -59,71 +59,51 @@ class _RecommendedPageState extends State<RecommendedPage> {
     _searchController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavBar(
         title: 'Recommended for you',
       ),
-      child: BlocBuilder<RecommendedBloc, RecommendedState>(
-        builder: (context, state) {
+      child: BlocConsumer<RecommendedBloc, RecommendedState>(
+        listener: (context, state) {
           if (state.status == RecommendedStateStatus.failure &&
               state.errorMessage.isNotEmpty) {
-            context.showErrorBar<String>(content: Text(state.errorMessage));
-          }
-          if (state.status == RecommendedStateStatus.loading) {
-            return const Center(
-              child: CupertinoActivityIndicator(),
-            );
-          }
-          if (state.status == RecommendedStateStatus.success) {
-            return Column(
-              children: [
-                SearchBox(
-                  controller: _searchController,
-                ),
-                const CategorieListBox(),
-                Expanded(
-                  child: CustomScrollView(
-                    slivers: [
-                      RecommendedList(
-                        filteredProducts: _filteredProducts,
-                        tmp: _filteredProducts,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            );
-          } else {
-            return const Center(
-              child: Text('No Data'),
-            );
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(SnackBar(content: Text(state.errorMessage)));
           }
         },
-      ),
-    );
-  }
-}
-
-class RecommendedList extends StatelessWidget {
-  const RecommendedList({
-    Key? key,
-    required this.filteredProducts,
-    required this.tmp,
-  }) : super(key: key);
-
-  final List<RecommendedModel> filteredProducts;
-  final List<RecommendedModel> tmp;
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        childCount: filteredProducts.length,
-        (context, index) => CardWidget(
-          tmp: tmp[index],
-        ),
+        builder: (context, state) {
+          return BlocBuilder<RecommendedBloc, RecommendedState>(
+            builder: (context, state) {
+              if (state.status == RecommendedStateStatus.loading) {
+                return const Center(
+                  child: CupertinoActivityIndicator(),
+                );
+              } else {
+                return Column(
+                  children: [
+                    SearchBox(
+                      controller: _searchController,
+                    ),
+                    const CategorieListBox(),
+                    Expanded(
+                      child: CustomScrollView(
+                        slivers: [
+                          RecommendedList(
+                            filteredProducts: _filteredProducts,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              }
+            },
+          );
+        },
       ),
     );
   }

@@ -13,7 +13,7 @@ class LvlBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return DecoratedBox(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         gradient: LinearGradient(

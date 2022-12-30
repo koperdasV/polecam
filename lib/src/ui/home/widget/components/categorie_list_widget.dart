@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/home/blocs/categories/categories_bloc.dart';
 import 'package:polec/src/ui/home/widget/components/categories_item.dart';
@@ -23,40 +24,47 @@ class _CategoriesListState extends State<CategoriesList> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CategoriesBloc, CategoriesState>(
-      builder: (context, state) {
-        if (state.status == CategoriesStateStatus.loading) {
-          return const Center(
-            child: CupertinoActivityIndicator(),
-          );
-        }
-        if (state.status == CategoriesStateStatus.success) {
-          return Padding(
-            padding: const EdgeInsets.only(left: 8),
-            child: ListView.builder(
-              itemCount: state.categories.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                  child: GestureDetector(
-                    onTap: () {
-                      selectIndex(index);
-                    },
-                    child: CategoriesItem(
-                      categoriesModel: state.categories[index],
-                      isSelected: (index == _selectedIndex) ? true : false,
-                    ),
-                  ),
-                );
-              },
-            ),
-          );
-        } else {
-          return const Text('Error');
+    return BlocListener<CategoriesBloc, CategoriesState>(
+      listener: (context, state) {
+        if (state.status == CategoriesStateStatus.failure &&
+            state.errorMessage.isNotEmpty) {
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(SnackBar(content: Text(state.errorMessage)));
         }
       },
+      child: BlocBuilder<CategoriesBloc, CategoriesState>(
+        builder: (context, state) {
+          if (state.status == CategoriesStateStatus.loading) {
+            return const Center(
+              child: CupertinoActivityIndicator(),
+            );
+          } else {
+            return Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: ListView.builder(
+                itemCount: state.categories.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                    child: GestureDetector(
+                      onTap: () {
+                        selectIndex(index);
+                      },
+                      child: CategoriesItem(
+                        categoriesModel: state.categories[index],
+                        isSelected: (index == _selectedIndex) ? true : false,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 }

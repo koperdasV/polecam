@@ -28,7 +28,7 @@ class AboutWidget extends StatelessWidget {
           child: SizedBox(
             width: double.infinity,
             child: Text(
-              productDetails.description.toString(),
+              productDetails.description,
               style: TextStyle(
                 color: AppColor.subTitleColor,
                 fontWeight: FontWeight.normal,
