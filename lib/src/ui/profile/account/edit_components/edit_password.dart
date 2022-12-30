@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polec/src/ui/profile/account/components/profile_text_field.dart';
 import 'package:polec/src/ui/profile/account/edit_components/title_text.dart';
 import 'package:polec/theme/app_colors.dart';
 
@@ -28,7 +27,7 @@ class _EditPasswordState extends State<EditPassword> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TitleTextWidget(
+        const TitleTextWidget(
           text: 'Enter a new password',
         ),
         CupertinoTextField(
@@ -42,7 +41,7 @@ class _EditPasswordState extends State<EditPassword> {
           suffix: SizedBox(
             height: 30,
             child: CupertinoButton(
-              padding: EdgeInsets.only(right: 5),
+              padding: const EdgeInsets.only(right: 5),
               child: Icon(
                 size: 20,
                 // Based on passwordVisible state choose the icon
@@ -72,7 +71,7 @@ class _EditPasswordState extends State<EditPassword> {
           suffix: SizedBox(
             height: 30,
             child: CupertinoButton(
-              padding: EdgeInsets.only(right: 5),
+              padding: const EdgeInsets.only(right: 5),
               child: Icon(
                 size: 20,
                 // Based on passwordVisible state choose the icon

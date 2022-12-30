@@ -2,7 +2,6 @@ import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
-import 'package:polec/src/feature/details/widget/details_screen.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 
 class OpenWidget extends StatelessWidget {
@@ -10,7 +9,6 @@ class OpenWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final productDetails = DetailModelContext.of(context)?.detailModel;
     const mainAxis = MainAxisAlignment.center;
 
     const titleStyle = TextStyle(

@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
-import 'package:polec/src/feature/map/widget/map_screen.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
@@ -64,7 +62,3 @@ class HomeAppBar extends StatelessWidget {
     );
   }
 }
-
-/*
- 
-*/

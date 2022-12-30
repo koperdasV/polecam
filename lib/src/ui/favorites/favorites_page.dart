@@ -1,12 +1,10 @@
 import 'dart:convert';
-
-import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/favorites/bloc/favorites_bloc.dart';
-import 'package:polec/src/ui/favorites/components/card.dart';
+import 'package:polec/src/ui/favorites/components/favorites_list.dart';
 import 'package:polec/src/ui/favorites/model/favorite_model.dart';
 import 'package:polec/src/ui/journal/widget/components/cupertino_app_bar.dart';
 
@@ -22,9 +20,9 @@ class FavoritesPage extends StatefulWidget {
 
 class _FavoritesPageState extends State<FavoritesPage> {
   final _searchController = TextEditingController();
-  var _filteredProducts = <FavoritesModel>[];
+  var _filteredFavorites = <FavoritesModel>[];
 
-  Future<void> _searchProducts() async {
+  Future<void> _searchFavorites() async {
     final response = await rootBundle.loadString('assets/favourites.json');
     final json = jsonDecode(response) as List<dynamic>;
     final _favorites = json
@@ -34,7 +32,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     final query = _searchController.text.toLowerCase();
     if (query.isNotEmpty) {
       // RECOMMENDED SEARCH //
-      _filteredProducts = _favorites.where((products) {
+      _filteredFavorites = _favorites.where((products) {
         final offerName = products.name.toLowerCase();
         final companyName = products.name.toLowerCase();
         final description = products.description.toLowerCase();
@@ -43,7 +41,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
             description.contains(query);
       }).toList();
     } else {
-      _filteredProducts = _favorites;
+      _filteredFavorites = _favorites;
     }
     setState(() {});
   }
@@ -51,8 +49,8 @@ class _FavoritesPageState extends State<FavoritesPage> {
   @override
   void initState() {
     super.initState();
-    _searchProducts();
-    _searchController.addListener(_searchProducts);
+    _searchFavorites();
+    _searchController.addListener(_searchFavorites);
   }
 
   @override
@@ -70,64 +68,38 @@ class _FavoritesPageState extends State<FavoritesPage> {
           controller: _searchController,
         ),
       ),
-      body: BlocBuilder<FavoriteBloc, FavoriteState>(
-        builder: (context, state) {
+      body: BlocListener<FavoriteBloc, FavoriteState>(
+        listener: (context, state) {
           if (state.status == FavoriteStateStatus.failure &&
               state.errorMessage.isNotEmpty) {
-            context.showErrorBar<String>(
-              content: Text(state.errorMessage),
-            );
-          }
-          if (state.status == FavoriteStateStatus.loading) {
-            return const Center(
-              child: CupertinoActivityIndicator(),
-            );
-          }
-          if (state.status == FavoriteStateStatus.success) {
-            return Column(
-              children: [
-                const CategorieListBox(),
-                Expanded(
-                  child: CustomScrollView(
-                    slivers: [
-                      FavoritesList(
-                        filteredProducts: _filteredProducts,
-                        tmp: _filteredProducts,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            );
-          } else {
-            return const Center(
-              child: Text('No data'),
-            );
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(SnackBar(content: Text(state.errorMessage)));
           }
         },
-      ),
-    );
-  }
-}
-
-class FavoritesList extends StatelessWidget {
-  const FavoritesList({
-    Key? key,
-    required List<FavoritesModel> filteredProducts,
-    required this.tmp,
-  })  : _filteredProducts = filteredProducts,
-        super(key: key);
-
-  final List<FavoritesModel> _filteredProducts;
-  final List<FavoritesModel> tmp;
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        childCount: _filteredProducts.length,
-        (context, index) => CardFavorites(
-          tmp: tmp[index],
+        child: BlocBuilder<FavoriteBloc, FavoriteState>(
+          builder: (context, state) {
+            if (state.status == FavoriteStateStatus.loading) {
+              return const Center(
+                child: CupertinoActivityIndicator(),
+              );
+            } else {
+              return Column(
+                children: [
+                  const CategorieListBox(),
+                  Expanded(
+                    child: CustomScrollView(
+                      slivers: [
+                        FavoritesList(
+                          filteredProducts: _filteredFavorites,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+            }
+          },
         ),
       ),
     );

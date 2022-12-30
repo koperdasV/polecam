@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
 import 'package:polec/src/ui/profile/statistics/statistics_widget.dart';
 
 part 'account_cubit_state.dart';

@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
-import 'package:polec/src/common/models/user_preferences.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
-import 'package:polec/src/ui/profile/account/edit_components/account_widget.dart';
-import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
-import 'package:polec/src/ui/profile/account/components/profile_text_field.dart';
 import 'package:polec/src/ui/profile/account/edit_components/edit_basic_information.dart';
 import 'package:polec/src/ui/profile/account/edit_components/edit_password.dart';
-import 'package:polec/src/ui/profile/account/edit_components/gender_nav_bar.dart';
-import 'package:polec/src/ui/profile/account/model/account_model.dart';
-import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class EditProfileWidget extends StatefulWidget {

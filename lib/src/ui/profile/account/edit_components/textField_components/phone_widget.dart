@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_redundant_argument_values
 
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/src/ui/profile/account/components/profile_text_field.dart';
 import 'package:polec/src/ui/profile/account/edit_components/title_text.dart';

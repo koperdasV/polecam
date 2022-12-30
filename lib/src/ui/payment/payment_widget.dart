@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/resourses/app_images.dart';
-import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart';
 import 'package:polec/src/ui/details/components/image_widget.dart';
 import 'package:polec/src/ui/details/components/navigation_bar.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
@@ -68,7 +66,6 @@ class PaymentWidget extends StatelessWidget {
                 textBaseline: TextBaseline.ideographic,
                 children: [
                   Text(
-                    //textAlign: TextAlign.justify,
                     'Your discount:',
                     style: TextStyle(
                       fontSize: 14,
@@ -78,8 +75,7 @@ class PaymentWidget extends StatelessWidget {
                   ),
                   const SizedBox(width: 5),
                   Text(
-                    // textAlign: TextAlign.justify,
-                    '${regularFeePer} %',
+                    '$regularFeePer %',
                     style: const TextStyle(
                       fontSize: 20,
                       color: AppColors.pecent,
@@ -211,7 +207,7 @@ class PaymentWidget extends StatelessWidget {
                       child: Column(
                         children: [
                           const Text(
-                            '48,99\$',
+                            r'48,99$',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 30,

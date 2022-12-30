@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class ProfileTextField extends StatelessWidget {
@@ -28,7 +27,7 @@ class ProfileTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTextFormFieldRow(
       obscureText: obscureText,
-      padding: EdgeInsets.all(0),
+      padding: EdgeInsets.zero,
       placeholder: placeholder,
       controller: controller,
       keyboardType: keyboardType,
@@ -45,15 +44,5 @@ class ProfileTextField extends StatelessWidget {
         }
       },
     );
-
-    // return CupertinoTextField(
-    //   controller: controller,
-    //   keyboardType: keyboardType,
-    //   decoration: BoxDecoration(
-    //     color: AppColors.bgAccountPage,
-    //     borderRadius: BorderRadius.circular(10),
-    //   ),
-    //   placeholder: placeholder,
-    // );
   }
 }

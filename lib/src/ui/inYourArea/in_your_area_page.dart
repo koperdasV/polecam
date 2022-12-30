@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/home/blocs/blocs.dart';
 import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';
 
-import 'package:polec/src/ui/inYourArea/components/card.dart';
+import 'package:polec/src/ui/inYourArea/components/your_area_list.dart';
 import 'package:polec/src/ui/recommended/components/categorie_list_box.dart';
 import 'package:polec/src/ui/recommended/components/cupertino_nav_bar.dart';
 import 'package:polec/src/ui/recommended/components/search_box.dart';
@@ -20,9 +20,9 @@ class YourAreaPage extends StatefulWidget {
 
 class _YourAreaPageState extends State<YourAreaPage> {
   final _searchController = TextEditingController();
-  var _filteredProducts = <YourAreaModel>[];
+  var _filteredYourArea = <YourAreaModel>[];
 
-  Future<void> _searchProducts() async {
+  Future<void> _searchYourArea() async {
     final response = await rootBundle.loadString('assets/near.json');
     final json = jsonDecode(response) as List<dynamic>;
     final _yourArea = json
@@ -32,7 +32,7 @@ class _YourAreaPageState extends State<YourAreaPage> {
     final query = _searchController.text.toLowerCase();
     if (query.isNotEmpty) {
       // RECOMMENDED SEARCH //
-      _filteredProducts = _yourArea.where((products) {
+      _filteredYourArea = _yourArea.where((products) {
         final offerName = products.name.toLowerCase();
         final companyName = products.name.toLowerCase();
         final description = products.description.toLowerCase();
@@ -41,7 +41,7 @@ class _YourAreaPageState extends State<YourAreaPage> {
             description.contains(query);
       }).toList();
     } else {
-      _filteredProducts = _yourArea;
+      _filteredYourArea = _yourArea;
     }
     setState(() {});
   }
@@ -49,8 +49,8 @@ class _YourAreaPageState extends State<YourAreaPage> {
   @override
   void initState() {
     super.initState();
-    _searchProducts();
-    _searchController.addListener(_searchProducts);
+    _searchYourArea();
+    _searchController.addListener(_searchYourArea);
   }
 
   @override
@@ -77,8 +77,7 @@ class _YourAreaPageState extends State<YourAreaPage> {
                 child: CustomScrollView(
                   slivers: [
                     YourAreaListFiltered(
-                      filteredProducts: _filteredProducts,
-                      tmp: _filteredProducts,
+                      filteredProducts: _filteredYourArea,
                     ),
                   ],
                 ),
@@ -88,28 +87,5 @@ class _YourAreaPageState extends State<YourAreaPage> {
         },
       ),
     );
-  }
-}
-
-class YourAreaListFiltered extends StatelessWidget {
-  const YourAreaListFiltered({
-    Key? key,
-   required this.filteredProducts,
-   required this.tmp,
-  }) : super(key: key);
-
-  final List<YourAreaModel> filteredProducts;
-  final List<YourAreaModel> tmp;
-
-  @override
-  Widget build(BuildContext context) {
-        return SliverList(
-          delegate: SliverChildBuilderDelegate(
-            childCount: filteredProducts.length,
-            (context, index) => CardWidget(
-              tmp: filteredProducts[index],
-            ),
-          ),
-        );
   }
 }

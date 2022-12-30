@@ -174,7 +174,8 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                                         TextSpan(
                                           text: 'polec.am',
                                           style: TextStyle(
-                                              fontWeight: FontWeight.bold),
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                         TextSpan(
                                           text: ' to recomend to friends',

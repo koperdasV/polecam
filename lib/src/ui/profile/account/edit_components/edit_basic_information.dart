@@ -1,7 +1,5 @@
-import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polec/src/ui/profile/account/components/profile_text_field.dart';
 import 'package:polec/src/ui/profile/account/edit_components/calendar_widget.dart';
 import 'package:polec/src/ui/profile/account/edit_components/gender_nav_bar.dart';
 import 'package:polec/src/ui/profile/account/edit_components/textField_components/email_widget.dart';
@@ -10,7 +8,6 @@ import 'package:polec/src/ui/profile/account/edit_components/textField_component
 import 'package:polec/src/ui/profile/account/edit_components/textField_components/phone_widget.dart';
 import 'package:polec/src/ui/profile/account/edit_components/textField_components/post_code_widget.dart';
 import 'package:polec/src/ui/profile/account/edit_components/textField_components/street_and_sity_widget.dart';
-import 'package:polec/src/ui/profile/account/edit_components/title_text_field.dart';
 import 'package:polec/src/ui/profile/account/edit_components/title_text.dart';
 
 class EditBasicInformation extends StatefulWidget {

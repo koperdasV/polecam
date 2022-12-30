@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/profile/account/cubit/account_cubit.dart';
-import 'package:polec/src/ui/profile/account/data/account_repository.dart';
 import 'package:polec/src/ui/profile/account/edit_components/account_widget.dart';
 import 'package:polec/src/ui/profile/account/edit_components/edit_profile_widget.dart';
 
@@ -100,13 +99,4 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
       },
     );
   }
-//////// Can use this method for a writing gender data
-  // String editGender() {
-  //   final String gender;
-  //   if (GenderNavBar == Gender.male) {
-  //     return gender = 'Male';
-  //   } else {
-  //     return gender = 'Female';
-  //   }
-  // }
 }
