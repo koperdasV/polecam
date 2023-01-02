@@ -36,7 +36,8 @@ class _BonusScreenState extends State<BonusScreen> {
     );
     super.initState();
   }
-    final random = Random();
+
+  final random = Random();
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +63,7 @@ class _BonusScreenState extends State<BonusScreen> {
             tooltipBehavior: _tooltipBehavior,
             chartData: chartData,
             colorDiagram: AppColor.bonusDiagramColor,
+            colorMarker: AppColor.bonusDiagramColor,
           ),
           const TitleWidget(
             title: 'Recommendations',
