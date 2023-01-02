@@ -2,9 +2,9 @@
 library spider_chart;
 
 import 'dart:math' show pi, cos, sin, max;
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:path_drawing/path_drawing.dart';
 import 'package:polec/resources/colors.dart';
 
 /// Displays a spider/radar chart
@@ -145,8 +145,7 @@ class SpiderChartPainter extends CustomPainter {
     if (labels.isNotEmpty) {
       paintLabels(canvas, center, dataPoints, labels);
     }
-    paintGraphOutline(canvas, center, dataPoints);
-    //dottedPaint(canvas, center, dataPoints);
+    paintGraphOutline(canvas, center, dataPoints, size);
     paintDataLines(canvas, dataPoints);
     paintDataPoints(canvas, dataPoints);
     paintLine(canvas, dataPoints, size);
@@ -185,14 +184,33 @@ class SpiderChartPainter extends CustomPainter {
     }
   }
 
-  void paintGraphOutline(Canvas canvas, Offset center, List<Offset> points) {
+  void paintGraphOutline(
+    Canvas canvas,
+    Offset center,
+    List<Offset> points,
+    Size size,
+  ) {
     for (var i = 0; i < points.length; i++) {
-      canvas.drawLine(
-        center,
-        points[i],
-        Paint()
-          ..color = colors[i]
-          ..strokeWidth = 5,
+      final paintDotted = Paint()
+        ..style = PaintingStyle.stroke
+        ..color = colors[i]
+        ..strokeWidth = 5;
+      final path = Path()
+        ..moveTo(center.dx, center.dy)
+        ..cubicTo(
+          points[i].dx,
+          points[i].dy,
+          points[i].dx,
+          points[i].dy,
+          points[i].dx,
+          points[i].dy,
+        );
+      canvas.drawPath(
+        dashPath(
+          path,
+          dashArray: CircularIntervalList<double>(<double>[20, 10]),
+        ),
+        paintDotted,
       );
     }
 
@@ -200,24 +218,6 @@ class SpiderChartPainter extends CustomPainter {
       ..drawCircle(center, 8, spokes)
       ..drawCircle(center, 4, Paint()..color = Colors.white);
   }
-
-  // void dottedPaint(Canvas canvas, Offset center, List<Offset> points) {
-  //   var max = 35;
-  //   const dashWidth = 5.0;
-  //   const dashSpace = 5.0;
-  //   Offset startY = center;
-  //   for (var i = 0; i < points.length; i++) {
-  //     canvas.drawLine(
-  //       center,
-  //       points[i],
-  //       Paint()
-  //         ..color = colors[i]
-  //         ..strokeWidth = 5,
-  //     );
-  //     final space = Offset(dashSpace, dashWidth);
-  //     startY += space;
-  //   }
-  // }
 
   void paintLabels(
     Canvas canvas,
