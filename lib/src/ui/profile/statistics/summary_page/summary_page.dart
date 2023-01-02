@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
@@ -9,6 +7,7 @@ import 'package:polec/src/ui/profile/statistics/payout_page/components/title_wid
 import 'package:polec/src/ui/profile/statistics/payout_page/components/toltip_widget.dart';
 import 'package:polec/src/ui/profile/statistics/summary_page/components/bubble_chart.dart';
 import 'package:polec/src/ui/profile/statistics/summary_page/components/list_charts.dart';
+import 'package:polec/src/ui/profile/statistics/summary_page/components/period_picker.dart';
 import 'package:polec/src/ui/profile/statistics/summary_page/components/spider_chart.dart';
 import 'package:polec/src/ui/profile/statistics/summary_page/data/data_charts.dart';
 import 'package:polec/src/ui/recommended/components/cupertino_nav_bar.dart';
@@ -53,10 +52,9 @@ class _SummaryPageState extends State<SummaryPage> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            //TODO edit
-            const TitleWidget(
-              title: 'Period: 6 months',
-              fontSizeTitle: 16,
+            const Padding(
+              padding: EdgeInsets.only(left: 13),
+              child: PeriodPicker(),
             ),
             Row(
               children: [

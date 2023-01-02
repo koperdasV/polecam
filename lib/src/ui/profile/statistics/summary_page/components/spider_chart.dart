@@ -1,4 +1,3 @@
-/// A charting library for displaying spider/radar charts
 library spider_chart;
 
 import 'dart:math' show pi, cos, sin, max;
@@ -7,9 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:path_drawing/path_drawing.dart';
 import 'package:polec/resources/colors.dart';
 
-/// Displays a spider/radar chart
 class SpiderChart extends StatelessWidget {
-  /// Creates a widget that displays a spider chart
   SpiderChart({
     super.key,
     required this.data,
@@ -21,12 +18,18 @@ class SpiderChart extends StatelessWidget {
     this.fallbackHeight = 200,
     this.fallbackWidth = 200,
     this.colorSwatch,
-  })  : assert(labels.isNotEmpty ? data.length == labels.length : true,
-            'Length of data and labels lists must be equal'),
-        assert(colors.isNotEmpty ? colors.length == data.length : true,
-            "Custom colors length and data length must be equal"),
-        assert(colorSwatch != null ? data.length < 10 : true,
-            "For large data sets (>10 data points), please define custom colors using the [colors] parameter");
+  })  : assert(
+          labels.isNotEmpty ? data.length == labels.length : true,
+          'Length of data and labels lists must be equal',
+        ),
+        assert(
+          colors.isNotEmpty ? colors.length == data.length : true,
+          'Custom colors length and data length must be equal',
+        ),
+        assert(
+          colorSwatch != null ? data.length < 10 : true,
+          'For large data sets (>10 data points), please define custom colors using the [colors] parameter',
+        );
 
   /// The data points to be displayed
   final List<double> data;
@@ -104,18 +107,10 @@ class SpiderChartPainter extends CustomPainter {
   final List<String> labels;
   final int decimalPrecision;
 
-  final Paint spokes = Paint()..color = Colors.grey;
-
-  final Paint fill = Paint()
-    ..color = const Color.fromARGB(15, 50, 50, 50)
-    ..style = PaintingStyle.fill;
-  final Paint dotted = Paint()
-    ..color = Colors.red
-    ..style = PaintingStyle.fill;
-
   final Paint stroke = Paint()
-    ..color = const Color.fromARGB(255, 50, 50, 50)
-    ..style = PaintingStyle.stroke;
+    ..color = const Color.fromRGBO(170, 170, 170, 1)
+    ..style = PaintingStyle.stroke
+    ..strokeWidth = 4;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -146,44 +141,28 @@ class SpiderChartPainter extends CustomPainter {
       paintLabels(canvas, center, dataPoints, labels);
     }
     paintGraphOutline(canvas, center, dataPoints, size);
-    paintDataLines(canvas, dataPoints);
+    paintDataPolygon(canvas, dataPoints);
     paintDataPoints(canvas, dataPoints);
-    paintLine(canvas, dataPoints, size);
   }
 
-  void paintLine(Canvas canvas, List<Offset> dataPoints, Size size) {
-    final center = size.center(Offset.zero);
-
-    final angle = (2 * pi) / data.length;
-
-    final dataPoints = <Offset>[];
-
-    for (var i = 0; i < data.length; i++) {
-      final scaledRadius = (data[i] / maxNumber) * center.dy;
-      final x = scaledRadius * cos(angle * i - pi / 2);
-      final y = scaledRadius * sin(angle * i - pi / 2);
-
-      dataPoints.add(Offset(x, y) + center);
-    }
-  }
-
-  void paintDataLines(Canvas canvas, List<Offset> points) {
+  //Method for drawing polygon
+  void paintDataPolygon(Canvas canvas, List<Offset> points) {
     final path = Path()..addPolygon(points, true);
 
-    canvas
-      ..drawPath(
-        path,
-        fill,
-      )
-      ..drawPath(path, stroke);
+    canvas.drawPath(
+      path,
+      stroke,
+    );
   }
 
+  //Method for drawing points
   void paintDataPoints(Canvas canvas, List<Offset> points) {
     for (var i = 0; i < points.length; i++) {
-      canvas.drawCircle(points[i], 8, Paint()..color = colors[i]);
+      canvas.drawCircle(points[i], 9, Paint()..color = colors[i]);
     }
   }
 
+  //Method for drawing lines
   void paintGraphOutline(
     Canvas canvas,
     Offset center,
@@ -208,17 +187,18 @@ class SpiderChartPainter extends CustomPainter {
       canvas.drawPath(
         dashPath(
           path,
-          dashArray: CircularIntervalList<double>(<double>[20, 10]),
+          dashArray: CircularIntervalList<double>(<double>[15, 15]),
         ),
         paintDotted,
       );
     }
 
     canvas
-      ..drawCircle(center, 8, spokes)
+      ..drawCircle(center, 9, Paint()..color = Colors.grey)
       ..drawCircle(center, 4, Paint()..color = Colors.white);
   }
 
+  //Method for drawing labels
   void paintLabels(
     Canvas canvas,
     Offset center,
