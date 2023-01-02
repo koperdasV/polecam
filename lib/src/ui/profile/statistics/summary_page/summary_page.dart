@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/profile/statistics/components/payout_card.dart';
 import 'package:polec/src/ui/profile/statistics/components/progress_indicator.dart';
-import 'package:polec/src/ui/profile/statistics/payout_page/components/line_diagram.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/components/title_widget.dart';
 import 'package:polec/src/ui/profile/statistics/payout_page/components/toltip_widget.dart';
 import 'package:polec/src/ui/profile/statistics/summary_page/components/bubble_chart.dart';
 import 'package:polec/src/ui/profile/statistics/summary_page/components/list_charts.dart';
 import 'package:polec/src/ui/profile/statistics/summary_page/components/spider_chart.dart';
+import 'package:polec/src/ui/profile/statistics/summary_page/data/data_charts.dart';
 import 'package:polec/src/ui/recommended/components/cupertino_nav_bar.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -44,75 +44,8 @@ class _SummaryPageState extends State<SummaryPage> {
     super.initState();
   }
 
-  final random = Random();
-
   @override
   Widget build(BuildContext context) {
-    final firstChartData = <ChartData>[
-      ChartData('April', random.nextDouble() * 300),
-      ChartData('May', random.nextDouble() * 300),
-      ChartData('June', random.nextDouble() * 300),
-      ChartData('July', random.nextDouble() * 300),
-      ChartData('August', random.nextDouble() * 300),
-      ChartData('September', random.nextDouble() * 300),
-    ];
-    final secondChartData = <ChartData>[
-      ChartData('April', random.nextDouble() * 300),
-      ChartData('May', random.nextDouble() * 300),
-      ChartData('June', random.nextDouble() * 300),
-      ChartData('July', random.nextDouble() * 300),
-      ChartData('August', random.nextDouble() * 300),
-      ChartData('September', random.nextDouble() * 300),
-    ];
-    final thirdChartData = <ChartData>[
-      ChartData('April', random.nextDouble() * 300),
-      ChartData('May', random.nextDouble() * 300),
-      ChartData('June', random.nextDouble() * 300),
-      ChartData('July', random.nextDouble() * 300),
-      ChartData('August', random.nextDouble() * 300),
-      ChartData('September', random.nextDouble() * 300),
-    ];
-    final fourthChartData = <ChartData>[
-      ChartData('April', random.nextDouble() * 300),
-      ChartData('May', random.nextDouble() * 300),
-      ChartData('June', random.nextDouble() * 300),
-      ChartData('July', random.nextDouble() * 300),
-      ChartData('August', random.nextDouble() * 300),
-      ChartData('September', random.nextDouble() * 300),
-    ];
-    final spiderData = [
-      BubbleChartDataEntry(
-        value: 32,
-        label: r'Pawel (125.35$)',
-        colors: AppColor.blueBall,
-      ),
-      BubbleChartDataEntry(
-        value: 20,
-        label: r'Dawid (125.35$)',
-        colors: AppColor.purpleBall,
-      ),
-      BubbleChartDataEntry(
-        value: 18,
-        label: r'Ewelina (125.35$)',
-        colors: AppColor.pinkBall,
-      ),
-      BubbleChartDataEntry(
-        value: 25,
-        label: r'Joanna (125.35$)',
-        colors: AppColor.yellowBall,
-      ),
-      BubbleChartDataEntry(
-        value: 24,
-        label: r'Sebastian (125.35$)',
-        colors: AppColor.greenBall,
-      ),
-      BubbleChartDataEntry(
-        value: 26,
-        label: r'Robert (125.35$)',
-        colors: AppColor.redBall,
-      ),
-    ];
-
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavBar(
         title: 'Summary',
@@ -120,6 +53,7 @@ class _SummaryPageState extends State<SummaryPage> {
       child: SingleChildScrollView(
         child: Column(
           children: [
+            //TODO edit
             const TitleWidget(
               title: 'Period: 6 months',
               fontSizeTitle: 16,
@@ -166,10 +100,10 @@ class _SummaryPageState extends State<SummaryPage> {
                 ),
                 primaryYAxis: NumericAxis(),
                 series: listDiagramm(
-                  firstChartData,
-                  secondChartData,
-                  thirdChartData,
-                  fourthChartData,
+                  DataCharts.firstChartData,
+                  DataCharts.secondChartData,
+                  DataCharts.thirdChartData,
+                  DataCharts.fourthChartData,
                 ),
               ),
             ),
@@ -182,7 +116,7 @@ class _SummaryPageState extends State<SummaryPage> {
               child: SizedBox(
                 height: 310,
                 child: BubbleChart(
-                  data: spiderData,
+                  data: DataCharts.spiderData,
                 ),
               ),
             ),
@@ -195,7 +129,7 @@ class _SummaryPageState extends State<SummaryPage> {
               child: SizedBox(
                 height: 310,
                 child: BubbleChart(
-                  data: spiderData,
+                  data: DataCharts.spiderData,
                 ),
               ),
             ),
@@ -209,36 +143,9 @@ class _SummaryPageState extends State<SummaryPage> {
                 width: double.infinity,
                 height: 310,
                 child: SpiderChart(
-                  data: const [
-                    32,
-                    26,
-                    10,
-                    23,
-                    14,
-                    32,
-                    14,
-                    21,
-                  ],
-                  colors: const [
-                    Colors.blue,
-                    Colors.pink,
-                    Colors.orange,
-                    Colors.green,
-                    Colors.blue,
-                    Colors.pink,
-                    Colors.orange,
-                    Colors.green,
-                  ],
-                  labels: const [
-                    r'Travels (125.35$)',
-                    r'Food (125.35$)',
-                    r'Party (125.35$)',
-                    r'Beauty (125.35$)',
-                    r'Health (125.35$)',
-                    r'Pets (125.35$)',
-                    r'Sport (125.35$)',
-                    r'Clothes (125.35$)',
-                  ],
+                  data: DataCharts.spiderChart,
+                  colors: DataCharts.spiderColorChart,
+                  labels: DataCharts.spiderLabelChart,
                 ),
               ),
             )
