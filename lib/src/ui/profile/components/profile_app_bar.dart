@@ -19,90 +19,91 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<SlidingBarProvider>().markerVisible;
-    return BlocListener<AccountBloc, AccountState>(
-      listener: (context, state) {
+    return BlocBuilder<AccountBloc, AccountState>(
+      builder: (context, state) {
         if (state.status == AccountStateStatus.failure &&
             state.errorMessage.isNotEmpty) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(content: Text(state.errorMessage)));
         }
-      },
-      child: BlocBuilder<AccountBloc, AccountState>(
-        builder: (context, state) {
-          if (state.status == AccountStateStatus.loading) {
-            return const Center(
-              child: CupertinoActivityIndicator(),
-            );
-          } else {
-            return Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, top: 50),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 25,
-                        backgroundImage: AssetImage(
-                          state.accountModel.avatar.toString(),
+        if (state.status == AccountStateStatus.loading) {
+          return const Center(
+            child: CupertinoActivityIndicator(),
+          );
+        }
+        if (state.status == AccountStateStatus.success) {
+          return Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 50),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 25,
+                      backgroundImage: AssetImage(
+                        state.accountModel.avatar.toString(),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '${state.accountModel.firstName} ${state.accountModel.lastName}',
+                          style: TextStyle(
+                            color: AppColor.titleColor,
+                            fontSize: 16,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 10),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '${state.accountModel.firstName} ${state.accountModel.lastName}',
-                            style: TextStyle(
-                              color: AppColor.titleColor,
-                              fontSize: 16,
-                            ),
-                          ),
-                          const SizedBox(height: 5),
-                          Text(
-                            state.accountModel.email.toString(),
-                            style: TextStyle(
-                              color: AppColor.subTitleColor,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  BlocBuilder<AccountCubit, AccountEditState>(
-                    builder: (context, state) {
-                      return Visibility(
-                        visible: provider,
-                        child: CupertinoButton(
-                          onPressed: () {
-                            setState(() {
-                              click = !click;
-                            });
-                            (click == false)
-                                ? context
-                                    .read<AccountCubit>()
-                                    .editingAcc(editingAccount: false)
-                                : context
-                                    .read<AccountCubit>()
-                                    .editingAcc(editingAccount: true);
-                          },
-                          child: Icon(
-                            (click == false) ? Icons.mode : Icons.close,
+                        const SizedBox(height: 5),
+                        Text(
+                          state.accountModel.email.toString(),
+                          style: TextStyle(
                             color: AppColor.subTitleColor,
+                            fontSize: 12,
                           ),
                         ),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            );
-          }
-        },
-      ),
+                      ],
+                    ),
+                  ],
+                ),
+                BlocBuilder<AccountCubit, AccountEditState>(
+                  builder: (context, state) {
+                    return Visibility(
+                      visible: provider,
+                      child: CupertinoButton(
+                        onPressed: () {
+                          setState(() {
+                            click = !click;
+                          });
+                          (click == false)
+                              ? context
+                                  .read<AccountCubit>()
+                                  .editingAcc(editingAccount: false)
+                              : context
+                                  .read<AccountCubit>()
+                                  .editingAcc(editingAccount: true);
+                        },
+                        child: Icon(
+                          (click == false) ? Icons.mode : Icons.close,
+                          color: AppColor.subTitleColor,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          );
+        } else {
+          return Center(
+            child: Text(state.errorMessage),
+          );
+        }
+      },
     );
   }
 }
