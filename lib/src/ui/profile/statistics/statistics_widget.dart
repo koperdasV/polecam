@@ -28,33 +28,36 @@ class StatisticsWidget extends StatelessWidget {
               );
             },
           ),
-          Row(
-            children: [
-              Flexible(
-                child: PayoutCard(
-                  titleText: 'Moneyback',
-                  summaryText: r'361,26$',
-                  decoration: AppColor.moneybackColor,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 7),
+            child: Row(
+              children: [
+                Flexible(
+                  child: PayoutCard(
+                    titleText: 'Moneyback',
+                    summaryText: r'361,26$',
+                    decoration: AppColor.moneybackColor,
+                  ),
                 ),
-              ),
-              Flexible(
-                child: PayoutCard(
-                  titleText: 'Recommen-dations',
-                  summaryText: r'76,38$',
-                  decoration: AppColor.recomendationsColor,
+                Flexible(
+                  child: PayoutCard(
+                    titleText: 'Recommen-dations',
+                    summaryText: r'76,38$',
+                    decoration: AppColor.recomendationsColor,
+                  ),
                 ),
-              ),
-              Flexible(
-                child: PayoutCard(
-                  titleText: 'Bonus',
-                  summaryText: r'284,88$',
-                  decoration: AppColor.bonusColor,
+                Flexible(
+                  child: PayoutCard(
+                    titleText: 'Bonus',
+                    summaryText: r'284,88$',
+                    decoration: AppColor.bonusColor,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
             child: InActiveButton(
               text: 'Payout funds',
               onPressed: () {},
@@ -74,30 +77,33 @@ class StatisticsWidget extends StatelessWidget {
               );
             },
           ),
-          Row(
-            children: [
-              Flexible(
-                child: PayoutCard(
-                  titleText: 'Moneyback',
-                  summaryText: r'406,92$',
-                  decoration: AppColor.moneybackColor,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 7),
+            child: Row(
+              children: [
+                Flexible(
+                  child: PayoutCard(
+                    titleText: 'Moneyback',
+                    summaryText: r'406,92$',
+                    decoration: AppColor.moneybackColor,
+                  ),
                 ),
-              ),
-              Flexible(
-                child: PayoutCard(
-                  titleText: 'Recommendations',
-                  summaryText: r'84,83$',
-                  decoration: AppColor.recomendationsColor,
+                Flexible(
+                  child: PayoutCard(
+                    titleText: 'Recommendations',
+                    summaryText: r'84,83$',
+                    decoration: AppColor.recomendationsColor,
+                  ),
                 ),
-              ),
-              Flexible(
-                child: PayoutCard(
-                  titleText: 'Bonus',
-                  summaryText: r'322,09$',
-                  decoration: AppColor.bonusColor,
+                Flexible(
+                  child: PayoutCard(
+                    titleText: 'Bonus',
+                    summaryText: r'322,09$',
+                    decoration: AppColor.bonusColor,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           const TitleWidget(
             title: 'Your recommendation',
