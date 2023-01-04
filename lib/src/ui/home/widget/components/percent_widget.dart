@@ -19,6 +19,7 @@ class PercentWidget extends StatelessWidget {
         style: TextStyle(
           fontSize: fontSize,
           color: Colors.white,
+          fontWeight: FontWeight.bold,
           shadows: const [
             Shadow(
               offset: Offset(2, 2),

@@ -70,6 +70,7 @@ class _CardFavoritesState extends State<CardFavorites> {
                 PercentWidget(
                   percent: percent.toString(),
                   fontSize: 34,
+                  
                 ),
                 Positioned(
                   bottom: 0,
