@@ -33,7 +33,7 @@ class CategoriesItem extends StatelessWidget {
             padding: const EdgeInsets.only(left: 14),
             child: Icon(
               CupertinoIcons.airplane,
-              size: 25,
+              size: 30,
               color: isSelected
                   ? CupertinoColors.activeBlue
                   : CupertinoColors.inactiveGray,
