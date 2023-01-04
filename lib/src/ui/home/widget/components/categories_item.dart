@@ -20,10 +20,10 @@ class CategoriesItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            color: Colors.grey,
-            blurRadius: 4,
+            color: Colors.grey.shade300,
+            blurRadius: 5,
           ),
         ],
       ),
