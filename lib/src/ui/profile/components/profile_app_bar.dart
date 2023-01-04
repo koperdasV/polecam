@@ -75,6 +75,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                     return Visibility(
                       visible: provider,
                       child: CupertinoButton(
+                        padding: const EdgeInsets.all(5),
                         onPressed: () {
                           setState(() {
                             click = !click;

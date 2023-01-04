@@ -23,134 +23,150 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              left: 16,
-              right: 16,
-              bottom: 16,
-              top: 110,
-            ),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 30,
-                  child: Image.asset(AppImages.logo),
+      child: LayoutBuilder(
+        builder: (context, constraints) => Scaffold(
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: 16,
+                right: 16,
+                // bottom: 16,
+                top: constraints.minHeight * 0.1,
+              ),
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  // minWidth: constraints.minWidth,
+                  // minHeight: constraints.minHeight,
+                  maxHeight: constraints.maxHeight*0.9,
+                  maxWidth: constraints.maxWidth,
                 ),
-                const SizedBox(height: 30),
-                const Text(
-                  'Create account',
-                  style: TextStyle(
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                const Text(
-                  'polec.am',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: AppColors.greyDark,
-                  ),
-                ),
-                const SizedBox(height: 65),
-                Form(
-                  key: formKey,
-                  child: const TextFieldWidget(),
-                ),
-                const SizedBox(height: 20),
-                Row(
+                child: Column(
                   children: [
-                    Checkbox(
-                      value: checkValue,
-                      checkColor: Colors.white,
-                      activeColor: Colors.blue,
-                      onChanged: (value) {
-                        setState(() {
-                          checkValue = value!;
-                        });
-                      },
+                    SizedBox(
+                      height: 30,
+                      child: Image.asset(AppImages.logo),
                     ),
+                    const SizedBox(height: 30),
                     const Text(
-                      'I accept',
+                      'Create account',
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'polec.am',
+                      style: TextStyle(
+                        fontSize: 18,
                         color: AppColors.greyDark,
                       ),
                     ),
-                    CupertinoButton(
-                      padding: const EdgeInsets.only(left: 5, right: 5),
-                      onPressed: () {},
-                      child: const Text(
-                        'terms of use',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
+                    SizedBox(height: constraints.minHeight * 0.05),
+                    Form(
+                      key: formKey,
+                      child: const TextFieldWidget(),
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: checkValue,
+                          checkColor: Colors.white,
+                          activeColor: Colors.blue,
+                          onChanged: (value) {
+                            setState(() {
+                              checkValue = value!;
+                            });
+                          },
+                        ),
+                        const Text(
+                          'I accept',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: AppColors.greyDark,
+                          ),
+                        ),
+                        CupertinoButton(
+                          padding: const EdgeInsets.only(left: 5, right: 5),
+                          onPressed: () {},
+                          child: const Text(
+                            'terms of use',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        const Text(
+                          'and',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: AppColors.greyDark,
+                          ),
+                        ),
+                        CupertinoButton(
+                          padding: const EdgeInsets.only(left: 5),
+                          onPressed: () {},
+                          child: const Text(
+                            'statute',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: constraints.minHeight * 0.05),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      child: CupertinoButton.filled(
+                        onPressed: () {
+                          if (formKey.currentState!.validate() &&
+                              checkValue == true) {
+                            context.go('/');
+                          }
+                        },
+                        child: const Text(
+                          'Create account',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
-                    const Text(
-                      'and',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: AppColors.greyDark,
-                      ),
-                    ),
-                    CupertinoButton(
-                      padding: const EdgeInsets.only(left: 5),
-                      onPressed: () {},
-                      child: const Text(
-                        'statute',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
+                    SizedBox(height: constraints.minHeight * 0.03),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      // mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text(
+                          'Already have an account?',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: AppColors.greyDark,
+                          ),
                         ),
-                      ),
+                        CupertinoButton(
+                          padding: const EdgeInsets.only(left: 5),
+                          onPressed: () {},
+                          child: const Text(
+                            'Log in',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-                const SizedBox(height: 80),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: CupertinoButton.filled(
-                    onPressed: () {
-                      if (formKey.currentState!.validate() &&
-                          checkValue == true) {
-                        context.go('/');
-                      }
-                    },
-                    child: const Text('Create account'),
-                  ),
-                ),
-                const SizedBox(height: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Already have an account?',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: AppColors.greyDark,
-                      ),
-                    ),
-                    CupertinoButton(
-                      padding: const EdgeInsets.only(left: 5),
-                      onPressed: () {},
-                      child: const Text(
-                        'Log in',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+              ),
             ),
           ),
         ),
