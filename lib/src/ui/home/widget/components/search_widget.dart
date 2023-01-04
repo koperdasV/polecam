@@ -17,6 +17,9 @@ class SearchWidget extends StatelessWidget {
         CupertinoIcons.search,
         color: Colors.black,
       ),
+      style: const TextStyle(
+        fontWeight: FontWeight.normal,
+      ),
       suffixMode: OverlayVisibilityMode.always,
       suffixInsets: const EdgeInsetsDirectional.fromSTEB(0, 0, 25, 2),
       prefixIcon: const SizedBox(),
