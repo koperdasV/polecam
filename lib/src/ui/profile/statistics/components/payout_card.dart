@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:polec/resources/colors.dart';
 
 class PayoutCard extends StatelessWidget {
   const PayoutCard({
@@ -16,35 +17,44 @@ class PayoutCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(6),
-      child: Container(
-        height: 130,
-        width: 130,
-        decoration: decoration,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10, left: 8, right: 10),
-              child: SizedBox(
-                height: 40,
-                child: Text(
-                  titleText,
-                  style: const TextStyle(
-                    color: Colors.white,
+      child: Stack(
+        children: [
+          Container(
+            height: 130,
+            width: 130,
+            decoration: decoration,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 15, left: 10, right: 10),
+                  child: SizedBox(
+                    height: 40,
+                    child: Text(
+                      titleText,
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: Text(
+                      summaryText,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                      softWrap: false,
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Text(
-              summaryText,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-              ),
-              softWrap: false,
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
