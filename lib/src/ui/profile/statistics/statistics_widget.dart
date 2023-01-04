@@ -19,6 +19,7 @@ class StatisticsWidget extends StatelessWidget {
           TitleWidget(
             title: r'To payout: x.xx$',
             subTitle: 'More',
+            fontWeigthTitle: FontWeight.w900,
             onPressed: () {
               Navigator.push(
                 context,
@@ -68,6 +69,7 @@ class StatisticsWidget extends StatelessWidget {
           TitleWidget(
             title: r'Summary: x.xx$',
             subTitle: 'More',
+            fontWeigthTitle: FontWeight.w900,
             onPressed: () {
               Navigator.push(
                 context,
@@ -90,7 +92,7 @@ class StatisticsWidget extends StatelessWidget {
                 ),
                 Flexible(
                   child: PayoutCard(
-                    titleText: 'Recommendations',
+                    titleText: 'Recommen-dations',
                     summaryText: r'84,83$',
                     decoration: AppColor.recomendationsColor,
                   ),
@@ -110,7 +112,10 @@ class StatisticsWidget extends StatelessWidget {
             fontSizeTitle: 16,
           ),
           const CustomProgressIndicator(),
-          const TitleWidget(title: 'Payout history'),
+          const TitleWidget(
+            title: 'Payout history',
+            fontWeigthTitle: FontWeight.w900,
+          ),
           const PayoutHistory(),
         ],
       ),

@@ -8,11 +8,13 @@ class TitleWidget extends StatelessWidget {
     this.subTitle = '',
     this.onPressed,
     this.fontSizeTitle = 24,
+    this.fontWeigthTitle = FontWeight.bold,
   }) : super(key: key);
 
   final String title;
   final String? subTitle;
   final double? fontSizeTitle;
+  final FontWeight? fontWeigthTitle;
   final Function()? onPressed;
 
   @override
@@ -26,6 +28,7 @@ class TitleWidget extends StatelessWidget {
             title,
             style: TextStyle(
               fontSize: fontSizeTitle,
+              fontWeight: fontWeigthTitle,
             ),
           ),
         ),

@@ -70,7 +70,7 @@ class _YourAreaCardState extends State<YourAreaCard> {
                 ),
                 PercentWidget(
                   percent: percent.toString(),
-                  fontSize: 22,
+                  fontSize: 24,
                 ),
                 Positioned(
                   right: 0,
