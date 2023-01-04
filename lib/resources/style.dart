@@ -11,7 +11,6 @@ CupertinoThemeData buildThemeData() {
         fontWeight: FontWeight.w700,
         fontSize: 16,
         color: AppColor.titleColor,
-        //fontFamily: 'SegoeUIBlack',
       ),
     ),
   );

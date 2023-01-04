@@ -70,7 +70,6 @@ class _CardFavoritesState extends State<CardFavorites> {
                 PercentWidget(
                   percent: percent.toString(),
                   fontSize: 34,
-                  
                 ),
                 Positioned(
                   bottom: 0,
@@ -107,8 +106,12 @@ class _CardFavoritesState extends State<CardFavorites> {
             padding: const EdgeInsets.only(top: 10),
             child: Text(
               widget.tmp.name,
-              style: const TextStyle(
+              maxLines: 1,
+              style: TextStyle(
+                overflow: TextOverflow.clip,
                 fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: AppColor.titleColor,
               ),
             ),
           ),
