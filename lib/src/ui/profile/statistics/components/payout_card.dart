@@ -16,34 +16,37 @@ class PayoutCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(6),
-      child: Container(
-        height: 130,
-        width: 130,
-        decoration: decoration,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10, left: 8, right: 10),
-              child: SizedBox(
-                height: 40,
-                child: Text(
-                  titleText,
-                  style: const TextStyle(
-                    color: Colors.white,
+      child: FittedBox(
+        fit: BoxFit.fill,
+        child: Container(
+          height: 125,
+          width: 130,
+          decoration: decoration,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10, left: 8, right: 10),
+                child: SizedBox(
+                  height: 40,
+                  child: Text(
+                    titleText,
+                    style: const TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
-            ),
-            Text(
-              summaryText,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
+              Text(
+                summaryText,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+                softWrap: false,
               ),
-              softWrap: false,
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

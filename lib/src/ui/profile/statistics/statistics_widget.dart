@@ -92,7 +92,7 @@ class StatisticsWidget extends StatelessWidget {
                 ),
                 Flexible(
                   child: PayoutCard(
-                    titleText: 'Recommendations',
+                    titleText: 'Recommen-dations',
                     summaryText: r'84,83$',
                     decoration: AppColor.recomendationsColor,
                   ),
