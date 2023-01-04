@@ -49,6 +49,7 @@ class _MapWidgetState extends State<MapWidget> {
                     state.position?.longitude ?? _lonWarszawa,
                   ),
                   zoom: 14,
+                  maxZoom: 18.4,
                 ),
                 children: [
                   TileLayer(
