@@ -83,7 +83,7 @@ class HomeRoute extends GoRouteData {
             create: (context) => SlidingBarProvider(),
           ),
         ],
-        child: const HomeScreen(),
+        child: const RegistrationScreen(),
       ),
     );
   }
