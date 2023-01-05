@@ -69,7 +69,7 @@ flutter:
     - assets/favourites.json
 
   fonts:
-    - family: SegoeUIBlack
+    - family: SFProDisplay
       fonts:
-        - asset: assets/fonts/SegoeUIBlack.ttf
-          style: italic
+        - asset: assets/fonts/SFProDisplay-Regular.ttf
+

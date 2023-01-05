@@ -15,3 +15,7 @@ CupertinoThemeData buildThemeData() {
     ),
   );
 }
+
+final theme = ThemeData(
+  fontFamily: 'SFProDisplay',
+);

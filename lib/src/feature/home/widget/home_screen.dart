@@ -79,19 +79,19 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.house_fill),
+            icon: Icon(CupertinoIcons.house_fill, size: 20),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.heart_circle_fill),
+            icon: Icon(CupertinoIcons.heart_circle_fill, size: 20,),
             label: 'Favorite',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.bell_fill),
+            icon: Icon(CupertinoIcons.bell_fill, size: 20,),
             label: 'Journal',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person_fill),
+            icon: Icon(CupertinoIcons.person_fill, size: 20,),
             label: 'Profile',
           ),
         ],
