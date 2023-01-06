@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-     onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: CupertinoPageScaffold(
         child: Column(
           children: [
@@ -107,7 +107,8 @@ class _HomePageState extends State<HomePage> {
               child: InActiveButton(
                 text: 'Inactive Account',
                 onPressed: () {
-                  Provider.of<BottomNavigationBarProvider>(context, listen: false)
+                  Provider.of<BottomNavigationBarProvider>(context,
+                          listen: false)
                       .updatePageSelection(3);
                   Provider.of<SlidingBarProvider>(context, listen: false)
                       .updateSegment(Account.account);
@@ -118,6 +119,8 @@ class _HomePageState extends State<HomePage> {
             ),
             Expanded(
               child: CustomScrollView(
+                keyboardDismissBehavior:
+                    ScrollViewKeyboardDismissBehavior.onDrag,
                 slivers: [
                   const SliverToBoxAdapter(
                     child: SizedBox(

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class ProfileTextField extends StatelessWidget {
@@ -29,6 +30,10 @@ class ProfileTextField extends StatelessWidget {
       obscureText: obscureText,
       padding: EdgeInsets.zero,
       placeholder: placeholder,
+      placeholderStyle: const TextStyle(
+        fontWeight: FontWeight.w400,
+        color: AppColors.editPlaceholderAcc,
+      ),
       controller: controller,
       keyboardType: keyboardType,
       prefix: prefix,

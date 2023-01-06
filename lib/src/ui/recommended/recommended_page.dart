@@ -93,6 +93,8 @@ class _RecommendedPageState extends State<RecommendedPage> {
                       const CategorieListBox(),
                       Expanded(
                         child: CustomScrollView(
+                          keyboardDismissBehavior:
+                              ScrollViewKeyboardDismissBehavior.onDrag,
                           slivers: [
                             RecommendedList(
                               filteredProducts: _filteredProducts,

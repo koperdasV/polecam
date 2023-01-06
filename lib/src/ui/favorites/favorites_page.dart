@@ -91,6 +91,8 @@ class _FavoritesPageState extends State<FavoritesPage> {
                     const CategorieListBox(),
                     Expanded(
                       child: CustomScrollView(
+                        keyboardDismissBehavior:
+                            ScrollViewKeyboardDismissBehavior.onDrag,
                         slivers: [
                           FavoritesList(
                             filteredProducts: _filteredFavorites,
