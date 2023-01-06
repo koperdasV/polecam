@@ -34,6 +34,10 @@ class _EditPasswordState extends State<EditPassword> {
           placeholder: 'Enter a new password',
           obscureText: !_passwordVisible,
           controller: newPassController,
+          placeholderStyle: const TextStyle(
+            fontWeight: FontWeight.w400,
+            color: AppColors.editPlaceholderAcc,
+          ),
           decoration: BoxDecoration(
             color: AppColors.bgAccountPage,
             borderRadius: BorderRadius.circular(10),
@@ -64,6 +68,10 @@ class _EditPasswordState extends State<EditPassword> {
           placeholder: 'Confirm a new password',
           obscureText: !_passwordVisible,
           controller: confirmPassController,
+          placeholderStyle: const TextStyle(
+            fontWeight: FontWeight.w400,
+            color: AppColors.editPlaceholderAcc,
+          ),
           decoration: BoxDecoration(
             color: AppColors.bgAccountPage,
             borderRadius: BorderRadius.circular(10),

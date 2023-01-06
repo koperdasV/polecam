@@ -77,6 +77,8 @@ class _YourAreaPageState extends State<YourAreaPage> {
                 const CategorieListBox(),
                 Expanded(
                   child: CustomScrollView(
+                    keyboardDismissBehavior:
+                        ScrollViewKeyboardDismissBehavior.onDrag,
                     slivers: [
                       YourAreaListFiltered(
                         filteredProducts: _filteredYourArea,
