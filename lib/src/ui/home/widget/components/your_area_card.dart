@@ -103,6 +103,7 @@ class _YourAreaCardState extends State<YourAreaCard> {
               widget.tmp.name,
               style: const TextStyle(
                 fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),

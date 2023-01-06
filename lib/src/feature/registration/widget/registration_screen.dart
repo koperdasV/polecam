@@ -134,6 +134,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           'Create account',
                           style: TextStyle(
                             color: Colors.white,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -158,7 +159,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.blue,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
                         ),

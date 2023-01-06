@@ -37,25 +37,22 @@ class _CupertinoContextState extends State<CupertinoContext> {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
     final routerController = AppRouter.of(context);
-    return Theme(
-      data: theme,
-      child: CupertinoApp.router(
-        // theme: buildThemeData(),
-        title: 'Packages',
-        restorationScopeId: 'app',
-        routeInformationParser: routerController.router.routeInformationParser,
-        routeInformationProvider:
-            routerController.router.routeInformationProvider,
-        routerDelegate: routerController.router.routerDelegate,
-        localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
-          //AppLocalization.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: AppLocalizations.supportedLocales,
-        locale: const Locale('en', 'US'),
-      ),
+    return CupertinoApp.router(
+      theme: buildThemeData(),
+      title: 'Packages',
+      restorationScopeId: 'app',
+      routeInformationParser: routerController.router.routeInformationParser,
+      routeInformationProvider:
+          routerController.router.routeInformationProvider,
+      routerDelegate: routerController.router.routerDelegate,
+      localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+        //AppLocalization.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: const Locale('en', 'US'),
     );
   }
 } // _CupertinoContextState

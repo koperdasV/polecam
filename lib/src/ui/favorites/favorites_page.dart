@@ -61,45 +61,48 @@ class _FavoritesPageState extends State<FavoritesPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CupertinoAppBar(
-        title: 'Favorite',
-        child: SearchBox(
-          controller: _searchController,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        appBar: CupertinoAppBar(
+          title: 'Favorite',
+          child: SearchBox(
+            controller: _searchController,
+          ),
         ),
-      ),
-      body: BlocListener<FavoriteBloc, FavoriteState>(
-        listener: (context, state) {
-          if (state.status == FavoriteStateStatus.failure &&
-              state.errorMessage.isNotEmpty) {
-            ScaffoldMessenger.of(context)
-              ..hideCurrentSnackBar()
-              ..showSnackBar(SnackBar(content: Text(state.errorMessage)));
-          }
-        },
-        child: BlocBuilder<FavoriteBloc, FavoriteState>(
-          builder: (context, state) {
-            if (state.status == FavoriteStateStatus.loading) {
-              return const Center(
-                child: CupertinoActivityIndicator(),
-              );
-            } else {
-              return Column(
-                children: [
-                  const CategorieListBox(),
-                  Expanded(
-                    child: CustomScrollView(
-                      slivers: [
-                        FavoritesList(
-                          filteredProducts: _filteredFavorites,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              );
+        body: BlocListener<FavoriteBloc, FavoriteState>(
+          listener: (context, state) {
+            if (state.status == FavoriteStateStatus.failure &&
+                state.errorMessage.isNotEmpty) {
+              ScaffoldMessenger.of(context)
+                ..hideCurrentSnackBar()
+                ..showSnackBar(SnackBar(content: Text(state.errorMessage)));
             }
           },
+          child: BlocBuilder<FavoriteBloc, FavoriteState>(
+            builder: (context, state) {
+              if (state.status == FavoriteStateStatus.loading) {
+                return const Center(
+                  child: CupertinoActivityIndicator(),
+                );
+              } else {
+                return Column(
+                  children: [
+                    const CategorieListBox(),
+                    Expanded(
+                      child: CustomScrollView(
+                        slivers: [
+                          FavoritesList(
+                            filteredProducts: _filteredFavorites,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              }
+            },
+          ),
         ),
       ),
     );

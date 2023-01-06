@@ -56,6 +56,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                           style: TextStyle(
                             color: AppColor.titleColor,
                             fontSize: 16,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                         const SizedBox(height: 5),

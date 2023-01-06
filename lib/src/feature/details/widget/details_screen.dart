@@ -49,15 +49,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
         loaded: (productDetails) => DetailModelContext(
           detailModel: productDetails,
           child: CupertinoPageScaffold(
-            navigationBar: const CupertinoNavigationBar(
-              middle: Text(
-                'In your area',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
+            navigationBar: CupertinoNavigationBar(
+              middle: appBarText(),
             ),
             child: DetailsWidget(
               detailModel: productDetails,
@@ -67,6 +60,31 @@ class _DetailsScreenState extends State<DetailsScreen> {
         error: (errorMessage) => const Center(child: FlutterLogo()),
       ),
     );
+  }
+
+  Text appBarText() {
+    const textStyle = TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    );
+    if (widget.productType == 'recommended') {
+      return const Text(
+        'Recommended for you',
+        style: textStyle,
+      );
+    }
+    if (widget.productType == 'favourites') {
+      return const Text(
+        'Favorite',
+        style: textStyle,
+      );
+    } else {
+      return const Text(
+        'In your area',
+        style: textStyle,
+      );
+    }
   }
 }
 
