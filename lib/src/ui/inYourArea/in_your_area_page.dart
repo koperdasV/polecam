@@ -63,7 +63,7 @@ class _YourAreaPageState extends State<YourAreaPage> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavBar(
-        title: 'In your Area',
+        title: 'In your area',
       ),
       child: BlocBuilder<YourAreaBloc, YourAreaState>(
         builder: (context, state) {

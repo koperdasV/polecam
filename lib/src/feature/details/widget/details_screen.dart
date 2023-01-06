@@ -76,7 +76,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
     }
     if (widget.productType == 'favourites') {
       return const Text(
-        'Favourite',
+        'Favorite',
         style: textStyle,
       );
     } else {

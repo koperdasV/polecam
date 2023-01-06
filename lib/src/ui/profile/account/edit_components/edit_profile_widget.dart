@@ -5,7 +5,7 @@ import 'package:polec/src/ui/profile/account/edit_components/edit_basic_informat
 import 'package:polec/src/ui/profile/account/edit_components/edit_password.dart';
 import 'package:polec/theme/app_colors.dart';
 
-class EditProfileWidget extends StatefulWidget {
+class EditProfileWidget extends StatelessWidget {
   const EditProfileWidget({
     super.key,
     required this.emailController,
@@ -33,11 +33,6 @@ class EditProfileWidget extends StatefulWidget {
   final VoidCallback onPressed;
 
   @override
-  State<EditProfileWidget> createState() => _EditProfileWidgetState();
-}
-
-class _EditProfileWidgetState extends State<EditProfileWidget> {
-  @override
   Widget build(BuildContext context) {
     final textStyle = TextStyle(
       fontSize: 18,
@@ -59,15 +54,15 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
               ),
               const SizedBox(height: 20),
               EditBasicInformation(
-                dateOfBirthController: widget.dateOfBirthController,
-                emailController: widget.emailController,
-                nameController: widget.nameController,
-                surnameController: widget.surnameController,
-                peselController: widget.peselController,
-                phoneController: widget.phoneController,
-                postCodeController: widget.postCodeController,
-                cityController: widget.cityController,
-                streetController: widget.streetController,
+                dateOfBirthController: dateOfBirthController,
+                emailController: emailController,
+                nameController: nameController,
+                surnameController: surnameController,
+                peselController: peselController,
+                phoneController: phoneController,
+                postCodeController: postCodeController,
+                cityController: cityController,
+                streetController: streetController,
               ),
               const SizedBox(height: 20),
               Text(
@@ -87,7 +82,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                 ),
                 imageColor: Colors.white,
                 textColor: Colors.white,
-                onPressed: widget.onPressed,
+                onPressed: onPressed,
               ),
               const SizedBox(height: 10),
             ],
