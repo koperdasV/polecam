@@ -6,8 +6,11 @@ class MapScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CupertinoPageScaffold(
-      child: MapPage(),
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: const CupertinoPageScaffold(
+        child: MapPage(),
+      ),
     );
   }
 }

@@ -23,7 +23,7 @@ class HomeAppBar extends StatelessWidget {
               'Hello Adam',
               style: TextStyle(
                 color: AppColor.titleColor,
-                fontSize: 24,
+                fontSize: 24,fontWeight: FontWeight.bold,
               ),
             ),
             RichText(

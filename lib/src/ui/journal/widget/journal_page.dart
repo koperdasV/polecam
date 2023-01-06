@@ -8,12 +8,15 @@ class JournalPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CupertinoAppBar(
-        title: 'Journal',
-        child: const SearchBox(),
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        appBar: CupertinoAppBar(
+          title: 'Journal',
+          child: const SearchBox(),
+        ),
+        body: JournalListView(),
       ),
-      body: JournalListView(),
     );
   }
 }

@@ -67,22 +67,25 @@ class _YourAreaPageState extends State<YourAreaPage> {
       ),
       child: BlocBuilder<YourAreaBloc, YourAreaState>(
         builder: (context, state) {
-          return Column(
-            children: [
-              SearchBox(
-                controller: _searchController,
-              ),
-              const CategorieListBox(),
-              Expanded(
-                child: CustomScrollView(
-                  slivers: [
-                    YourAreaListFiltered(
-                      filteredProducts: _filteredYourArea,
-                    ),
-                  ],
+          return GestureDetector(
+            onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+            child: Column(
+              children: [
+                SearchBox(
+                  controller: _searchController,
                 ),
-              ),
-            ],
+                const CategorieListBox(),
+                Expanded(
+                  child: CustomScrollView(
+                    slivers: [
+                      YourAreaListFiltered(
+                        filteredProducts: _filteredYourArea,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           );
         },
       ),

@@ -136,11 +136,11 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                     child: RecommendedButton(
                       image: Image.asset(
                         AppImages.logo,
-                        color: Colors.black,
+                        color: AppColors.notRecButton,
                       ),
                       textButton: 'Recommend to friend',
                       color: AppColors.blcokedButton,
-                      textColor: Colors.black,
+                      textColor: AppColors.notRecButton,
                       onPressed: () {
                         showDialog(
                           context: context,

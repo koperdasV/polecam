@@ -41,7 +41,7 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
                 widget.journalModel.target.name,
                 style: const TextStyle(
                   fontSize: 26,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),

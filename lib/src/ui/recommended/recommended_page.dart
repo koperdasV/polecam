@@ -62,48 +62,51 @@ class _RecommendedPageState extends State<RecommendedPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavBar(
-        title: 'Recommended for you',
-      ),
-      child: BlocConsumer<RecommendedBloc, RecommendedState>(
-        listener: (context, state) {
-          if (state.status == RecommendedStateStatus.failure &&
-              state.errorMessage.isNotEmpty) {
-            ScaffoldMessenger.of(context)
-              ..hideCurrentSnackBar()
-              ..showSnackBar(SnackBar(content: Text(state.errorMessage)));
-          }
-        },
-        builder: (context, state) {
-          return BlocBuilder<RecommendedBloc, RecommendedState>(
-            builder: (context, state) {
-              if (state.status == RecommendedStateStatus.loading) {
-                return const Center(
-                  child: CupertinoActivityIndicator(),
-                );
-              } else {
-                return Column(
-                  children: [
-                    SearchBox(
-                      controller: _searchController,
-                    ),
-                    const CategorieListBox(),
-                    Expanded(
-                      child: CustomScrollView(
-                        slivers: [
-                          RecommendedList(
-                            filteredProducts: _filteredProducts,
-                          ),
-                        ],
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: CupertinoPageScaffold(
+        navigationBar: const CupertinoNavBar(
+          title: 'Recommended for you',
+        ),
+        child: BlocConsumer<RecommendedBloc, RecommendedState>(
+          listener: (context, state) {
+            if (state.status == RecommendedStateStatus.failure &&
+                state.errorMessage.isNotEmpty) {
+              ScaffoldMessenger.of(context)
+                ..hideCurrentSnackBar()
+                ..showSnackBar(SnackBar(content: Text(state.errorMessage)));
+            }
+          },
+          builder: (context, state) {
+            return BlocBuilder<RecommendedBloc, RecommendedState>(
+              builder: (context, state) {
+                if (state.status == RecommendedStateStatus.loading) {
+                  return const Center(
+                    child: CupertinoActivityIndicator(),
+                  );
+                } else {
+                  return Column(
+                    children: [
+                      SearchBox(
+                        controller: _searchController,
                       ),
-                    ),
-                  ],
-                );
-              }
-            },
-          );
-        },
+                      const CategorieListBox(),
+                      Expanded(
+                        child: CustomScrollView(
+                          slivers: [
+                            RecommendedList(
+                              filteredProducts: _filteredProducts,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+                }
+              },
+            );
+          },
+        ),
       ),
     );
   }

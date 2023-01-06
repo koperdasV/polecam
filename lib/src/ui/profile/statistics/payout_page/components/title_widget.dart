@@ -28,6 +28,7 @@ class TitleWidget extends StatelessWidget {
               title,
               style: TextStyle(
                 fontSize: fontSizeTitle,
+                fontWeight: FontWeight.bold
               ),
             ),
           ),

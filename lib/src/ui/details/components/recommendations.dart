@@ -40,7 +40,7 @@ class RecomendationsWidget extends StatelessWidget {
                         '${detailModel.recommendations![index].name} ${detailModel.recommendations![index].surname}',
                         style: const TextStyle(
                           fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.normal,
                         ),
                       ),
                       Text(

@@ -74,103 +74,106 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16, top: 50, bottom: 15),
-            child: HomeAppBar(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  CupertinoPageRoute(
-                    builder: (context) => const MapScreen(),
-                  ),
-                );
-              },
-              child: const Icon(
-                CupertinoIcons.map_fill,
-                color: CupertinoColors.white,
+    return GestureDetector(
+     onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: CupertinoPageScaffold(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16, top: 50, bottom: 15),
+              child: HomeAppBar(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => const MapScreen(),
+                    ),
+                  );
+                },
+                child: const Icon(
+                  CupertinoIcons.map_fill,
+                  color: CupertinoColors.white,
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: SearchWidget(
-              controller: _searchController,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: SearchWidget(
+                controller: _searchController,
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            child: InActiveButton(
-              text: 'Inactive Account',
-              onPressed: () {
-                Provider.of<BottomNavigationBarProvider>(context, listen: false)
-                    .updatePageSelection(3);
-                Provider.of<SlidingBarProvider>(context, listen: false)
-                    .updateSegment(Account.account);
-                Provider.of<SlidingBarProvider>(context, listen: false)
-                    .visibleMarker(visible: true);
-              },
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              child: InActiveButton(
+                text: 'Inactive Account',
+                onPressed: () {
+                  Provider.of<BottomNavigationBarProvider>(context, listen: false)
+                      .updatePageSelection(3);
+                  Provider.of<SlidingBarProvider>(context, listen: false)
+                      .updateSegment(Account.account);
+                  Provider.of<SlidingBarProvider>(context, listen: false)
+                      .visibleMarker(visible: true);
+                },
+              ),
             ),
-          ),
-          Expanded(
-            child: CustomScrollView(
-              slivers: [
-                const SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 70,
-                    child: CategoriesList(),
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: TitleWidget(
-                    title: 'Recommended for you',
-                    subTitle: 'All',
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute(
-                          builder: (context) => const RecommendedPage(),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 250,
-                    child: HorizontalListScroll(
-                      itemCount: _filteredProducts.length,
-                      tmp: _filteredProducts,
+            Expanded(
+              child: CustomScrollView(
+                slivers: [
+                  const SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 70,
+                      child: CategoriesList(),
                     ),
                   ),
-                ),
-                SliverToBoxAdapter(
-                  child: TitleWidget(
-                    title: 'In your area',
-                    subTitle: 'All',
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        CupertinoPageRoute(
-                          builder: (context) => const YourAreaPage(),
-                        ),
-                      );
-                    },
+                  SliverToBoxAdapter(
+                    child: TitleWidget(
+                      title: 'Recommended for you',
+                      subTitle: 'All',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => const RecommendedPage(),
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                ),
-                //IN YOUR AREA//
-                const SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 260,
-                    child: YourAreaList(),
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 250,
+                      child: HorizontalListScroll(
+                        itemCount: _filteredProducts.length,
+                        tmp: _filteredProducts,
+                      ),
+                    ),
                   ),
-                ),
-              ],
+                  SliverToBoxAdapter(
+                    child: TitleWidget(
+                      title: 'In your area',
+                      subTitle: 'All',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => const YourAreaPage(),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  //IN YOUR AREA//
+                  const SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 260,
+                      child: YourAreaList(),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
