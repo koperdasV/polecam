@@ -20,7 +20,7 @@ class HomeAppBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hello Adam',
+              'Hello Adam!',
               style: TextStyle(
                 color: AppColor.titleColor,
                 fontSize: 24,

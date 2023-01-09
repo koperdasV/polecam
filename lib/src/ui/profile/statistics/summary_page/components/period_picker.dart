@@ -40,7 +40,12 @@ class _PeriodPickerState extends State<PeriodPicker> {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        const Text('Period: '),
+        const Text(
+          'Period: ',
+          style: TextStyle(
+            fontWeight: FontWeight.w900,
+          ),
+        ),
         CupertinoButton(
           padding: EdgeInsets.zero,
           onPressed: () => _showDialog(
@@ -68,6 +73,7 @@ class _PeriodPickerState extends State<PeriodPicker> {
             period[_selectedPeriod],
             style: const TextStyle(
               fontSize: 16,
+              fontWeight: FontWeight.w900,
             ),
           ),
         ),

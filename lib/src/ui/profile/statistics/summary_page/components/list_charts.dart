@@ -22,8 +22,8 @@ List<SplineSeries<ChartData, String>> listDiagramm(
     ),
     splineSeries(
       thirdChartData,
-      AppColor.subTitleColor,
-      AppColor.subTitleColor,
+      AppColor.recommendLineColor,
+      AppColor.recommendLineColor,
     ),
     splineSeries(
       fourthChartData,
