@@ -13,25 +13,45 @@ import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
-class CardWidget extends StatefulWidget {
-  const CardWidget({
-    Key? key,
-    this.fontSize,
-    required this.tmp,
-  }) : super(key: key);
-
+class CardWidget extends StatelessWidget {
+  const CardWidget({super.key, this.fontSize, required this.tmp});
   final double? fontSize;
 
   final RecommendedModel tmp;
 
   @override
-  State<CardWidget> createState() => _CardWidgetState();
-}
-
-class _CardWidgetState extends State<CardWidget> {
-  @override
   Widget build(BuildContext context) {
-    final amountParse = (widget.tmp.regularFee) * 100;
+    void _addFavorites() {
+      MotionToast(
+        displaySideBar: false,
+        displayBorder: true,
+        backgroundType: BackgroundType.solid,
+        primaryColor: AppColor.textButtonColor,
+        width: 230,
+        height: 50,
+        toastDuration: const Duration(seconds: 2),
+        description: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(
+              CupertinoIcons.heart_fill,
+              color: Colors.white,
+            ),
+            SizedBox(
+              width: 14,
+            ),
+            Text(
+              'Added to favorites',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ).show(context);
+    }
+
+    final amountParse = (tmp.regularFee) * 100;
     final percent = amountParse.toInt();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -47,7 +67,7 @@ class _CardWidgetState extends State<CardWidget> {
                     create: (context) =>
                         DetailsBloc(detailsRepo: DetailRepository()),
                     child: DetailsScreen(
-                      productId: widget.tmp.id,
+                      productId: tmp.id,
                       productType: 'recommended',
                     ),
                   ),
@@ -62,14 +82,21 @@ class _CardWidgetState extends State<CardWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Image.network(
-                      widget.tmp.image,
+                      tmp.image,
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 PercentWidget(
                   percent: percent.toString(),
-                  fontSize: widget.fontSize,
+                  fontSize: fontSize,
+                ),
+                Positioned(
+                  left: 0,
+                  bottom: 0,
+                  child: CategorieTag(
+                    tag: tmp.category.toList(),
+                  ),
                 ),
                 Positioned(
                   right: 0,
@@ -93,13 +120,6 @@ class _CardWidgetState extends State<CardWidget> {
                     ),
                   ),
                 ),
-                Positioned(
-                  left: 0,
-                  bottom: 0,
-                  child: CategorieTag(
-                    tag: widget.tmp.category.toList(),
-                  ),
-                )
               ],
             ),
           ),
@@ -108,7 +128,7 @@ class _CardWidgetState extends State<CardWidget> {
             child: Padding(
               padding: const EdgeInsets.only(top: 10),
               child: Text(
-                widget.tmp.name,
+                tmp.name,
                 maxLines: 1,
                 style: const TextStyle(
                   overflow: TextOverflow.clip,
@@ -122,7 +142,7 @@ class _CardWidgetState extends State<CardWidget> {
           SizedBox(
             width: 250,
             child: Text(
-              widget.tmp.description,
+              tmp.description,
               maxLines: 1,
               style: TextStyle(
                 fontSize: 12,
@@ -135,35 +155,5 @@ class _CardWidgetState extends State<CardWidget> {
         ],
       ),
     );
-  }
-
-  void _addFavorites() {
-    MotionToast(
-      displaySideBar: false,
-      displayBorder: true,
-      backgroundType: BackgroundType.solid,
-      primaryColor: AppColor.textButtonColor,
-      width: 230,
-      height: 50,
-      toastDuration: const Duration(seconds: 2),
-      description: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Icon(
-            CupertinoIcons.heart_fill,
-            color: Colors.white,
-          ),
-          SizedBox(
-            width: 14,
-          ),
-          Text(
-            'Added to favorites',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
-    ).show(context);
   }
 }
