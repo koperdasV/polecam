@@ -65,6 +65,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                           style: TextStyle(
                             color: AppColor.subTitleColor,
                             fontSize: 12,
+                            fontWeight: FontWeight.normal,
                           ),
                         ),
                       ],

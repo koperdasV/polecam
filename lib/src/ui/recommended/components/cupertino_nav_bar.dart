@@ -23,7 +23,7 @@ class CupertinoNavBar extends StatelessWidget
         style: const TextStyle(
           color: Colors.black,
           fontSize: 24,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w900,
         ),
       ),
     );

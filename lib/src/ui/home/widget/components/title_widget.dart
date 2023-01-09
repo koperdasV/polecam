@@ -8,7 +8,7 @@ class TitleWidget extends StatelessWidget {
     this.subTitle = '',
     this.onPressed,
     this.fontSizeTitle = 24,
-    this.fontWeigthTitle = FontWeight.bold,
+    this.fontWeigthTitle = FontWeight.w900,
   }) : super(key: key);
 
   final String title;
@@ -29,6 +29,8 @@ class TitleWidget extends StatelessWidget {
             style: TextStyle(
               fontSize: fontSizeTitle,
               fontWeight: fontWeigthTitle,
+              fontStyle: FontStyle.normal,
+              letterSpacing: 1,
             ),
           ),
         ),
@@ -39,7 +41,7 @@ class TitleWidget extends StatelessWidget {
             child: Text(
               subTitle.toString(),
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 16,
                 color: AppColor.textButtonColor,
                 fontWeight: FontWeight.normal,
               ),

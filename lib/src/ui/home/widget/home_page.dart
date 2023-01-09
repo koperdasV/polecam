@@ -107,9 +107,10 @@ class _HomePageState extends State<HomePage> {
               child: InActiveButton(
                 text: 'Inactive Account',
                 onPressed: () {
-                  Provider.of<BottomNavigationBarProvider>(context,
-                          listen: false)
-                      .updatePageSelection(3);
+                  Provider.of<BottomNavigationBarProvider>(
+                    context,
+                    listen: false,
+                  ).updatePageSelection(3);
                   Provider.of<SlidingBarProvider>(context, listen: false)
                       .updateSegment(Account.account);
                   Provider.of<SlidingBarProvider>(context, listen: false)

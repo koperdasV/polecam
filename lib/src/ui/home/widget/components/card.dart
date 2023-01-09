@@ -113,7 +113,8 @@ class _CardWidgetState extends State<CardWidget> {
                 style: const TextStyle(
                   overflow: TextOverflow.clip,
                   fontSize: 18,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 0.7,
                 ),
               ),
             ),

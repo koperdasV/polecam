@@ -19,7 +19,7 @@ class StatisticsWidget extends StatelessWidget {
           TitleWidget(
             title: r'To payout: x.xx$',
             subTitle: 'More',
-            fontWeigthTitle: FontWeight.w900,
+            //fontWeigthTitle: FontWeight.w900,
             onPressed: () {
               Navigator.push(
                 context,
@@ -109,7 +109,7 @@ class StatisticsWidget extends StatelessWidget {
           ),
           const TitleWidget(
             title: 'Your recommendation',
-            fontSizeTitle: 16,
+            fontSizeTitle: 18,
           ),
           const CustomProgressIndicator(),
           const TitleWidget(

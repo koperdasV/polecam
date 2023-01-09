@@ -19,13 +19,15 @@ class PercentWidget extends StatelessWidget {
         style: TextStyle(
           fontSize: fontSize,
           color: Colors.white,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w900,
           shadows: const [
             Shadow(
               offset: Offset(2, 2),
               blurRadius: 10,
             ),
           ],
+          letterSpacing: 1,
+          fontFamily: 'SFProDisplay',
         ),
       ),
     );

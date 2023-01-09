@@ -132,6 +132,8 @@ class CardWidget extends StatelessWidget {
               tmp.name,
               style: const TextStyle(
                 fontSize: 18,
+                fontWeight: FontWeight.w900,
+                letterSpacing: 0.6,
               ),
             ),
           ),

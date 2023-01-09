@@ -9,21 +9,13 @@ import 'package:polec/src/ui/details/components/show_dialog.dart';
 import 'package:polec/src/ui/details/models/detail_model.dart';
 import 'package:polec/theme/app_colors.dart';
 
-class DetailsWidget extends StatefulWidget {
-  const DetailsWidget({
-    super.key,
-    required this.detailModel,
-  });
+class DetailsWidget extends StatelessWidget {
+  const DetailsWidget({super.key, required this.detailModel});
   final DetailModel detailModel;
 
   @override
-  State<DetailsWidget> createState() => _DetailsWidgetState();
-}
-
-class _DetailsWidgetState extends State<DetailsWidget> {
-  @override
   Widget build(BuildContext context) {
-    final amountParse = (widget.detailModel.regularFee) * 100;
+    final amountParse = (detailModel.regularFee) * 100;
     final percent = amountParse.toInt();
     final getRegularFee = percent + 1;
 
@@ -38,24 +30,25 @@ class _DetailsWidgetState extends State<DetailsWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ImageWidget(
-                image: widget.detailModel.image,
+                image: detailModel.image,
                 regularFee: percent,
-                detailModel: widget.detailModel,
+                detailModel: detailModel,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(
-                  widget.detailModel.name,
+                  detailModel.name,
                   style: const TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w900,
+                    letterSpacing: 0.7,
                   ),
                 ),
               ),
               Text(
                 'Recommend by: Paweł Woźniak',
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 14,
                   color: AppColor.subTitleColor,
                   fontWeight: FontWeight.normal,
                 ),
@@ -75,7 +68,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                   Text(
                     'Your discount:',
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 15,
                       color: AppColor.subTitleColor,
                       fontWeight: FontWeight.normal,
                     ),
@@ -86,7 +79,8 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                     style: const TextStyle(
                       fontSize: 20,
                       color: AppColors.pecent,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 0.7,
                     ),
                   ),
                 ],
@@ -95,7 +89,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                 onTap: () => showDialog(
                   context: context,
                   builder: (context) => ShowDialog(
-                    height: 250,
+                    height: 270,
                     child: Column(
                       children: const [
                         Text(
@@ -103,7 +97,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w900,
                           ),
                         ),
                         SizedBox(height: 10),
@@ -113,7 +107,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.normal,
-                            fontSize: 12,
+                            fontSize: 14,
                           ),
                         ),
                         SizedBox(height: 20),
@@ -146,15 +140,17 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                       vertical: 4,
                     ),
                     child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.baseline,
                       textBaseline: TextBaseline.ideographic,
                       children: [
-                        const Text(
-                          'Get ',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
-                            fontWeight: FontWeight.normal,
+                        const Padding(
+                          padding: EdgeInsets.only(right: 4),
+                          child: Text(
+                            'Get ',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                              fontWeight: FontWeight.normal,
+                            ),
                           ),
                         ),
                         Text(
@@ -162,7 +158,8 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                           style: const TextStyle(
                             fontSize: 20,
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 0.5,
                           ),
                         ),
                       ],
@@ -200,14 +197,14 @@ class _DetailsWidgetState extends State<DetailsWidget> {
           child: Text(
             'Recommendations',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 17,
               color: AppColor.titleColor,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
         RecomendationsWidget(
-          detailModel: widget.detailModel,
+          detailModel: detailModel,
         ),
       ],
     );
