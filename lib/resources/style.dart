@@ -4,6 +4,7 @@ import 'package:polec/resources/colors.dart';
 
 CupertinoThemeData buildThemeData() {
   return CupertinoThemeData(
+    brightness: Brightness.light,
     barBackgroundColor: Colors.white,
     scaffoldBackgroundColor: Colors.white,
     textTheme: CupertinoTextThemeData(
