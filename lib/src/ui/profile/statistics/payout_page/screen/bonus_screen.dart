@@ -66,7 +66,7 @@ class _BonusScreenState extends State<BonusScreen> {
             colorMarker: AppColor.bonusDiagramColor,
           ),
           const TitleWidget(
-            title: 'Recommendations',
+            title: 'Bonus',
             fontSizeTitle: 16,
             subTitle: r'248.88$',
           ),

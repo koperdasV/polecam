@@ -23,7 +23,7 @@ class RecommendedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 50,
+      height: 57,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: color,
@@ -31,20 +31,14 @@ class RecommendedButton extends StatelessWidget {
       ),
       child: CupertinoButton(
         onPressed: onPressed,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(child: image),
-            const SizedBox(width: 5),
-            Text(
-              textButton,
-              style: TextStyle(
-                color: textColor,
-                fontSize: 17,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ],
+        child: Text(
+          textButton,
+          style: TextStyle(
+            color: textColor,
+            fontSize: 20,
+            fontWeight: FontWeight.w900,
+            letterSpacing: 0.7,
+          ),
         ),
       ),
     );

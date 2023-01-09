@@ -32,8 +32,10 @@ class CategorieTag extends StatelessWidget {
                 child: Text(
                   tag[index],
                   style: const TextStyle(
-                    fontSize: 12,
+                    fontSize: 13,
                     color: Colors.white,
+                    fontWeight: FontWeight.normal,
+                    fontFamily: 'SFProDisplay',
                   ),
                 ),
               ),

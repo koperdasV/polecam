@@ -81,9 +81,12 @@ class _SummaryPageState extends State<SummaryPage> {
                 ),
               ],
             ),
-            const TitleWidget(
-              title: 'Your recommendation',
-              fontSizeTitle: 16,
+            const Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: TitleWidget(
+                title: 'Your recommendation',
+                fontSizeTitle: 18,
+              ),
             ),
             const CustomProgressIndicator(),
             Padding(
@@ -107,7 +110,7 @@ class _SummaryPageState extends State<SummaryPage> {
             ),
             const TitleWidget(
               title: 'Moneyback',
-              fontSizeTitle: 16,
+              fontSizeTitle: 18,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),

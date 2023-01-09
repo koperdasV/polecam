@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:polec/resources/colors.dart';
 
 class TitleWidget extends StatelessWidget {
   const TitleWidget({
@@ -28,7 +27,7 @@ class TitleWidget extends StatelessWidget {
               title,
               style: TextStyle(
                 fontSize: fontSizeTitle,
-                fontWeight: FontWeight.bold
+                fontStyle: FontStyle.normal,
               ),
             ),
           ),

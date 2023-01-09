@@ -51,7 +51,7 @@ class CardWidget extends StatelessWidget {
       ).show(context);
     }
 
-    final amountParse = (tmp.regularFee)* 100;
+    final amountParse = (tmp.regularFee) * 100;
     final percent = amountParse.toInt();
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -132,6 +132,8 @@ class CardWidget extends StatelessWidget {
               tmp.name,
               style: const TextStyle(
                 fontSize: 18,
+                fontWeight: FontWeight.w900,
+                letterSpacing: 0.6,
               ),
             ),
           ),
