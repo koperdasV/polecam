@@ -84,7 +84,7 @@ class _SummaryPageState extends State<SummaryPage> {
             const Padding(
               padding: EdgeInsets.only(bottom: 10),
               child: TitleWidget(
-                title: 'Your recommendation',
+                title: 'Your recommendations',
                 fontSizeTitle: 16,
               ),
             ),
@@ -122,7 +122,7 @@ class _SummaryPageState extends State<SummaryPage> {
               ),
             ),
             const TitleWidget(
-              title: 'Recommendation',
+              title: 'Recommendations',
               fontSizeTitle: 16,
             ),
             Padding(

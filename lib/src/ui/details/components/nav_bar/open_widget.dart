@@ -13,7 +13,7 @@ class OpenWidget extends StatelessWidget {
 
     const titleStyle = TextStyle(
       fontSize: 16,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w900,
       color: Colors.black,
     );
     final subtitleStyle = TextStyle(

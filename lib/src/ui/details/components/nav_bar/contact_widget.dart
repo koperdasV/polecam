@@ -11,7 +11,7 @@ class ContactWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const titleStyle = TextStyle(
       fontSize: 16,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w900,
       color: Colors.black,
     );
     final subtitleStyle = TextStyle(
