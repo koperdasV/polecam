@@ -19,7 +19,7 @@ class LevelWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 color: AppColor.titleColor,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w900,
               ),
             ),
             const SizedBox(height: 10),
@@ -52,7 +52,7 @@ class LevelWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 color: AppColor.titleColor,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w900,
               ),
             ),
             MediaQuery.removePadding(
@@ -74,7 +74,7 @@ class LevelWidget extends StatelessWidget {
                             TextSpan(
                               text: '21/52',
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w900,
                                 fontSize: 12,
                                 color: AppColor.titleColor,
                               ),
@@ -124,7 +124,7 @@ class LevelWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 color: AppColor.titleColor,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w900,
               ),
             ),
             const SizedBox(height: 20),

@@ -13,22 +13,53 @@ import 'package:polec/src/ui/favorites/model/favorite_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
-class CardFavorites extends StatefulWidget {
-  const CardFavorites({
-    Key? key,
-    required this.tmp,
-  }) : super(key: key);
+// class CardFavorites extends StatefulWidget {
+//   const CardFavorites({
+//     Key? key,
+//     required this.tmp,
+//   }) : super(key: key);
 
+//   final FavoritesModel tmp;
+
+//   @override
+//   State<CardFavorites> createState() => _CardFavoritesState();
+// }
+
+class CardFavorites extends StatelessWidget {
+  const CardFavorites({super.key, required this.tmp});
   final FavoritesModel tmp;
 
   @override
-  State<CardFavorites> createState() => _CardFavoritesState();
-}
-
-class _CardFavoritesState extends State<CardFavorites> {
-  @override
   Widget build(BuildContext context) {
-    final amountParse = (widget.tmp.regularFee) * 100;
+    void _removedFavorites() {
+      MotionToast(
+        displaySideBar: false,
+        primaryColor: AppColor.textButtonColor,
+        backgroundType: BackgroundType.solid,
+        width: 250,
+        height: 50,
+        description: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(
+              CupertinoIcons.heart,
+              color: Colors.white,
+            ),
+            SizedBox(
+              width: 14,
+            ),
+            Text(
+              'Removed from favorites',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ).show(context);
+    }
+
+    final amountParse = (tmp.regularFee) * 100;
     final percent = amountParse.toInt();
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -47,7 +78,7 @@ class _CardFavoritesState extends State<CardFavorites> {
                     create: (context) =>
                         DetailsBloc(detailsRepo: DetailRepository()),
                     child: DetailsScreen(
-                      productId: widget.tmp.id,
+                      productId: tmp.id,
                       productType: 'favourites',
                     ),
                   ),
@@ -62,7 +93,7 @@ class _CardFavoritesState extends State<CardFavorites> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Image.network(
-                      widget.tmp.image,
+                      tmp.image,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -74,7 +105,7 @@ class _CardFavoritesState extends State<CardFavorites> {
                 Positioned(
                   bottom: 0,
                   child: CategorieTag(
-                    tag: widget.tmp.category,
+                    tag: tmp.category,
                   ),
                 ),
                 Positioned(
@@ -105,56 +136,31 @@ class _CardFavoritesState extends State<CardFavorites> {
           Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
-              widget.tmp.name,
+              tmp.name,
               maxLines: 1,
               style: TextStyle(
                 overflow: TextOverflow.clip,
                 fontSize: 18,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w900,
                 color: AppColor.titleColor,
+                letterSpacing: 0.6,
+                fontFamily: 'SFProDisplay',
               ),
             ),
           ),
           Text(
             maxLines: 1,
-            widget.tmp.description,
+            tmp.description,
             style: TextStyle(
               fontSize: 12,
               color: AppColor.subTitleColor,
               fontWeight: FontWeight.normal,
               overflow: TextOverflow.ellipsis,
+              fontFamily: 'SFProDisplay',
             ),
           ),
         ],
       ),
     );
-  }
-
-  void _removedFavorites() {
-    MotionToast(
-      displaySideBar: false,
-      primaryColor: AppColor.textButtonColor,
-      backgroundType: BackgroundType.solid,
-      width: 250,
-      height: 50,
-      description: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Icon(
-            CupertinoIcons.heart,
-            color: Colors.white,
-          ),
-          SizedBox(
-            width: 14,
-          ),
-          Text(
-            'Removed from favorites',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
-    ).show(context);
   }
 }

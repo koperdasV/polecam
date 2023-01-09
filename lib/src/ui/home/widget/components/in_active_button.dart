@@ -5,7 +5,7 @@ class InActiveButton extends StatelessWidget {
   const InActiveButton({
     Key? key,
     required this.text,
-    this.fontSize = 17,
+    this.fontSize = 19,
     this.gradient = const LinearGradient(
       colors: [
         Color(0xFFd93150),
@@ -41,7 +41,8 @@ class InActiveButton extends StatelessWidget {
           style: TextStyle(
             color: Colors.white,
             fontSize: fontSize,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w900,
+            letterSpacing: 1,
           ),
         ),
       ),

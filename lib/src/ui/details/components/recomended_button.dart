@@ -23,7 +23,7 @@ class RecommendedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 50,
+      height: 57,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: color,
@@ -40,8 +40,9 @@ class RecommendedButton extends StatelessWidget {
               textButton,
               style: TextStyle(
                 color: textColor,
-                fontSize: 17,
-                fontWeight: FontWeight.w700,
+                fontSize: 20,
+                fontWeight: FontWeight.w900,
+               letterSpacing: 0.7,
               ),
             ),
           ],
@@ -50,3 +51,51 @@ class RecommendedButton extends StatelessWidget {
     );
   }
 }
+
+
+// import 'package:flutter/cupertino.dart';
+
+// class RecommendedButton extends StatelessWidget {
+//   const RecommendedButton({
+//     Key? key,
+//     required this.onPressed,
+//     this.color,
+//     this.gradient,
+//     this.imageColor,
+//     this.textColor,
+//     required this.textButton,
+//     this.image,
+//   }) : super(key: key);
+//   final VoidCallback onPressed;
+//   final Color? color;
+//   final Color? imageColor;
+//   final Color? textColor;
+//   final Gradient? gradient;
+//   final String textButton;
+//   final Widget? image;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       width: double.infinity,
+//       height: 57,
+//       decoration: BoxDecoration(
+//         borderRadius: BorderRadius.circular(10),
+//         color: color,
+//         gradient: gradient,
+//       ),
+//       child: CupertinoButton(
+//         onPressed: onPressed,
+//         child: Text(
+//           textButton,
+//           style: TextStyle(
+//             color: textColor,
+//             fontSize: 20,
+//             fontWeight: FontWeight.w900,
+//             letterSpacing: 0.7,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

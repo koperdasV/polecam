@@ -65,7 +65,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
   Text appBarText() {
     const textStyle = TextStyle(
       fontSize: 24,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w900,
       color: Colors.black,
     );
     if (widget.productType == 'recommended') {

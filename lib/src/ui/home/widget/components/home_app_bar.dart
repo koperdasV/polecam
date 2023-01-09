@@ -20,10 +20,12 @@ class HomeAppBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hello Adam',
+              'Hello Adam!',
               style: TextStyle(
                 color: AppColor.titleColor,
-                fontSize: 24,fontWeight: FontWeight.bold,
+                fontSize: 24,
+                fontWeight: FontWeight.w900,
+                letterSpacing: 1.2,
               ),
             ),
             RichText(
@@ -31,7 +33,7 @@ class HomeAppBar extends StatelessWidget {
                 text: 'You have ',
                 style: TextStyle(
                   color: AppColor.titleColor,
-                  fontSize: 16,
+                  fontSize: 18,
                 ),
                 children: [
                   TextSpan(

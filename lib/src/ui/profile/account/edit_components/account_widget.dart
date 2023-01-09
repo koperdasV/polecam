@@ -16,7 +16,7 @@ class AccountWidget extends StatelessWidget {
     final textStyle = TextStyle(
       fontSize: 18,
       color: AppColor.titleColor,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w900,
     );
     final titleTextStyle = TextStyle(
       fontSize: 14,
