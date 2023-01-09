@@ -108,7 +108,7 @@ class StatisticsWidget extends StatelessWidget {
             ),
           ),
           const TitleWidget(
-            title: 'Your recommendation',
+            title: 'Your recommendations',
             fontSizeTitle: 18,
           ),
           const CustomProgressIndicator(),

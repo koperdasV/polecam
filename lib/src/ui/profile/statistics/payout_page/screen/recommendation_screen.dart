@@ -63,8 +63,8 @@ class _RecommendationScreenState extends State<RecommendationScreen> {
             zoomPanBehavior: _zoomPanBehavior,
             tooltipBehavior: _tooltipBehavior,
             chartData: chartData,
-            colorDiagram: AppColor.categorieTextColor,
-            colorMarker: AppColor.categorieTextColor,
+            colorDiagram: AppColor.recommendLineColor,
+            colorMarker: AppColor.recommendLineColor,
           ),
           const TitleWidget(
             title: 'Recommendations',

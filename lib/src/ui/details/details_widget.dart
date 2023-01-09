@@ -199,7 +199,7 @@ class DetailsWidget extends StatelessWidget {
             style: TextStyle(
               fontSize: 17,
               color: AppColor.titleColor,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w900,
             ),
           ),
         ),

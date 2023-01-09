@@ -20,6 +20,7 @@ class PaymentWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final amountParse = (detailModel.regularFee) * 100;
     final regularFeePer = amountParse.toInt();
+    final getRegularFee = regularFeePer + 1;
     return ListView(
       children: [
         Padding(
@@ -41,7 +42,7 @@ class PaymentWidget extends StatelessWidget {
                   'Thai beef fried rice',
                   style: TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w900,
                   ),
                 ),
               ),
@@ -79,75 +80,13 @@ class PaymentWidget extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 20,
                       color: AppColors.pecent,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
                 ],
               ),
-              // ignore: use_decorated_box
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  gradient: const LinearGradient(
-                    colors: [
-                      AppColors.gradientStart,
-                      AppColors.gradientEnd,
-                    ],
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 4,
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.ideographic,
-                    children: const [
-                      Text(
-                        'Get ',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.white,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
-                      Text(
-                        '%',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 10),
-        const CustomNavigationBar(),
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            children: [
-              RecommendedButton(
-                image: Image.asset(
-                  AppImages.logo,
-                  color: Colors.white,
-                ),
-                textButton: 'Recommend to friend',
-                gradient: const LinearGradient(
-                  colors: [
-                    AppColors.gradientStart,
-                    AppColors.gradientEnd,
-                  ],
-                ),
-                textColor: Colors.white,
-                onPressed: () {
+              GestureDetector(
+                onTap: () {
                   showDialog(
                     context: context,
                     builder: (context) => ShowDialog(
@@ -159,7 +98,7 @@ class PaymentWidget extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 24,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w900,
                             ),
                           ),
                           SizedBox(height: 10),
@@ -187,6 +126,70 @@ class PaymentWidget extends StatelessWidget {
                     ),
                   );
                 },
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    gradient: const LinearGradient(
+                      colors: [
+                        AppColors.gradientStart,
+                        AppColors.gradientEnd,
+                      ],
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 4,
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.ideographic,
+                      children: [
+                        const Text(
+                          'Get ',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        Text(
+                          '$getRegularFee%',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 10),
+        const CustomNavigationBar(),
+        const SizedBox(height: 10),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              RecommendedButton(
+                image: Image.asset(
+                  AppImages.logo,
+                  color: Colors.white,
+                ),
+                textButton: 'Recommend to friend',
+                gradient: const LinearGradient(
+                  colors: [
+                    AppColors.gradientStart,
+                    AppColors.gradientEnd,
+                  ],
+                ),
+                textColor: Colors.white,
+                onPressed: () {},
               ),
               const SizedBox(height: 10),
               ////////////////////////////////////
@@ -211,7 +214,7 @@ class PaymentWidget extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 30,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w900,
                             ),
                           ),
                           const SizedBox(height: 30),
@@ -241,9 +244,9 @@ class PaymentWidget extends StatelessWidget {
           child: Text(
             'Recommendations',
             style: TextStyle(
-              fontSize: 16,
-              color: AppColor.titleColor,
-            ),
+                fontSize: 17,
+                color: AppColor.titleColor,
+                fontWeight: FontWeight.w900),
           ),
         ),
         RecomendationsWidget(

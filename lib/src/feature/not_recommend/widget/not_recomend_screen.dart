@@ -21,6 +21,7 @@ class NotRecommendScreen extends StatefulWidget {
 
   final String productId;
   final String productType;
+  
   @override
   State<NotRecommendScreen> createState() => _NotRecommendScreenState();
 }
@@ -65,7 +66,7 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                   'In your area',
                   style: TextStyle(
                     fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w900,
                   ),
                 ),
               ),
@@ -90,7 +91,7 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                             'Thai beef fried rice',
                             style: TextStyle(
                               fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w900,
                             ),
                           ),
                         ),
@@ -120,7 +121,7 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                               style: const TextStyle(
                                 fontSize: 20,
                                 color: AppColors.pecent,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w900,
                               ),
                             ),
                           ],
@@ -153,7 +154,7 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontSize: 24,
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w900,
                                   ),
                                 ),
                                 const SizedBox(height: 20),
@@ -174,7 +175,7 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                                         TextSpan(
                                           text: 'polec.am',
                                           style: TextStyle(
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.w900,
                                           ),
                                         ),
                                         TextSpan(
