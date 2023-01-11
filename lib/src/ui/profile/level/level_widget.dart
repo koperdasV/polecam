@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
+import 'package:polec/src/ui/profile/level/components/footer_text.dart';
 import 'package:polec/src/ui/profile/level/components/lvl_box.dart';
+import 'package:polec/src/ui/profile/level/components/title_level.dart';
 import 'package:polec/theme/app_colors.dart';
 
 class LevelWidget extends StatelessWidget {
@@ -14,13 +16,8 @@ class LevelWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Actual level',
-              style: TextStyle(
-                fontSize: 16,
-                color: AppColor.titleColor,
-                fontWeight: FontWeight.w900,
-              ),
+            const TitleLevelWidget(
+              title: 'Actual level',
             ),
             const SizedBox(height: 10),
             Row(
@@ -47,13 +44,8 @@ class LevelWidget extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            Text(
-              'Get the next level',
-              style: TextStyle(
-                fontSize: 16,
-                color: AppColor.titleColor,
-                fontWeight: FontWeight.w900,
-              ),
+            const TitleLevelWidget(
+              title: 'Get the next level',
             ),
             MediaQuery.removePadding(
               removeTop: true,
@@ -98,55 +90,23 @@ class LevelWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            Text(
-              'By unlocking levels, you get bigger discounts, you can',
-              style: TextStyle(
-                fontSize: 12,
-                color: AppColor.titleColor,
-                fontWeight: FontWeight.normal,
-                height: 1.5,
-              ),
-              textAlign: TextAlign.left,
+            const FooterText(
+              title: 'By unlocking levels, you get bigger discounts, you can',
             ),
-            Text(
-              'Recommend more and you get more return cash to your account!',
-              style: TextStyle(
-                fontSize: 12,
-                color: AppColor.titleColor,
-                fontWeight: FontWeight.normal,
-                height: 1.5,
-              ),
-              textAlign: TextAlign.left,
+            const FooterText(
+              title:
+                  'Recommend more and you get more return cash to your account!',
             ),
             const SizedBox(height: 20),
-            Text(
-              'Level 4:',
-              style: TextStyle(
-                fontSize: 16,
-                color: AppColor.titleColor,
-                fontWeight: FontWeight.w900,
-              ),
+            const TitleLevelWidget(
+              title: 'Level 4:',
             ),
             const SizedBox(height: 20),
-            Text(
-              '*additional 0.5% discount for all Merchants',
-              style: TextStyle(
-                fontSize: 12,
-                color: AppColor.titleColor,
-                fontWeight: FontWeight.normal,
-                height: 1.5,
-              ),
-              textAlign: TextAlign.left,
+            const FooterText(
+              title: '*additional 0.5% discount for all Merchants',
             ),
-            Text(
-              '*possibility of recommending 5 friends a day',
-              style: TextStyle(
-                fontSize: 12,
-                color: AppColor.titleColor,
-                fontWeight: FontWeight.normal,
-                height: 1.5,
-              ),
-              textAlign: TextAlign.left,
+            const FooterText(
+              title: '*possibility of recommending 5 friends a day',
             ),
           ],
         ),

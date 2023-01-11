@@ -15,7 +15,7 @@ class CustomProgressIndicator extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 13),
       child: Container(
         width: double.infinity,
-        height: 60,
+        height: 47,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           boxShadow: const [
@@ -39,7 +39,7 @@ class CustomProgressIndicator extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
-                  fontWeight: FontWeight.w900,
+                  fontWeight: FontWeight.bold,
                   letterSpacing: 0.5,
                 ),
               ),

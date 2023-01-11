@@ -19,6 +19,7 @@ class StatisticsWidget extends StatelessWidget {
           TitleWidget(
             title: r'To payout: x.xx$',
             subTitle: 'More',
+            fontSizeTitle: 20,
             //fontWeigthTitle: FontWeight.w900,
             onPressed: () {
               Navigator.push(
@@ -60,6 +61,8 @@ class StatisticsWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 8),
             child: InActiveButton(
+              height: 55,
+              fontSize: 24,
               text: 'Payout funds',
               onPressed: () {},
               gradient: AppColor.payoutButton,
@@ -69,7 +72,7 @@ class StatisticsWidget extends StatelessWidget {
           TitleWidget(
             title: r'Summary: x.xx$',
             subTitle: 'More',
-            fontWeigthTitle: FontWeight.w900,
+            fontSizeTitle: 20,
             onPressed: () {
               Navigator.push(
                 context,
@@ -112,9 +115,11 @@ class StatisticsWidget extends StatelessWidget {
             fontSizeTitle: 18,
           ),
           const CustomProgressIndicator(),
-          const TitleWidget(
-            title: 'Payout history',
-            fontWeigthTitle: FontWeight.w900,
+          const Padding(
+            padding: EdgeInsets.only(top: 15),
+            child: TitleWidget(
+              title: 'Payout history',
+            ),
           ),
           const PayoutHistory(),
         ],

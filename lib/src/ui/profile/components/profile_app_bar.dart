@@ -33,70 +33,89 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
           );
         }
         if (state.status == AccountStateStatus.success) {
-          return Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16, top: 50),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          return ColoredBox(
+            color: AppColor.navBarColor,
+            child: Column(
               children: [
-                Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 25,
-                      backgroundImage: AssetImage(
-                        state.accountModel.avatar.toString(),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                    top: 50,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 25,
+                            backgroundImage: AssetImage(
+                              state.accountModel.avatar.toString(),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '${state.accountModel.firstName} ${state.accountModel.lastName}',
+                                style: TextStyle(
+                                  color: AppColor.titleColor,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                state.accountModel.email.toString(),
+                                style: TextStyle(
+                                  color: AppColor.subTitleColor,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                    ),
-                    const SizedBox(width: 10),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${state.accountModel.firstName} ${state.accountModel.lastName}',
-                          style: TextStyle(
-                            color: AppColor.titleColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                        const SizedBox(height: 5),
-                        Text(
-                          state.accountModel.email.toString(),
-                          style: TextStyle(
-                            color: AppColor.subTitleColor,
-                            fontSize: 12,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                BlocBuilder<AccountCubit, AccountEditState>(
-                  builder: (context, state) {
-                    return Visibility(
-                      visible: provider,
-                      child: CupertinoButton(
-                        padding: const EdgeInsets.all(5),
-                        onPressed: () {
-                          setState(() {
-                            click = !click;
-                          });
-                          (click == false)
-                              ? context
-                                  .read<AccountCubit>()
-                                  .editingAcc(editingAccount: false)
-                              : context
-                                  .read<AccountCubit>()
-                                  .editingAcc(editingAccount: true);
+                      BlocBuilder<AccountCubit, AccountEditState>(
+                        builder: (context, state) {
+                          return Visibility(
+                            visible: provider,
+                            child: CupertinoButton(
+                              padding: const EdgeInsets.all(5),
+                              onPressed: () {
+                                setState(() {
+                                  click = !click;
+                                });
+                                (click == false)
+                                    ? context
+                                        .read<AccountCubit>()
+                                        .editingAcc(editingAccount: false)
+                                    : context
+                                        .read<AccountCubit>()
+                                        .editingAcc(editingAccount: true);
+                              },
+                              child: Icon(
+                                (click == false) ? Icons.mode : Icons.close,
+                                color: AppColor.subTitleColor,
+                              ),
+                            ),
+                          );
                         },
-                        child: Icon(
-                          (click == false) ? Icons.mode : Icons.close,
-                          color: AppColor.subTitleColor,
-                        ),
                       ),
-                    );
-                  },
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Container(
+                    width: double.infinity,
+                    height: 1.5,
+                    color: Colors.grey.shade300,
+                  ),
                 ),
               ],
             ),

@@ -44,7 +44,8 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
+            padding:
+                const EdgeInsets.only(left: 8, right: 9, top: 20, bottom: 15),
             child: SizedBox(
               width: double.infinity,
               child: CupertinoSlidingSegmentedControl<Account>(
@@ -94,7 +95,10 @@ class _ProfileNavigationBarState extends State<ProfileNavigationBar> {
   Text buildSegment(String title) {
     return Text(
       title,
-      style: const TextStyle(color: CupertinoColors.black),
+      style: const TextStyle(
+        color: CupertinoColors.black,
+        fontWeight: FontWeight.bold,
+      ),
     );
   }
 }

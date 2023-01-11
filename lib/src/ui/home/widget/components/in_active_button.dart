@@ -16,11 +16,13 @@ class InActiveButton extends StatelessWidget {
     required this.onPressed,
     this.borderRadius = 10,
     this.width = double.infinity,
+    this.height = 44,
   }) : super(key: key);
 
   final String text;
   final double? fontSize;
   final double? width;
+  final double? height;
   final double? borderRadius;
   final Gradient? gradient;
   final Function() onPressed;
@@ -32,7 +34,7 @@ class InActiveButton extends StatelessWidget {
       padding: EdgeInsets.zero,
       child: Container(
         width: width,
-        height: 44,
+        height: height,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius!),
           gradient: gradient,
