@@ -25,7 +25,6 @@ class HomeAppBar extends StatelessWidget {
                 color: AppColor.titleColor,
                 fontSize: 24,
                 fontWeight: FontWeight.w900,
-                letterSpacing: 1.2,
               ),
             ),
             RichText(
@@ -33,7 +32,7 @@ class HomeAppBar extends StatelessWidget {
                 text: 'You have ',
                 style: TextStyle(
                   color: AppColor.titleColor,
-                  fontSize: 18,
+                  fontSize: 16,
                 ),
                 children: [
                   TextSpan(
@@ -41,7 +40,7 @@ class HomeAppBar extends StatelessWidget {
                     style: TextStyle(
                       color: AppColor.categorieTextColor,
                       fontWeight: FontWeight.w700,
-                      fontSize: 18,
+                      fontSize: 16,
                     ),
                     recognizer: TapGestureRecognizer()..onTap = () {},
                   ),

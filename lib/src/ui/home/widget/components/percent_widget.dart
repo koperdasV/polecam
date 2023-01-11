@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PercentWidget extends StatelessWidget {
@@ -22,7 +23,7 @@ class PercentWidget extends StatelessWidget {
           fontWeight: FontWeight.w900,
           shadows: const [
             Shadow(
-              offset: Offset(2, 2),
+              color: CupertinoColors.systemGrey,
               blurRadius: 10,
             ),
           ],

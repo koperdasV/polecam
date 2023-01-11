@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,12 +37,16 @@ class HorizontalListScroll extends StatelessWidget {
           );
         } else {
           return ListView.builder(
+            padding: const EdgeInsets.only(left: 16),
             scrollDirection: Axis.horizontal,
             itemCount: itemCount,
             itemBuilder: (context, index) {
-              return CardWidget(
-                tmp: tmp[index],
-                fontSize: fontSize,
+              return Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: CardWidget(
+                  tmp: tmp[index],
+                  fontSize: fontSize,
+                ),
               );
             },
           );

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/home/provider/navigation_bar_provider.dart';
 import 'package:polec/src/feature/profile/widget/profile_screen.dart';
 import 'package:polec/src/ui/favorites/favorites_page.dart';
@@ -71,6 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return CupertinoTabScaffold(
       controller: _tabController,
       tabBar: CupertinoTabBar(
+        backgroundColor: AppColor.navBarColor,
         currentIndex: _pageIndex,
         onTap: (index) {
           Provider.of<BottomNavigationBarProvider>(context, listen: false)
@@ -83,21 +85,30 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.heart_circle_fill, size: 20,),
+            icon: Icon(
+              CupertinoIcons.heart_circle_fill,
+              size: 20,
+            ),
             label: 'Favorite',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.bell_fill, size: 20,),
+            icon: Icon(
+              CupertinoIcons.bell_fill,
+              size: 20,
+            ),
             label: 'Journal',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person_fill, size: 20,),
+            icon: Icon(
+              CupertinoIcons.person_fill,
+              size: 20,
+            ),
             label: 'Profile',
           ),
         ],
       ),
       tabBuilder: (context, index) {
-return CupertinoTabView(
+        return CupertinoTabView(
           builder: (context) {
             switch (index) {
               case 0:
