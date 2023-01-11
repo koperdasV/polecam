@@ -3,25 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
+import 'package:polec/src/ui/details/components/day_widget.dart';
 
 class OpenWidget extends StatelessWidget {
   const OpenWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const mainAxis = MainAxisAlignment.center;
-
-    const titleStyle = TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w900,
-      color: Colors.black,
-    );
-    final subtitleStyle = TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.normal,
-      color: AppColor.subTitleColor,
-    );
-
     return BlocConsumer<DetailsBloc, DetailsState>(
       listener: (context, state) => state.whenOrNull(
         error: (errorMessage) async =>
@@ -34,112 +22,37 @@ class OpenWidget extends StatelessWidget {
         notFound: () => const Center(
           child: Text('not found product by id'),
         ),
-        loaded: (productDetails) => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: SizedBox(
-            width: double.infinity,
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: mainAxis,
-                  children: [
-                    const Text(
-                      'Monday: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      productDetails.address[0].open.monday,
-                      style: subtitleStyle,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: mainAxis,
-                  children: [
-                    const Text(
-                      'Tuesday: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      productDetails.address[0].open.tuesday,
-                      style: subtitleStyle,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: mainAxis,
-                  children: [
-                    const Text(
-                      'Wednesday: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      productDetails.address[0].open.wednesday,
-                      style: subtitleStyle,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: mainAxis,
-                  children: [
-                    const Text(
-                      'Thursday: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      productDetails.address[0].open.thursday,
-                      style: subtitleStyle,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: mainAxis,
-                  children: [
-                    const Text(
-                      'Friday: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      productDetails.address[0].open.friday,
-                      style: subtitleStyle,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: mainAxis,
-                  children: [
-                    const Text(
-                      'Saturday: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      productDetails.address[0].open.saturday,
-                      style: subtitleStyle,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: mainAxis,
-                  children: [
-                    const Text(
-                      'Sunday: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      productDetails.address[0].open.sunday,
-                      style: subtitleStyle,
-                    ),
-                  ],
-                ),
-              ],
+        loaded: (productDetails) => Column(
+          children: [
+            DayWidget(
+              day: 'Monday: ',
+              title: productDetails.address[0].open.monday,
             ),
-          ),
+            DayWidget(
+              day: 'Tuesday: ',
+              title: productDetails.address[0].open.tuesday,
+            ),
+            DayWidget(
+              day: 'Wednesday: ',
+              title: productDetails.address[0].open.wednesday,
+            ),
+            DayWidget(
+              day: 'Thursday: ',
+              title: productDetails.address[0].open.thursday,
+            ),
+            DayWidget(
+              day: 'Friday: ',
+              title: productDetails.address[0].open.friday,
+            ),
+            DayWidget(
+              day: 'Saturday: ',
+              title: productDetails.address[0].open.saturday,
+            ),
+            DayWidget(
+              day: 'Sunday: ',
+              title: productDetails.address[0].open.sunday,
+            ),
+          ],
         ),
         error: (errorMessage) => const Center(child: FlutterLogo()),
       ),
