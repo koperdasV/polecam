@@ -20,7 +20,6 @@ class StatisticsWidget extends StatelessWidget {
             title: r'To payout: x.xx$',
             subTitle: 'More',
             fontSizeTitle: 20,
-            //fontWeigthTitle: FontWeight.w900,
             onPressed: () {
               Navigator.push(
                 context,

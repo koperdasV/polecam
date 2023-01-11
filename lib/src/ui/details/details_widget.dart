@@ -48,7 +48,7 @@ class DetailsWidget extends StatelessWidget {
               Text(
                 'Recommend by: Paweł Woźniak',
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 12,
                   color: AppColor.subTitleColor,
                   fontWeight: FontWeight.normal,
                 ),
@@ -68,7 +68,7 @@ class DetailsWidget extends StatelessWidget {
                   Text(
                     'Your discount:',
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 14,
                       color: AppColor.subTitleColor,
                       fontWeight: FontWeight.normal,
                     ),
@@ -124,23 +124,12 @@ class DetailsWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    gradient: const LinearGradient(
-                      colors: [
-                        AppColors.gradientStart,
-                        AppColors.gradientEnd,
-                      ],
-                    ),
-                  ),
+                child: Container(
+                  height: 30,
+                  decoration: AppColor.getColorDetails,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 4,
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: Row(
-                      textBaseline: TextBaseline.ideographic,
                       children: [
                         const Padding(
                           padding: EdgeInsets.only(right: 4),
@@ -176,9 +165,13 @@ class DetailsWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: RecommendedButton(
-            image: Image.asset(
-              AppImages.logo,
-              color: Colors.white,
+            image: SizedBox(
+              width: 40,
+              height: 40,
+              child: Image.asset(
+                AppImages.logo,
+                color: Colors.white,
+              ),
             ),
             textButton: 'Recommend to friend',
             gradient: const LinearGradient(
@@ -200,6 +193,7 @@ class DetailsWidget extends StatelessWidget {
               fontSize: 17,
               color: AppColor.titleColor,
               fontWeight: FontWeight.w900,
+              letterSpacing: 0.9,
             ),
           ),
         ),

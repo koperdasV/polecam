@@ -16,7 +16,7 @@ class AccountWidget extends StatelessWidget {
     final textStyle = TextStyle(
       fontSize: 18,
       color: AppColor.titleColor,
-      fontWeight: FontWeight.w900,
+      fontWeight: FontWeight.bold,
     );
     final titleTextStyle = TextStyle(
       fontSize: 14,
@@ -76,20 +76,21 @@ class AccountWidget extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
-            RecommendedButton(
-              textButton: 'Reconnect now',
-              gradient: const LinearGradient(
-                colors: [
-                  AppColors.gradientStartActive,
-                  AppColors.gradientEndActive,
-                ],
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: RecommendedButton(
+                textButton: 'Reconnect now',
+                gradient: const LinearGradient(
+                  colors: [
+                    AppColors.gradientStartActive,
+                    AppColors.gradientEndActive,
+                  ],
+                ),
+                imageColor: Colors.white,
+                textColor: Colors.white,
+                onPressed: onPressed,
               ),
-              imageColor: Colors.white,
-              textColor: Colors.white,
-              onPressed: onPressed,
             ),
-            const SizedBox(height: 10),
           ],
         ),
       ),
