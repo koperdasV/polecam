@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:polec/resources/colors.dart';
 
 class CalendarWidget extends StatefulWidget {
   const CalendarWidget({super.key});
@@ -18,38 +19,31 @@ class _CalendarWidgetState extends State<CalendarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SizedBox(
-          height: 30,
-          width: 30,
-          child: CupertinoButton(
-            color: Colors.transparent,
-            padding: EdgeInsets.zero,
-            child: const Icon(
-              Icons.calendar_month_rounded,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              _showDialog(
-                CupertinoDatePicker(
-                  initialDateTime: DateTime.now(),
-                  mode: CupertinoDatePickerMode.date,
-                  use24hFormat: true,
-                  // This is called when the user changes the date.
-                  onDateTimeChanged: (DateTime newDate) {
-                    setState(() => lastDateTime = newDate);
-                  },
-                ),
-              );
+    return CupertinoButton(
+      color: Colors.transparent,
+      padding: const EdgeInsets.only(left: 5),
+      child: Text(
+        DateFormat('dd MMMM yyyy').format(
+          DateTime.parse(lastDateTime.toString()),
+        ),
+        style: TextStyle(
+          color: AppColor.subTitleColor,
+          fontSize: 14,
+          fontWeight: FontWeight.normal,
+        ),
+      ),
+      onPressed: () {
+        _showDialog(
+          CupertinoDatePicker(
+            initialDateTime: DateTime.now(),
+            mode: CupertinoDatePickerMode.date,
+            use24hFormat: true,
+            onDateTimeChanged: (DateTime newDate) {
+              setState(() => lastDateTime = newDate);
             },
           ),
-        ),
-        Text(
-          DateFormat('dd MMMM yyyy')
-              .format(DateTime.parse(lastDateTime.toString())),
-        ),
-      ],
+        );
+      },
     );
   }
 
@@ -59,15 +53,10 @@ class _CalendarWidgetState extends State<CalendarWidget> {
       builder: (BuildContext context) => Container(
         height: MediaQuery.of(context).size.height / 3,
         padding: const EdgeInsets.only(top: 6),
-        // The Bottom margin is provided
-        //to align the popup above the system
-        // navigation bar.
         margin: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom,
         ),
-        // Provide a background color for the popup.
         color: CupertinoColors.systemBackground.resolveFrom(context),
-        // Use a SafeArea widget to avoid system overlaps.
         child: SafeArea(
           top: false,
           child: child,
