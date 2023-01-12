@@ -88,6 +88,15 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
                   postCodeController: postCodeController,
                   cityController: cityController,
                   streetController: streetController,
+                  onPressed: () {
+                    setState(() {
+                      if (formKey.currentState!.validate()) {
+                        context
+                            .read<AccountCubit>()
+                            .editingAcc(editingAccount: false);
+                      }
+                    });
+                  },
                 ),
               ),
             ],
