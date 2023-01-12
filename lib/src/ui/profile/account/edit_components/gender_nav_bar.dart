@@ -25,7 +25,7 @@ class _GenderNavBarState extends State<GenderNavBar> {
   // final String genderFemale = 'Female';
 
   final titleTextStyle = TextStyle(
-    fontSize: 14,
+    fontSize: 12,
     color: AppColor.titleColor,
     fontWeight: FontWeight.normal,
   );
