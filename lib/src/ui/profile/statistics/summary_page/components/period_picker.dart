@@ -45,7 +45,7 @@ class _PeriodPickerState extends State<PeriodPicker> {
         const Text(
           'Period: ',
           style: TextStyle(
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.bold,
           ),
         ),
         CupertinoButton(
@@ -75,7 +75,7 @@ class _PeriodPickerState extends State<PeriodPicker> {
             period[_selectedPeriod],
             style: const TextStyle(
               fontSize: 16,
-              fontWeight: FontWeight.w900,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
