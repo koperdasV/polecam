@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -33,16 +35,27 @@ class _CalendarWidgetState extends State<CalendarWidget> {
         ),
       ),
       onPressed: () {
-        _showDialog(
-          CupertinoDatePicker(
-            initialDateTime: DateTime.now(),
-            mode: CupertinoDatePickerMode.date,
-            use24hFormat: true,
-            onDateTimeChanged: (DateTime newDate) {
-              setState(() => lastDateTime = newDate);
-            },
-          ),
-        );
+        if (Platform.isIOS) {
+          _showDialog(
+            CupertinoDatePicker(
+              initialDateTime: DateTime.now(),
+              mode: CupertinoDatePickerMode.date,
+              use24hFormat: true,
+              onDateTimeChanged: (DateTime newDate) {
+                setState(() => lastDateTime = newDate);
+              },
+            ),
+          );
+        } else if (Platform.isAndroid) {
+          showDatePicker(
+            context: context,
+            initialDate: DateTime(1930),
+            firstDate: DateTime(1930),
+            lastDate: DateTime(2005),
+          ).then((newDate) {
+            setState(() => lastDateTime = newDate!);
+          });
+        }
       },
     );
   }
