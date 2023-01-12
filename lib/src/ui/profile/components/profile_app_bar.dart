@@ -97,9 +97,10 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                                     : context
                                         .read<AccountCubit>()
                                         .editingAcc(editingAccount: true);
+                                click = !click;
                               },
                               child: Icon(
-                                (click == false) ? Icons.mode : Icons.close,
+                                Icons.mode,
                                 color: AppColor.subTitleColor,
                               ),
                             ),

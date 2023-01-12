@@ -17,6 +17,7 @@ class EditProfileWidget extends StatelessWidget {
     required this.postCodeController,
     required this.peselController,
     required this.dateOfBirthController,
+    required this.onPressed,
   });
 
   final TextEditingController emailController;
@@ -29,6 +30,7 @@ class EditProfileWidget extends StatelessWidget {
   final TextEditingController peselController;
   final TextEditingController dateOfBirthController;
 
+  final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +82,7 @@ class EditProfileWidget extends StatelessWidget {
                 ),
                 imageColor: Colors.white,
                 textColor: Colors.white,
-                onPressed: () {},
+                onPressed: onPressed,
               ),
               const SizedBox(height: 10),
             ],

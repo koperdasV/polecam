@@ -26,16 +26,16 @@ class TitleWidget extends StatelessWidget {
             child: Text(
               title,
               style: TextStyle(
-                  fontSize: fontSizeTitle,
-                  fontStyle: FontStyle.normal,
-                  fontWeight: FontWeight.w900),
+                fontSize: fontSizeTitle,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 16),
             child: Text(
               subTitle.toString(),
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.w900,
               ),
             ),
