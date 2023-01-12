@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:polec/theme/app_colors.dart';
 
 class CalendarWidget extends StatefulWidget {
   const CalendarWidget({super.key});
@@ -48,6 +49,10 @@ class _CalendarWidgetState extends State<CalendarWidget> {
         Text(
           DateFormat('dd MMMM yyyy')
               .format(DateTime.parse(lastDateTime.toString())),
+          style: const TextStyle(
+              color: AppColors.editPlaceholderAcc,
+              fontSize: 14,
+              fontWeight: FontWeight.w400),
         ),
       ],
     );
