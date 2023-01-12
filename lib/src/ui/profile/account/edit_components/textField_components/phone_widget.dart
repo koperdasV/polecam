@@ -35,19 +35,24 @@ class _PhoneWidgetState extends State<PhoneWidget> {
           keyboardType: TextInputType.phone,
           validatorRegExp: r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$',
           errorMessage: 'Enter correct phone number',
-          prefix: CountryCodePicker(
-            textStyle: const TextStyle(color: Colors.black),
-            onChanged: (CountryCode countryCode) {
-              setState(
-                () {
-                  _countryCode = countryCode;
-                },
-              );
-            },
-            showFlag: false,
-            initialSelection: 'PL',
-            showCountryOnly: false,
-            showOnlyCountryWhenClosed: false,
+          prefix: SizedBox(
+            height: 29,
+            child: CountryCodePicker(
+              padding: EdgeInsets.zero,
+             
+              textStyle: const TextStyle(color: Colors.black),
+              onChanged: (CountryCode countryCode) {
+                setState(
+                  () {
+                    _countryCode = countryCode;
+                  },
+                );
+              },
+              showFlag: false,
+              initialSelection: 'PL',
+              showCountryOnly: false,
+              showOnlyCountryWhenClosed: false,
+            ),
           ),
         ),
       ],

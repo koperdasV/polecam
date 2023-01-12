@@ -10,7 +10,7 @@ class TitleTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final titleTextStyle = TextStyle(
-      fontSize: 14,
+      fontSize: 12,
       color: AppColor.titleColor,
       fontWeight: FontWeight.normal,
     );

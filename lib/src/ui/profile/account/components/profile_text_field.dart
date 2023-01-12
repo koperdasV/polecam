@@ -33,6 +33,7 @@ class ProfileTextField extends StatelessWidget {
       placeholderStyle: const TextStyle(
         fontWeight: FontWeight.w400,
         color: AppColors.editPlaceholderAcc,
+        fontSize: 14,
       ),
       controller: controller,
       keyboardType: keyboardType,

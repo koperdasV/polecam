@@ -37,6 +37,7 @@ class _EditPasswordState extends State<EditPassword> {
           placeholderStyle: const TextStyle(
             fontWeight: FontWeight.w400,
             color: AppColors.editPlaceholderAcc,
+            fontSize: 14,
           ),
           decoration: BoxDecoration(
             color: AppColors.bgAccountPage,
@@ -71,6 +72,7 @@ class _EditPasswordState extends State<EditPassword> {
           placeholderStyle: const TextStyle(
             fontWeight: FontWeight.w400,
             color: AppColors.editPlaceholderAcc,
+            fontSize: 14,
           ),
           decoration: BoxDecoration(
             color: AppColors.bgAccountPage,
