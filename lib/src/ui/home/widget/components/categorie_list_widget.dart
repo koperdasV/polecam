@@ -40,27 +40,24 @@ class _CategoriesListState extends State<CategoriesList> {
               child: CupertinoActivityIndicator(),
             );
           } else {
-            return Padding(
-              padding: const EdgeInsets.only(left: 8),
-              child: ListView.builder(
-                itemCount: state.categories.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                    child: GestureDetector(
-                      onTap: () {
-                        selectIndex(index);
-                      },
-                      child: CategoriesItem(
-                        categoriesModel: state.categories[index],
-                        isSelected: (index == _selectedIndex) ? true : false,
-                      ),
+            return ListView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              itemCount: state.categories.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.only(right: 18, top: 8, bottom: 8),
+                  child: GestureDetector(
+                    onTap: () {
+                      selectIndex(index);
+                    },
+                    child: CategoriesItem(
+                      categoriesModel: state.categories[index],
+                      isSelected: (index == _selectedIndex) ? true : false,
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             );
           }
         },

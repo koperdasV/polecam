@@ -34,73 +34,74 @@ class _YourAreaCardState extends State<YourAreaCard> {
   Widget build(BuildContext context) {
     final amountParse = (widget.tmp.regularFee) * 100;
     final percent = amountParse.toInt();
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                CupertinoPageRoute(
-                  builder: (context) => BlocProvider<DetailsBloc>(
-                    create: (context) =>
-                        DetailsBloc(detailsRepo: DetailRepository()),
-                    child: DetailsScreen(
-                      productId: widget.tmp.id,
-                      productType: 'yourArea',
-                    ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              CupertinoPageRoute(
+                builder: (context) => BlocProvider<DetailsBloc>(
+                  create: (context) =>
+                      DetailsBloc(detailsRepo: DetailRepository()),
+                  child: DetailsScreen(
+                    productId: widget.tmp.id,
+                    productType: 'yourArea',
                   ),
                 ),
-              );
-            },
-            child: Stack(
-              children: [
-                SizedBox(
-                  height: 190,
-                  width: 166,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.network(
-                      widget.tmp.image,
-                      fit: BoxFit.cover,
-                    ),
+              ),
+            );
+          },
+          child: Stack(
+            children: [
+              SizedBox(
+                height: 190,
+                width: 166,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.network(
+                    widget.tmp.image,
+                    fit: BoxFit.cover,
                   ),
                 ),
-                PercentWidget(
-                  percent: percent.toString(),
-                  fontSize: 24,
-                ),
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: CupertinoButton(
-                    borderRadius: BorderRadius.circular(100),
-                    onPressed: _addFavorites,
-                    child: Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: AppColor.favoriteButtonColor,
-                      ),
-                      child: Center(
-                        child: Icon(
-                          CupertinoIcons.heart_fill,
-                          color: AppColor.unFavoritesColor,
-                        ),
+              ),
+              PercentWidget(
+                percent: percent.toString(),
+                fontSize: 24,
+              ),
+              Positioned(
+                right: 0,
+                bottom: 0,
+                child: CupertinoButton(
+                  borderRadius: BorderRadius.circular(100),
+                  onPressed: _addFavorites,
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColor.favoriteButtonColor,
+                    ),
+                    child: Center(
+                      child: Icon(
+                        CupertinoIcons.heart_fill,
+                        color: AppColor.unFavoritesColor,
                       ),
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 10),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: SizedBox(
+            width: 166,
             child: Text(
               widget.tmp.name,
+              maxLines: 1,
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w900,
@@ -108,21 +109,21 @@ class _YourAreaCardState extends State<YourAreaCard> {
               ),
             ),
           ),
-          SizedBox(
-            width: 160,
-            child: Text(
-              widget.tmp.description,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Color(0xFF9fa2b1),
-                fontWeight: FontWeight.normal,
-              ),
+        ),
+        SizedBox(
+          width: 160,
+          child: Text(
+            widget.tmp.description,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontSize: 12,
+              color: Color(0xFF9fa2b1),
+              fontWeight: FontWeight.normal,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

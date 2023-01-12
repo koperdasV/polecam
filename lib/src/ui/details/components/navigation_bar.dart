@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:polec/resources/colors.dart';
 import 'package:polec/src/ui/details/components/nav_bar/about_widget.dart';
 import 'package:polec/src/ui/details/components/nav_bar/contact_widget.dart';
 import 'package:polec/src/ui/details/components/nav_bar/open_widget.dart';
-import 'package:polec/theme/app_colors.dart';
 
 enum Detail { about, contact, open }
 
@@ -34,7 +34,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
           child: SizedBox(
             width: double.infinity,
             child: CupertinoSlidingSegmentedControl<Detail>(
-              backgroundColor: AppColors.bgControl,
+              backgroundColor: AppColor.navigatorColor,
               thumbColor: const Color(0xffffffff),
               // This represents the currently selected segmented control.
               groupValue: _selectedSegment,
@@ -49,7 +49,9 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
               children: const <Detail, Widget>{
                 Detail.about: Text(
                   'About',
-                  style: TextStyle(color: CupertinoColors.black),
+                  style: TextStyle(
+                    color: CupertinoColors.black,
+                  ),
                 ),
                 Detail.open: Text(
                   'Open',

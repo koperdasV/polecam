@@ -4,11 +4,11 @@ import 'package:polec/src/ui/home/widget/components/search_widget.dart';
 
 class SearchBox extends StatelessWidget {
   const SearchBox({
-    Key? key, this.controller,
+    Key? key,
+    this.controller,
   }) : super(key: key);
 
-    final TextEditingController? controller;
-
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {

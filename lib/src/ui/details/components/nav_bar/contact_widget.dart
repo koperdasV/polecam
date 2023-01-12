@@ -9,17 +9,6 @@ class ContactWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const titleStyle = TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w900,
-      color: Colors.black,
-    );
-    final subtitleStyle = TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.normal,
-      color: AppColor.subTitleColor,
-    );
-
     return BlocConsumer<DetailsBloc, DetailsState>(
       listener: (context, state) => state.whenOrNull(
         error: (errorMessage) async =>
@@ -34,70 +23,69 @@ class ContactWidget extends StatelessWidget {
         ),
         loaded: (productDetails) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: SizedBox(
-            width: double.infinity,
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Street: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      productDetails.address[0].street,
-                      style: subtitleStyle,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'City: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      productDetails.address[0].city,
-                      style: subtitleStyle,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Country: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      productDetails.address[0].country,
-                      style: subtitleStyle,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Phones: ',
-                      style: titleStyle,
-                    ),
-                    Text(
-                      productDetails.address[0].phones[0],
-                      style: subtitleStyle,
-                    ),
-                  ],
-                ),
-              ],
-            ),
+          child: Column(
+            children: [
+              ContactTile(
+                title: 'Street: ',
+                subTitle: productDetails.address[0].street,
+              ),
+              ContactTile(
+                title: 'City: ',
+                subTitle: productDetails.address[0].city,
+              ),
+              ContactTile(
+                title: 'Country: ',
+                subTitle: productDetails.address[0].country,
+              ),
+              ContactTile(
+                title: 'Phones: ',
+                subTitle: productDetails.address[0].phones[0],
+              ),
+            ],
           ),
         ),
         error: (errorMessage) => const Center(child: FlutterLogo()),
+      ),
+    );
+  }
+}
+
+class ContactTile extends StatelessWidget {
+  const ContactTile({
+    Key? key,
+    required this.title,
+    required this.subTitle,
+  }) : super(key: key);
+
+  final String title;
+  final String subTitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 3),
+      child: SizedBox(
+        width: 220,
+        child: Row(
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: AppColor.subTitleColor,
+              ),
+            ),
+            Text(
+              subTitle,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.normal,
+                color: AppColor.subTitleColor,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

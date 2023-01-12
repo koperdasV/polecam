@@ -25,15 +25,12 @@ class AboutWidget extends StatelessWidget {
         ),
         loaded: (productDetails) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: SizedBox(
-            width: double.infinity,
-            child: Text(
-              productDetails.description,
-              style: TextStyle(
-                color: AppColor.subTitleColor,
-                fontWeight: FontWeight.normal,
-                fontSize: 14,
-              ),
+          child: Text(
+            productDetails.description,
+            style: TextStyle(
+              color: AppColor.subTitleColor,
+              fontWeight: FontWeight.normal,
+              fontSize: 13,
             ),
           ),
         ),

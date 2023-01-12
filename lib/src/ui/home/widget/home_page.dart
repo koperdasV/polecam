@@ -3,7 +3,9 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/home/provider/navigation_bar_provider.dart';
 import 'package:polec/src/feature/map/widget/map_screen.dart';
 import 'package:polec/src/feature/profile/provider/profile_provider.dart';
@@ -79,31 +81,47 @@ class _HomePageState extends State<HomePage> {
       child: CupertinoPageScaffold(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 16, top: 50, bottom: 15),
-              child: HomeAppBar(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    CupertinoPageRoute(
-                      builder: (context) => const MapScreen(),
+            ColoredBox(
+              color: AppColor.navBarColor,
+              child: Column(
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 16, top: 50, bottom: 15),
+                    child: HomeAppBar(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => const MapScreen(),
+                          ),
+                        );
+                      },
+                      child: const Icon(
+                        CupertinoIcons.map_fill,
+                        color: CupertinoColors.white,
+                      ),
                     ),
-                  );
-                },
-                child: const Icon(
-                  CupertinoIcons.map_fill,
-                  color: CupertinoColors.white,
-                ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 9),
+                    child: SearchWidget(
+                      controller: _searchController,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Container(
+                      width: double.infinity,
+                      height: 1.5,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: SearchWidget(
-                controller: _searchController,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 12),
               child: InActiveButton(
                 text: 'Inactive Account',
                 onPressed: () {
@@ -169,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                   //IN YOUR AREA//
                   const SliverToBoxAdapter(
                     child: SizedBox(
-                      height: 260,
+                      height: 250,
                       child: YourAreaList(),
                     ),
                   ),

@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 
 const double _kItemExtent = 32;
 final List<String> period = <String>[
-  '3 months',
+  '7 days',
+  '28 days',
   '6 months',
-  '9 months',
-  '12 months'
+  'Current month',
+  'Last month',
+  'Custom date'
 ];
 
 class PeriodPicker extends StatefulWidget {

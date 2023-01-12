@@ -1,4 +1,3 @@
-import 'package:flash/flash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,11 +35,15 @@ class YourAreaList extends StatelessWidget {
             );
           } else {
             return ListView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               scrollDirection: Axis.horizontal,
               itemCount: state.yourArea.length,
               itemBuilder: (context, index) {
-                return YourAreaCard(
-                  tmp: state.yourArea[index],
+                return Padding(
+                  padding: const EdgeInsets.only(right: 14),
+                  child: YourAreaCard(
+                    tmp: state.yourArea[index],
+                  ),
                 );
               },
             );
