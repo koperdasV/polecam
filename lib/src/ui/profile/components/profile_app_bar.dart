@@ -97,6 +97,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                                     : context
                                         .read<AccountCubit>()
                                         .editingAcc(editingAccount: true);
+                                click = !click;
                               },
                               child: Icon(
                                 Icons.mode,

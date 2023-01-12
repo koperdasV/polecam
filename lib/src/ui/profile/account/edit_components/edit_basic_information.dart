@@ -85,7 +85,7 @@ class _EditBasicInformationState extends State<EditBasicInformation> {
         const TitleTextWidget(
           text: 'Date of birth',
         ),
-        const CalendarWidget(),
+        const CalendarWidget()
       ],
     );
   }
