@@ -99,7 +99,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                                         .editingAcc(editingAccount: true);
                               },
                               child: Icon(
-                                (click == false) ? Icons.mode : Icons.close,
+                                Icons.mode,
                                 color: AppColor.subTitleColor,
                               ),
                             ),
