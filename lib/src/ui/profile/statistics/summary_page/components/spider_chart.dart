@@ -108,9 +108,9 @@ class SpiderChartPainter extends CustomPainter {
   final int decimalPrecision;
 
   final Paint stroke = Paint()
-    ..color = const Color.fromRGBO(170, 170, 170, 1)
+    ..color = Color.fromARGB(255, 213, 213, 213)
     ..style = PaintingStyle.stroke
-    ..strokeWidth = 4;
+    ..strokeWidth = 3;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -158,7 +158,11 @@ class SpiderChartPainter extends CustomPainter {
   //Method for drawing points
   void paintDataPoints(Canvas canvas, List<Offset> points) {
     for (var i = 0; i < points.length; i++) {
-      canvas.drawCircle(points[i], 9, Paint()..color = colors[i]);
+      canvas.drawCircle(
+        points[i],
+        i < points.length / 2 ? 10 : 8,
+        Paint()..color = colors[i],
+      );
     }
   }
 
@@ -173,7 +177,7 @@ class SpiderChartPainter extends CustomPainter {
       final paintDotted = Paint()
         ..style = PaintingStyle.stroke
         ..color = colors[i]
-        ..strokeWidth = 5;
+        ..strokeWidth = 3;
       final path = Path()
         ..moveTo(center.dx, center.dy)
         ..cubicTo(
@@ -187,15 +191,15 @@ class SpiderChartPainter extends CustomPainter {
       canvas.drawPath(
         dashPath(
           path,
-          dashArray: CircularIntervalList<double>(<double>[15, 15]),
+          dashArray: CircularIntervalList<double>(<double>[12, 10]),
         ),
         paintDotted,
       );
     }
 
     canvas
-      ..drawCircle(center, 9, Paint()..color = Colors.grey)
-      ..drawCircle(center, 4, Paint()..color = Colors.white);
+      ..drawCircle(center, 6, Paint()..color = Colors.grey)
+      ..drawCircle(center, 3, Paint()..color = Colors.white);
   }
 
   //Method for drawing labels
@@ -207,21 +211,22 @@ class SpiderChartPainter extends CustomPainter {
   ) {
     final textPainter = TextPainter(textDirection: TextDirection.ltr);
     final textStyle = TextStyle(
-      fontSize: 14,
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
       color: AppColor.categorieColor,
     );
 
     for (var i = 0; i < points.length; i++) {
       textPainter
         ..text = TextSpan(text: labels[i], style: textStyle)
-        ..layout(maxWidth: 80);
+        ..layout(maxWidth: 90);
       if (points[i].dx < center.dx) {
         textPainter.paint(
           canvas,
-          points[i].translate(-(textPainter.size.width + 5.0), -25),
+          points[i].translate(-(textPainter.size.width + 8.0), -15),
         );
       } else if (points[i].dx > center.dx) {
-        textPainter.paint(canvas, points[i].translate(20, -25));
+        textPainter.paint(canvas, points[i].translate(20, -15));
       } else if (points[i].dy < center.dy) {
         textPainter.paint(
           canvas,

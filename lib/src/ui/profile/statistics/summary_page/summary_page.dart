@@ -112,6 +112,9 @@ class _SummaryPageState extends State<SummaryPage> {
               title: 'Moneyback',
               fontSizeTitle: 16,
             ),
+            const SizedBox(
+              height: 40,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: SizedBox(
@@ -125,6 +128,7 @@ class _SummaryPageState extends State<SummaryPage> {
               title: 'Recommendations',
               fontSizeTitle: 16,
             ),
+            const SizedBox(height: 40,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: SizedBox(
@@ -137,6 +141,9 @@ class _SummaryPageState extends State<SummaryPage> {
             const TitleWidget(
               title: 'Income by category',
               fontSizeTitle: 16,
+            ),
+            const SizedBox(
+              height: 10,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 40),

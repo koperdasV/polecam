@@ -11,7 +11,10 @@ class CalendarWidget extends StatefulWidget {
 
 class _CalendarWidgetState extends State<CalendarWidget> {
   DateTime lastDateTime = DateTime(
-      DateTime.now().year - 18, DateTime.now().month, DateTime.now().day,);
+    DateTime.now().year - 18,
+    DateTime.now().month,
+    DateTime.now().day,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -28,24 +31,48 @@ class _CalendarWidgetState extends State<CalendarWidget> {
               color: Colors.black,
             ),
             onPressed: () {
-              showDatePicker(
-                context: context,
-                initialDate: lastDateTime,
-                firstDate: DateTime(1920),
-                lastDate: lastDateTime,
-              ).then((date) {
-                setState(() {
-                  lastDateTime = date!;
-                });
-              });
+              _showDialog(
+                CupertinoDatePicker(
+                  initialDateTime: DateTime.now(),
+                  mode: CupertinoDatePickerMode.date,
+                  use24hFormat: true,
+                  // This is called when the user changes the date.
+                  onDateTimeChanged: (DateTime newDate) {
+                    setState(() => lastDateTime = newDate);
+                  },
+                ),
+              );
             },
           ),
         ),
         Text(
-          DateFormat('yyyy/MM/dd')
+          DateFormat('dd MMMM yyyy')
               .format(DateTime.parse(lastDateTime.toString())),
         ),
       ],
+    );
+  }
+
+  void _showDialog(Widget child) {
+    showCupertinoModalPopup<void>(
+      context: context,
+      builder: (BuildContext context) => Container(
+        height: MediaQuery.of(context).size.height / 3,
+        padding: const EdgeInsets.only(top: 6),
+        // The Bottom margin is provided
+        //to align the popup above the system
+        // navigation bar.
+        margin: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        // Provide a background color for the popup.
+        color: CupertinoColors.systemBackground.resolveFrom(context),
+        // Use a SafeArea widget to avoid system overlaps.
+        child: SafeArea(
+          top: false,
+          child: child,
+        ),
+      ),
     );
   }
 }

@@ -78,24 +78,24 @@ abstract class DataCharts {
 //SPIDER CHART DATA//
   static List<double> spiderChart = [
     32,
+    28,
+    28,
+    18,
+    22,
     26,
-    10,
-    23,
-    14,
-    32,
-    14,
-    21,
+    12,
+    26,
   ];
 
   static List<Color> spiderColorChart = [
-    Colors.blue,
-    Colors.pink,
-    Colors.orange,
-    Colors.green,
-    Colors.blue,
-    Colors.pink,
-    Colors.orange,
-    Colors.green,
+    const Color(0xff4553E0),
+    const Color(0xffF2A665),
+    const Color(0xff2FB4BF),
+    const Color(0xffE24965),
+    const Color(0xff4553E0),
+    const Color(0xffF2A665),
+    const Color(0xff2FB4BF),
+    const Color(0xffE24965),
   ];
 
   static List<String> spiderLabelChart = [
