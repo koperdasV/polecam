@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:polec/resources/colors.dart';
 
 const double _kItemExtent = 32;
 final List<String> period = <String>[
@@ -73,9 +75,10 @@ class _PeriodPickerState extends State<PeriodPicker> {
           // This displays the selected fruit name.
           child: Text(
             period[_selectedPeriod],
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
+              color: AppColor.titleColor,
             ),
           ),
         ),
