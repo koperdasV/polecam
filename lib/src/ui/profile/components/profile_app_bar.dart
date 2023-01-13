@@ -16,6 +16,7 @@ class ProfileAppBar extends StatefulWidget {
 
 class _ProfileAppBarState extends State<ProfileAppBar> {
   bool click = false;
+
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<SlidingBarProvider>().markerVisible;
@@ -97,7 +98,6 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                                     : context
                                         .read<AccountCubit>()
                                         .editingAcc(editingAccount: true);
-                                click = !click;
                               },
                               child: Icon(
                                 Icons.mode,
