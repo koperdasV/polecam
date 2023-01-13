@@ -53,7 +53,9 @@ class _CalendarWidgetState extends State<CalendarWidget> {
             firstDate: DateTime(1930),
             lastDate: DateTime(2005),
           ).then((newDate) {
-            setState(() => lastDateTime = newDate!);
+            if (newDate != null) {
+              setState(() => lastDateTime = newDate);
+            }
           });
         }
       },

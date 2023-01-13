@@ -15,7 +15,6 @@ class ProfileAppBar extends StatefulWidget {
 }
 
 class _ProfileAppBarState extends State<ProfileAppBar> {
-  bool click = false;
 
   @override
   Widget build(BuildContext context) {
@@ -88,19 +87,12 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                             child: CupertinoButton(
                               padding: const EdgeInsets.all(5),
                               onPressed: () {
-                                setState(() {
-                                  click = !click;
-                                });
-                                (click == false)
-                                    ? context
-                                        .read<AccountCubit>()
-                                        .editingAcc(editingAccount: false)
-                                    : context
-                                        .read<AccountCubit>()
-                                        .editingAcc(editingAccount: true);
+                                context
+                                    .read<AccountCubit>()
+                                    .change();
                               },
                               child: Icon(
-                                Icons.mode,
+                                state.editing ? Icons.close : Icons.mode,
                                 color: AppColor.subTitleColor,
                               ),
                             ),
