@@ -108,7 +108,7 @@ class SpiderChartPainter extends CustomPainter {
   final int decimalPrecision;
 
   final Paint stroke = Paint()
-    ..color = Color.fromARGB(255, 213, 213, 213)
+    ..color = const Color.fromARGB(255, 213, 213, 213)
     ..style = PaintingStyle.stroke
     ..strokeWidth = 3;
 
@@ -219,23 +219,23 @@ class SpiderChartPainter extends CustomPainter {
     for (var i = 0; i < points.length; i++) {
       textPainter
         ..text = TextSpan(text: labels[i], style: textStyle)
-        ..layout(maxWidth: 90);
+        ..layout(maxWidth: 50);
       if (points[i].dx < center.dx) {
         textPainter.paint(
           canvas,
           points[i].translate(-(textPainter.size.width + 8.0), -15),
         );
       } else if (points[i].dx > center.dx) {
-        textPainter.paint(canvas, points[i].translate(20, -15));
+        textPainter.paint(canvas, points[i].translate(15, -10));
       } else if (points[i].dy < center.dy) {
         textPainter.paint(
           canvas,
-          points[i].translate(-(textPainter.size.width / 2), -45),
+          points[i].translate(-(textPainter.size.width / 2), -40),
         );
       } else {
         textPainter.paint(
           canvas,
-          points[i].translate(-(textPainter.size.width / 2), 15),
+          points[i].translate(-(textPainter.size.width / 2), 10),
         );
       }
     }

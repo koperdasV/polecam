@@ -9,7 +9,6 @@ class InActiveButton extends StatelessWidget {
     this.gradient = const LinearGradient(
       colors: [
         Color(0xFFd93150),
-        Color(0xFFf17088),
         Color(0xFFfc8ca1),
       ],
     ),

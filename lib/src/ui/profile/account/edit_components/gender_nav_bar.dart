@@ -21,15 +21,6 @@ class GenderNavBar extends StatefulWidget {
 
 class _GenderNavBarState extends State<GenderNavBar> {
   Gender _selectedSegment = Gender.male;
-  // final String genderMale = 'Male';
-  // final String genderFemale = 'Female';
-
-  final titleTextStyle = TextStyle(
-    fontSize: 12,
-    color: AppColor.titleColor,
-    fontWeight: FontWeight.normal,
-  );
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,15 +29,11 @@ class _GenderNavBarState extends State<GenderNavBar> {
       child: CupertinoSlidingSegmentedControl<Gender>(
         backgroundColor: AppColors.bgAccountPage,
         thumbColor: const Color(0xffffffff),
-        // This represents the currently selected segmented control.
         groupValue: _selectedSegment,
-        // Callback that sets the selected segmented control.
         onValueChanged: (Gender? _selectedSegment) {
           if (_selectedSegment != null) {
             setState(
-              () {
-                this._selectedSegment = _selectedSegment;
-              },
+              () => this._selectedSegment = _selectedSegment,
             );
           }
           setState(
@@ -57,14 +44,6 @@ class _GenderNavBarState extends State<GenderNavBar> {
           Gender.male: buildSegment('Male'),
           Gender.female: buildSegment('Female'),
         },
-        // children: {
-        //   0: buildSegment(
-        //     'Male',
-        //   ),
-        //   1: buildSegment(
-        //     'Female',
-        //   ),
-        // }
       ),
     );
   }
@@ -75,7 +54,11 @@ class _GenderNavBarState extends State<GenderNavBar> {
       child: Center(
         child: Text(
           text,
-          style: titleTextStyle,
+          style: TextStyle(
+            fontSize: 12,
+            color: AppColor.titleColor,
+            fontWeight: FontWeight.normal,
+          ),
         ),
       ),
     );

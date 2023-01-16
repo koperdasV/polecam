@@ -30,73 +30,55 @@ class _EditPasswordState extends State<EditPassword> {
         const TitleTextWidget(
           text: 'Enter a new password',
         ),
-        CupertinoTextField(
-          placeholder: 'Enter a new password',
-          obscureText: !_passwordVisible,
-          controller: newPassController,
-          placeholderStyle: const TextStyle(
-            fontWeight: FontWeight.w400,
-            color: AppColors.editPlaceholderAcc,
-            fontSize: 14,
-          ),
-          decoration: BoxDecoration(
-            color: AppColors.bgAccountPage,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          suffix: SizedBox(
-            height: 30,
-            child: CupertinoButton(
-              padding: const EdgeInsets.only(right: 5),
-              child: Icon(
-                size: 20,
-                // Based on passwordVisible state choose the icon
-                _passwordVisible ? Icons.visibility : Icons.visibility_off,
-                color: Colors.black,
-              ),
-              onPressed: () {
-                setState(() {
-                  _passwordVisible = !_passwordVisible;
-                });
-              },
-            ),
-          ),
-        ),
+        password('Enter a new password', newPassController),
         const SizedBox(height: 10),
         const TitleTextWidget(
           text: 'Confirm new password',
         ),
-        CupertinoTextField(
-          placeholder: 'Confirm a new password',
-          obscureText: !_passwordVisible,
-          controller: confirmPassController,
-          placeholderStyle: const TextStyle(
-            fontWeight: FontWeight.w400,
-            color: AppColors.editPlaceholderAcc,
-            fontSize: 14,
-          ),
-          decoration: BoxDecoration(
-            color: AppColors.bgAccountPage,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          suffix: SizedBox(
-            height: 30,
-            child: CupertinoButton(
-              padding: const EdgeInsets.only(right: 5),
-              child: Icon(
-                size: 20,
-                // Based on passwordVisible state choose the icon
-                _passwordVisible ? Icons.visibility : Icons.visibility_off,
-                color: Colors.black,
-              ),
-              onPressed: () {
-                setState(() {
-                  _passwordVisible = !_passwordVisible;
-                });
-              },
-            ),
-          ),
-        ),
+        password('Confirm a new password', confirmPassController),
       ],
+    );
+  }
+
+  
+  CupertinoTextField password(
+    String placeholder,
+    TextEditingController controller,
+  ) {
+    return CupertinoTextField(
+      placeholder: placeholder,
+      obscureText: !_passwordVisible,
+      controller: controller,
+      placeholderStyle: const TextStyle(
+        fontWeight: FontWeight.w400,
+        color: AppColors.editPlaceholderAcc,
+        fontSize: 14,
+      ),
+      style: const TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 16,
+      ),
+      decoration: BoxDecoration(
+        color: AppColors.bgAccountPage,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      suffix: SizedBox(
+        height: 30,
+        child: CupertinoButton(
+          padding: const EdgeInsets.only(right: 5),
+          child: Icon(
+            size: 20,
+            // Based on passwordVisible state choose the icon
+            _passwordVisible ? Icons.visibility : Icons.visibility_off,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            setState(() {
+              _passwordVisible = !_passwordVisible;
+            });
+          },
+        ),
+      ),
     );
   }
 }

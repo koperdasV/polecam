@@ -37,7 +37,7 @@ class EditProfileWidget extends StatelessWidget {
     final textStyle = TextStyle(
       fontSize: 18,
       color: AppColor.titleColor,
-      fontWeight: FontWeight.w900,
+      fontWeight: FontWeight.bold,
     );
 
     return GestureDetector(
@@ -48,11 +48,13 @@ class EditProfileWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Basic Information',
-                style: textStyle,
+              Padding(
+                padding: const EdgeInsets.only(top: 17, bottom: 7),
+                child: Text(
+                  'Basic Information',
+                  style: textStyle,
+                ),
               ),
-              const SizedBox(height: 20),
               EditBasicInformation(
                 dateOfBirthController: dateOfBirthController,
                 emailController: emailController,
@@ -64,27 +66,29 @@ class EditProfileWidget extends StatelessWidget {
                 cityController: cityController,
                 streetController: streetController,
               ),
-              const SizedBox(height: 20),
-              Text(
-                'Password',
-                style: textStyle,
-              ),
-              const SizedBox(height: 20),
-              const EditPassword(),
-              const SizedBox(height: 10),
-              RecommendedButton(
-                textButton: 'Save',
-                gradient: const LinearGradient(
-                  colors: [
-                    AppColors.gradientStart,
-                    AppColors.gradientEnd,
-                  ],
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 13),
+                child: Text(
+                  'Password',
+                  style: textStyle,
                 ),
-                imageColor: Colors.white,
-                textColor: Colors.white,
-                onPressed: onPressed,
               ),
-              const SizedBox(height: 10),
+              const EditPassword(),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 25),
+                child: RecommendedButton(
+                  textButton: 'Save',
+                  gradient: const LinearGradient(
+                    colors: [
+                      AppColors.gradientStart,
+                      AppColors.gradientEnd,
+                    ],
+                  ),
+                  imageColor: Colors.white,
+                  textColor: Colors.white,
+                  onPressed: onPressed,
+                ),
+              ),
             ],
           ),
         ),
