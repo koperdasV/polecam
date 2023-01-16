@@ -11,8 +11,7 @@ class CategorieTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.green,
+    return SizedBox(
       width: double.maxFinite,
       height: 50,
       child: ListView.builder(

@@ -16,7 +16,7 @@ class DayWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 3),
       child: SizedBox(
-        width: 190,
+        width: 197,
         child: Row(
           children: [
             Text(

@@ -65,7 +65,7 @@ class ContactTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 3),
       child: SizedBox(
-        width: 220,
+        width: 221,
         child: Row(
           children: [
             Text(
@@ -76,12 +76,14 @@ class ContactTile extends StatelessWidget {
                 color: AppColor.subTitleColor,
               ),
             ),
-            Text(
-              subTitle,
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.normal,
-                color: AppColor.subTitleColor,
+            Flexible(
+              child: Text(
+                subTitle,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
+                  color: AppColor.subTitleColor,
+                ),
               ),
             ),
           ],

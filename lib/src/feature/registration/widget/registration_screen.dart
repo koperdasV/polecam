@@ -37,7 +37,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 constraints: BoxConstraints(
                   // minWidth: constraints.minWidth,
                   // minHeight: constraints.minHeight,
-                  maxHeight: constraints.maxHeight*0.9,
+                  maxHeight: constraints.maxHeight * 0.9,
                   maxWidth: constraints.maxWidth,
                 ),
                 child: Column(
@@ -142,7 +142,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     SizedBox(height: constraints.minHeight * 0.03),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      // mainAxisSize: MainAxisSize.min,
                       children: [
                         const Text(
                           'Already have an account?',

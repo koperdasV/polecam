@@ -5,6 +5,7 @@ import 'package:polec/resources/colors.dart';
 import 'package:polec/src/feature/profile/provider/profile_provider.dart';
 import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
 import 'package:polec/src/ui/profile/account/cubit/account_cubit.dart';
+import 'package:polec/src/ui/profile/components/avatar.dart';
 
 class ProfileAppBar extends StatefulWidget {
   const ProfileAppBar({
@@ -15,7 +16,6 @@ class ProfileAppBar extends StatefulWidget {
 }
 
 class _ProfileAppBarState extends State<ProfileAppBar> {
-
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<SlidingBarProvider>().markerVisible;
@@ -48,12 +48,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                     children: [
                       Row(
                         children: [
-                          CircleAvatar(
-                            radius: 25,
-                            backgroundImage: AssetImage(
-                              state.accountModel.avatar.toString(),
-                            ),
-                          ),
+                          Avatar(accountModel: state.accountModel),
                           const SizedBox(width: 10),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -64,7 +59,8 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                                 style: TextStyle(
                                   color: AppColor.titleColor,
                                   fontSize: 16,
-                                  fontWeight: FontWeight.w900,
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 0.5,
                                 ),
                               ),
                               const SizedBox(height: 5),
@@ -87,9 +83,7 @@ class _ProfileAppBarState extends State<ProfileAppBar> {
                             child: CupertinoButton(
                               padding: const EdgeInsets.all(5),
                               onPressed: () {
-                                context
-                                    .read<AccountCubit>()
-                                    .change();
+                                context.read<AccountCubit>().change();
                               },
                               child: Icon(
                                 state.editing ? Icons.close : Icons.mode,

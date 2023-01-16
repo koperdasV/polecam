@@ -9,17 +9,15 @@ class TitleTextWidget extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    final titleTextStyle = TextStyle(
-      fontSize: 12,
-      color: AppColor.titleColor,
-      fontWeight: FontWeight.normal,
-    );
-
     return Padding(
       padding: const EdgeInsets.only(left: 5),
       child: Text(
         text,
-        style: titleTextStyle,
+        style: TextStyle(
+          fontSize: 12,
+          color: AppColor.titleColor,
+          fontWeight: FontWeight.normal,
+        ),
       ),
     );
   }

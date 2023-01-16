@@ -8,7 +8,6 @@ class BasicInformationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final titleTextStyle = TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.normal,
