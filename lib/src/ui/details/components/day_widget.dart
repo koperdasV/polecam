@@ -14,29 +14,29 @@ class DayWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 3),
-      child: SizedBox(
-        width: 197,
-        child: Row(
-          children: [
-            Text(
+      padding: const EdgeInsets.symmetric(horizontal: 40),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 100,
+            child: Text(
               day,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 13,
                 fontWeight: FontWeight.bold,
                 color: AppColor.subTitleColor,
               ),
             ),
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.normal,
-                color: AppColor.subTitleColor,
-              ),
+          ),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.normal,
+              color: AppColor.subTitleColor,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

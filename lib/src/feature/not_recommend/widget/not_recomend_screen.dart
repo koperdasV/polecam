@@ -21,7 +21,7 @@ class NotRecommendScreen extends StatefulWidget {
 
   final String productId;
   final String productType;
-  
+
   @override
   State<NotRecommendScreen> createState() => _NotRecommendScreenState();
 }
@@ -135,9 +135,13 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: RecommendedButton(
-                      image: Image.asset(
-                        AppImages.logo,
-                        color: AppColors.notRecButton,
+                      image: SizedBox(
+                        width: 30,
+                        height: 30,
+                        child: Image.asset(
+                          AppImages.logo,
+                          color: AppColors.notRecButton,
+                        ),
                       ),
                       textButton: 'Recommend to friend',
                       color: AppColors.blcokedButton,
