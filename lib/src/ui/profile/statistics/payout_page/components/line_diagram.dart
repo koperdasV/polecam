@@ -7,7 +7,8 @@ class LineDiagramWidget extends StatelessWidget {
     required ZoomPanBehavior zoomPanBehavior,
     required TooltipBehavior tooltipBehavior,
     required this.chartData,
-    required this.colorDiagram, this.colorMarker,
+    required this.colorDiagram,
+    this.colorMarker,
   })  : _zoomPanBehavior = zoomPanBehavior,
         _tooltipBehavior = tooltipBehavior,
         super(key: key);
@@ -21,7 +22,6 @@ class LineDiagramWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
-      enableAxisAnimation: true,
       zoomPanBehavior: _zoomPanBehavior,
       tooltipBehavior: _tooltipBehavior,
       trackballBehavior: TrackballBehavior(),

@@ -140,7 +140,7 @@ class CardWidget extends StatelessWidget {
         SizedBox(
           width: 250,
           child: Text(
-            tmp.description,
+            'Recommend by: Paweł Woźniak',
             maxLines: 1,
             style: TextStyle(
               fontSize: 12,

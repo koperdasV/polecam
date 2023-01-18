@@ -37,11 +37,13 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
             ),
             Padding(
               padding: const EdgeInsets.all(12),
-              child: Text(
-                widget.journalModel.target.name,
-                style: const TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w900,
+              child: FittedBox(
+                child: Text(
+                  widget.journalModel.target.name,
+                  style: const TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
               ),
             ),

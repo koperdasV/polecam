@@ -14,7 +14,6 @@ abstract class AppColor {
   static Color unFavoritesColor = const Color.fromRGBO(190, 190, 190, 1);
   static Color recommendLineColor = const Color.fromRGBO(69, 83, 224, 1);
 
-
   //BUBBLE CHART COLORS GRADIENT\\
   static List<Color> blueBall = const [
     Color.fromRGBO(0, 178, 211, 1),
