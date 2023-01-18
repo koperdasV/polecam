@@ -177,9 +177,13 @@ class PaymentWidget extends StatelessWidget {
           child: Column(
             children: [
               RecommendedButton(
-                image: Image.asset(
-                  AppImages.logo,
-                  color: Colors.white,
+                image: SizedBox(
+                  width: 30,
+                  height: 30,
+                  child: Image.asset(
+                    AppImages.logo,
+                    color: Colors.white,
+                  ),
                 ),
                 textButton: 'Recommend to friend',
                 gradient: const LinearGradient(
