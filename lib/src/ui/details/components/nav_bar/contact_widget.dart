@@ -22,7 +22,7 @@ class ContactWidget extends StatelessWidget {
           child: Text('not found product by id'),
         ),
         loaded: (productDetails) => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Column(
             children: [
               ContactTile(
@@ -62,33 +62,30 @@ class ContactTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 3),
-      child: SizedBox(
-        width: 221,
-        child: Row(
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: AppColor.subTitleColor,
-              ),
+    return Row(
+      children: [
+        SizedBox(
+          width: 70,
+          child: Text(
+            title,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.bold,
+              color: AppColor.subTitleColor,
             ),
-            Flexible(
-              child: Text(
-                subTitle,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.normal,
-                  color: AppColor.subTitleColor,
-                ),
-              ),
-            ),
-          ],
+          ),
         ),
-      ),
+        Flexible(
+          child: Text(
+            subTitle,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.normal,
+              color: AppColor.subTitleColor,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

@@ -39,14 +39,14 @@ class RecomendationsWidget extends StatelessWidget {
                       Text(
                         '${detailModel.recommendations![index].name} ${detailModel.recommendations![index].surname}',
                         style: const TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.normal,
                         ),
                       ),
                       Text(
                         detailModel.recommendations![index].subtitle!,
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 12,
                           color: AppColor.subTitleColor,
                           fontWeight: FontWeight.normal,
                         ),
@@ -59,7 +59,7 @@ class RecomendationsWidget extends StatelessWidget {
               Text(
                 detailModel.recommendations![index].amount!,
                 style: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 18,
                   color: Colors.black,
                   fontWeight: FontWeight.w900,
                 ),
