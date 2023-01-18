@@ -43,7 +43,7 @@ class RecommendedButton extends StatelessWidget {
                 style: TextStyle(
                   color: textColor,
                   fontSize: 17,
-                  fontWeight: FontWeight.w900,
+                  fontWeight: FontWeight.bold,
                   letterSpacing: 0.7,
                 ),
               ),

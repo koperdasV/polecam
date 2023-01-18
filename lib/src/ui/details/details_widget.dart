@@ -166,8 +166,8 @@ class DetailsWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: RecommendedButton(
             image: SizedBox(
-              width: 40,
-              height: 40,
+              width: 30,
+              height: 30,
               child: Image.asset(
                 AppImages.logo,
                 color: Colors.white,
