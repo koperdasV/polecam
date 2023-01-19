@@ -5,6 +5,7 @@
         "name": "Dumplings",
         "regularFee": 0.100,
         "www": "http://www.kingfu.pl",
+        "recommended": 142,
         "description": "King Fu Fusion to o wiele więcej niż tylko doskonała kuchnia. Postać King Fu zrodziła się z legendy o walecznym karpiu Koi, który dzięki swej determinacji i boskiemu wsparciu, dotarł w górę Żółtej Rzeki i przemienił się w smoka. King Fu nosi cechy legendarnej ryby, jest uosobieniem odwagi, wytrzymałości, śmiałości w podejmowaniu nowych wyzwań.",
         "category": [
             "Jedzenie",
@@ -57,6 +58,7 @@
         "image": "https://klopotenko.com/wp-content/uploads/2020/05/Grecheskij-salat_siteWeb.jpg?v=1589361222",
         "name": "Salad",
         "regularFee": 0.080,
+        "recommended": 96,
         "www": "https://czosnek-i-oliwa-restaurant-bistrot.business.site",
         "description": "Elegancka dwupiętrowa restauracja w industrialnym stylu serwująca wykwintne dania międzynarodowe i koktajle.",
         "category": [
@@ -109,6 +111,7 @@
         "image": "https://recepty.24tv.ua/resources/photos/recipe/1200x675_DIR/202002/46882482e83-af19-4ce9-abf9-2ac657d35c44.jpg?1580986355000",
         "name": "Lasagna",
         "regularFee": 0.090,
+        "recommended": 104,
         "www": "https://lowcyblasku.com",
         "description": "Łowcy Blasku to znane i cenione w Bydgoszczy studio car spa i detailingu. Świadczymy usługi na najwyższym poziomie wtajemniczenia. Wszystko po to, aby maksymalnie zadbać o satysfakcję z jazdy samochodem pełnym blasku. Przez cały czas podnosimy swoją wiedzę i na bieżąco wdrażamy wszelkie innowacje w dopieszczaniu samochodów do granic możliwości.  Nasze usługi dostępne w ofercie są wypracowane przez lata doświadczeń.",
         "category": [
@@ -163,6 +166,7 @@
         "image": "https://recepty.24tv.ua/resources/photos/recipe/1200x675_DIR/202002/523d804baf2-ca26-4967-ad67-21a627dd925d.jpg?1581424670000",
         "name": "Mushroom cream soup",
         "regularFee": 0.080,
+        "recommended": 71,
         "www": "https://www.city-hotel.pl",
         "description": "Serdecznie zapraszamy do KLINIKI SKIN – MED. Jest to jedna z najbardziej zaawansowanych technologicznie klinik w Bydgoszczy. Powstała z myślą o osobach ceniących dyskrecję, komfort i profesjonalizm. Oferujemy pełen zakres zabiegów z zakresu dermatologii, kosmetologii oraz medycyny estetycznej. Zespół doświadczonych i wykwalifikowanych specjalistów na bieżąco śledzi światowe trendy, aby jak najlepiej walczyć z upływającym czasem i mankamentami urody spędzającymi sen z powiek naszych klientów. SKIN – MED to luksusowe wnętrza składające się z 6 przestronnych gabinetów, urządzonych tak by każdy z naszych klientów czuł się bezpiecznie i komfortowo. Klinika położona jest w centrum Bydgoszczy, ma dogodny dojazd i bezpłatne miejsca na strzeżonym parkingu.",
         "category": [

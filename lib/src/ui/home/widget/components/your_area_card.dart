@@ -113,7 +113,7 @@ class _YourAreaCardState extends State<YourAreaCard> {
         SizedBox(
           width: 160,
           child: Text(
-            widget.tmp.description,
+            'Recommended: ${widget.tmp.recommended}',
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(

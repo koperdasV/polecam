@@ -139,7 +139,7 @@ class CardWidget extends StatelessWidget {
           ),
           Text(
             maxLines: 1,
-            tmp.description,
+            'Recommend by: ${tmp.recommendations[0].name} ${tmp.recommendations[0].surname}',
             style: TextStyle(
               fontSize: 12,
               color: AppColor.subTitleColor,
