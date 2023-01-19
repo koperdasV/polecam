@@ -30,6 +30,7 @@ class ProfileTextField extends StatelessWidget {
       obscureText: obscureText,
       padding: EdgeInsets.zero,
       placeholder: placeholder,
+      cursorHeight: 14,
       placeholderStyle: const TextStyle(
         fontWeight: FontWeight.w400,
         color: AppColors.editPlaceholderAcc,

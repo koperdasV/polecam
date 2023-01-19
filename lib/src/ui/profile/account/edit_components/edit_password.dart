@@ -49,6 +49,7 @@ class _EditPasswordState extends State<EditPassword> {
       placeholder: placeholder,
       obscureText: !_passwordVisible,
       controller: controller,
+      cursorHeight: 14,
       placeholderStyle: const TextStyle(
         fontWeight: FontWeight.w400,
         color: AppColors.editPlaceholderAcc,

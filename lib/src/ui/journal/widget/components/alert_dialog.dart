@@ -85,7 +85,7 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
       primaryColor: AppColor.textButtonColor,
       backgroundType: BackgroundType.solid,
       width: 270,
-      height: 50,
+      height: 60,
       toastDuration: const Duration(seconds: 2),
       description: Row(
         mainAxisAlignment: MainAxisAlignment.center,
