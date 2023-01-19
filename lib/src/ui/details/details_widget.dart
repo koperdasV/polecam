@@ -46,7 +46,7 @@ class DetailsWidget extends StatelessWidget {
                 ),
               ),
               Text(
-                'Recommend by: Paweł Woźniak',
+                'Recommend by: ${detailModel.recommendations[0].name} ${detailModel.recommendations[0].surname}',
                 style: TextStyle(
                   fontSize: 12,
                   color: AppColor.subTitleColor,

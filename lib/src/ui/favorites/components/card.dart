@@ -13,18 +13,6 @@ import 'package:polec/src/ui/favorites/model/favorite_model.dart';
 import 'package:polec/src/ui/home/widget/components/categorie_tag.dart';
 import 'package:polec/src/ui/home/widget/components/percent_widget.dart';
 
-// class CardFavorites extends StatefulWidget {
-//   const CardFavorites({
-//     Key? key,
-//     required this.tmp,
-//   }) : super(key: key);
-
-//   final FavoritesModel tmp;
-
-//   @override
-//   State<CardFavorites> createState() => _CardFavoritesState();
-// }
-
 class CardFavorites extends StatelessWidget {
   const CardFavorites({super.key, required this.tmp});
   final FavoritesModel tmp;
@@ -150,7 +138,7 @@ class CardFavorites extends StatelessWidget {
           ),
           Text(
             maxLines: 1,
-            tmp.description,
+            'Recommend by: ${tmp.recommendations[0].name} ${tmp.recommendations[0].surname}',
             style: TextStyle(
               fontSize: 12,
               color: AppColor.subTitleColor,

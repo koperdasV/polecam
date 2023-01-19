@@ -28,6 +28,8 @@ mixin _$RecommendedModel {
   String get description => throw _privateConstructorUsedError;
   List<String> get category => throw _privateConstructorUsedError;
   List<Address> get address => throw _privateConstructorUsedError;
+  List<Recommendations> get recommendations =>
+      throw _privateConstructorUsedError;
   bool get visibleOnMap => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,6 +52,7 @@ abstract class $RecommendedModelCopyWith<$Res> {
       String description,
       List<String> category,
       List<Address> address,
+      List<Recommendations> recommendations,
       bool visibleOnMap});
 }
 
@@ -72,6 +75,7 @@ class _$RecommendedModelCopyWithImpl<$Res>
     Object? description = freezed,
     Object? category = freezed,
     Object? address = freezed,
+    Object? recommendations = freezed,
     Object? visibleOnMap = freezed,
   }) {
     return _then(_value.copyWith(
@@ -107,6 +111,10 @@ class _$RecommendedModelCopyWithImpl<$Res>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as List<Address>,
+      recommendations: recommendations == freezed
+          ? _value.recommendations
+          : recommendations // ignore: cast_nullable_to_non_nullable
+              as List<Recommendations>,
       visibleOnMap: visibleOnMap == freezed
           ? _value.visibleOnMap
           : visibleOnMap // ignore: cast_nullable_to_non_nullable
@@ -131,6 +139,7 @@ abstract class _$$_RecommendedModelCopyWith<$Res>
       String description,
       List<String> category,
       List<Address> address,
+      List<Recommendations> recommendations,
       bool visibleOnMap});
 }
 
@@ -155,6 +164,7 @@ class __$$_RecommendedModelCopyWithImpl<$Res>
     Object? description = freezed,
     Object? category = freezed,
     Object? address = freezed,
+    Object? recommendations = freezed,
     Object? visibleOnMap = freezed,
   }) {
     return _then(_$_RecommendedModel(
@@ -190,6 +200,10 @@ class __$$_RecommendedModelCopyWithImpl<$Res>
           ? _value._address
           : address // ignore: cast_nullable_to_non_nullable
               as List<Address>,
+      recommendations: recommendations == freezed
+          ? _value._recommendations
+          : recommendations // ignore: cast_nullable_to_non_nullable
+              as List<Recommendations>,
       visibleOnMap: visibleOnMap == freezed
           ? _value.visibleOnMap
           : visibleOnMap // ignore: cast_nullable_to_non_nullable
@@ -210,9 +224,11 @@ class _$_RecommendedModel implements _RecommendedModel {
       required this.description,
       required final List<String> category,
       required final List<Address> address,
+      required final List<Recommendations> recommendations,
       this.visibleOnMap = false})
       : _category = category,
-        _address = address;
+        _address = address,
+        _recommendations = recommendations;
 
   factory _$_RecommendedModel.fromJson(Map<String, dynamic> json) =>
       _$$_RecommendedModelFromJson(json);
@@ -243,13 +259,20 @@ class _$_RecommendedModel implements _RecommendedModel {
     return EqualUnmodifiableListView(_address);
   }
 
+  final List<Recommendations> _recommendations;
+  @override
+  List<Recommendations> get recommendations {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_recommendations);
+  }
+
   @override
   @JsonKey()
   final bool visibleOnMap;
 
   @override
   String toString() {
-    return 'RecommendedModel(id: $id, image: $image, name: $name, regularFee: $regularFee, www: $www, description: $description, category: $category, address: $address, visibleOnMap: $visibleOnMap)';
+    return 'RecommendedModel(id: $id, image: $image, name: $name, regularFee: $regularFee, www: $www, description: $description, category: $category, address: $address, recommendations: $recommendations, visibleOnMap: $visibleOnMap)';
   }
 
   @override
@@ -268,6 +291,8 @@ class _$_RecommendedModel implements _RecommendedModel {
             const DeepCollectionEquality().equals(other._category, _category) &&
             const DeepCollectionEquality().equals(other._address, _address) &&
             const DeepCollectionEquality()
+                .equals(other._recommendations, _recommendations) &&
+            const DeepCollectionEquality()
                 .equals(other.visibleOnMap, visibleOnMap));
   }
 
@@ -283,6 +308,7 @@ class _$_RecommendedModel implements _RecommendedModel {
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(_category),
       const DeepCollectionEquality().hash(_address),
+      const DeepCollectionEquality().hash(_recommendations),
       const DeepCollectionEquality().hash(visibleOnMap));
 
   @JsonKey(ignore: true)
@@ -308,6 +334,7 @@ abstract class _RecommendedModel implements RecommendedModel {
       required final String description,
       required final List<String> category,
       required final List<Address> address,
+      required final List<Recommendations> recommendations,
       final bool visibleOnMap}) = _$_RecommendedModel;
 
   factory _RecommendedModel.fromJson(Map<String, dynamic> json) =
@@ -329,6 +356,8 @@ abstract class _RecommendedModel implements RecommendedModel {
   List<String> get category;
   @override
   List<Address> get address;
+  @override
+  List<Recommendations> get recommendations;
   @override
   bool get visibleOnMap;
   @override
@@ -908,4 +937,249 @@ abstract class _Open implements Open {
   @override
   @JsonKey(ignore: true)
   _$$_OpenCopyWith<_$_Open> get copyWith => throw _privateConstructorUsedError;
+}
+
+Recommendations _$RecommendationsFromJson(Map<String, dynamic> json) {
+  return _Recommendations.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Recommendations {
+  String get avatar => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get surname => throw _privateConstructorUsedError;
+  String? get subtitleYou => throw _privateConstructorUsedError;
+  String get subtitle => throw _privateConstructorUsedError;
+  String get amount => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RecommendationsCopyWith<Recommendations> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RecommendationsCopyWith<$Res> {
+  factory $RecommendationsCopyWith(
+          Recommendations value, $Res Function(Recommendations) then) =
+      _$RecommendationsCopyWithImpl<$Res>;
+  $Res call(
+      {String avatar,
+      String name,
+      String surname,
+      String? subtitleYou,
+      String subtitle,
+      String amount});
+}
+
+/// @nodoc
+class _$RecommendationsCopyWithImpl<$Res>
+    implements $RecommendationsCopyWith<$Res> {
+  _$RecommendationsCopyWithImpl(this._value, this._then);
+
+  final Recommendations _value;
+  // ignore: unused_field
+  final $Res Function(Recommendations) _then;
+
+  @override
+  $Res call({
+    Object? avatar = freezed,
+    Object? name = freezed,
+    Object? surname = freezed,
+    Object? subtitleYou = freezed,
+    Object? subtitle = freezed,
+    Object? amount = freezed,
+  }) {
+    return _then(_value.copyWith(
+      avatar: avatar == freezed
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      surname: surname == freezed
+          ? _value.surname
+          : surname // ignore: cast_nullable_to_non_nullable
+              as String,
+      subtitleYou: subtitleYou == freezed
+          ? _value.subtitleYou
+          : subtitleYou // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subtitle: subtitle == freezed
+          ? _value.subtitle
+          : subtitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_RecommendationsCopyWith<$Res>
+    implements $RecommendationsCopyWith<$Res> {
+  factory _$$_RecommendationsCopyWith(
+          _$_Recommendations value, $Res Function(_$_Recommendations) then) =
+      __$$_RecommendationsCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String avatar,
+      String name,
+      String surname,
+      String? subtitleYou,
+      String subtitle,
+      String amount});
+}
+
+/// @nodoc
+class __$$_RecommendationsCopyWithImpl<$Res>
+    extends _$RecommendationsCopyWithImpl<$Res>
+    implements _$$_RecommendationsCopyWith<$Res> {
+  __$$_RecommendationsCopyWithImpl(
+      _$_Recommendations _value, $Res Function(_$_Recommendations) _then)
+      : super(_value, (v) => _then(v as _$_Recommendations));
+
+  @override
+  _$_Recommendations get _value => super._value as _$_Recommendations;
+
+  @override
+  $Res call({
+    Object? avatar = freezed,
+    Object? name = freezed,
+    Object? surname = freezed,
+    Object? subtitleYou = freezed,
+    Object? subtitle = freezed,
+    Object? amount = freezed,
+  }) {
+    return _then(_$_Recommendations(
+      avatar: avatar == freezed
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      surname: surname == freezed
+          ? _value.surname
+          : surname // ignore: cast_nullable_to_non_nullable
+              as String,
+      subtitleYou: subtitleYou == freezed
+          ? _value.subtitleYou
+          : subtitleYou // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subtitle: subtitle == freezed
+          ? _value.subtitle
+          : subtitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Recommendations implements _Recommendations {
+  const _$_Recommendations(
+      {required this.avatar,
+      required this.name,
+      required this.surname,
+      required this.subtitleYou,
+      required this.subtitle,
+      required this.amount});
+
+  factory _$_Recommendations.fromJson(Map<String, dynamic> json) =>
+      _$$_RecommendationsFromJson(json);
+
+  @override
+  final String avatar;
+  @override
+  final String name;
+  @override
+  final String surname;
+  @override
+  final String? subtitleYou;
+  @override
+  final String subtitle;
+  @override
+  final String amount;
+
+  @override
+  String toString() {
+    return 'Recommendations(avatar: $avatar, name: $name, surname: $surname, subtitleYou: $subtitleYou, subtitle: $subtitle, amount: $amount)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Recommendations &&
+            const DeepCollectionEquality().equals(other.avatar, avatar) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.surname, surname) &&
+            const DeepCollectionEquality()
+                .equals(other.subtitleYou, subtitleYou) &&
+            const DeepCollectionEquality().equals(other.subtitle, subtitle) &&
+            const DeepCollectionEquality().equals(other.amount, amount));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(avatar),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(surname),
+      const DeepCollectionEquality().hash(subtitleYou),
+      const DeepCollectionEquality().hash(subtitle),
+      const DeepCollectionEquality().hash(amount));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_RecommendationsCopyWith<_$_Recommendations> get copyWith =>
+      __$$_RecommendationsCopyWithImpl<_$_Recommendations>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_RecommendationsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Recommendations implements Recommendations {
+  const factory _Recommendations(
+      {required final String avatar,
+      required final String name,
+      required final String surname,
+      required final String? subtitleYou,
+      required final String subtitle,
+      required final String amount}) = _$_Recommendations;
+
+  factory _Recommendations.fromJson(Map<String, dynamic> json) =
+      _$_Recommendations.fromJson;
+
+  @override
+  String get avatar;
+  @override
+  String get name;
+  @override
+  String get surname;
+  @override
+  String? get subtitleYou;
+  @override
+  String get subtitle;
+  @override
+  String get amount;
+  @override
+  @JsonKey(ignore: true)
+  _$$_RecommendationsCopyWith<_$_Recommendations> get copyWith =>
+      throw _privateConstructorUsedError;
 }

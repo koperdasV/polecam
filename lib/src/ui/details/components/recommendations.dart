@@ -11,7 +11,7 @@ class RecomendationsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
-      itemCount: detailModel.recommendations!.length,
+      itemCount: detailModel.recommendations.length,
       itemBuilder: (BuildContext context, int index) {
         return Padding(
           padding: const EdgeInsets.symmetric(
@@ -37,14 +37,14 @@ class RecomendationsWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '${detailModel.recommendations![index].name} ${detailModel.recommendations![index].surname}',
+                        '${detailModel.recommendations[index].name} ${detailModel.recommendations[index].surname}',
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.normal,
                         ),
                       ),
                       Text(
-                        detailModel.recommendations![index].subtitle!,
+                        detailModel.recommendations[index].subtitle,
                         style: TextStyle(
                           fontSize: 12,
                           color: AppColor.subTitleColor,
@@ -57,7 +57,7 @@ class RecomendationsWidget extends StatelessWidget {
                 ],
               ),
               Text(
-                detailModel.recommendations![index].amount!,
+                detailModel.recommendations[index].amount,
                 style: const TextStyle(
                   fontSize: 18,
                   color: Colors.black,
