@@ -42,11 +42,9 @@ abstract class AppColor {
 
   static BoxDecoration moneybackColor = BoxDecoration(
     borderRadius: BorderRadius.circular(15),
-    gradient: const LinearGradient(
-      colors: [
-        Color(0xFFd93150),
-        Color(0xFFfc8ca1),
-      ],
+    image: const DecorationImage(
+      fit: BoxFit.fill,
+      image: AssetImage('assets/images/moneyback.png'),
     ),
   );
   static BoxDecoration getColorDetails = BoxDecoration(
@@ -60,20 +58,16 @@ abstract class AppColor {
   );
   static BoxDecoration recomendationsColor = BoxDecoration(
     borderRadius: BorderRadius.circular(15),
-    gradient: const LinearGradient(
-      colors: [
-        Color(0xFF313cd9),
-        Color(0xFF8ca6fc),
-      ],
+    image: const DecorationImage(
+      fit: BoxFit.fill,
+      image: AssetImage('assets/images/recommend.png'),
     ),
   );
   static BoxDecoration bonusColor = BoxDecoration(
     borderRadius: BorderRadius.circular(15),
-    gradient: const LinearGradient(
-      colors: [
-        Color(0xFF24aabf),
-        Color(0xFF52d6c0),
-      ],
+    image: const DecorationImage(
+      fit: BoxFit.fill,
+      image: AssetImage('assets/images/bonus.png'),
     ),
   );
 
