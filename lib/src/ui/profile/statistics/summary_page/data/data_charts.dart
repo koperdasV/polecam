@@ -9,36 +9,36 @@ final random = Random();
 
 abstract class DataCharts {
   static List<ChartData> firstChartData = [
-    ChartData('April', random.nextDouble() * 300),
+    ChartData('Apr', random.nextDouble() * 300),
     ChartData('May', random.nextDouble() * 300),
     ChartData('June', random.nextDouble() * 300),
     ChartData('July', random.nextDouble() * 300),
-    ChartData('August', random.nextDouble() * 300),
-    ChartData('September', random.nextDouble() * 300),
+    ChartData('Aug', random.nextDouble() * 300),
+    ChartData('Sept', random.nextDouble() * 300),
   ];
   static List<ChartData> secondChartData = [
-    ChartData('April', random.nextDouble() * 300),
+    ChartData('Apr', random.nextDouble() * 300),
     ChartData('May', random.nextDouble() * 300),
     ChartData('June', random.nextDouble() * 300),
     ChartData('July', random.nextDouble() * 300),
-    ChartData('August', random.nextDouble() * 300),
-    ChartData('September', random.nextDouble() * 300),
+    ChartData('Aug', random.nextDouble() * 300),
+    ChartData('Sept', random.nextDouble() * 300),
   ];
   static List<ChartData> thirdChartData = [
-    ChartData('April', random.nextDouble() * 300),
+    ChartData('Apr', random.nextDouble() * 300),
     ChartData('May', random.nextDouble() * 300),
     ChartData('June', random.nextDouble() * 300),
     ChartData('July', random.nextDouble() * 300),
-    ChartData('August', random.nextDouble() * 300),
-    ChartData('September', random.nextDouble() * 300),
+    ChartData('Aug', random.nextDouble() * 300),
+    ChartData('Sept', random.nextDouble() * 300),
   ];
   static List<ChartData> fourthChartData = [
-    ChartData('April', random.nextDouble() * 300),
+    ChartData('Apr', random.nextDouble() * 300),
     ChartData('May', random.nextDouble() * 300),
     ChartData('June', random.nextDouble() * 300),
     ChartData('July', random.nextDouble() * 300),
-    ChartData('August', random.nextDouble() * 300),
-    ChartData('September', random.nextDouble() * 300),
+    ChartData('Aug', random.nextDouble() * 300),
+    ChartData('Sept', random.nextDouble() * 300),
   ];
 
 //BUBBLE CHART DATA//
