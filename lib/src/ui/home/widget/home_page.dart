@@ -1,5 +1,4 @@
 // ignore_for_file: use_super_parameters
-
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
@@ -17,7 +16,7 @@ import 'package:polec/src/ui/home/widget/components/in_active_button.dart';
 import 'package:polec/src/ui/home/widget/components/search_widget.dart';
 import 'package:polec/src/ui/home/widget/components/title_widget.dart';
 import 'package:polec/src/ui/home/widget/components/your_area_list.dart';
-import 'package:polec/src/ui/inYourArea/in_your_area_page.dart';
+import 'package:polec/src/ui/in_your_area/in_your_area_page.dart';
 import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
 import 'package:polec/src/ui/recommended/recommended_page.dart';
 import 'package:provider/provider.dart';

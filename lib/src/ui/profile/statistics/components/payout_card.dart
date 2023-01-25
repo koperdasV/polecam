@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:polec/resources/colors.dart';
 
 class PayoutCard extends StatelessWidget {
   const PayoutCard({
@@ -58,30 +57,4 @@ class PayoutCard extends StatelessWidget {
       ),
     );
   }
-}
-
-class CanvasPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final rect = Rect.fromLTWH(0, 0, size.width, size.height);
-    canvas
-      ..drawRect(
-        rect,
-        Paint()
-          ..style = PaintingStyle.stroke
-          ..color = Colors.transparent,
-      )
-      ..clipRect(rect)
-      ..save()
-      ..translate(100, 100)
-      ..drawCircle(
-        Offset.zero,
-        50,
-        Paint()..color = const Color(0xFFd93150).withOpacity(0.4),
-      )
-      ..restore();
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
