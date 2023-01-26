@@ -19,12 +19,12 @@ class TitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 16),
-          child: Text(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
             title,
             style: TextStyle(
               fontSize: fontSizeTitle,
@@ -33,10 +33,7 @@ class TitleWidget extends StatelessWidget {
               letterSpacing: 1,
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(right: 16),
-          child: CupertinoButton(
+          CupertinoButton(
             onPressed: onPressed,
             child: Text(
               subTitle.toString(),
@@ -47,8 +44,8 @@ class TitleWidget extends StatelessWidget {
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';
-import 'package:polec/src/ui/inYourArea/components/card.dart';
+import 'package:polec/src/ui/in_your_area/components/card.dart';
 
 class YourAreaListFiltered extends StatelessWidget {
   const YourAreaListFiltered({

@@ -18,7 +18,7 @@ class ShowDialog extends StatelessWidget {
       insetPadding: const EdgeInsets.all(15),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
+        children: [
           Container(
             width: double.infinity,
             height: height,
@@ -28,15 +28,20 @@ class ShowDialog extends StatelessWidget {
             ),
             padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                CupertinoButton(
-                  child: const Icon(
-                    Icons.close_rounded,
-                    color: Colors.black,
-                    size: 38,
-                  ),
-                  onPressed: () => Navigator.pop(context),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    CupertinoButton(
+                      padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+                      child: const Icon(
+                        Icons.close_rounded,
+                        color: Colors.black,
+                        size: 38,
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),

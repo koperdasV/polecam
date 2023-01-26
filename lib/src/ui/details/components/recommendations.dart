@@ -58,10 +58,10 @@ class RecomendationsWidget extends StatelessWidget {
               ),
               Text(
                 detailModel.recommendations[index].amount,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 18,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w900,
+                  color: AppColor.titleColor,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],

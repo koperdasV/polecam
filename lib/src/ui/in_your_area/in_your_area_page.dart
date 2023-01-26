@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/home/blocs/blocs.dart';
 import 'package:polec/src/ui/home/model/yourArea/your_area_model.dart';
 
-import 'package:polec/src/ui/inYourArea/components/your_area_list.dart';
+import 'package:polec/src/ui/in_your_area/components/your_area_list.dart';
 import 'package:polec/src/ui/recommended/components/categorie_list_box.dart';
 import 'package:polec/src/ui/recommended/components/cupertino_nav_bar.dart';
 import 'package:polec/src/ui/recommended/components/search_box.dart';

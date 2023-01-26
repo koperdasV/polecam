@@ -44,18 +44,18 @@ class _MoneybackScreenState extends State<MoneybackScreen> {
   @override
   Widget build(BuildContext context) {
     final chartData = <ChartData>[
-      ChartData('April', random.nextDouble() * 40),
+      ChartData('Apr', random.nextDouble() * 40),
       ChartData('May', random.nextDouble() * 40),
       ChartData('June', random.nextDouble() * 40),
       ChartData('July', random.nextDouble() * 40),
-      ChartData('August', random.nextDouble() * 40),
-      ChartData('September', random.nextDouble() * 40),
-      ChartData('October', random.nextDouble() * 40),
-      ChartData('November', random.nextDouble() * 40),
-      ChartData('December', random.nextDouble() * 40),
-      ChartData('January', random.nextDouble() * 40),
-      ChartData('February', random.nextDouble() * 40),
-      ChartData('Mart', 28),
+      ChartData('Aug', random.nextDouble() * 40),
+      ChartData('Sept', random.nextDouble() * 40),
+      ChartData('Oct', random.nextDouble() * 40),
+      ChartData('Nov', random.nextDouble() * 40),
+      ChartData('Dec', random.nextDouble() * 40),
+      ChartData('Jan', random.nextDouble() * 40),
+      ChartData('Feb', random.nextDouble() * 40),
+      ChartData('Mar', random.nextDouble() * 40),
     ];
     return SingleChildScrollView(
       child: Column(

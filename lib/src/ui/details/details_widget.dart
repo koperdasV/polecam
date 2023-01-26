@@ -91,31 +91,32 @@ class DetailsWidget extends StatelessWidget {
                   builder: (context) => ShowDialog(
                     height: 270,
                     child: Column(
-                      children: const [
+                      children: [
                         Text(
                           'Recommend this place 3 friends',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.w900,
+                            color: AppColor.titleColor,
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(
                           'To get an additional 1% discount successfully recomend this place to 3 friends',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Colors.black,
+                            color: AppColor.titleColor,
                             fontWeight: FontWeight.normal,
                             fontSize: 14,
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Text(
                           '*successful recommendation is one that ended with a transaction.',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Colors.black,
+                            color: AppColor.titleColor,
                             fontWeight: FontWeight.normal,
                             fontSize: 12,
                           ),
