@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:polec/src/ui/home/data/recommended_repository.dart';
 import 'package:polec/src/ui/home/model/recommended/recommended_model.dart';
 
@@ -31,19 +32,26 @@ class RecommendedBloc extends Bloc<RecommendedEvent, RecommendedState> {
 
       final recommended = await _recommendedRepo.fetchRecommended();
 
-      return recommended.isNotEmpty
+      recommended.isNotEmpty
           ? emit(
               state.copyWith(
                 recommended: List.of(state.recommended)..addAll(recommended),
-                status: RecommendedStateStatus.success,
+                // status: RecommendedStateStatus.success,
               ),
             )
           : emit(
               state.copyWith(
                 recommended: recommended,
-                status: RecommendedStateStatus.success,
+                // status: RecommendedStateStatus.success,
               ),
             );
+      final position = await _recommendedRepo.getCurrentLocation();
+      return emit(
+        state.copyWith(
+          position: position,
+          status: RecommendedStateStatus.success,
+        ),
+      );
     } catch (e) {
       return emit(
         state.copyWith(

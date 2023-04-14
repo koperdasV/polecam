@@ -28,6 +28,8 @@ mixin _$RecommendedModel {
   String get description => throw _privateConstructorUsedError;
   List<String> get category => throw _privateConstructorUsedError;
   List<Address> get address => throw _privateConstructorUsedError;
+  List<Recommendations> get recommendations =>
+      throw _privateConstructorUsedError;
   bool get visibleOnMap => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,8 +42,7 @@ mixin _$RecommendedModel {
 abstract class $RecommendedModelCopyWith<$Res> {
   factory $RecommendedModelCopyWith(
           RecommendedModel value, $Res Function(RecommendedModel) then) =
-      _$RecommendedModelCopyWithImpl<$Res, RecommendedModel>;
-  @useResult
+      _$RecommendedModelCopyWithImpl<$Res>;
   $Res call(
       {String id,
       String image,
@@ -51,70 +52,74 @@ abstract class $RecommendedModelCopyWith<$Res> {
       String description,
       List<String> category,
       List<Address> address,
+      List<Recommendations> recommendations,
       bool visibleOnMap});
 }
 
 /// @nodoc
-class _$RecommendedModelCopyWithImpl<$Res, $Val extends RecommendedModel>
+class _$RecommendedModelCopyWithImpl<$Res>
     implements $RecommendedModelCopyWith<$Res> {
   _$RecommendedModelCopyWithImpl(this._value, this._then);
 
+  final RecommendedModel _value;
   // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final $Res Function(RecommendedModel) _then;
 
-  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? image = null,
-    Object? name = null,
-    Object? regularFee = null,
-    Object? www = null,
-    Object? description = null,
-    Object? category = null,
-    Object? address = null,
-    Object? visibleOnMap = null,
+    Object? id = freezed,
+    Object? image = freezed,
+    Object? name = freezed,
+    Object? regularFee = freezed,
+    Object? www = freezed,
+    Object? description = freezed,
+    Object? category = freezed,
+    Object? address = freezed,
+    Object? recommendations = freezed,
+    Object? visibleOnMap = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      image: null == image
+      image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      regularFee: null == regularFee
+      regularFee: regularFee == freezed
           ? _value.regularFee
           : regularFee // ignore: cast_nullable_to_non_nullable
               as double,
-      www: null == www
+      www: www == freezed
           ? _value.www
           : www // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      category: null == category
+      category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      address: null == address
+      address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as List<Address>,
-      visibleOnMap: null == visibleOnMap
+      recommendations: recommendations == freezed
+          ? _value.recommendations
+          : recommendations // ignore: cast_nullable_to_non_nullable
+              as List<Recommendations>,
+      visibleOnMap: visibleOnMap == freezed
           ? _value.visibleOnMap
           : visibleOnMap // ignore: cast_nullable_to_non_nullable
               as bool,
-    ) as $Val);
+    ));
   }
 }
 
@@ -125,7 +130,6 @@ abstract class _$$_RecommendedModelCopyWith<$Res>
           _$_RecommendedModel value, $Res Function(_$_RecommendedModel) then) =
       __$$_RecommendedModelCopyWithImpl<$Res>;
   @override
-  @useResult
   $Res call(
       {String id,
       String image,
@@ -135,64 +139,72 @@ abstract class _$$_RecommendedModelCopyWith<$Res>
       String description,
       List<String> category,
       List<Address> address,
+      List<Recommendations> recommendations,
       bool visibleOnMap});
 }
 
 /// @nodoc
 class __$$_RecommendedModelCopyWithImpl<$Res>
-    extends _$RecommendedModelCopyWithImpl<$Res, _$_RecommendedModel>
+    extends _$RecommendedModelCopyWithImpl<$Res>
     implements _$$_RecommendedModelCopyWith<$Res> {
   __$$_RecommendedModelCopyWithImpl(
       _$_RecommendedModel _value, $Res Function(_$_RecommendedModel) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_RecommendedModel));
 
-  @pragma('vm:prefer-inline')
+  @override
+  _$_RecommendedModel get _value => super._value as _$_RecommendedModel;
+
   @override
   $Res call({
-    Object? id = null,
-    Object? image = null,
-    Object? name = null,
-    Object? regularFee = null,
-    Object? www = null,
-    Object? description = null,
-    Object? category = null,
-    Object? address = null,
-    Object? visibleOnMap = null,
+    Object? id = freezed,
+    Object? image = freezed,
+    Object? name = freezed,
+    Object? regularFee = freezed,
+    Object? www = freezed,
+    Object? description = freezed,
+    Object? category = freezed,
+    Object? address = freezed,
+    Object? recommendations = freezed,
+    Object? visibleOnMap = freezed,
   }) {
     return _then(_$_RecommendedModel(
-      id: null == id
+      id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      image: null == image
+      image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      regularFee: null == regularFee
+      regularFee: regularFee == freezed
           ? _value.regularFee
           : regularFee // ignore: cast_nullable_to_non_nullable
               as double,
-      www: null == www
+      www: www == freezed
           ? _value.www
           : www // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      category: null == category
+      category: category == freezed
           ? _value._category
           : category // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      address: null == address
+      address: address == freezed
           ? _value._address
           : address // ignore: cast_nullable_to_non_nullable
               as List<Address>,
-      visibleOnMap: null == visibleOnMap
+      recommendations: recommendations == freezed
+          ? _value._recommendations
+          : recommendations // ignore: cast_nullable_to_non_nullable
+              as List<Recommendations>,
+      visibleOnMap: visibleOnMap == freezed
           ? _value.visibleOnMap
           : visibleOnMap // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -212,9 +224,11 @@ class _$_RecommendedModel implements _RecommendedModel {
       required this.description,
       required final List<String> category,
       required final List<Address> address,
+      required final List<Recommendations> recommendations,
       this.visibleOnMap = false})
       : _category = category,
-        _address = address;
+        _address = address,
+        _recommendations = recommendations;
 
   factory _$_RecommendedModel.fromJson(Map<String, dynamic> json) =>
       _$$_RecommendedModelFromJson(json);
@@ -245,13 +259,20 @@ class _$_RecommendedModel implements _RecommendedModel {
     return EqualUnmodifiableListView(_address);
   }
 
+  final List<Recommendations> _recommendations;
+  @override
+  List<Recommendations> get recommendations {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_recommendations);
+  }
+
   @override
   @JsonKey()
   final bool visibleOnMap;
 
   @override
   String toString() {
-    return 'RecommendedModel(id: $id, image: $image, name: $name, regularFee: $regularFee, www: $www, description: $description, category: $category, address: $address, visibleOnMap: $visibleOnMap)';
+    return 'RecommendedModel(id: $id, image: $image, name: $name, regularFee: $regularFee, www: $www, description: $description, category: $category, address: $address, recommendations: $recommendations, visibleOnMap: $visibleOnMap)';
   }
 
   @override
@@ -259,37 +280,39 @@ class _$_RecommendedModel implements _RecommendedModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RecommendedModel &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.image, image) || other.image == image) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.regularFee, regularFee) ||
-                other.regularFee == regularFee) &&
-            (identical(other.www, www) || other.www == www) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.image, image) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.regularFee, regularFee) &&
+            const DeepCollectionEquality().equals(other.www, www) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other._category, _category) &&
             const DeepCollectionEquality().equals(other._address, _address) &&
-            (identical(other.visibleOnMap, visibleOnMap) ||
-                other.visibleOnMap == visibleOnMap));
+            const DeepCollectionEquality()
+                .equals(other._recommendations, _recommendations) &&
+            const DeepCollectionEquality()
+                .equals(other.visibleOnMap, visibleOnMap));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      id,
-      image,
-      name,
-      regularFee,
-      www,
-      description,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(image),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(regularFee),
+      const DeepCollectionEquality().hash(www),
+      const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(_category),
       const DeepCollectionEquality().hash(_address),
-      visibleOnMap);
+      const DeepCollectionEquality().hash(_recommendations),
+      const DeepCollectionEquality().hash(visibleOnMap));
 
   @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
   _$$_RecommendedModelCopyWith<_$_RecommendedModel> get copyWith =>
       __$$_RecommendedModelCopyWithImpl<_$_RecommendedModel>(this, _$identity);
 
@@ -311,6 +334,7 @@ abstract class _RecommendedModel implements RecommendedModel {
       required final String description,
       required final List<String> category,
       required final List<Address> address,
+      required final List<Recommendations> recommendations,
       final bool visibleOnMap}) = _$_RecommendedModel;
 
   factory _RecommendedModel.fromJson(Map<String, dynamic> json) =
@@ -332,6 +356,8 @@ abstract class _RecommendedModel implements RecommendedModel {
   List<String> get category;
   @override
   List<Address> get address;
+  @override
+  List<Recommendations> get recommendations;
   @override
   bool get visibleOnMap;
   @override
@@ -364,8 +390,7 @@ mixin _$Address {
 /// @nodoc
 abstract class $AddressCopyWith<$Res> {
   factory $AddressCopyWith(Address value, $Res Function(Address) then) =
-      _$AddressCopyWithImpl<$Res, Address>;
-  @useResult
+      _$AddressCopyWithImpl<$Res>;
   $Res call(
       {String street,
       String city,
@@ -381,73 +406,69 @@ abstract class $AddressCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AddressCopyWithImpl<$Res, $Val extends Address>
-    implements $AddressCopyWith<$Res> {
+class _$AddressCopyWithImpl<$Res> implements $AddressCopyWith<$Res> {
   _$AddressCopyWithImpl(this._value, this._then);
 
+  final Address _value;
   // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final $Res Function(Address) _then;
 
-  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? street = null,
-    Object? city = null,
-    Object? code = null,
-    Object? country = null,
-    Object? lat = null,
-    Object? lng = null,
-    Object? phones = null,
-    Object? email = null,
-    Object? open = null,
+    Object? street = freezed,
+    Object? city = freezed,
+    Object? code = freezed,
+    Object? country = freezed,
+    Object? lat = freezed,
+    Object? lng = freezed,
+    Object? phones = freezed,
+    Object? email = freezed,
+    Object? open = freezed,
   }) {
     return _then(_value.copyWith(
-      street: null == street
+      street: street == freezed
           ? _value.street
           : street // ignore: cast_nullable_to_non_nullable
               as String,
-      city: null == city
+      city: city == freezed
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String,
-      code: null == code
+      code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      country: null == country
+      country: country == freezed
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
-      lat: null == lat
+      lat: lat == freezed
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
               as String,
-      lng: null == lng
+      lng: lng == freezed
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as String,
-      phones: null == phones
+      phones: phones == freezed
           ? _value.phones
           : phones // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      email: null == email
+      email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      open: null == open
+      open: open == freezed
           ? _value.open
           : open // ignore: cast_nullable_to_non_nullable
               as Open,
-    ) as $Val);
+    ));
   }
 
   @override
-  @pragma('vm:prefer-inline')
   $OpenCopyWith<$Res> get open {
     return $OpenCopyWith<$Res>(_value.open, (value) {
-      return _then(_value.copyWith(open: value) as $Val);
+      return _then(_value.copyWith(open: value));
     });
   }
 }
@@ -458,7 +479,6 @@ abstract class _$$_AddressCopyWith<$Res> implements $AddressCopyWith<$Res> {
           _$_Address value, $Res Function(_$_Address) then) =
       __$$_AddressCopyWithImpl<$Res>;
   @override
-  @useResult
   $Res call(
       {String street,
       String city,
@@ -475,59 +495,60 @@ abstract class _$$_AddressCopyWith<$Res> implements $AddressCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AddressCopyWithImpl<$Res>
-    extends _$AddressCopyWithImpl<$Res, _$_Address>
+class __$$_AddressCopyWithImpl<$Res> extends _$AddressCopyWithImpl<$Res>
     implements _$$_AddressCopyWith<$Res> {
   __$$_AddressCopyWithImpl(_$_Address _value, $Res Function(_$_Address) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_Address));
 
-  @pragma('vm:prefer-inline')
+  @override
+  _$_Address get _value => super._value as _$_Address;
+
   @override
   $Res call({
-    Object? street = null,
-    Object? city = null,
-    Object? code = null,
-    Object? country = null,
-    Object? lat = null,
-    Object? lng = null,
-    Object? phones = null,
-    Object? email = null,
-    Object? open = null,
+    Object? street = freezed,
+    Object? city = freezed,
+    Object? code = freezed,
+    Object? country = freezed,
+    Object? lat = freezed,
+    Object? lng = freezed,
+    Object? phones = freezed,
+    Object? email = freezed,
+    Object? open = freezed,
   }) {
     return _then(_$_Address(
-      street: null == street
+      street: street == freezed
           ? _value.street
           : street // ignore: cast_nullable_to_non_nullable
               as String,
-      city: null == city
+      city: city == freezed
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String,
-      code: null == code
+      code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
               as String,
-      country: null == country
+      country: country == freezed
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
-      lat: null == lat
+      lat: lat == freezed
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
               as String,
-      lng: null == lng
+      lng: lng == freezed
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as String,
-      phones: null == phones
+      phones: phones == freezed
           ? _value._phones
           : phones // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      email: null == email
+      email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      open: null == open
+      open: open == freezed
           ? _value.open
           : open // ignore: cast_nullable_to_non_nullable
               as Open,
@@ -587,25 +608,33 @@ class _$_Address implements _Address {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Address &&
-            (identical(other.street, street) || other.street == street) &&
-            (identical(other.city, city) || other.city == city) &&
-            (identical(other.code, code) || other.code == code) &&
-            (identical(other.country, country) || other.country == country) &&
-            (identical(other.lat, lat) || other.lat == lat) &&
-            (identical(other.lng, lng) || other.lng == lng) &&
+            const DeepCollectionEquality().equals(other.street, street) &&
+            const DeepCollectionEquality().equals(other.city, city) &&
+            const DeepCollectionEquality().equals(other.code, code) &&
+            const DeepCollectionEquality().equals(other.country, country) &&
+            const DeepCollectionEquality().equals(other.lat, lat) &&
+            const DeepCollectionEquality().equals(other.lng, lng) &&
             const DeepCollectionEquality().equals(other._phones, _phones) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.open, open) || other.open == open));
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality().equals(other.open, open));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, street, city, code, country, lat,
-      lng, const DeepCollectionEquality().hash(_phones), email, open);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(street),
+      const DeepCollectionEquality().hash(city),
+      const DeepCollectionEquality().hash(code),
+      const DeepCollectionEquality().hash(country),
+      const DeepCollectionEquality().hash(lat),
+      const DeepCollectionEquality().hash(lng),
+      const DeepCollectionEquality().hash(_phones),
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(open));
 
   @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
   _$$_AddressCopyWith<_$_Address> get copyWith =>
       __$$_AddressCopyWithImpl<_$_Address>(this, _$identity);
 
@@ -677,8 +706,7 @@ mixin _$Open {
 /// @nodoc
 abstract class $OpenCopyWith<$Res> {
   factory $OpenCopyWith(Open value, $Res Function(Open) then) =
-      _$OpenCopyWithImpl<$Res, Open>;
-  @useResult
+      _$OpenCopyWithImpl<$Res>;
   $Res call(
       {String monday,
       String tuesday,
@@ -690,56 +718,53 @@ abstract class $OpenCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$OpenCopyWithImpl<$Res, $Val extends Open>
-    implements $OpenCopyWith<$Res> {
+class _$OpenCopyWithImpl<$Res> implements $OpenCopyWith<$Res> {
   _$OpenCopyWithImpl(this._value, this._then);
 
+  final Open _value;
   // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final $Res Function(Open) _then;
 
-  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? monday = null,
-    Object? tuesday = null,
-    Object? wednesday = null,
-    Object? thursday = null,
-    Object? friday = null,
-    Object? saturday = null,
-    Object? sunday = null,
+    Object? monday = freezed,
+    Object? tuesday = freezed,
+    Object? wednesday = freezed,
+    Object? thursday = freezed,
+    Object? friday = freezed,
+    Object? saturday = freezed,
+    Object? sunday = freezed,
   }) {
     return _then(_value.copyWith(
-      monday: null == monday
+      monday: monday == freezed
           ? _value.monday
           : monday // ignore: cast_nullable_to_non_nullable
               as String,
-      tuesday: null == tuesday
+      tuesday: tuesday == freezed
           ? _value.tuesday
           : tuesday // ignore: cast_nullable_to_non_nullable
               as String,
-      wednesday: null == wednesday
+      wednesday: wednesday == freezed
           ? _value.wednesday
           : wednesday // ignore: cast_nullable_to_non_nullable
               as String,
-      thursday: null == thursday
+      thursday: thursday == freezed
           ? _value.thursday
           : thursday // ignore: cast_nullable_to_non_nullable
               as String,
-      friday: null == friday
+      friday: friday == freezed
           ? _value.friday
           : friday // ignore: cast_nullable_to_non_nullable
               as String,
-      saturday: null == saturday
+      saturday: saturday == freezed
           ? _value.saturday
           : saturday // ignore: cast_nullable_to_non_nullable
               as String,
-      sunday: null == sunday
+      sunday: sunday == freezed
           ? _value.sunday
           : sunday // ignore: cast_nullable_to_non_nullable
               as String,
-    ) as $Val);
+    ));
   }
 }
 
@@ -748,7 +773,6 @@ abstract class _$$_OpenCopyWith<$Res> implements $OpenCopyWith<$Res> {
   factory _$$_OpenCopyWith(_$_Open value, $Res Function(_$_Open) then) =
       __$$_OpenCopyWithImpl<$Res>;
   @override
-  @useResult
   $Res call(
       {String monday,
       String tuesday,
@@ -760,48 +784,50 @@ abstract class _$$_OpenCopyWith<$Res> implements $OpenCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_OpenCopyWithImpl<$Res> extends _$OpenCopyWithImpl<$Res, _$_Open>
+class __$$_OpenCopyWithImpl<$Res> extends _$OpenCopyWithImpl<$Res>
     implements _$$_OpenCopyWith<$Res> {
   __$$_OpenCopyWithImpl(_$_Open _value, $Res Function(_$_Open) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_Open));
 
-  @pragma('vm:prefer-inline')
+  @override
+  _$_Open get _value => super._value as _$_Open;
+
   @override
   $Res call({
-    Object? monday = null,
-    Object? tuesday = null,
-    Object? wednesday = null,
-    Object? thursday = null,
-    Object? friday = null,
-    Object? saturday = null,
-    Object? sunday = null,
+    Object? monday = freezed,
+    Object? tuesday = freezed,
+    Object? wednesday = freezed,
+    Object? thursday = freezed,
+    Object? friday = freezed,
+    Object? saturday = freezed,
+    Object? sunday = freezed,
   }) {
     return _then(_$_Open(
-      monday: null == monday
+      monday: monday == freezed
           ? _value.monday
           : monday // ignore: cast_nullable_to_non_nullable
               as String,
-      tuesday: null == tuesday
+      tuesday: tuesday == freezed
           ? _value.tuesday
           : tuesday // ignore: cast_nullable_to_non_nullable
               as String,
-      wednesday: null == wednesday
+      wednesday: wednesday == freezed
           ? _value.wednesday
           : wednesday // ignore: cast_nullable_to_non_nullable
               as String,
-      thursday: null == thursday
+      thursday: thursday == freezed
           ? _value.thursday
           : thursday // ignore: cast_nullable_to_non_nullable
               as String,
-      friday: null == friday
+      friday: friday == freezed
           ? _value.friday
           : friday // ignore: cast_nullable_to_non_nullable
               as String,
-      saturday: null == saturday
+      saturday: saturday == freezed
           ? _value.saturday
           : saturday // ignore: cast_nullable_to_non_nullable
               as String,
-      sunday: null == sunday
+      sunday: sunday == freezed
           ? _value.sunday
           : sunday // ignore: cast_nullable_to_non_nullable
               as String,
@@ -848,26 +874,29 @@ class _$_Open implements _Open {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Open &&
-            (identical(other.monday, monday) || other.monday == monday) &&
-            (identical(other.tuesday, tuesday) || other.tuesday == tuesday) &&
-            (identical(other.wednesday, wednesday) ||
-                other.wednesday == wednesday) &&
-            (identical(other.thursday, thursday) ||
-                other.thursday == thursday) &&
-            (identical(other.friday, friday) || other.friday == friday) &&
-            (identical(other.saturday, saturday) ||
-                other.saturday == saturday) &&
-            (identical(other.sunday, sunday) || other.sunday == sunday));
+            const DeepCollectionEquality().equals(other.monday, monday) &&
+            const DeepCollectionEquality().equals(other.tuesday, tuesday) &&
+            const DeepCollectionEquality().equals(other.wednesday, wednesday) &&
+            const DeepCollectionEquality().equals(other.thursday, thursday) &&
+            const DeepCollectionEquality().equals(other.friday, friday) &&
+            const DeepCollectionEquality().equals(other.saturday, saturday) &&
+            const DeepCollectionEquality().equals(other.sunday, sunday));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, monday, tuesday, wednesday,
-      thursday, friday, saturday, sunday);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(monday),
+      const DeepCollectionEquality().hash(tuesday),
+      const DeepCollectionEquality().hash(wednesday),
+      const DeepCollectionEquality().hash(thursday),
+      const DeepCollectionEquality().hash(friday),
+      const DeepCollectionEquality().hash(saturday),
+      const DeepCollectionEquality().hash(sunday));
 
   @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
   _$$_OpenCopyWith<_$_Open> get copyWith =>
       __$$_OpenCopyWithImpl<_$_Open>(this, _$identity);
 
@@ -908,4 +937,249 @@ abstract class _Open implements Open {
   @override
   @JsonKey(ignore: true)
   _$$_OpenCopyWith<_$_Open> get copyWith => throw _privateConstructorUsedError;
+}
+
+Recommendations _$RecommendationsFromJson(Map<String, dynamic> json) {
+  return _Recommendations.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Recommendations {
+  String get avatar => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get surname => throw _privateConstructorUsedError;
+  String? get subtitleYou => throw _privateConstructorUsedError;
+  String get subtitle => throw _privateConstructorUsedError;
+  String get amount => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RecommendationsCopyWith<Recommendations> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RecommendationsCopyWith<$Res> {
+  factory $RecommendationsCopyWith(
+          Recommendations value, $Res Function(Recommendations) then) =
+      _$RecommendationsCopyWithImpl<$Res>;
+  $Res call(
+      {String avatar,
+      String name,
+      String surname,
+      String? subtitleYou,
+      String subtitle,
+      String amount});
+}
+
+/// @nodoc
+class _$RecommendationsCopyWithImpl<$Res>
+    implements $RecommendationsCopyWith<$Res> {
+  _$RecommendationsCopyWithImpl(this._value, this._then);
+
+  final Recommendations _value;
+  // ignore: unused_field
+  final $Res Function(Recommendations) _then;
+
+  @override
+  $Res call({
+    Object? avatar = freezed,
+    Object? name = freezed,
+    Object? surname = freezed,
+    Object? subtitleYou = freezed,
+    Object? subtitle = freezed,
+    Object? amount = freezed,
+  }) {
+    return _then(_value.copyWith(
+      avatar: avatar == freezed
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      surname: surname == freezed
+          ? _value.surname
+          : surname // ignore: cast_nullable_to_non_nullable
+              as String,
+      subtitleYou: subtitleYou == freezed
+          ? _value.subtitleYou
+          : subtitleYou // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subtitle: subtitle == freezed
+          ? _value.subtitle
+          : subtitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_RecommendationsCopyWith<$Res>
+    implements $RecommendationsCopyWith<$Res> {
+  factory _$$_RecommendationsCopyWith(
+          _$_Recommendations value, $Res Function(_$_Recommendations) then) =
+      __$$_RecommendationsCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String avatar,
+      String name,
+      String surname,
+      String? subtitleYou,
+      String subtitle,
+      String amount});
+}
+
+/// @nodoc
+class __$$_RecommendationsCopyWithImpl<$Res>
+    extends _$RecommendationsCopyWithImpl<$Res>
+    implements _$$_RecommendationsCopyWith<$Res> {
+  __$$_RecommendationsCopyWithImpl(
+      _$_Recommendations _value, $Res Function(_$_Recommendations) _then)
+      : super(_value, (v) => _then(v as _$_Recommendations));
+
+  @override
+  _$_Recommendations get _value => super._value as _$_Recommendations;
+
+  @override
+  $Res call({
+    Object? avatar = freezed,
+    Object? name = freezed,
+    Object? surname = freezed,
+    Object? subtitleYou = freezed,
+    Object? subtitle = freezed,
+    Object? amount = freezed,
+  }) {
+    return _then(_$_Recommendations(
+      avatar: avatar == freezed
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      surname: surname == freezed
+          ? _value.surname
+          : surname // ignore: cast_nullable_to_non_nullable
+              as String,
+      subtitleYou: subtitleYou == freezed
+          ? _value.subtitleYou
+          : subtitleYou // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subtitle: subtitle == freezed
+          ? _value.subtitle
+          : subtitle // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Recommendations implements _Recommendations {
+  const _$_Recommendations(
+      {required this.avatar,
+      required this.name,
+      required this.surname,
+      required this.subtitleYou,
+      required this.subtitle,
+      required this.amount});
+
+  factory _$_Recommendations.fromJson(Map<String, dynamic> json) =>
+      _$$_RecommendationsFromJson(json);
+
+  @override
+  final String avatar;
+  @override
+  final String name;
+  @override
+  final String surname;
+  @override
+  final String? subtitleYou;
+  @override
+  final String subtitle;
+  @override
+  final String amount;
+
+  @override
+  String toString() {
+    return 'Recommendations(avatar: $avatar, name: $name, surname: $surname, subtitleYou: $subtitleYou, subtitle: $subtitle, amount: $amount)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Recommendations &&
+            const DeepCollectionEquality().equals(other.avatar, avatar) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.surname, surname) &&
+            const DeepCollectionEquality()
+                .equals(other.subtitleYou, subtitleYou) &&
+            const DeepCollectionEquality().equals(other.subtitle, subtitle) &&
+            const DeepCollectionEquality().equals(other.amount, amount));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(avatar),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(surname),
+      const DeepCollectionEquality().hash(subtitleYou),
+      const DeepCollectionEquality().hash(subtitle),
+      const DeepCollectionEquality().hash(amount));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_RecommendationsCopyWith<_$_Recommendations> get copyWith =>
+      __$$_RecommendationsCopyWithImpl<_$_Recommendations>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_RecommendationsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Recommendations implements Recommendations {
+  const factory _Recommendations(
+      {required final String avatar,
+      required final String name,
+      required final String surname,
+      required final String? subtitleYou,
+      required final String subtitle,
+      required final String amount}) = _$_Recommendations;
+
+  factory _Recommendations.fromJson(Map<String, dynamic> json) =
+      _$_Recommendations.fromJson;
+
+  @override
+  String get avatar;
+  @override
+  String get name;
+  @override
+  String get surname;
+  @override
+  String? get subtitleYou;
+  @override
+  String get subtitle;
+  @override
+  String get amount;
+  @override
+  @JsonKey(ignore: true)
+  _$$_RecommendationsCopyWith<_$_Recommendations> get copyWith =>
+      throw _privateConstructorUsedError;
 }

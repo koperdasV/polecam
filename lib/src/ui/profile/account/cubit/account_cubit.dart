@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
 import 'package:polec/src/ui/profile/statistics/statistics_widget.dart';
 
 part 'account_cubit_state.dart';
@@ -10,10 +9,18 @@ part 'account_cubit_state.dart';
 class AccountCubit extends Cubit<AccountEditState> {
   AccountCubit()
       : super(
-          const AccountEditState(false, {0: StatisticsWidget()}),
+          const AccountEditState(index: {0: StatisticsWidget()}),
         ) {
-    editingAcc(editingAccount: false);
-    editingIndex(index: {0: const StatisticsWidget()});
+    // editingAcc(editingAccount: false);
+    // editingIndex(index: {0: const StatisticsWidget()});
+  }
+
+  void change() {
+    return emit(
+      state.copyWith(
+        editing: !state.editing,
+      ),
+    );
   }
 
   Future<void> editingAcc({

@@ -9,21 +9,13 @@ import 'package:polec/src/ui/details/components/show_dialog.dart';
 import 'package:polec/src/ui/details/models/detail_model.dart';
 import 'package:polec/theme/app_colors.dart';
 
-class DetailsWidget extends StatefulWidget {
-  const DetailsWidget({
-    super.key,
-    required this.detailModel,
-  });
+class DetailsWidget extends StatelessWidget {
+  const DetailsWidget({super.key, required this.detailModel});
   final DetailModel detailModel;
 
   @override
-  State<DetailsWidget> createState() => _DetailsWidgetState();
-}
-
-class _DetailsWidgetState extends State<DetailsWidget> {
-  @override
   Widget build(BuildContext context) {
-    final amountParse = (widget.detailModel.regularFee) * 100;
+    final amountParse = (detailModel.regularFee) * 100;
     final percent = amountParse.toInt();
     final getRegularFee = percent + 1;
 
@@ -38,22 +30,23 @@ class _DetailsWidgetState extends State<DetailsWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ImageWidget(
-                image: widget.detailModel.image,
+                image: detailModel.image,
                 regularFee: percent,
-                detailModel: widget.detailModel,
+                detailModel: detailModel,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(
-                  widget.detailModel.name,
+                  detailModel.name,
                   style: const TextStyle(
                     fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w900,
+                    letterSpacing: 0.7,
                   ),
                 ),
               ),
               Text(
-                'Recommend by: Paweł Woźniak',
+                'Recommend by: ${detailModel.recommendations[0].name} ${detailModel.recommendations[0].surname}',
                 style: TextStyle(
                   fontSize: 12,
                   color: AppColor.subTitleColor,
@@ -86,7 +79,8 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                     style: const TextStyle(
                       fontSize: 20,
                       color: AppColors.pecent,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 0.7,
                     ),
                   ),
                 ],
@@ -95,33 +89,34 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                 onTap: () => showDialog(
                   context: context,
                   builder: (context) => ShowDialog(
-                    height: 250,
+                    height: 270,
                     child: Column(
-                      children: const [
+                      children: [
                         Text(
                           'Recommend this place 3 friends',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w900,
+                            color: AppColor.titleColor,
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(
                           'To get an additional 1% discount successfully recomend this place to 3 friends',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Colors.black,
+                            color: AppColor.titleColor,
                             fontWeight: FontWeight.normal,
-                            fontSize: 12,
+                            fontSize: 14,
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Text(
                           '*successful recommendation is one that ended with a transaction.',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Colors.black,
+                            color: AppColor.titleColor,
                             fontWeight: FontWeight.normal,
                             fontSize: 12,
                           ),
@@ -130,31 +125,22 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                     ),
                   ),
                 ),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    gradient: const LinearGradient(
-                      colors: [
-                        AppColors.gradientStart,
-                        AppColors.gradientEnd,
-                      ],
-                    ),
-                  ),
+                child: Container(
+                  height: 30,
+                  decoration: AppColor.getColorDetails,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 4,
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.baseline,
-                      textBaseline: TextBaseline.ideographic,
                       children: [
-                        const Text(
-                          'Get ',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.white,
-                            fontWeight: FontWeight.normal,
+                        const Padding(
+                          padding: EdgeInsets.only(right: 4),
+                          child: Text(
+                            'Get ',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                              fontWeight: FontWeight.normal,
+                            ),
                           ),
                         ),
                         Text(
@@ -162,7 +148,8 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                           style: const TextStyle(
                             fontSize: 20,
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 0.5,
                           ),
                         ),
                       ],
@@ -179,9 +166,13 @@ class _DetailsWidgetState extends State<DetailsWidget> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: RecommendedButton(
-            image: Image.asset(
-              AppImages.logo,
-              color: Colors.white,
+            image: SizedBox(
+              width: 30,
+              height: 30,
+              child: Image.asset(
+                AppImages.logo,
+                color: Colors.white,
+              ),
             ),
             textButton: 'Recommend to friend',
             gradient: const LinearGradient(
@@ -200,13 +191,15 @@ class _DetailsWidgetState extends State<DetailsWidget> {
           child: Text(
             'Recommendations',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 17,
               color: AppColor.titleColor,
+              fontWeight: FontWeight.w900,
+              letterSpacing: 0.9,
             ),
           ),
         ),
         RecomendationsWidget(
-          detailModel: widget.detailModel,
+          detailModel: detailModel,
         ),
       ],
     );

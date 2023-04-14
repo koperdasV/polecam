@@ -12,15 +12,15 @@ String detailsModelToJson(DetailModel data) => json.encode(data.toJson());
 @freezed
 class DetailModel with _$DetailModel {
   const factory DetailModel({
-    required String id,
-    required String image,
-    required String name,
-    required double regularFee,
-    required String www,
-    required String description,
-    required List<Address> address,
-    List<Recommendation>? recommendations,
-    required List<String> category,
+   required String id,
+   required String image,
+   required String name,
+   required double regularFee,
+   required String www,
+   required String description,
+   required List<Address> address,
+    required List<Recommendations> recommendations,
+  required  List<String> category,
   }) = _DetailModel;
 
   factory DetailModel.fromJson(Map<String, dynamic> json) =>
@@ -60,16 +60,16 @@ class Open with _$Open {
 }
 
 @freezed
-abstract class Recommendation with _$Recommendation {
-  const factory Recommendation({
-    String? avatar,
-    String? name,
-    String? surname,
-    String? subtitleYou,
-    String? subtitle,
-    String? amount,
-  }) = _Recommendation;
+class Recommendations with _$Recommendations {
+  const factory Recommendations({
+    required String avatar,
+    required String name,
+    required String surname,
+    required String? subtitleYou,
+    required String subtitle,
+    required String amount,
+  }) = _Recommendations;
 
-  factory Recommendation.fromJson(Map<String, dynamic> json) =>
-      _$RecommendationFromJson(json);
+  factory Recommendations.fromJson(Map<String, dynamic> json) =>
+      _$RecommendationsFromJson(json);
 }

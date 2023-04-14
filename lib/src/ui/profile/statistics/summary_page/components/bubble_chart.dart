@@ -60,16 +60,16 @@ class BubbleChartPainter extends CustomPainter {
 
     final a = _getMaxRadius(size);
     final h = a * math.cos(_angleStep / 2);
-    final b = 2 * a * math.sin(_angleStep / 2);
+    final b = 2 * a * math.sin(_angleStep / 3);
     final r = b / 2 * math.sqrt((2 * a - b) / (2 * a + b));
     final maxVertexRadius = r * 0.8;
-    final maxValueLength = (h - r) * 1;
+    final maxValueLength = h;
 
     data.asMap().forEach((index, entry) {
       final valueRadius = maxValueLength / _maxValue * entry.value;
       final vertexRadius = maxVertexRadius / _maxValue * entry.value;
 
-      final angle = startAngle + _angleStep * index;
+      final angle = startAngle + _angleStep * index * (index  >= data.length/2 +1 ? 1 : 0.9);
 
       final point = center +
           Offset(
@@ -83,7 +83,7 @@ class BubbleChartPainter extends CustomPainter {
           end: Alignment.bottomCenter,
           colors: entry.colors,
         ).createShader(Rect.fromCenter(center: center, width: a, height: a))
-        ..strokeWidth = 4;
+        ..strokeWidth = 2;
       canvas.drawLine(center, point, paint);
 
       final vertexPaint = Paint()
@@ -133,7 +133,8 @@ class BubbleChartPainter extends CustomPainter {
         text: TextSpan(
           text: entry.label,
           style: TextStyle(
-            fontSize: 14,
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
             color: AppColor.categorieColor,
           ),
         ),
@@ -180,8 +181,8 @@ class BubbleChartPainter extends CustomPainter {
     });
 
     canvas
-      ..drawCircle(center, 8, Paint()..color = Colors.grey)
-      ..drawCircle(center, 3, Paint()..color = Colors.white);
+      ..drawCircle(center, 5, Paint()..color = Colors.grey)
+      ..drawCircle(center, 2, Paint()..color = Colors.white);
   }
 
   @override

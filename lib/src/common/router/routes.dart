@@ -3,10 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:polec/src/feature/details/widget/details_screen.dart';
-import 'package:polec/src/feature/home/navigation_cubit/navigation_bar_cubit.dart';
+import 'package:polec/src/feature/home/provider/navigation_bar_provider.dart';
 import 'package:polec/src/feature/home/widget/home_screen.dart';
 import 'package:polec/src/feature/not_found/widget/not_found_screen.dart';
 import 'package:polec/src/feature/not_recommend/widget/not_recomend_screen.dart';
+import 'package:polec/src/feature/profile/provider/profile_provider.dart';
 import 'package:polec/src/feature/registration/widget/registration_screen.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/details/data/detail_repository.dart';
@@ -72,9 +73,18 @@ class HomeRoute extends GoRouteData {
           )..add(const LoadFavorite()),
         ),
         BlocProvider(create: (context) => AccountCubit()),
-        BlocProvider(create: (context) => NavigationCubit()),
       ],
-      child: const HomeScreen(),
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<BottomNavigationBarProvider>(
+            create: (context) => BottomNavigationBarProvider(),
+          ),
+          ChangeNotifierProvider<SlidingBarProvider>(
+            create: (context) => SlidingBarProvider(),
+          ),
+        ],
+        child: const HomeScreen(),
+      ),
     );
   }
 }

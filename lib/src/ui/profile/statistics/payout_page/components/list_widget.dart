@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/journal/bloc/journals_bloc.dart';
-import 'package:polec/src/ui/journal/model/journal/journal_model.dart';
 
 class ListWidget extends StatelessWidget {
   const ListWidget({
@@ -55,15 +54,11 @@ class ListWidget extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Row(
-                        children: [
-                          Text(
-                            money,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
+                      Text(
+                        money,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
                     ],
                   ),

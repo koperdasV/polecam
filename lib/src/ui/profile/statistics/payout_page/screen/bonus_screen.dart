@@ -42,18 +42,18 @@ class _BonusScreenState extends State<BonusScreen> {
   @override
   Widget build(BuildContext context) {
     final chartData = <ChartData>[
-      ChartData('April', random.nextDouble() * 300),
+      ChartData('Apr', random.nextDouble() * 300),
       ChartData('May', random.nextDouble() * 300),
       ChartData('June', random.nextDouble() * 300),
       ChartData('July', random.nextDouble() * 300),
-      ChartData('August', random.nextDouble() * 300),
-      ChartData('September', random.nextDouble() * 300),
-      ChartData('October', random.nextDouble() * 300),
-      ChartData('November', random.nextDouble() * 300),
-      ChartData('December', random.nextDouble() * 300),
-      ChartData('January', random.nextDouble() * 300),
-      ChartData('February', random.nextDouble() * 300),
-      ChartData('Mart', random.nextDouble() * 300),
+      ChartData('Aug', random.nextDouble() * 300),
+      ChartData('Sept', random.nextDouble() * 300),
+      ChartData('Oct', random.nextDouble() * 300),
+      ChartData('Nov', random.nextDouble() * 300),
+      ChartData('Dec', random.nextDouble() * 300),
+      ChartData('Jan', random.nextDouble() * 300),
+      ChartData('Feb', random.nextDouble() * 300),
+      ChartData('Mar', random.nextDouble() * 300),
     ];
     return SingleChildScrollView(
       child: Column(
@@ -63,9 +63,10 @@ class _BonusScreenState extends State<BonusScreen> {
             tooltipBehavior: _tooltipBehavior,
             chartData: chartData,
             colorDiagram: AppColor.bonusDiagramColor,
+            colorMarker: AppColor.bonusDiagramColor,
           ),
           const TitleWidget(
-            title: 'Recommendations',
+            title: 'Bonus',
             fontSizeTitle: 16,
             subTitle: r'248.88$',
           ),

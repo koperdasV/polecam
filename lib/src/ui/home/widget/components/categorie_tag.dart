@@ -12,11 +12,9 @@ class CategorieTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 150,
+      width: double.maxFinite,
       height: 50,
       child: ListView.builder(
-        //reverse: true,
-        //shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: tag.length,
@@ -33,8 +31,10 @@ class CategorieTag extends StatelessWidget {
                 child: Text(
                   tag[index],
                   style: const TextStyle(
-                    fontSize: 12,
+                    fontSize: 13,
                     color: Colors.white,
+                    fontWeight: FontWeight.normal,
+                    fontFamily: 'SFProDisplay',
                   ),
                 ),
               ),

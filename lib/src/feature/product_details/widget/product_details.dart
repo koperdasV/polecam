@@ -49,9 +49,10 @@ class _ProductDetailsState extends State<ProductDetails> {
               const Center(child: CircularProgressIndicator.adaptive()),
           notFound: () => const Center(child: Text('not found product by id')),
           loaded: (productDetails) => Center(
-              child: ProductDetailsBody(
-            detailModel: productDetails,
-          )),
+            child: ProductDetailsBody(
+              detailModel: productDetails,
+            ),
+          ),
           error: (errorMessage) => const Center(child: FlutterLogo()),
         ),
       ),

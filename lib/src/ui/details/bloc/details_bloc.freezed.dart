@@ -25,7 +25,7 @@ mixin _$DetailsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String productId, String productType)? loadProduct,
+    TResult Function(String productId, String productType)? loadProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,7 +41,7 @@ mixin _$DetailsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadProduct value)? loadProduct,
+    TResult Function(_LoadProduct value)? loadProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,37 +60,33 @@ mixin _$DetailsEvent {
 abstract class $DetailsEventCopyWith<$Res> {
   factory $DetailsEventCopyWith(
           DetailsEvent value, $Res Function(DetailsEvent) then) =
-      _$DetailsEventCopyWithImpl<$Res, DetailsEvent>;
-  @useResult
+      _$DetailsEventCopyWithImpl<$Res>;
   $Res call({String productId, String productType});
 }
 
 /// @nodoc
-class _$DetailsEventCopyWithImpl<$Res, $Val extends DetailsEvent>
-    implements $DetailsEventCopyWith<$Res> {
+class _$DetailsEventCopyWithImpl<$Res> implements $DetailsEventCopyWith<$Res> {
   _$DetailsEventCopyWithImpl(this._value, this._then);
 
+  final DetailsEvent _value;
   // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final $Res Function(DetailsEvent) _then;
 
-  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? productId = null,
-    Object? productType = null,
+    Object? productId = freezed,
+    Object? productType = freezed,
   }) {
     return _then(_value.copyWith(
-      productId: null == productId
+      productId: productId == freezed
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
               as String,
-      productType: null == productType
+      productType: productType == freezed
           ? _value.productType
           : productType // ignore: cast_nullable_to_non_nullable
               as String,
-    ) as $Val);
+    ));
   }
 }
 
@@ -101,30 +97,31 @@ abstract class _$$_LoadProductCopyWith<$Res>
           _$_LoadProduct value, $Res Function(_$_LoadProduct) then) =
       __$$_LoadProductCopyWithImpl<$Res>;
   @override
-  @useResult
   $Res call({String productId, String productType});
 }
 
 /// @nodoc
 class __$$_LoadProductCopyWithImpl<$Res>
-    extends _$DetailsEventCopyWithImpl<$Res, _$_LoadProduct>
+    extends _$DetailsEventCopyWithImpl<$Res>
     implements _$$_LoadProductCopyWith<$Res> {
   __$$_LoadProductCopyWithImpl(
       _$_LoadProduct _value, $Res Function(_$_LoadProduct) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_LoadProduct));
 
-  @pragma('vm:prefer-inline')
+  @override
+  _$_LoadProduct get _value => super._value as _$_LoadProduct;
+
   @override
   $Res call({
-    Object? productId = null,
-    Object? productType = null,
+    Object? productId = freezed,
+    Object? productType = freezed,
   }) {
     return _then(_$_LoadProduct(
-      productId: null == productId
+      productId: productId == freezed
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
               as String,
-      productType: null == productType
+      productType: productType == freezed
           ? _value.productType
           : productType // ignore: cast_nullable_to_non_nullable
               as String,
@@ -152,18 +149,19 @@ class _$_LoadProduct implements _LoadProduct {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadProduct &&
-            (identical(other.productId, productId) ||
-                other.productId == productId) &&
-            (identical(other.productType, productType) ||
-                other.productType == productType));
+            const DeepCollectionEquality().equals(other.productId, productId) &&
+            const DeepCollectionEquality()
+                .equals(other.productType, productType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, productId, productType);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(productId),
+      const DeepCollectionEquality().hash(productType));
 
   @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
   _$$_LoadProductCopyWith<_$_LoadProduct> get copyWith =>
       __$$_LoadProductCopyWithImpl<_$_LoadProduct>(this, _$identity);
 
@@ -178,7 +176,7 @@ class _$_LoadProduct implements _LoadProduct {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String productId, String productType)? loadProduct,
+    TResult Function(String productId, String productType)? loadProduct,
   }) {
     return loadProduct?.call(productId, productType);
   }
@@ -206,7 +204,7 @@ class _$_LoadProduct implements _LoadProduct {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadProduct value)? loadProduct,
+    TResult Function(_LoadProduct value)? loadProduct,
   }) {
     return loadProduct?.call(this);
   }
@@ -251,10 +249,10 @@ mixin _$DetailsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(DetailModel productDetails)? loaded,
-    TResult? Function(String errorMessage)? error,
-    TResult? Function()? notFound,
+    TResult Function()? initial,
+    TResult Function(DetailModel productDetails)? loaded,
+    TResult Function(String errorMessage)? error,
+    TResult Function()? notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -276,10 +274,10 @@ mixin _$DetailsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_NotFound value)? notFound,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_NotFound value)? notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -297,18 +295,16 @@ mixin _$DetailsState {
 abstract class $DetailsStateCopyWith<$Res> {
   factory $DetailsStateCopyWith(
           DetailsState value, $Res Function(DetailsState) then) =
-      _$DetailsStateCopyWithImpl<$Res, DetailsState>;
+      _$DetailsStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$DetailsStateCopyWithImpl<$Res, $Val extends DetailsState>
-    implements $DetailsStateCopyWith<$Res> {
+class _$DetailsStateCopyWithImpl<$Res> implements $DetailsStateCopyWith<$Res> {
   _$DetailsStateCopyWithImpl(this._value, this._then);
 
+  final DetailsState _value;
   // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final $Res Function(DetailsState) _then;
 }
 
 /// @nodoc
@@ -319,11 +315,13 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$DetailsStateCopyWithImpl<$Res, _$_Initial>
+class __$$_InitialCopyWithImpl<$Res> extends _$DetailsStateCopyWithImpl<$Res>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_Initial));
+
+  @override
+  _$_Initial get _value => super._value as _$_Initial;
 }
 
 /// @nodoc
@@ -359,10 +357,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(DetailModel productDetails)? loaded,
-    TResult? Function(String errorMessage)? error,
-    TResult? Function()? notFound,
+    TResult Function()? initial,
+    TResult Function(DetailModel productDetails)? loaded,
+    TResult Function(String errorMessage)? error,
+    TResult Function()? notFound,
   }) {
     return initial?.call();
   }
@@ -396,10 +394,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_NotFound value)? notFound,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_NotFound value)? notFound,
   }) {
     return initial?.call(this);
   }
@@ -428,26 +426,26 @@ abstract class _Initial implements DetailsState {
 abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
-  @useResult
   $Res call({DetailModel productDetails});
 
   $DetailModelCopyWith<$Res> get productDetails;
 }
 
 /// @nodoc
-class __$$_LoadedCopyWithImpl<$Res>
-    extends _$DetailsStateCopyWithImpl<$Res, _$_Loaded>
+class __$$_LoadedCopyWithImpl<$Res> extends _$DetailsStateCopyWithImpl<$Res>
     implements _$$_LoadedCopyWith<$Res> {
   __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_Loaded));
 
-  @pragma('vm:prefer-inline')
+  @override
+  _$_Loaded get _value => super._value as _$_Loaded;
+
   @override
   $Res call({
-    Object? productDetails = null,
+    Object? productDetails = freezed,
   }) {
     return _then(_$_Loaded(
-      productDetails: null == productDetails
+      productDetails: productDetails == freezed
           ? _value.productDetails
           : productDetails // ignore: cast_nullable_to_non_nullable
               as DetailModel,
@@ -455,7 +453,6 @@ class __$$_LoadedCopyWithImpl<$Res>
   }
 
   @override
-  @pragma('vm:prefer-inline')
   $DetailModelCopyWith<$Res> get productDetails {
     return $DetailModelCopyWith<$Res>(_value.productDetails, (value) {
       return _then(_value.copyWith(productDetails: value));
@@ -481,16 +478,16 @@ class _$_Loaded implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loaded &&
-            (identical(other.productDetails, productDetails) ||
-                other.productDetails == productDetails));
+            const DeepCollectionEquality()
+                .equals(other.productDetails, productDetails));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, productDetails);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(productDetails));
 
   @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
 
@@ -508,10 +505,10 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(DetailModel productDetails)? loaded,
-    TResult? Function(String errorMessage)? error,
-    TResult? Function()? notFound,
+    TResult Function()? initial,
+    TResult Function(DetailModel productDetails)? loaded,
+    TResult Function(String errorMessage)? error,
+    TResult Function()? notFound,
   }) {
     return loaded?.call(productDetails);
   }
@@ -545,10 +542,10 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_NotFound value)? notFound,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_NotFound value)? notFound,
   }) {
     return loaded?.call(this);
   }
@@ -583,24 +580,24 @@ abstract class _Loaded implements DetailsState {
 abstract class _$$_ErrorCopyWith<$Res> {
   factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
       __$$_ErrorCopyWithImpl<$Res>;
-  @useResult
   $Res call({String errorMessage});
 }
 
 /// @nodoc
-class __$$_ErrorCopyWithImpl<$Res>
-    extends _$DetailsStateCopyWithImpl<$Res, _$_Error>
+class __$$_ErrorCopyWithImpl<$Res> extends _$DetailsStateCopyWithImpl<$Res>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_Error));
 
-  @pragma('vm:prefer-inline')
+  @override
+  _$_Error get _value => super._value as _$_Error;
+
   @override
   $Res call({
-    Object? errorMessage = null,
+    Object? errorMessage = freezed,
   }) {
     return _then(_$_Error(
-      errorMessage: null == errorMessage
+      errorMessage: errorMessage == freezed
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
@@ -626,16 +623,16 @@ class _$_Error implements _Error {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Error &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+            const DeepCollectionEquality()
+                .equals(other.errorMessage, errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, errorMessage);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(errorMessage));
 
   @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
   _$$_ErrorCopyWith<_$_Error> get copyWith =>
       __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
 
@@ -653,10 +650,10 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(DetailModel productDetails)? loaded,
-    TResult? Function(String errorMessage)? error,
-    TResult? Function()? notFound,
+    TResult Function()? initial,
+    TResult Function(DetailModel productDetails)? loaded,
+    TResult Function(String errorMessage)? error,
+    TResult Function()? notFound,
   }) {
     return error?.call(errorMessage);
   }
@@ -690,10 +687,10 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_NotFound value)? notFound,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_NotFound value)? notFound,
   }) {
     return error?.call(this);
   }
@@ -731,12 +728,14 @@ abstract class _$$_NotFoundCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_NotFoundCopyWithImpl<$Res>
-    extends _$DetailsStateCopyWithImpl<$Res, _$_NotFound>
+class __$$_NotFoundCopyWithImpl<$Res> extends _$DetailsStateCopyWithImpl<$Res>
     implements _$$_NotFoundCopyWith<$Res> {
   __$$_NotFoundCopyWithImpl(
       _$_NotFound _value, $Res Function(_$_NotFound) _then)
-      : super(_value, _then);
+      : super(_value, (v) => _then(v as _$_NotFound));
+
+  @override
+  _$_NotFound get _value => super._value as _$_NotFound;
 }
 
 /// @nodoc
@@ -772,10 +771,10 @@ class _$_NotFound implements _NotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(DetailModel productDetails)? loaded,
-    TResult? Function(String errorMessage)? error,
-    TResult? Function()? notFound,
+    TResult Function()? initial,
+    TResult Function(DetailModel productDetails)? loaded,
+    TResult Function(String errorMessage)? error,
+    TResult Function()? notFound,
   }) {
     return notFound?.call();
   }
@@ -809,10 +808,10 @@ class _$_NotFound implements _NotFound {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Error value)? error,
-    TResult? Function(_NotFound value)? notFound,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_NotFound value)? notFound,
   }) {
     return notFound?.call(this);
   }

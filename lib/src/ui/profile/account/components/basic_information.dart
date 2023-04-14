@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
-import 'package:polec/src/common/models/user_preferences.dart';
 import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
 
 class BasicInformationWidget extends StatelessWidget {
@@ -11,9 +8,6 @@ class BasicInformationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final accountModel = context.read<AccountBloc>().state.accountModel;
-    // if (accountModel == null) return const SizedBox.shrink();
-
     final titleTextStyle = TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.normal,

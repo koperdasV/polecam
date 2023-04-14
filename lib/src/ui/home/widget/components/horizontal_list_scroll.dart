@@ -19,32 +19,35 @@ class HorizontalListScroll extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RecommendedBloc, RecommendedState>(
-      builder: (context, state) {
+    return BlocConsumer<RecommendedBloc, RecommendedState>(
+      listener: (context, state) {
         if (state.status == RecommendedStateStatus.failure &&
             state.errorMessage.isNotEmpty) {
           context.showErrorBar<String>(
             content: Text(state.errorMessage),
           );
         }
+      },
+      builder: (context, state) {
         if (state.status == RecommendedStateStatus.loading) {
           return const Center(
             child: CupertinoActivityIndicator(),
           );
-        }
-        if (state.status == RecommendedStateStatus.success) {
+        } else {
           return ListView.builder(
+            padding: const EdgeInsets.only(left: 16),
             scrollDirection: Axis.horizontal,
             itemCount: itemCount,
             itemBuilder: (context, index) {
-              return CardWidget(
-                tmp: tmp[index],
-                fontSize: fontSize,
+              return Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: CardWidget(
+                  tmp: tmp[index],
+                  fontSize: fontSize,
+                ),
               );
             },
           );
-        } else {
-          return const Text('Error');
         }
       },
     );

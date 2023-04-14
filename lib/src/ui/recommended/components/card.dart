@@ -132,12 +132,14 @@ class CardWidget extends StatelessWidget {
               tmp.name,
               style: const TextStyle(
                 fontSize: 18,
+                fontWeight: FontWeight.w900,
+                letterSpacing: 0.6,
               ),
             ),
           ),
           Text(
             maxLines: 1,
-            tmp.description,
+            'Recommend by: ${tmp.recommendations[0].name} ${tmp.recommendations[0].surname}',
             style: TextStyle(
               fontSize: 12,
               color: AppColor.subTitleColor,

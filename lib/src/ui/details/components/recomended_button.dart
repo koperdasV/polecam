@@ -1,7 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:polec/resourses/app_images.dart';
-import 'package:polec/theme/app_colors.dart';
 
 class RecommendedButton extends StatelessWidget {
   const RecommendedButton({
@@ -24,31 +21,31 @@ class RecommendedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 50,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: color,
-        gradient: gradient,
-      ),
-      child: CupertinoButton(
-        onPressed: onPressed,
+    return CupertinoButton(
+      padding: EdgeInsets.zero,
+      onPressed: onPressed,
+      child: Container(
+        width: double.infinity,
+        height: 44,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: color,
+          gradient: gradient,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(child: image),
-            // Image.asset(
-            //   AppImages.logo,
-            //   color: imageColor,
-            // ),
-            const SizedBox(width: 5),
-            Text(
-              textButton,
-              style: TextStyle(
-                color: textColor,
-                fontSize: 17,
-                fontWeight: FontWeight.w700,
+            SizedBox(child: image),
+            Padding(
+              padding: const EdgeInsets.only(left: 6),
+              child: Text(
+                textButton,
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 0.7,
+                ),
               ),
             ),
           ],

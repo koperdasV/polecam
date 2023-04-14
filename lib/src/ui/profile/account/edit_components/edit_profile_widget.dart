@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/resources/colors.dart';
-import 'package:polec/src/common/models/user_preferences.dart';
 import 'package:polec/src/ui/details/components/recomended_button.dart';
-import 'package:polec/src/ui/profile/account/edit_components/account_widget.dart';
-import 'package:polec/src/ui/profile/account/bloc/account_bloc.dart';
-import 'package:polec/src/ui/profile/account/components/profile_text_field.dart';
 import 'package:polec/src/ui/profile/account/edit_components/edit_basic_information.dart';
 import 'package:polec/src/ui/profile/account/edit_components/edit_password.dart';
-import 'package:polec/src/ui/profile/account/edit_components/gender_nav_bar.dart';
-import 'package:polec/src/ui/profile/account/model/account_model.dart';
-import 'package:polec/src/ui/profile/components/nav_bar/navigation_bar.dart';
 import 'package:polec/theme/app_colors.dart';
 
-class EditProfileWidget extends StatefulWidget {
+class EditProfileWidget extends StatelessWidget {
   const EditProfileWidget({
     super.key,
     required this.emailController,
@@ -38,13 +30,8 @@ class EditProfileWidget extends StatefulWidget {
   final TextEditingController peselController;
   final TextEditingController dateOfBirthController;
 
-  final VoidCallback onPressed;
+  final Function() onPressed;
 
-  @override
-  State<EditProfileWidget> createState() => _EditProfileWidgetState();
-}
-
-class _EditProfileWidgetState extends State<EditProfileWidget> {
   @override
   Widget build(BuildContext context) {
     final textStyle = TextStyle(
@@ -61,43 +48,47 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Basic Information',
-                style: textStyle,
-              ),
-              const SizedBox(height: 20),
-              EditBasicInformation(
-                dateOfBirthController: widget.dateOfBirthController,
-                emailController: widget.emailController,
-                nameController: widget.nameController,
-                surnameController: widget.surnameController,
-                peselController: widget.peselController,
-                phoneController: widget.phoneController,
-                postCodeController: widget.postCodeController,
-                cityController: widget.cityController,
-                streetController: widget.streetController,
-              ),
-              const SizedBox(height: 20),
-              Text(
-                'Password',
-                style: textStyle,
-              ),
-              const SizedBox(height: 20),
-              const EditPassword(),
-              const SizedBox(height: 10),
-              RecommendedButton(
-                textButton: 'Save',
-                gradient: const LinearGradient(
-                  colors: [
-                    AppColors.gradientStart,
-                    AppColors.gradientEnd,
-                  ],
+              Padding(
+                padding: const EdgeInsets.only(top: 17, bottom: 7),
+                child: Text(
+                  'Basic Information',
+                  style: textStyle,
                 ),
-                imageColor: Colors.white,
-                textColor: Colors.white,
-                onPressed: widget.onPressed,
               ),
-              const SizedBox(height: 10),
+              EditBasicInformation(
+                dateOfBirthController: dateOfBirthController,
+                emailController: emailController,
+                nameController: nameController,
+                surnameController: surnameController,
+                peselController: peselController,
+                phoneController: phoneController,
+                postCodeController: postCodeController,
+                cityController: cityController,
+                streetController: streetController,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 13),
+                child: Text(
+                  'Password',
+                  style: textStyle,
+                ),
+              ),
+              const EditPassword(),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 25),
+                child: RecommendedButton(
+                  textButton: 'Save',
+                  gradient: const LinearGradient(
+                    colors: [
+                      AppColors.gradientStart,
+                      AppColors.gradientEnd,
+                    ],
+                  ),
+                  imageColor: Colors.white,
+                  textColor: Colors.white,
+                  onPressed: onPressed,
+                ),
+              ),
             ],
           ),
         ),

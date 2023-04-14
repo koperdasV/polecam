@@ -37,11 +37,13 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
             ),
             Padding(
               padding: const EdgeInsets.all(12),
-              child: Text(
-                widget.journalModel.target.name,
-                style: const TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w800,
+              child: FittedBox(
+                child: Text(
+                  widget.journalModel.target.name,
+                  style: const TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
               ),
             ),
@@ -83,7 +85,7 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
       primaryColor: AppColor.textButtonColor,
       backgroundType: BackgroundType.solid,
       width: 270,
-      height: 50,
+      height: 60,
       toastDuration: const Duration(seconds: 2),
       description: Row(
         mainAxisAlignment: MainAxisAlignment.center,

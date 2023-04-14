@@ -7,16 +7,12 @@ abstract class AppColor {
   static Color titleColor = const Color.fromRGBO(65, 65, 65, 1);
   static Color subTitleColor = const Color.fromRGBO(159, 162, 177, 1);
   static Color navBarColor = const Color.fromRGBO(249, 249, 249, 1);
+  static Color navigatorColor = const Color.fromRGBO(118, 118, 128, 0.28);
   static Color favoriteButtonColor = const Color.fromRGBO(20, 27, 64, 1);
   static Color progressIndicatorColor = const Color.fromRGBO(242, 166, 101, 1);
   static Color bonusDiagramColor = const Color.fromRGBO(47, 180, 191, 1);
   static Color unFavoritesColor = const Color.fromRGBO(190, 190, 190, 1);
-
-  static List<Color> inActiveButtonColor = const [
-    Color(0xFFd93150),
-    Color(0xFFf17088),
-    Color(0xFFfc8ca1),
-  ];
+  static Color recommendLineColor = const Color.fromRGBO(69, 83, 224, 1);
 
   //BUBBLE CHART COLORS GRADIENT\\
   static List<Color> blueBall = const [
@@ -46,6 +42,13 @@ abstract class AppColor {
 
   static BoxDecoration moneybackColor = BoxDecoration(
     borderRadius: BorderRadius.circular(15),
+    image: const DecorationImage(
+      fit: BoxFit.fill,
+      image: AssetImage('assets/images/moneyback.png'),
+    ),
+  );
+  static BoxDecoration getColorDetails = BoxDecoration(
+    borderRadius: BorderRadius.circular(10),
     gradient: const LinearGradient(
       colors: [
         Color(0xFFd93150),
@@ -55,20 +58,16 @@ abstract class AppColor {
   );
   static BoxDecoration recomendationsColor = BoxDecoration(
     borderRadius: BorderRadius.circular(15),
-    gradient: const LinearGradient(
-      colors: [
-        Color(0xFF313cd9),
-        Color(0xFF8ca6fc),
-      ],
+    image: const DecorationImage(
+      fit: BoxFit.fill,
+      image: AssetImage('assets/images/recommend.png'),
     ),
   );
   static BoxDecoration bonusColor = BoxDecoration(
     borderRadius: BorderRadius.circular(15),
-    gradient: const LinearGradient(
-      colors: [
-        Color(0xFF24aabf),
-        Color(0xFF52d6c0),
-      ],
+    image: const DecorationImage(
+      fit: BoxFit.fill,
+      image: AssetImage('assets/images/bonus.png'),
     ),
   );
 

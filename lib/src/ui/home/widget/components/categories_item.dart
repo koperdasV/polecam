@@ -20,10 +20,10 @@ class CategoriesItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            color: Colors.grey,
-            blurRadius: 4,
+            color: Colors.grey.shade300,
+            blurRadius: 5,
           ),
         ],
       ),
@@ -52,6 +52,7 @@ class CategoriesItem extends StatelessWidget {
                       : AppColor.categorieColor,
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
+                  fontFamily: 'SFProDisplay',
                 ),
               ),
               Text(
@@ -61,6 +62,8 @@ class CategoriesItem extends StatelessWidget {
                       ? AppColor.categorieTextColor
                       : AppColor.categorieColor,
                   fontSize: 12,
+                  fontWeight: FontWeight.normal,
+                  fontFamily: 'SFProDisplay',
                 ),
               ),
             ],

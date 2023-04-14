@@ -9,39 +9,44 @@ class InActiveButton extends StatelessWidget {
     this.gradient = const LinearGradient(
       colors: [
         Color(0xFFd93150),
-        Color(0xFFf17088),
         Color(0xFFfc8ca1),
       ],
     ),
     required this.onPressed,
     this.borderRadius = 10,
     this.width = double.infinity,
+    this.height = 44,
   }) : super(key: key);
 
   final String text;
   final double? fontSize;
   final double? width;
+  final double? height;
   final double? borderRadius;
   final Gradient? gradient;
   final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: 57,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(borderRadius!),
-        gradient: gradient,
-      ),
-      child: CupertinoButton(
-        onPressed: onPressed,
-        child: Text(
-          text,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: fontSize,
-            fontWeight: FontWeight.w700,
+    return CupertinoButton(
+      onPressed: onPressed,
+      padding: EdgeInsets.zero,
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(borderRadius!),
+          gradient: gradient,
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1,
+            ),
           ),
         ),
       ),

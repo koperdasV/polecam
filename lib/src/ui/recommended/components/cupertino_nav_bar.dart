@@ -20,10 +20,10 @@ class CupertinoNavBar extends StatelessWidget
       ),
       middle: Text(
         title,
-        style: const TextStyle(
-          color: Colors.black,
+        style: TextStyle(
+          color: AppColor.titleColor,
           fontSize: 24,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w900,
         ),
       ),
     );

@@ -15,9 +15,8 @@ Container tooltipBuild(double pointY) {
     decoration: BoxDecoration(
       boxShadow: [
         BoxShadow(
-          color: AppColor.categorieTextColor,
-          blurRadius: 2.5,
-          spreadRadius: 0.001,
+          color: Colors.blue.shade100,
+          blurRadius: 5,
         ),
       ],
       borderRadius: BorderRadius.circular(13),

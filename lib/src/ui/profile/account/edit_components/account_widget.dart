@@ -5,7 +5,7 @@ import 'package:polec/src/ui/details/components/recomended_button.dart';
 import 'package:polec/src/ui/profile/account/components/basic_information.dart';
 import 'package:polec/theme/app_colors.dart';
 
-class AccountWidget extends StatelessWidget {
+class AccountWidget extends StatefulWidget {
   const AccountWidget({
     super.key,
     required this.onPressed,
@@ -13,7 +13,16 @@ class AccountWidget extends StatelessWidget {
   final VoidCallback onPressed;
 
   @override
+  State<AccountWidget> createState() => _AccountWidgetState();
+}
+
+class _AccountWidgetState extends State<AccountWidget> {
+  double _currentSliderValue = 30;
+
+  @override
   Widget build(BuildContext context) {
+    final _sliderValue = _currentSliderValue.toInt();
+
     final textStyle = TextStyle(
       fontSize: 18,
       color: AppColor.titleColor,
@@ -62,6 +71,46 @@ class AccountWidget extends StatelessWidget {
                 ),
               ],
             ),
+////////////////////////////////////////////////////////
+
+            const SizedBox(height: 20),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Automatic payout: \$$_sliderValue',
+                  style: textStyle,
+                ),
+                const SizedBox(height: 5),
+                Row(
+                  children: [
+                    Text(
+                      '\$30',
+                      style: textStyle,
+                    ),
+                    SizedBox(
+                      width: 250,
+                      child: CupertinoSlider(
+                          value: _currentSliderValue,
+                          min: 30,
+                          max: 1000,
+                          activeColor: CupertinoColors.black,
+                          onChanged: (double value) {
+                            setState(() {
+                              _currentSliderValue = value;
+                            });
+                          }),
+                    ),
+                    Text(
+                      '\$1000',
+                      style: textStyle,
+                    ),
+                  ],
+                )
+              ],
+            ),
+////////////////////////////////////////////////////////
+
             const SizedBox(height: 20),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,20 +126,21 @@ class AccountWidget extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
-            RecommendedButton(
-              textButton: 'Reconnect now',
-              gradient: const LinearGradient(
-                colors: [
-                  AppColors.gradientStartActive,
-                  AppColors.gradientEndActive,
-                ],
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: RecommendedButton(
+                textButton: 'Reconnect now',
+                gradient: const LinearGradient(
+                  colors: [
+                    AppColors.gradientStartActive,
+                    AppColors.gradientEndActive,
+                  ],
+                ),
+                imageColor: Colors.white,
+                textColor: Colors.white,
+                onPressed: widget.onPressed,
               ),
-              imageColor: Colors.white,
-              textColor: Colors.white,
-              onPressed: onPressed,
             ),
-            const SizedBox(height: 10),
           ],
         ),
       ),

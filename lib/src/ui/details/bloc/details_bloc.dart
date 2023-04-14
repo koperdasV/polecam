@@ -26,7 +26,6 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
     Emitter<DetailsState> emit,
   ) async {
     try {
-      await Future.delayed(const Duration(milliseconds: 300));
       final productDetails = await _detailsRepo.fetchProductDetails(
         id: event.productId,
         type: event.productType,

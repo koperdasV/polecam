@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:polec/src/ui/profile/account/model/account_model.dart';
 
-abstract class IAccountRepo {
+mixin IAccountRepo {
   Future<AccountModel> fetchDetails();
 }
 

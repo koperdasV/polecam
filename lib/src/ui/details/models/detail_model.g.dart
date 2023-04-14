@@ -17,8 +17,8 @@ _$_DetailModel _$$_DetailModelFromJson(Map<String, dynamic> json) =>
       address: (json['address'] as List<dynamic>)
           .map((e) => Address.fromJson(e as Map<String, dynamic>))
           .toList(),
-      recommendations: (json['recommendations'] as List<dynamic>?)
-          ?.map((e) => Recommendation.fromJson(e as Map<String, dynamic>))
+      recommendations: (json['recommendations'] as List<dynamic>)
+          .map((e) => Recommendations.fromJson(e as Map<String, dynamic>))
           .toList(),
       category:
           (json['category'] as List<dynamic>).map((e) => e as String).toList(),
@@ -81,17 +81,17 @@ Map<String, dynamic> _$$_OpenToJson(_$_Open instance) => <String, dynamic>{
       'sunday': instance.sunday,
     };
 
-_$_Recommendation _$$_RecommendationFromJson(Map<String, dynamic> json) =>
-    _$_Recommendation(
-      avatar: json['avatar'] as String?,
-      name: json['name'] as String?,
-      surname: json['surname'] as String?,
+_$_Recommendations _$$_RecommendationsFromJson(Map<String, dynamic> json) =>
+    _$_Recommendations(
+      avatar: json['avatar'] as String,
+      name: json['name'] as String,
+      surname: json['surname'] as String,
       subtitleYou: json['subtitleYou'] as String?,
-      subtitle: json['subtitle'] as String?,
-      amount: json['amount'] as String?,
+      subtitle: json['subtitle'] as String,
+      amount: json['amount'] as String,
     );
 
-Map<String, dynamic> _$$_RecommendationToJson(_$_Recommendation instance) =>
+Map<String, dynamic> _$$_RecommendationsToJson(_$_Recommendations instance) =>
     <String, dynamic>{
       'avatar': instance.avatar,
       'name': instance.name,

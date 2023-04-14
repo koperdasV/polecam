@@ -42,18 +42,18 @@ class _MoneybackScreenState extends State<MoneybackScreen> {
   @override
   Widget build(BuildContext context) {
     final chartData = <ChartData>[
-      ChartData('April', random.nextDouble() * 40),
+      ChartData('Apr', random.nextDouble() * 40),
       ChartData('May', random.nextDouble() * 40),
       ChartData('June', random.nextDouble() * 40),
       ChartData('July', random.nextDouble() * 40),
-      ChartData('August', random.nextDouble() * 40),
-      ChartData('September', random.nextDouble() * 40),
-      ChartData('October', random.nextDouble() * 40),
-      ChartData('November', random.nextDouble() * 40),
-      ChartData('December', random.nextDouble() * 40),
-      ChartData('January', random.nextDouble() * 40),
-      ChartData('February', random.nextDouble() * 40),
-      ChartData('Mart', 28),
+      ChartData('Aug', random.nextDouble() * 40),
+      ChartData('Sept', random.nextDouble() * 40),
+      ChartData('Oct', random.nextDouble() * 40),
+      ChartData('Nov', random.nextDouble() * 40),
+      ChartData('Dec', random.nextDouble() * 40),
+      ChartData('Jan', random.nextDouble() * 40),
+      ChartData('Feb', random.nextDouble() * 40),
+      ChartData('Mar', random.nextDouble() * 40),
     ];
     return SingleChildScrollView(
       child: Column(
@@ -63,6 +63,7 @@ class _MoneybackScreenState extends State<MoneybackScreen> {
             tooltipBehavior: _tooltipBehavior,
             chartData: chartData,
             colorDiagram: AppColor.textButtonColor,
+            colorMarker: AppColor.textButtonColor,
           ),
           const TitleWidget(
             title: 'Moneyback',
@@ -79,17 +80,3 @@ class _MoneybackScreenState extends State<MoneybackScreen> {
     );
   }
 }
-// <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="88" height="65.001" viewBox="0 0 88 65.001">
-//   <defs>
-//     <filter id="Объединение_2" x="0" y="0" width="88" height="65.001" filterUnits="userSpaceOnUse">
-//       <feOffset input="SourceAlpha"/>
-//       <feGaussianBlur stdDeviation="3" result="blur"/>
-//       <feFlood flood-color="#0064fe" flood-opacity="0.2"/>
-//       <feComposite operator="in" in2="blur"/>
-//       <feComposite in="SourceGraphic"/>
-//     </filter>
-//   </defs>
-//   <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Объединение_2)">
-//     <path id="Объединение_2-2" data-name="Объединение 2" d="M30,40H10A10,10,0,0,1,0,30V10A10,10,0,0,1,10,0H60A10,10,0,0,1,70,10V30A10,10,0,0,1,60,40H38l-4,7Z" transform="translate(9 9)" fill="#fff"/>
-//   </g>
-// </svg>

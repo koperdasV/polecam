@@ -5,10 +5,30 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:polec/src/ui/details/bloc/details_bloc.dart';
 import 'package:polec/src/ui/payment/payment_widget.dart';
 
-class PaymentScreen extends StatelessWidget {
+class PaymentScreen extends StatefulWidget {
   const PaymentScreen({
     super.key,
+    this.productId = '',
+    this.productType = '',
   });
+  final String productId;
+  final String productType;
+
+  @override
+  State<PaymentScreen> createState() => _PaymentScreenState();
+}
+
+class _PaymentScreenState extends State<PaymentScreen> {
+  @override
+  void initState() {
+    context.read<DetailsBloc>().add(
+          DetailsEvent.loadProduct(
+            productId: widget.productId,
+            productType: widget.productType,
+          ),
+        );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +50,7 @@ class PaymentScreen extends StatelessWidget {
               'In your area',
               style: TextStyle(
                 fontSize: 24,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w900,
                 color: Colors.black,
               ),
             ),

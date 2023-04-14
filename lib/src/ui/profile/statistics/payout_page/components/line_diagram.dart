@@ -8,6 +8,7 @@ class LineDiagramWidget extends StatelessWidget {
     required TooltipBehavior tooltipBehavior,
     required this.chartData,
     required this.colorDiagram,
+    this.colorMarker,
   })  : _zoomPanBehavior = zoomPanBehavior,
         _tooltipBehavior = tooltipBehavior,
         super(key: key);
@@ -16,11 +17,11 @@ class LineDiagramWidget extends StatelessWidget {
   final TooltipBehavior _tooltipBehavior;
   final List<ChartData> chartData;
   final Color colorDiagram;
+  final Color? colorMarker;
 
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
-      enableAxisAnimation: true,
       zoomPanBehavior: _zoomPanBehavior,
       tooltipBehavior: _tooltipBehavior,
       trackballBehavior: TrackballBehavior(),
@@ -34,7 +35,12 @@ class LineDiagramWidget extends StatelessWidget {
           dataSource: chartData,
           width: 3,
           enableTooltip: true,
-          markerSettings: const MarkerSettings(isVisible: true),
+          markerSettings: MarkerSettings(
+            isVisible: true,
+            color: colorMarker,
+            height: 12,
+            width: 12,
+          ),
           splineType: SplineType.natural,
           cardinalSplineTension: 0.9,
           xValueMapper: (ChartData data, _) => data.x,

@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:polec/src/feature/profile/provider/profile_provider.dart';
 import 'package:polec/src/ui/profile/account/cubit/account_cubit.dart';
-import 'package:polec/src/ui/profile/account/data/account_repository.dart';
 import 'package:polec/src/ui/profile/account/edit_components/account_widget.dart';
 import 'package:polec/src/ui/profile/account/edit_components/edit_profile_widget.dart';
+import 'package:provider/provider.dart';
 
 class MainAccountWidget extends StatefulWidget {
   MainAccountWidget({
@@ -46,8 +47,12 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
     super.dispose();
   }
 
+  bool click = false;
+
   @override
   Widget build(BuildContext context) {
+    final provider = context.watch<SlidingBarProvider>().markerVisible;
+
     return BlocBuilder<AccountCubit, AccountEditState>(
       builder: (context, state) {
         final account = state.editing;
@@ -100,13 +105,4 @@ class _MainAccountWidgetState extends State<MainAccountWidget> {
       },
     );
   }
-//////// Can use this method for a writing gender data
-  // String editGender() {
-  //   final String gender;
-  //   if (GenderNavBar == Gender.male) {
-  //     return gender = 'Male';
-  //   } else {
-  //     return gender = 'Female';
-  //   }
-  // }
 }

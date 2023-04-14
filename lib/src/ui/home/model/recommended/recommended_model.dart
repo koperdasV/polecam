@@ -24,6 +24,7 @@ abstract class RecommendedModel with _$RecommendedModel {
     required String description,
     required List<String> category,
     required List<Address> address,
+    required List<Recommendations> recommendations,
     @Default(false) bool visibleOnMap,
   }) = _RecommendedModel;
 
@@ -62,4 +63,19 @@ abstract class Open with _$Open {
   }) = _Open;
 
   factory Open.fromJson(Map<String, dynamic> json) => _$OpenFromJson(json);
+}
+
+@freezed
+class Recommendations with _$Recommendations {
+  const factory Recommendations({
+   required String avatar,
+   required String name,
+   required String surname,
+   required String? subtitleYou,
+   required String subtitle,
+   required String amount,
+  }) = _Recommendations;
+
+  factory Recommendations.fromJson(Map<String, dynamic> json) =>
+      _$RecommendationsFromJson(json);
 }

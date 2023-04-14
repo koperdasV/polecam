@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:polec/resources/colors.dart';
 
 class TitleWidget extends StatelessWidget {
   const TitleWidget({
@@ -18,23 +17,21 @@ class TitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.only(top: 20, left: 16, right: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Text(
-              title,
-              style: TextStyle(
-                fontSize: fontSizeTitle,
-              ),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: fontSizeTitle,
+              fontWeight: FontWeight.bold,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Text(
-              subTitle.toString(),
+          Text(
+            subTitle.toString(),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],

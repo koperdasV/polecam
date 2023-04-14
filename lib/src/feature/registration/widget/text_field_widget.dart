@@ -41,21 +41,6 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           keyboardType: TextInputType.phone,
           validatorRegExp: r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$',
           errorMessage: 'Enter correct phone number',
-          // prefix: CountryCodePicker(
-          //   textStyle: const TextStyle(color: Colors.black),
-          //   onChanged: (CountryCode countryCode) {
-          //     setState(
-          //       () {
-          //         _countryCode = countryCode;
-          //       },
-          //     );
-          //   },
-          //   // showFlag: false,
-          //   initialSelection: 'PL',
-          //   showCountryOnly: false,
-          //   showOnlyCountryWhenClosed: false,
-          //   alignLeft: false,
-          // ),
         ),
       ],
     );

@@ -28,8 +28,22 @@ class ProfileTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTextFormFieldRow(
       obscureText: obscureText,
-      padding: EdgeInsets.all(0),
+      padding: EdgeInsets.zero,
       placeholder: placeholder,
+      cursorHeight: 14,
+      placeholderStyle: const TextStyle(
+        fontWeight: FontWeight.w400,
+        color: AppColors.editPlaceholderAcc,
+        fontSize: 14,
+        leadingDistribution: TextLeadingDistribution.even,
+        height: 1.2,
+      ),
+      style: const TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: 14,
+        leadingDistribution: TextLeadingDistribution.even,
+        height: 1.2,
+      ),
       controller: controller,
       keyboardType: keyboardType,
       prefix: prefix,
@@ -45,15 +59,5 @@ class ProfileTextField extends StatelessWidget {
         }
       },
     );
-
-    // return CupertinoTextField(
-    //   controller: controller,
-    //   keyboardType: keyboardType,
-    //   decoration: BoxDecoration(
-    //     color: AppColors.bgAccountPage,
-    //     borderRadius: BorderRadius.circular(10),
-    //   ),
-    //   placeholder: placeholder,
-    // );
   }
 }

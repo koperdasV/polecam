@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PercentWidget extends StatelessWidget {
@@ -19,12 +20,15 @@ class PercentWidget extends StatelessWidget {
         style: TextStyle(
           fontSize: fontSize,
           color: Colors.white,
+          fontWeight: FontWeight.w900,
           shadows: const [
             Shadow(
-              offset: Offset(2, 2),
+              color: CupertinoColors.systemGrey,
               blurRadius: 10,
             ),
           ],
+          letterSpacing: 1,
+          fontFamily: 'SFProDisplay',
         ),
       ),
     );

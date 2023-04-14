@@ -4,14 +4,15 @@ import 'package:polec/resources/colors.dart';
 
 CupertinoThemeData buildThemeData() {
   return CupertinoThemeData(
+    brightness: Brightness.light,
     barBackgroundColor: Colors.white,
     scaffoldBackgroundColor: Colors.white,
     textTheme: CupertinoTextThemeData(
       textStyle: TextStyle(
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.bold,
         fontSize: 16,
         color: AppColor.titleColor,
-        //fontFamily: 'SegoeUIBlack',
+        fontFamily: 'SFProDisplay',
       ),
     ),
   );

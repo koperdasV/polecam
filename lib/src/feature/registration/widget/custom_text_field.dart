@@ -25,7 +25,11 @@ class CustomTextField extends StatelessWidget {
       keyboardType: keyboardType,
       placeholder: placeholder,
       prefix: prefix,
-      padding: const EdgeInsets.only(bottom: 20, top: 20),
+      placeholderStyle: const TextStyle(
+        fontWeight: FontWeight.w400,
+        color: CupertinoColors.placeholderText,
+      ),
+      padding: const EdgeInsets.only(bottom: 10, top: 20),
       decoration: const BoxDecoration(
         border: Border(
           bottom: BorderSide(color: AppColors.greyDark),

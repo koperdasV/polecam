@@ -1,15 +1,12 @@
-/// A charting library for displaying spider/radar charts
 library spider_chart;
 
 import 'dart:math' show pi, cos, sin, max;
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:path_drawing/path_drawing.dart';
 import 'package:polec/resources/colors.dart';
 
-/// Displays a spider/radar chart
 class SpiderChart extends StatelessWidget {
-  /// Creates a widget that displays a spider chart
   SpiderChart({
     super.key,
     required this.data,
@@ -21,12 +18,18 @@ class SpiderChart extends StatelessWidget {
     this.fallbackHeight = 200,
     this.fallbackWidth = 200,
     this.colorSwatch,
-  })  : assert(labels.isNotEmpty ? data.length == labels.length : true,
-            'Length of data and labels lists must be equal'),
-        assert(colors.isNotEmpty ? colors.length == data.length : true,
-            "Custom colors length and data length must be equal"),
-        assert(colorSwatch != null ? data.length < 10 : true,
-            "For large data sets (>10 data points), please define custom colors using the [colors] parameter");
+  })  : assert(
+          labels.isNotEmpty ? data.length == labels.length : true,
+          'Length of data and labels lists must be equal',
+        ),
+        assert(
+          colors.isNotEmpty ? colors.length == data.length : true,
+          'Custom colors length and data length must be equal',
+        ),
+        assert(
+          colorSwatch != null ? data.length < 10 : true,
+          'For large data sets (>10 data points), please define custom colors using the [colors] parameter',
+        );
 
   /// The data points to be displayed
   final List<double> data;
@@ -104,18 +107,10 @@ class SpiderChartPainter extends CustomPainter {
   final List<String> labels;
   final int decimalPrecision;
 
-  final Paint spokes = Paint()..color = Colors.grey;
-
-  final Paint fill = Paint()
-    ..color = const Color.fromARGB(15, 50, 50, 50)
-    ..style = PaintingStyle.fill;
-  final Paint dotted = Paint()
-    ..color = Colors.red
-    ..style = PaintingStyle.fill;
-
   final Paint stroke = Paint()
-    ..color = const Color.fromARGB(255, 50, 50, 50)
-    ..style = PaintingStyle.stroke;
+    ..color = const Color.fromARGB(255, 213, 213, 213)
+    ..style = PaintingStyle.stroke
+    ..strokeWidth = 3;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -145,80 +140,69 @@ class SpiderChartPainter extends CustomPainter {
     if (labels.isNotEmpty) {
       paintLabels(canvas, center, dataPoints, labels);
     }
-    paintGraphOutline(canvas, center, dataPoints);
-    //dottedPaint(canvas, center, dataPoints);
-    paintDataLines(canvas, dataPoints);
+    paintGraphOutline(canvas, center, dataPoints, size);
+    paintDataPolygon(canvas, dataPoints);
     paintDataPoints(canvas, dataPoints);
-    paintLine(canvas, dataPoints, size);
   }
 
-  void paintLine(Canvas canvas, List<Offset> dataPoints, Size size) {
-    final center = size.center(Offset.zero);
-
-    final angle = (2 * pi) / data.length;
-
-    final dataPoints = <Offset>[];
-
-    for (var i = 0; i < data.length; i++) {
-      final scaledRadius = (data[i] / maxNumber) * center.dy;
-      final x = scaledRadius * cos(angle * i - pi / 2);
-      final y = scaledRadius * sin(angle * i - pi / 2);
-
-      dataPoints.add(Offset(x, y) + center);
-    }
-  }
-
-  void paintDataLines(Canvas canvas, List<Offset> points) {
+  //Method for drawing polygon
+  void paintDataPolygon(Canvas canvas, List<Offset> points) {
     final path = Path()..addPolygon(points, true);
 
-    canvas
-      ..drawPath(
-        path,
-        fill,
-      )
-      ..drawPath(path, stroke);
+    canvas.drawPath(
+      path,
+      stroke,
+    );
   }
 
+  //Method for drawing points
   void paintDataPoints(Canvas canvas, List<Offset> points) {
     for (var i = 0; i < points.length; i++) {
-      canvas.drawCircle(points[i], 8, Paint()..color = colors[i]);
+      canvas.drawCircle(
+        points[i],
+        i < points.length / 2 ? 10 : 8,
+        Paint()..color = colors[i],
+      );
     }
   }
 
-  void paintGraphOutline(Canvas canvas, Offset center, List<Offset> points) {
+  //Method for drawing lines
+  void paintGraphOutline(
+    Canvas canvas,
+    Offset center,
+    List<Offset> points,
+    Size size,
+  ) {
     for (var i = 0; i < points.length; i++) {
-      canvas.drawLine(
-        center,
-        points[i],
-        Paint()
-          ..color = colors[i]
-          ..strokeWidth = 5,
+      final paintDotted = Paint()
+        ..style = PaintingStyle.stroke
+        ..color = colors[i]
+        ..strokeWidth = 3;
+      final path = Path()
+        ..moveTo(center.dx, center.dy)
+        ..cubicTo(
+          points[i].dx,
+          points[i].dy,
+          points[i].dx,
+          points[i].dy,
+          points[i].dx,
+          points[i].dy,
+        );
+      canvas.drawPath(
+        dashPath(
+          path,
+          dashArray: CircularIntervalList<double>(<double>[12, 10]),
+        ),
+        paintDotted,
       );
     }
 
     canvas
-      ..drawCircle(center, 8, spokes)
-      ..drawCircle(center, 4, Paint()..color = Colors.white);
+      ..drawCircle(center, 6, Paint()..color = Colors.grey)
+      ..drawCircle(center, 3, Paint()..color = Colors.white);
   }
 
-  // void dottedPaint(Canvas canvas, Offset center, List<Offset> points) {
-  //   var max = 35;
-  //   const dashWidth = 5.0;
-  //   const dashSpace = 5.0;
-  //   Offset startY = center;
-  //   for (var i = 0; i < points.length; i++) {
-  //     canvas.drawLine(
-  //       center,
-  //       points[i],
-  //       Paint()
-  //         ..color = colors[i]
-  //         ..strokeWidth = 5,
-  //     );
-  //     final space = Offset(dashSpace, dashWidth);
-  //     startY += space;
-  //   }
-  // }
-
+  //Method for drawing labels
   void paintLabels(
     Canvas canvas,
     Offset center,
@@ -227,30 +211,31 @@ class SpiderChartPainter extends CustomPainter {
   ) {
     final textPainter = TextPainter(textDirection: TextDirection.ltr);
     final textStyle = TextStyle(
-      fontSize: 14,
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
       color: AppColor.categorieColor,
     );
 
     for (var i = 0; i < points.length; i++) {
       textPainter
         ..text = TextSpan(text: labels[i], style: textStyle)
-        ..layout(maxWidth: 80);
+        ..layout(maxWidth: 50);
       if (points[i].dx < center.dx) {
         textPainter.paint(
           canvas,
-          points[i].translate(-(textPainter.size.width + 5.0), -25),
+          points[i].translate(-(textPainter.size.width + 8.0), -15),
         );
       } else if (points[i].dx > center.dx) {
-        textPainter.paint(canvas, points[i].translate(20, -25));
+        textPainter.paint(canvas, points[i].translate(15, -10));
       } else if (points[i].dy < center.dy) {
         textPainter.paint(
           canvas,
-          points[i].translate(-(textPainter.size.width / 2), -45),
+          points[i].translate(-(textPainter.size.width / 2), -40),
         );
       } else {
         textPainter.paint(
           canvas,
-          points[i].translate(-(textPainter.size.width / 2), 15),
+          points[i].translate(-(textPainter.size.width / 2), 10),
         );
       }
     }

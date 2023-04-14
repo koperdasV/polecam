@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:polec/resources/colors.dart';
-import 'package:polec/src/feature/map/widget/map_screen.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
@@ -22,10 +20,11 @@ class HomeAppBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hello Adam',
+              'Hello Adam!',
               style: TextStyle(
                 color: AppColor.titleColor,
                 fontSize: 24,
+                fontWeight: FontWeight.w900,
               ),
             ),
             RichText(
@@ -41,7 +40,7 @@ class HomeAppBar extends StatelessWidget {
                     style: TextStyle(
                       color: AppColor.categorieTextColor,
                       fontWeight: FontWeight.w700,
-                      fontSize: 18,
+                      fontSize: 16,
                     ),
                     recognizer: TapGestureRecognizer()..onTap = () {},
                   ),
@@ -64,7 +63,3 @@ class HomeAppBar extends StatelessWidget {
     );
   }
 }
-
-/*
- 
-*/

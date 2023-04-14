@@ -21,6 +21,7 @@ class NotRecommendScreen extends StatefulWidget {
 
   final String productId;
   final String productType;
+
   @override
   State<NotRecommendScreen> createState() => _NotRecommendScreenState();
 }
@@ -65,7 +66,7 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                   'In your area',
                   style: TextStyle(
                     fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w900,
                   ),
                 ),
               ),
@@ -90,7 +91,7 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                             'Thai beef fried rice',
                             style: TextStyle(
                               fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w900,
                             ),
                           ),
                         ),
@@ -120,7 +121,7 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                               style: const TextStyle(
                                 fontSize: 20,
                                 color: AppColors.pecent,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w900,
                               ),
                             ),
                           ],
@@ -134,13 +135,17 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: RecommendedButton(
-                      image: Image.asset(
-                        AppImages.logo,
-                        color: Colors.black,
+                      image: SizedBox(
+                        width: 30,
+                        height: 30,
+                        child: Image.asset(
+                          AppImages.logo,
+                          color: AppColors.notRecButton,
+                        ),
                       ),
                       textButton: 'Recommend to friend',
                       color: AppColors.blcokedButton,
-                      textColor: Colors.black,
+                      textColor: AppColors.notRecButton,
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -153,7 +158,7 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontSize: 24,
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w900,
                                   ),
                                 ),
                                 const SizedBox(height: 20),
@@ -174,7 +179,8 @@ class _NotRecommendScreenState extends State<NotRecommendScreen> {
                                         TextSpan(
                                           text: 'polec.am',
                                           style: TextStyle(
-                                              fontWeight: FontWeight.bold),
+                                            fontWeight: FontWeight.w900,
+                                          ),
                                         ),
                                         TextSpan(
                                           text: ' to recomend to friends',

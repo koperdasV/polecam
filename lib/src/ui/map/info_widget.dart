@@ -54,7 +54,7 @@ class InfoCardWidget extends StatelessWidget {
                 tmp.name,
                 style: const TextStyle(
                   fontSize: 14,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w900,
                 ),
                 maxLines: 1,
               ),
@@ -68,10 +68,10 @@ class InfoCardWidget extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                percent.toString(),
+                '${percent}%',
                 style: const TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w900,
                 ),
               ),
               Text(
@@ -87,7 +87,7 @@ class InfoCardWidget extends StatelessWidget {
         ),
       ),
       onTap: () {
-        // if (color == Colors.white) {
+        //if (color == Colors.white) {
         Navigator.push(
           context,
           CupertinoPageRoute(
@@ -106,14 +106,6 @@ class InfoCardWidget extends StatelessWidget {
             ),
           ),
         );
-        // } else {
-        //   Navigator.push(
-        //     context,
-        //     CupertinoPageRoute(
-        //       builder: (context) => const NotRecommendScreen(),
-        //     ),
-        //   );
-        // }
       },
     );
   }
